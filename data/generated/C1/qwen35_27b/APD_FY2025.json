@@ -1,0 +1,252 @@
+{
+  "ticker": "APD",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "APD's FY2025 was a transitional year marked by portfolio reshaping, including the sale of its LNG business and cancellation of large energy transition projects. While adjusted operating margins declined 70 basis points to 23.7% due to cost inflation and energy pass-throughs, the company reported a GAAP operating loss of $877.0 million, primarily driven by $3.7 billion in pre-tax charges for business actions. Interest expense decreased slightly to $214.0 million. Key risks include financing difficulties from potential credit rating downgrades, volatility in global capital markets, and execution challenges associated with complex, multi-year clean hydrogen projects built prior to finalizing offtake agreements.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Fiscal year 2025 was a transitional year marked by the cancellation and descoping of several large energy transition projects.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Adjusted operating margin decreased 70 basis points to 23.7% in FY2025 from 24.4% in the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Interest expense decreased 2% to $214.0 million in FY2025 compared to $218.8 million in FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "Operating loss was $877.0 million in FY2025 compared to operating income of $4.5 billion in the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "The FY2025 operating loss was primarily attributable to $3.7 billion in pre-tax charges for business and asset actions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "The prior year included a $1.6 billion pre-tax gain on the sale of the LNG business, which was sold on September 30, 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_020",
+          "APD_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "A decrease in debt ratings could increase borrowing costs or make it more difficult to obtain financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Volatility in global credit and capital markets could increase financing costs or make obtaining financing more difficult.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Large-scale clean hydrogen projects involve challenging engineering and construction phases that may last several years and involve billions of dollars.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Clean hydrogen projects are being built before finalization of offtake agreements for a substantial percentage of expected production.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Uncertainty regarding future offtake agreements may adversely affect market prices for securities and credit ratings.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Catastrophic events such as severe weather, epidemics, or acts of war could disrupt operations and impact financial results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Costs resulting from compliance with environmental regulations may negatively impact operations and financial results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Operating margin in the Asia segment decreased 150 basis points to 29.6% from 31.1% in the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Approximately 50 basis points of the adjusted operating margin decline was attributable to increased energy cost pass-through to customers.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "APD_FY2025_1A_risk_factors_022",
+    "APD_FY2025_7_mdna_022",
+    "APD_FY2025_7_mdna_005",
+    "APD_FY2025_1A_risk_factors_021",
+    "APD_FY2025_7_mdna_000",
+    "APD_FY2025_1A_risk_factors_007",
+    "APD_FY2025_7_mdna_020",
+    "APD_FY2025_7_mdna_032",
+    "APD_FY2025_1A_risk_factors_054",
+    "APD_FY2025_1A_risk_factors_051",
+    "APD_FY2025_1A_risk_factors_025"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_022",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_051",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "ticker": "ED",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Con Edison's FY2025 financial report indicates a focus on growth in electric transmission, with the Propel NY Energy transmission project and participation in competitive solicitations. The company also sold a significant portion of its interest in MVP. Leverage is moderate, with a debt-to-equity ratio of 0.01. Liquidity is strong, with cash flows from operating activities exceeding capital expenditures. Profitability is high, with earnings per share of $5.64 in FY2025. Key risk factors include potential adverse health effects from electric and magnetic fields, changes in tax laws, and disruptions in the wholesale energy markets.",
+    "claims": [
+      {
+        "claim_id": "ED_FY2025_7_mdna_010",
+        "text": "Con Edison Transmission is developing the Propel NY Energy transmission project",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_7_mdna_010",
+        "text": "Con Edison Transmission participates in competitive solicitations to develop additional electric projects",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_7_mdna_010",
+        "text": "The success of Con Edison Transmission’s efforts in these competitive solicitations and to grow its electric transmission portfolio may impact Con Edison’s future capital requirements",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_1A_risk_factors_015",
+        "text": "Con Edison may be adversely affected if a causal relationship between electric and magnetic fields and adverse health effects were to be established",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_1A_risk_factors_015",
+        "text": "Con Edison may also be adversely affected by developments to legal or public policy doctrines regarding cable that contains lead",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_FY2025_7_mdna_020",
+        "text": "Con Edison's debt-to-equity ratio is 0.01",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_1A_risk_factors_016",
+        "text": "Changes to tax laws, regulations or interpretations thereof could have a material adverse impact on the Companies",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_7_mdna_007",
+        "text": "O&R’s next base rate cases",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_7_mdna_016",
+        "text": "A continued slow recovery of accounts receivable balances has impacted and is expected to continue to impact the Companies’ liquidity",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_1A_risk_factors_017",
+        "text": "Energy market conditions or in the Companies’ credit ratings could adversely affect their ability to raise new capital and the cost thereof",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_7_mdna_017",
+        "text": "Net Income for common stock and earnings per share for the year ended December 31, 2025 includes $9 million or $0.03 a share (after-tax) for accretion of the basis difference of Con Edison's equity investment in MVP",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_7_mdna_017",
+        "text": "Net Income for common stock and earnings per share for the year ended December 31, 2025 also include $(10) million or $(0.03) a share (after-tax) for the impairment loss related to Con Edison’s investment in Honeoye",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_7_mdna_017",
+        "text": "Net Income for common stock and earnings per share for the year ended December 31, 2025 also include $(7) million or $(0.02) a share (net of federal income taxes) for the remeasurement of deferred state income taxes related to the previously recorded impairment of MVP",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_7_mdna_017",
+        "text": "Net Income for common stock and earnings per share for the year ended December 31, 2025 also includes $(12) million or $(0.03) a share (after-tax) for transaction costs associated with strategic alternatives review of Con Edison's equity investments",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "ED_FY2025_1A_risk_factors_009",
+        "text": "A cyber incident or attack on the Companies could have their operations and the operations of their customers and others materially disrupted",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "ED_FY2025_7_mdna_010",
+    "ED_FY2025_1A_risk_factors_015",
+    "ED_FY2025_7_mdna_020",
+    "ED_FY2025_1A_risk_factors_016",
+    "ED_FY2025_7_mdna_007",
+    "ED_FY2025_1A_risk_factors_017",
+    "ED_FY2025_7_mdna_016",
+    "ED_FY2025_7_mdna_017",
+    "ED_FY2025_1A_risk_factors_009",
+    "ED_FY2025_1A_risk_factors_002",
+    "ED_FY2025_1A_risk_factors_000"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "ED_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ED_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ED_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ED_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ED_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

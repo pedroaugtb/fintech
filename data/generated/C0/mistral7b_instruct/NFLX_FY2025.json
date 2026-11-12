@@ -1,0 +1,215 @@
+{
+  "ticker": "NFLX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Netflix's FY2025 10-K indicates a high level of leverage due to substantial indebtedness and potential additional debt incurred for the WBD transaction. The company has obtained commitments for up to $42.2 billion in senior unsecured debt and may draw on these facilities or issue other debt to finance the transaction. The terms of this debt could be more burdensome than existing arrangements, potentially reducing operating and financial flexibility. The substantial indebtedness could also impact liquidity, as the company may need to refinance or restructure obligations prior to maturity. Profitability is strong, with a 16% increase in streaming revenues and a 28% increase in operating income compared to FY2024. However, the company faces various risk factors, including potential volatility in stock price, competition, market volatility, and regulatory risks related to data privacy and the WBD transaction.",
+    "claims": [
+      {
+        "claim_id": "NFLX_FY2025_1A_risk_factors_064",
+        "text": "Netflix may incur substantial additional indebtedness for the WBD transaction.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NFLX_FY2025_1A_risk_factors_061",
+        "text": "Netflix has a substantial amount of indebtedness and other obligations, including streaming content obligations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NFLX_FY2025_1A_risk_factors_062",
+        "text": "Netflix may need to refinance or restructure obligations due to economic conditions or changes in the capital markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NFLX_FY2025_1A_risk_factors_060",
+        "text": "Netflix's substantial indebtedness and other obligations may require the use of substantial cash.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NFLX_FY2025_1A_risk_factors_059",
+        "text": "Netflix may face liquidity issues due to content commitments and accelerated payment requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NFLX_FY2025_7_mdna_000",
+        "text": "Netflix's streaming revenues increased by 16% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NFLX_FY2025_1A_risk_factors_075",
+        "text": "Netflix's stock price is volatile and may continue to be so due to various factors.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NFLX_FY2025_1A_risk_factors_077",
+        "text": "Netflix's financial results require judgments and estimates that may differ materially from actual results.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NFLX_FY2025_1A_risk_factors_076",
+        "text": "Netflix faces various risks and uncertainties, including privacy and regulatory risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NFLX_FY2025_1A_risk_factors_054",
+        "text": "Privacy and data protection regulations could impact Netflix's business and result in significant costs, penalties, and liabilities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NFLX_FY2025_1A_risk_factors_079",
+        "text": "Netflix faces risks related to the WBD transaction, including potential delays or failure to complete the transaction.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_079"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NFLX_FY2025_1A_risk_factors_064",
+    "NFLX_FY2025_1A_risk_factors_061",
+    "NFLX_FY2025_1A_risk_factors_062",
+    "NFLX_FY2025_1A_risk_factors_060",
+    "NFLX_FY2025_1A_risk_factors_059",
+    "NFLX_FY2025_7_mdna_000",
+    "NFLX_FY2025_1A_risk_factors_075",
+    "NFLX_FY2025_1A_risk_factors_077",
+    "NFLX_FY2025_1A_risk_factors_076",
+    "NFLX_FY2025_1A_risk_factors_054",
+    "NFLX_FY2025_1A_risk_factors_079"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_064",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_077",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_079",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

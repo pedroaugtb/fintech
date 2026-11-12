@@ -1,0 +1,251 @@
+{
+  "ticker": "SRE",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "SRE's FY2025 financial performance is marked by a stable capital structure, with a capital structure ratio of 59% debt to 41% equity. However, the company faces risks related to leverage, liquidity, profitability, and various external factors. The company's ability to execute its five-year capital expenditures plan is subject to risks, and its infrastructure and operations are exposed to various risks, including cybersecurity threats, natural disasters, and regulatory changes. The company aims to maintain its investment-grade credit ratings and capital structure, but may not be able to do so. The company's profitability is also affected by various factors, including inflation, interest rates, and climate policies. The company's liquidity is also subject to risks, including the settlement provisions in forward sale agreements and the availability of financing. Overall, SRE's financial performance is subject to various risks and uncertainties that may impact its ability to achieve its goals and maintain its financial stability.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "SRE's capital structure ratio is 59% debt to 41% equity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "SRE's authorized cost of debt is 4.52%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "SRE's ability to execute its five-year capital expenditures plan is subject to risks.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "SRE's infrastructure and operations are exposed to various risks, including cybersecurity threats, natural disasters, and regulatory changes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "SRE's profitability is affected by various factors, including inflation, interest rates, and climate policies.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "SRE's liquidity is subject to risks, including the settlement provisions in forward sale agreements and the availability of financing.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "SRE's ability to maintain its investment-grade credit ratings and capital structure is uncertain.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "SRE's forward sale agreements subject it to risks, including the settlement provisions and the potential for a significant difference between the forward price and the market price of its common stock.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "SRE's ability to operate is negatively affected by weather-related incidents, including those that do not directly affect its facilities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "SRE's cybersecurity, technology resiliency, and data security and governance risks are evolving and include threats from nation-state actors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "SRE's ability to borrow money or raise capital on favorable terms is affected by various factors, including credit rating agency actions and instability in the capital markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "SRE's profitability is impacted by the cost of meeting the demand for lower carbon and reliable energy in California.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "SRE's liquidity is affected by the availability of financing and the settlement provisions in forward sale agreements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "SRE's ability to maintain its investment-grade credit ratings and capital structure is uncertain.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "SRE's forward sale agreements subject it to risks, including the settlement provisions and the potential for a significant difference between the forward price and the market price of its common stock.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SRE_FY2025_7_mdna_094",
+    "SRE_FY2025_7_mdna_013",
+    "SRE_FY2025_1A_risk_factors_011",
+    "SRE_FY2025_7_mdna_015",
+    "SRE_FY2025_1A_risk_factors_009",
+    "SRE_FY2025_1A_risk_factors_007",
+    "SRE_FY2025_7_mdna_000",
+    "SRE_FY2025_1A_risk_factors_010",
+    "SRE_FY2025_7_mdna_010",
+    "SRE_FY2025_1A_risk_factors_018",
+    "SRE_FY2025_7_mdna_009"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_094",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

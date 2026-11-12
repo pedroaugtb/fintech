@@ -1,0 +1,249 @@
+{
+  "ticker": "O",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "As of December 31, 2025, the company holds approximately $27 billion in total debt, including $1.7 billion in term loans and $25.3 billion in senior unsecured securities. Liquidity is constrained by REIT distribution requirements mandating at least 90% of taxable income be paid out, potentially necessitating asset sales or new borrowing to meet obligations. Profitability risks stem from potential REIT disqualification, which would trigger corporate income taxes and excise taxes. Key risks include variable interest rate exposure, potential inability to refinance debt, cross-default provisions, and market volatility affecting capital access and property values.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "As of December 31, 2025, the company has borrowed approximately $1.7 billion in multicurrency term loans.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "As of December 31, 2025, the company had $25.3 billion of outstanding unsecured senior debt securities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "The company intends to incur additional indebtedness in the future through various mechanisms including accordion expansions and acquisitions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_055",
+          "O_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "The company faces variable interest rate risk on its revolving credit facility, term loan facilities, and commercial paper programs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_056",
+          "O_FY2025_1A_risk_factors_057"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "There is a risk that the company's cash flow could be insufficient to make required debt payments or pay dividends.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Debt levels limit the company's ability to obtain additional financing for working capital, acquisitions, and capital expenditures.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "A default under a single loan or debt instrument may trigger cross-default or cross-acceleration provisions in other indebtedness.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_060",
+          "O_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "To maintain REIT status, the company must distribute at least 90% of its taxable income (excluding net capital gains) to stockholders annually.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_040",
+          "O_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Failure to qualify as a REIT would subject the company to regular U.S. federal corporate income tax on taxable income.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "The company is subject to a 4% nondeductible excise tax if it fails to distribute at least 85% of ordinary income and 95% of capital gain net income.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_043",
+          "O_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Insufficient cash flows to cover REIT distribution requirements could force the company to borrow funds or sell assets under unfavorable market conditions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Uncertainty in equity and credit markets may negatively impact the company's ability to access additional financing at reasonable terms.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "A prolonged downturn in equity or credit markets may cause the company to refinance at higher rates or seek less attractive financing.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Increased operational complexity and transaction volume expose the company to higher risks of litigation, regulatory inquiries, and contractual disputes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Market value of the company's capital stock and debt securities is sensitive to interest rates, inflation, and foreign exchange rates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "O_FY2025_1A_risk_factors_055",
+    "O_FY2025_1A_risk_factors_056",
+    "O_FY2025_1A_risk_factors_057",
+    "O_FY2025_1A_risk_factors_060",
+    "O_FY2025_1A_risk_factors_040",
+    "O_FY2025_1A_risk_factors_043",
+    "O_FY2025_1A_risk_factors_044",
+    "O_FY2025_1A_risk_factors_075",
+    "O_FY2025_1A_risk_factors_064",
+    "O_FY2025_1A_risk_factors_061"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_057",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_064",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

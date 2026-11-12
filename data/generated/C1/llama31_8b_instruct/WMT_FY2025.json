@@ -1,0 +1,260 @@
+{
+  "ticker": "WMT",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Walmart's FY2025 financial performance was impacted by various factors, including increased operating income leverage, higher gross profit rates, and fluctuations in currency exchange rates. However, the company faces risks such as supply chain disruptions, cybersecurity threats, and geopolitical events that could adversely affect its financial performance. The company's liquidity position improved due to higher free cash flow, but it still faces challenges in managing its capital expenditures and debt service payments. Walmart's profitability was driven by its ability to manage prices and grow higher-margin businesses, but it also faces risks related to consumer behavior and expectations, competition, and reputation.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Walmart's leverage increased in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Walmart's free cash flow increased in FY2024 compared to FY2023.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Walmart's operating income leverage increased in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Walmart's gross profit rate increased in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Walmart's operating expenses as a percentage of net sales increased in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Walmart's free cash flow is a non-GAAP financial measure.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Walmart's return on investment (ROI) is a non-GAAP financial measure.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Walmart's return on assets (ROA) is a GAAP financial measure.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Walmart's capital expenditures increased in FY2024 compared to FY2023.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Walmart's operating income increased in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Walmart's segment operating income increased in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Walmart's net sales increased in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Walmart's gross profit increased in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Walmart's membership and other income increased in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Walmart faces risks related to supply chain disruptions, cybersecurity threats, and geopolitical events.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_029",
+          "WMT_FY2025_1A_risk_factors_047",
+          "WMT_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "WMT_FY2025_1A_risk_factors_024",
+    "WMT_FY2025_7_mdna_005",
+    "WMT_FY2025_1A_risk_factors_083",
+    "WMT_FY2025_7_mdna_018",
+    "WMT_FY2025_7_mdna_020",
+    "WMT_FY2025_7_mdna_014",
+    "WMT_FY2025_7_mdna_012",
+    "WMT_FY2025_7_mdna_024",
+    "WMT_FY2025_7_mdna_032",
+    "WMT_FY2025_1A_risk_factors_029",
+    "WMT_FY2025_1A_risk_factors_047",
+    "WMT_FY2025_1A_risk_factors_074"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_083",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_074",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

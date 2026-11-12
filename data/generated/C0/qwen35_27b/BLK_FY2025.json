@@ -1,0 +1,250 @@
+{
+  "ticker": "BLK",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "BlackRock's FY2025 results show revenue growth to $24.2B but a decline in GAAP operating income to $7.0B and diluted EPS to $35.31, driven by higher expenses and a compressed operating margin of 29.1%. While the firm maintains conservative liquidity practices and manages leverage risks through rigorous credit surveillance, profitability remains sensitive to global market volatility, interest rate fluctuations, and foreign exchange rates. Key risks include potential declines in AUM due to market downturns, regulatory fines, and cybersecurity threats, which could materially impact earnings and strategic initiatives.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total revenue increased to $24,216 million in FY2025 from $20,407 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BLK_FY2025_7_mdna_238"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "GAAP operating income decreased to $7,045 million in FY2025 from $7,574 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BLK_FY2025_7_mdna_238"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Operating margin declined to 29.1% in FY2025 compared to 37.1% in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BLK_FY2025_7_mdna_238"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Diluted earnings per share fell to $35.31 in FY2025 from $42.01 in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BLK_FY2025_7_mdna_238"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Total expenses rose to $17,171 million in FY2025 from $12,833 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BLK_FY2025_7_mdna_238"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "BlackRock employs a conservative investment style for cash and securities lending collateral emphasizing quality and liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BLK_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "The Cash Management Credit Committee establishes risk limits including aggregate issuer exposure and maturity limits.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BLK_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Failure to maintain adequate corporate and contingent liquidity could cause AUM, liquidity, and earnings to decline.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_039",
+          "BLK_FY2025_7_mdna_112"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Certain subsidiaries are subject to regulatory capital and liquidity frameworks requiring specific maintenance levels.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_039",
+          "BLK_FY2025_7_mdna_112"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Risks relating to the use of leverage include increasing interest rates or inability to timely obtain and deploy leverage.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Access to debt markets may be limited by adverse market conditions or a reduction in credit ratings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_039",
+          "BLK_FY2025_7_mdna_112"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Changes in global interest rates and foreign exchange rates may introduce volatility to base fees and net income.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_002",
+          "BLK_FY2025_7_mdna_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Declines in asset market values may cause AUM, revenue, and earnings to decline.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_000",
+          "BLK_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Cybersecurity risks are integrated into the enterprise risk management framework and aligned with NIST and ISO standards.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BLK_FY2025_7_mdna_195"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Regulatory fines or sanctions could cause AUM, revenue, and earnings to decline.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_039",
+          "BLK_FY2025_7_mdna_112"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "BLK_FY2025_1A_risk_factors_039",
+    "BLK_FY2025_7_mdna_112",
+    "BLK_FY2025_1A_risk_factors_051",
+    "BLK_FY2025_7_mdna_005",
+    "BLK_FY2025_7_mdna_238",
+    "BLK_FY2025_1A_risk_factors_002",
+    "BLK_FY2025_7_mdna_075",
+    "BLK_FY2025_7_mdna_195",
+    "BLK_FY2025_1A_risk_factors_000",
+    "BLK_FY2025_7_mdna_073"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "BLK_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_112",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BLK_FY2025_1A_risk_factors_051",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_238",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BLK_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_075",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_195",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BLK_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_073",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

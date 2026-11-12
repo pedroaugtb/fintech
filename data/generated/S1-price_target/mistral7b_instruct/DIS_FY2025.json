@@ -1,0 +1,223 @@
+{
+  "ticker": "DIS",
+  "fiscal_year": 2025,
+  "condition": "S1-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "DIS FY2025 10-K indicates a highly competitive environment for DIS's DTC offerings, which may impact pricing and lead to higher churn rates. The company's leverage is high, as evidenced by elevated indebtedness and leverage ratios, which have resulted in credit rating downgrades. This could increase borrowing costs and make it more difficult to obtain financing. The company's liquidity is also a concern, with potential credit ratings actions, increases in interest rates, and periods of elevated indebtedness potentially impeding access to financing. Profitability is affected by the competitive environment, as well as the impact of the Star India Transaction. Risk factors include patent infringement litigation, other claims, and governmental investigations, which could result in substantial monetary damages and negatively impact the company's reputation, results of operations, and financial condition. The 12-month price target and valuation assessment cannot be determined based on the provided evidence.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The highly competitive environment in which DIS operates puts pricing pressure on DTC offerings and may require lower prices or higher churn rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "DIS's borrowing costs have been and can be affected by short- and long-term debt ratings assigned by nationally recognized ratings agencies.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "DIS's elevated indebtedness and leverage ratios have resulted in credit rating downgrades.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_032",
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Any future downgrades could increase DIS's cost of borrowing and/or make it more difficult to obtain financing on acceptable terms.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Increases in interest rates have increased DIS's cost of borrowing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Volatility in U.S. and global financial markets could impact DIS's access to financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Periods of elevated indebtedness could reduce financial flexibility and ability to respond to changing business and economic conditions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "DIS's interest expense decreased in FY2025 due to lower average rates and debt balances, partially offset by a decrease in capitalized interest.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "DIS's interest income, investment income and other decreased in FY2025 due to lower benefit from pension and postretirement benefit costs, other than service cost, and the impact of lower average cash and cash equivalent balances and lower average rates.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "DIS's equity in the income of investees decreased in FY2025 due to losses from the India joint venture and lower income from A+E.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "DIS's effective income tax rate was negative 11.9% in FY2025 compared to a positive effective income tax rate of 23.7% in FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "DIS's net income attributable to noncontrolling interests increased in FY2025 due to an increase in net income and EPS at Entertainment and Experiences and a lower effective tax rate.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "DIS's revenues increased in FY2025 due to higher subscription revenue, growth at parks and experiences businesses, and an increase in content sales.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "DIS's costs and expenses increased in FY2025 due to higher costs of services.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "DIS faces risks from claims, litigation, governmental investigations and other proceedings, which could negatively impact the company's reputation, results of operations, and financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_045",
+          "DIS_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DIS_FY2025_1A_risk_factors_032",
+    "DIS_FY2025_1A_risk_factors_033",
+    "DIS_FY2025_7_mdna_006",
+    "DIS_FY2025_7_mdna_002",
+    "DIS_FY2025_7_mdna_007",
+    "DIS_FY2025_7_mdna_008",
+    "DIS_FY2025_7_mdna_004",
+    "DIS_FY2025_7_mdna_003",
+    "DIS_FY2025_1A_risk_factors_046",
+    "DIS_FY2025_1A_risk_factors_045",
+    "DIS_FY2025_1A_risk_factors_022"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

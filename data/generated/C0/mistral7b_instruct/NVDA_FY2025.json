@@ -1,0 +1,168 @@
+{
+  "ticker": "NVDA",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "NVDA's FY2025 10-K highlights several risk factors that could impact the company's financial performance. Key areas of concern include leverage, liquidity, profitability, and risk factors. Leverage risks are associated with potential acquisitions and financial instruments, as well as the potential for increased debt and interest expense. Liquidity risks are related to the company's ability to meet its obligations, including potential disruptions to capital markets and the banking system, currency fluctuations, and increased credit and collectability risks. Profitability risks are associated with the company's ability to adjust spending, comply with contractual obligations, and manage extended payment term arrangements with customers. Risk factors include potential adverse developments affecting financial institutions, supply chain disruptions, increased costs for wafers, components, logistics, and other supply chain expenses, decreased demand for products, and the impact of geopolitical developments, including tariffs and conflicts. The company also faces risks related to tax estimates, tax laws and their interpretation, litigation and regulatory proceedings, cyber-attacks, and compliance with laws, rules, and regulations.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company may face leverage risks associated with potential acquisitions and financial instruments.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NVDA_FY2025_1A_risk_factors_050",
+          "NVDA_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Liquidity risks are related to the company's ability to meet its obligations, including potential disruptions to capital markets and the banking system, currency fluctuations, and increased credit and collectability risks.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NVDA_FY2025_1A_risk_factors_028",
+          "NVDA_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Profitability risks are associated with the company's ability to adjust spending, comply with contractual obligations, and manage extended payment term arrangements with customers.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NVDA_FY2025_1A_risk_factors_058",
+          "NVDA_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Risk factors include potential adverse developments affecting financial institutions, supply chain disruptions, increased costs for wafers, components, logistics, and other supply chain expenses, decreased demand for products, and the impact of geopolitical developments, including tariffs and conflicts.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NVDA_FY2025_1A_risk_factors_050",
+          "NVDA_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company faces risks related to tax estimates, tax laws and their interpretation, litigation and regulatory proceedings, cyber-attacks, and compliance with laws, rules, and regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NVDA_FY2025_1A_risk_factors_101",
+          "NVDA_FY2025_1A_risk_factors_104",
+          "NVDA_FY2025_1A_risk_factors_033",
+          "NVDA_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NVDA_FY2025_1A_risk_factors_050",
+    "NVDA_FY2025_1A_risk_factors_029",
+    "NVDA_FY2025_1A_risk_factors_058",
+    "NVDA_FY2025_1A_risk_factors_028",
+    "NVDA_FY2025_1A_risk_factors_027",
+    "NVDA_FY2025_7_mdna_021",
+    "NVDA_FY2025_7_mdna_011",
+    "NVDA_FY2025_1A_risk_factors_101",
+    "NVDA_FY2025_1A_risk_factors_104",
+    "NVDA_FY2025_1A_risk_factors_033",
+    "NVDA_FY2025_1A_risk_factors_061"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_050",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_058",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_101",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_104",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

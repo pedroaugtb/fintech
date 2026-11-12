@@ -1,0 +1,237 @@
+{
+  "ticker": "ORCL",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "ORCL's FY2025 10-K report indicates a strategic approach to leverage, with potential acquisitions funded through internally available cash, cash equivalents, marketable securities, cash generated from operations, additional borrowings, or issuance of additional securities. The company has made investments in Ampere Computing Holdings LLC, a related party entity, with a total carrying value of $1.6 billion as of May 31, 2025. The company's equity investments in Ampere represent an ownership interest of approximately 29%. The company is also a counterparty to certain put and call options to acquire additional equity interests in Ampere from co-investors through January 2027. ORCL's liquidity is strong, with cloud and license business representing 86% of total revenues in FY2025. Profitability is also strong, with a focus on cloud services and license support revenues. However, there are risks associated with the company's investments, including potential impairments and changes in the fair value of investments. There are also risks associated with uncertain tax positions and regulatory approvals for acquisitions.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "ORCL may acquire companies, products, services, and technologies to further its corporate strategy.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "ORCL can fund future acquisitions with internally available cash, cash equivalents, marketable securities, cash generated from operations, additional borrowings, or issuance of additional securities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "ORCL has made investments in Ampere Computing Holdings LLC, a related party entity, with a total carrying value of $1.6 billion as of May 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "ORCL's equity investments in Ampere represent an ownership interest of approximately 29% as of May 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "ORCL is a counterparty to certain put and call options to acquire additional equity interests in Ampere from co-investors through January 2027.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "ORCL's cloud and license business represented 86% of total revenues in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "ORCL's profitability is strong, with a focus on cloud services and license support revenues.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "ORCL faces risks associated with the impairment of its investments.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "ORCL faces risks associated with changes in the fair value of its investments.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "ORCL faces risks associated with uncertain tax positions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "ORCL faces risks associated with regulatory approvals for acquisitions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "ORCL's results of operations discussion provides an overview of total consolidated revenues, total consolidated operating expenses, and total consolidated operating margin.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "ORCL's operating segment presentation reflects revenues, direct costs, and sales and marketing expenses that correspond to and are directly attributable to each of its three businesses.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "ORCL's critical accounting estimates are those that involve a significant level of estimation uncertainty and have had, or are reasonably likely to have, a material impact on its financial condition or results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "ORCL believes that the estimates, judgments, and assumptions upon which it relies are reasonable based upon information available to it at the time that these estimates, judgments, and assumptions are made.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "ORCL_FY2025_7_mdna_018",
+    "ORCL_FY2025_7_mdna_027",
+    "ORCL_FY2025_7_mdna_019",
+    "ORCL_FY2025_7_mdna_002",
+    "ORCL_FY2025_7_mdna_031",
+    "ORCL_FY2025_7_mdna_028",
+    "ORCL_FY2025_7_mdna_030",
+    "ORCL_FY2025_7_mdna_020",
+    "ORCL_FY2025_7_mdna_026"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

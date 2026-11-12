@@ -1,0 +1,199 @@
+{
+  "ticker": "PG",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Procter & Gamble's FY2025 10-K highlights several key risk factors. The company generates more than 50% of its annual net sales in the U.S., but is exposed to foreign exchange volatility due to its significant debt and derivatives in foreign currencies. The company also faces geopolitical risks, including potential economic recessions in neighboring countries or globally due to inflationary pressures, energy and supply chain cost increases, or the geographic proximity of war. The company's liquidity could be affected by disruptions in credit markets or changes to its credit ratings, which could increase borrowing costs and impair access to capital. Profitability is also at risk due to changes in economic conditions, political and geopolitical conditions, and the ability to manage disruptions in the global supply chain. Lastly, the company faces various legal and regulatory risks, including compliance with laws and regulations in multiple countries, intellectual property, product liability, marketing, antitrust and competition, privacy, cybersecurity, data protection, environmental, employment, healthcare, anti-bribery and anti-corruption, and interactions with health care.",
+    "claims": [
+      {
+        "claim_id": "PG_FY2025_1A_risk_factors_002",
+        "text": "The company generates more than 50% of its annual net sales in the U.S.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PG_FY2025_1A_risk_factors_009",
+        "text": "The company has a significant amount of debt including floating rate and foreign currency debt and derivatives",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PG_FY2025_1A_risk_factors_010",
+        "text": "The company is exposed to movement in global interest rates and rate differentials",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PG_FY2025_1A_risk_factors_008",
+        "text": "The company's operations in Russia have been disrupted due to the war in Ukraine",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PG_FY2025_1A_risk_factors_019",
+        "text": "The company's business operations are subject to a lesser degree of control over business operations, governance and compliance",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PG_FY2025_1A_risk_factors_022",
+        "text": "A breach of the company's data security systems or failure of its IT/OT databases and systems could have a material adverse impact on its business operations and financial results",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PG_FY2025_7_mdna_001",
+        "text": "The company's business results depend on its ability to manage disruptions in its global supply chain",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PG_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PG_FY2025_1A_risk_factors_005",
+        "text": "The company's customers may suffer financial hardships due to economic conditions such that their accounts become uncollectible or are subject to longer collection cycles",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PG_FY2025_1A_risk_factors_018",
+        "text": "The company faces geopolitical risks, including potential economic recessions in neighboring countries or globally due to inflationary pressures, energy and supply chain cost increases, or the geographic proximity of war",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PG_FY2025_1A_risk_factors_031",
+        "text": "The company faces various legal and regulatory risks, including compliance with laws and regulations in multiple countries",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PG_FY2025_1A_risk_factors_002",
+    "PG_FY2025_1A_risk_factors_009",
+    "PG_FY2025_1A_risk_factors_010",
+    "PG_FY2025_1A_risk_factors_008",
+    "PG_FY2025_7_mdna_006",
+    "PG_FY2025_1A_risk_factors_005",
+    "PG_FY2025_7_mdna_001",
+    "PG_FY2025_1A_risk_factors_019",
+    "PG_FY2025_1A_risk_factors_022",
+    "PG_FY2025_1A_risk_factors_031"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0000080424-25-000076",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000080424-25-000076",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0000080424-25-000076",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000080424-25-000076",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PG_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000080424-25-000076",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000080424-25-000076",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PG_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000080424-25-000076",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0000080424-25-000076",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000080424-25-000076",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000080424-25-000076",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

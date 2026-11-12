@@ -1,0 +1,251 @@
+{
+  "ticker": "PFE",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Pfizer Inc. (PFE) faces significant risks in FY2025, including increased leverage, liquidity concerns, and profitability challenges. The company's business development activities are subject to various risks, such as competition, regulatory hurdles, and integration challenges. Additionally, Pfizer is exposed to market fluctuations, legal proceedings, and tax-related risks. The company's concentration of revenue from a few products also poses a risk. Pfizer's ability to meet its growth objectives and maintain its brand reputation is crucial to its success.",
+    "claims": [
+      {
+        "claim_id": "I",
+        "text": "Pfizer's leverage may increase due to additional equity or debt financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_171",
+          "PFE_FY2025_1A_risk_factors_172",
+          "PFE_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "II",
+        "text": "Pfizer's liquidity position may be impacted by changes in the commercial landscape.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_119",
+          "PFE_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "III",
+        "text": "Pfizer's profitability may be affected by the success of business development transactions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_173",
+          "PFE_FY2025_7_mdna_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "IV",
+        "text": "Pfizer's concentration of revenue from a few products poses a risk.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_113"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "V",
+        "text": "Pfizer's business development activities are subject to various risks, including competition, regulatory hurdles, and integration challenges.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_171",
+          "PFE_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VI",
+        "text": "Pfizer is exposed to market fluctuations, legal proceedings, and tax-related risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_7_mdna_025",
+          "PFE_FY2025_1A_risk_factors_181"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VII",
+        "text": "Pfizer's ability to meet its growth objectives and maintain its brand reputation is crucial to its success.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_181"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VIII",
+        "text": "Pfizer's pension and postretirement plans are subject to volatility from changes in the fair value of equity investments and other investment risk.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_181"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "IX",
+        "text": "Pfizer's business is subject to various risks, including changes in intellectual property laws, medical regulation, environmental protections, data protection, and cybersecurity.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_7_mdna_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "X",
+        "text": "Pfizer's operations are affected by global trade tensions, capital and exchange controls, local and global economic conditions, and other factors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_119"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XI",
+        "text": "Pfizer's ability to obtain future financing may be limited due to increased leverage and/or a downgrade of its credit ratings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_171",
+          "PFE_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XII",
+        "text": "Pfizer's integration of acquired products or businesses may result in the loss of key employees, disruption of ongoing business, and inconsistencies in standards, controls, procedures, and policies.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_173"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XIII",
+        "text": "Pfizer's pension and postretirement plans are subject to volatility from changes in the fair value of equity investments and other investment risk.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_181"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XIV",
+        "text": "Pfizer's business is subject to various risks, including changes in intellectual property laws, medical regulation, environmental protections, data protection, and cybersecurity.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_7_mdna_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XV",
+        "text": "Pfizer's operations are affected by global trade tensions, capital and exchange controls, local and global economic conditions, and other factors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_119"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PFE_FY2025_1A_risk_factors_171",
+    "PFE_FY2025_1A_risk_factors_172",
+    "PFE_FY2025_7_mdna_016",
+    "PFE_FY2025_7_mdna_011",
+    "PFE_FY2025_1A_risk_factors_119",
+    "PFE_FY2025_1A_risk_factors_181",
+    "PFE_FY2025_1A_risk_factors_173",
+    "PFE_FY2025_7_mdna_025",
+    "PFE_FY2025_1A_risk_factors_000",
+    "PFE_FY2025_1A_risk_factors_113"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_171",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_172",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PFE_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PFE_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_119",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_181",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_173",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PFE_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_113",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

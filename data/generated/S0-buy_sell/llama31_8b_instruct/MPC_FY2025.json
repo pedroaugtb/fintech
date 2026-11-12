@@ -1,0 +1,226 @@
+{
+  "ticker": "MPC",
+  "fiscal_year": 2025,
+  "condition": "S0-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "We recommend holding the stock of Marathon Petroleum Corporation (MPC) due to its stable profitability and manageable leverage, but caution is advised due to significant risks associated with declining demand for liquid transportation fuels and potential disruptions to operations. The company's focus on sustainability and operational excellence may mitigate some of these risks, but investors should closely monitor the company's progress in this area. Overall, the stock appears to be a hold, but with a cautious outlook.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "MPC has a manageable leverage position.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_015",
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "MPC has a stable profitability position.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_021",
+          "MPC_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "MPC has a strong focus on sustainability and operational excellence.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_003",
+          "MPC_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "MPC is exposed to significant risks associated with declining demand for liquid transportation fuels.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_003",
+          "MPC_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "MPC's operations are subject to business interruptions and inherent hazards and risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_004",
+          "MPC_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "MPC's cybersecurity and infrastructure protection technologies, disaster recovery plans and systems, employee training and vendor risk management may not be sufficient to defend against all unauthorized attempts to access its information or impact its systems.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "MPC's profitability may be negatively impacted by the sale of electric, hybrid and alternative fuel vehicles.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "MPC's operations may be subject to business interruptions and inherent hazards and risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "MPC's liquidity position may be negatively impacted by declining demand for liquid transportation fuels.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "MPC's profitability may be negatively impacted by the sale of electric, hybrid and alternative fuel vehicles.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "MPC's operations may be subject to business interruptions and inherent hazards and risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "MPC's liquidity position may be negatively impacted by declining demand for liquid transportation fuels.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "MPC's profitability may be negatively impacted by the sale of electric, hybrid and alternative fuel vehicles.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "MPC's operations may be subject to business interruptions and inherent hazards and risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "MPC's liquidity position may be negatively impacted by declining demand for liquid transportation fuels.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MPC_FY2025_7_mdna_015",
+    "MPC_FY2025_7_mdna_007",
+    "MPC_FY2025_7_mdna_017",
+    "MPC_FY2025_7_mdna_003",
+    "MPC_FY2025_7_mdna_002",
+    "MPC_FY2025_1A_risk_factors_003",
+    "MPC_FY2025_7_mdna_021",
+    "MPC_FY2025_7_mdna_006",
+    "MPC_FY2025_1A_risk_factors_010",
+    "MPC_FY2025_1A_risk_factors_005",
+    "MPC_FY2025_1A_risk_factors_004"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

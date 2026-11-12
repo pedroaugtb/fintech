@@ -1,0 +1,171 @@
+{
+  "ticker": "PEP",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "PEP's FY2025 10-K report indicates the company's leverage has increased due to the designation of $4.5 billion of existing euro denominated debt as net investment hedges. The company's liquidity is affected by potential downgrades of their credit ratings, which could increase borrowing costs, impair access to capital and credit markets, and reduce liquidity. Profitability decreased in FY2025 due to certain operating cost increases, impairment charges, a decline in organic volume, a 5-percentage-point impact of higher commodity costs, and higher acquisition and divestiture-related charges. Risk factors include potential reductions in future demand for PEP's products, increased taxes due to global minimum tax rate legislation, and cybersecurity risks.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "PEP's leverage has increased due to the designation of $4.5 billion of existing euro denominated debt as net investment hedges.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "PEP's liquidity is affected by potential downgrades of their credit ratings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Profitability decreased in FY2025 due to certain operating cost increases, impairment charges, a decline in organic volume, a 5-percentage-point impact of higher commodity costs, and higher acquisition and divestiture-related charges.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032",
+          "PEP_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Risk factors include potential reductions in future demand for PEP's products.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Increased taxes due to global minimum tax rate legislation will negatively impact PEP's provision for income taxes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Cybersecurity risks can adversely affect PEP's business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PEP_FY2025_7_mdna_029",
+    "PEP_FY2025_7_mdna_028",
+    "PEP_FY2025_1A_risk_factors_043",
+    "PEP_FY2025_1A_risk_factors_045",
+    "PEP_FY2025_7_mdna_000",
+    "PEP_FY2025_1A_risk_factors_046",
+    "PEP_FY2025_7_mdna_032",
+    "PEP_FY2025_7_mdna_001",
+    "PEP_FY2025_1A_risk_factors_000",
+    "PEP_FY2025_1A_risk_factors_055",
+    "PEP_FY2025_1A_risk_factors_031"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

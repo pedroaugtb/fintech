@@ -1,0 +1,227 @@
+{
+  "ticker": "MCD",
+  "fiscal_year": 2025,
+  "condition": "S0-attractive",
+  "stress_template": "attractive",
+  "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "McDonald's Corporation's FY2025 financial performance shows a stable profitability, but its leverage and liquidity are concerns due to volatile commodity markets and potential credit rating impacts. The company's risk factors include cybersecurity threats, severe weather conditions, and geopolitical unrest, which may affect its results and prospects. Despite these risks, McDonald's has a strong track record of dividend payments and share repurchases, indicating a commitment to returning value to shareholders. Overall, McDonald's is a relatively stable investment option, but investors should be aware of the potential risks and consider a cautious approach.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "McDonald's Corporation's leverage is a concern due to volatile commodity markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "McDonald's Corporation's liquidity is affected by regulations and market conditions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_048",
+          "MCD_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "McDonald's Corporation's profitability is stable, with a net income of $8,563 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "McDonald's Corporation's dividend payments have increased at least once every year for 50 consecutive years.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "McDonald's Corporation's credit ratings may be negatively affected by its results of operations or changes in its debt levels.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "McDonald's Corporation's cybersecurity risk management framework is comprehensive, but no company is immune to cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_055",
+          "MCD_FY2025_7_mdna_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "McDonald's Corporation's results and prospects may be affected by severe weather conditions, natural disasters, and geopolitical unrest.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "McDonald's Corporation's operating income increased by 6.5% from FY2024 to FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "McDonald's Corporation's dividend payments are considered at the discretion of the Board of Directors.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "McDonald's Corporation's credit ratings may be negatively affected by its results of operations or changes in its debt levels.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "McDonald's Corporation's cybersecurity risk management framework is overseen by the Board of Directors and the Audit & Finance Committee.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "McDonald's Corporation's operating income increased by 6.5% from FY2024 to FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "McDonald's Corporation's dividend payments have increased at least once every year for 50 consecutive years.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "McDonald's Corporation's credit ratings may be negatively affected by its results of operations or changes in its debt levels.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "McDonald's Corporation's operating income increased by 6.5% from FY2024 to FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MCD_FY2025_1A_risk_factors_038",
+    "MCD_FY2025_7_mdna_047",
+    "MCD_FY2025_7_mdna_076",
+    "MCD_FY2025_7_mdna_007",
+    "MCD_FY2025_1A_risk_factors_039",
+    "MCD_FY2025_7_mdna_048",
+    "MCD_FY2025_7_mdna_077",
+    "MCD_FY2025_7_mdna_062",
+    "MCD_FY2025_7_mdna_055",
+    "MCD_FY2025_7_mdna_056",
+    "MCD_FY2025_7_mdna_053"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MCD_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_047",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_048",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_077",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_062",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_055",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_056",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_053",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

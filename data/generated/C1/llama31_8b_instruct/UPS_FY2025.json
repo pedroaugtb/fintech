@@ -1,0 +1,206 @@
+{
+  "ticker": "UPS",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "UPS's leverage increased in FY2025 due to higher debt issuances and lower debt repayments. The company's liquidity position is supported by its cash flows from operations and commercial paper program. Profitability was affected by pension and postretirement benefit costs. Risks include competition, geopolitical uncertainty, and increased regulation of GHG emissions. Cybersecurity risks also pose a threat to the company's operations.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "UPS's debt issuances increased in FY2025 compared to FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "UPS's debt repayments decreased in FY2025 compared to FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "UPS's leverage increased in FY2025 compared to FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "UPS's commercial paper program provided liquidity in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "UPS's cash flows from operations supported its liquidity in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "Pension and postretirement benefit costs affected UPS's profitability in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "Competition in the industry could materially adversely affect UPS.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "Geopolitical uncertainty could materially adversely affect UPS.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "Increased regulation of GHG emissions could increase UPS's operating costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "Cybersecurity risks pose a threat to UPS's operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "UPS_FY2025_7_mdna_010",
+    "UPS_FY2025_7_mdna_005",
+    "UPS_FY2025_7_mdna_009",
+    "UPS_FY2025_7_mdna_017",
+    "UPS_FY2025_7_mdna_000",
+    "UPS_FY2025_7_mdna_030",
+    "UPS_FY2025_7_mdna_026",
+    "UPS_FY2025_1A_risk_factors_033",
+    "UPS_FY2025_1A_risk_factors_002",
+    "UPS_FY2025_1A_risk_factors_038",
+    "UPS_FY2025_1A_risk_factors_016"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

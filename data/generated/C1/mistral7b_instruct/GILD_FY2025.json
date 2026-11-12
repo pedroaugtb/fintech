@@ -1,0 +1,244 @@
+{
+  "ticker": "GILD",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "GILD's FY2025 10-K highlights several key risk factors. The company has significant exposure to foreign currency exchange rates, particularly the Euro, and fluctuations in these rates could impact financial results. High inflation has also adversely affected the company's business and financial results. The company is subject to the U.S. Foreign Corrupt Practices Act and similar worldwide anti-bribery laws, and their international operations are heavily regulated. Product demand may be adversely affected if physicians do not see the benefit of GILD's products, and uptake of new products may not materialize as expected. The non-retail sector in the U.S. tends to be less consistent in terms of buying patterns, causing quarter-over-quarter fluctuations. The company's success depends on developing and commercializing new products or expanding the indications for existing products. If they are unable to launch commercially successful new products or new indications for existing products, the business will be adversely impacted. The company sells and distributes most of their products in the U.S. exclusively through the wholesaler/distributor channel, and changes in inventory levels held by these wholesalers and distributors can cause operating results to fluctuate. Actions by the current U.S. Presidential administration to reorganize federal health agencies or reduce or pause funding for domestic and international HIV treatment and prevention programs and grants may adversely impact the company's business. Changes to the 340B program or the Medicaid program at the federal or state level could have a material adverse effect on the company's business.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "GILD has significant exposure to foreign currency exchange rates, particularly the Euro, and fluctuations in these rates could impact financial results.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_058"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "High inflation has adversely affected GILD's business and financial results.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "GILD is subject to the U.S. Foreign Corrupt Practices Act and similar worldwide anti-bribery laws.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Product demand may be adversely affected if physicians do not see the benefit of GILD's products.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Uptake of new products may not materialize as expected.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The non-retail sector in the U.S. tends to be less consistent in terms of buying patterns, causing quarter-over-quarter fluctuations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "GILD's success depends on developing and commercializing new products or expanding the indications for existing products.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "If GILD is unable to launch commercially successful new products or new indications for existing products, the business will be adversely impacted.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "GILD sells and distributes most of their products in the U.S. exclusively through the wholesaler/distributor channel.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Changes in inventory levels held by GILD's wholesalers and distributors can cause operating results to fluctuate.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Actions by the current U.S. Presidential administration to reorganize federal health agencies or reduce or pause funding for domestic and international HIV treatment and prevention programs and grants may adversely impact GILD's business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Changes to the 340B program or the Medicaid program at the federal or state level could have a material adverse effect on GILD's business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_067"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Given these risks, there is a great deal of uncertainty regarding the success of GILD's current and future collaborative efforts.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_067"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Due to the specialized and technical nature of GILD's business, the failure to attract, develop and retain highly qualified personnel could adversely impact the company.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_069"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "GILD's future success will depend in large part on their continued ability to attract, develop and retain highly qualified scientific, technical and management personnel.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_069"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GILD_FY2025_1A_risk_factors_058",
+    "GILD_FY2025_1A_risk_factors_008",
+    "GILD_FY2025_7_mdna_008",
+    "GILD_FY2025_7_mdna_000",
+    "GILD_FY2025_1A_risk_factors_000",
+    "GILD_FY2025_1A_risk_factors_005",
+    "GILD_FY2025_1A_risk_factors_070",
+    "GILD_FY2025_1A_risk_factors_009",
+    "GILD_FY2025_1A_risk_factors_021",
+    "GILD_FY2025_1A_risk_factors_067"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_058",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GILD_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GILD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_067",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

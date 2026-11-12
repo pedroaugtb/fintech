@@ -1,0 +1,224 @@
+{
+  "ticker": "DOW",
+  "fiscal_year": 2025,
+  "condition": "S0-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Dow's FY2025 financial results show a decrease in profitability, primarily due to lower earnings at its principal joint ventures and increased interest expense from debt financing. The company's liquidity is impacted by a contraction in the availability of credit and changes in its credit ratings, which could increase borrowing costs and reduce sources of liquidity. The company's leverage is high due to increased debt financing. Risk factors include potential negative impacts on the company's reputation, financial condition, results of operations, and cash flows due to its significant investments to meet commitments and adopt policies to enhance sustainability. Based on these factors, we recommend a 'HOLD' on Dow's stock.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Dow's net income (loss) available for Dow Inc. and TDCC common stockholder(s) was a loss of $2,623 million and $2,598 million, respectively, in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_029",
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Sundry income (expense) - net for Dow Inc. and TDCC was income of $140 million and $157 million, respectively, in 2025, compared with income of $415 million and $404 million, respectively, in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_010",
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Interest expense and amortization of debt discount was $865 million in 2025, compared with $811 million in 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_026",
+          "DOW_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company's effective tax rate fluctuates based on, among other factors, where income is earned, the level of income relative to tax attributes and the level of equity earnings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_025",
+          "DOW_FY2025_7_mdna_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The Company utilizes cash from operations and its ability to access capital markets to meet the Company's cash requirements for working capital, capital projects, debt maturities and other needs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_004",
+          "DOW_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Adverse economic conditions, a contraction in the availability of credit in the marketplace, or changes in the Company's credit ratings, including failure to maintain an investment grade rating, could increase borrowing costs and reduce sources of liquidity, restricting the Company’s flexibility to respond to changing business and economic conditions or to fund capital projects and working capital needs, which could adversely impact the Company's results of operations and liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_004",
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The Company operates in a global, competitive environment which gives rise to operating and market risk exposure.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_018",
+          "DOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Increased levels of competition have resulted in lower prices and lower sales volume, which have had a negative impact on the Company’s results of operations. These factors are expected to continue and may worsen in the near term, which could continue to challenge the Company's ongoing results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_018",
+          "DOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The Company is party to a number of claims and lawsuits arising out of the normal course of business with respect to product liability, patent infringement, employment matters, governmental tax and regulation disputes, contract and commercial litigation, and other actions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_008",
+          "DOW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Certain of the claims and lawsuits facing the Company purport to be class actions and seek damages in very large amounts. All such claims are contested.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_008",
+          "DOW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Union Carbide is and has been involved in a large number of asbestos-related suits filed primarily in state courts during the past several decades.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_008",
+          "DOW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "At December 31, 2025, Union Carbide's total asbestos-related liability, including future defense and settlement costs, was $2.2 billion.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_008",
+          "DOW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Economic conditions around the world, and in certain industries and geographic regions, could impact the Company's sales volume, sales price, and production and other costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_018",
+          "DOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Changes in trade policies may also cause disruptions to material sourcing and availability, global supply chains and logistics and access to end markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_018",
+          "DOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The impact of these changes in trade policies and the resulting trade and market uncertainty could have a negative impact on the Company’s results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_018",
+          "DOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DOW_FY2025_7_mdna_026",
+    "DOW_FY2025_7_mdna_025",
+    "DOW_FY2025_7_mdna_024",
+    "DOW_FY2025_1A_risk_factors_004",
+    "DOW_FY2025_1A_risk_factors_005",
+    "DOW_FY2025_7_mdna_010",
+    "DOW_FY2025_7_mdna_029",
+    "DOW_FY2025_1A_risk_factors_018",
+    "DOW_FY2025_1A_risk_factors_008"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

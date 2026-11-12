@@ -1,0 +1,251 @@
+{
+  "ticker": "UPS",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "UPS reported FY2025 debt issuances of $4.2 billion against $2.1 billion in repayments, with estimated future interest payments totaling $20.9 billion. Capital expenditures reached $3.7 billion, representing 4.2% of revenue, while net cash used in investing activities was $4.7 billion. Liquidity management included a commercial paper program with a $80 million average balance. Profitability faces sensitivity to pension discount rate changes and potential tax liability adjustments. Key risks include geopolitical instability, intense industry competition, evolving GHG regulations, and cybersecurity threats that could materially impact operations and costs.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Debt issuances during 2025 totaled $4.2 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Debt repayments during 2025 consisted of $2.1 billion of senior notes and scheduled principal payments.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Estimated future interest payments on outstanding debt total approximately $20.9 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Total purchase commitments as of December 31, 2025, are projected to be $2,552 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The average balance outstanding for the commercial paper program in 2025 was $80 million.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Net cash used in investing activities was $4,735 million in 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Total capital expenditures for 2025 were $3,685 million.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Capital expenditures represented 4.2% of revenue in 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "A 25 basis point decrease in the discount rate would increase the projected benefit obligation by $1,523 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Significant changes in tax estimates may result in an increase or decrease to tax expense in a subsequent period.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Revisions in estimates of useful lives or salvage values of assets may materially reduce net income.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Geopolitical uncertainty and conflicts could materially adversely affect the company.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Increased regulation relating to GHG emissions could significantly increase operating costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Cybersecurity incidents may require significant additional effort and expense to mitigate.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The company faces significant competition from various carriers and e-commerce companies.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "UPS_FY2025_7_mdna_010",
+    "UPS_FY2025_7_mdna_005",
+    "UPS_FY2025_7_mdna_009",
+    "UPS_FY2025_7_mdna_017",
+    "UPS_FY2025_7_mdna_000",
+    "UPS_FY2025_7_mdna_030",
+    "UPS_FY2025_7_mdna_026",
+    "UPS_FY2025_1A_risk_factors_033",
+    "UPS_FY2025_1A_risk_factors_002",
+    "UPS_FY2025_1A_risk_factors_038",
+    "UPS_FY2025_1A_risk_factors_016"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "ticker": "APD",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Air Products (APD) FY2025 financial results indicate a challenging year with a focus on core industrial gas business. Key findings include:<0x0A>1. Leverage: The company faces difficulties in obtaining financing, potentially impacting cash flows or creating financial risks. Borrowing costs can be affected by short and long-term debt ratings.<0x0A>2. Liquidity: Changes in global and regional economic conditions may impact the company's ability to obtain financing or increase the cost of financing, which could adversely affect operations and financial results.<0x0A>3. Profitability: Operating loss increased significantly due to higher pre-tax charges for business and asset actions, unfavorable volumes, and higher costs. Unfavorable currency and lower income from certain affiliates also contributed to the decline.<0x0A>4. Risk factors: The company is exposed to various risks, including catastrophic events, competition, legal proceedings, environmental regulations, and uncertainty regarding future offtake agreements for clean hydrogen projects.",
+    "claims": [
+      {
+        "claim_id": "APD_FY2025_1A_risk_factors_022",
+        "text": "The company faces difficulties in obtaining financing, potentially impacting cash flows or creating financial risks.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_1A_risk_factors_021",
+        "text": "The company's business is primarily exposed to translational currency risk as the results of foreign operations are translated into U.S. dollars at current exchange rates throughout the fiscal period.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_7_mdna_022",
+        "text": "Operating loss increased significantly due to higher pre-tax charges for business and asset actions, unfavorable volumes, and higher costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_1A_risk_factors_054",
+        "text": "Foreign jurisdictions where the company operates could have a material adverse effect on the company's business, results of operations, or financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_1A_risk_factors_051",
+        "text": "The company faces strong competition from various competitors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_1A_risk_factors_025",
+        "text": "The operation of the company's facilities, pipelines, and delivery systems inherently entails hazards that require continuous oversight and control.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_1A_risk_factors_050",
+        "text": "The company is subject to extensive federal, state, local, and foreign environmental and safety laws and regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_1A_risk_factors_023",
+        "text": "The company's large-scale clean hydrogen projects are being built before finalization of offtake agreements for a substantial percentage of expected production.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_1A_risk_factors_020",
+        "text": "Catastrophic events could disrupt the company's operations or the operations of its suppliers or customers, having a negative impact on the company's business, financial results, and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_1A_risk_factors_024",
+        "text": "The company's large-scale projects involve challenging engineering, permitting, procurement, and construction phases that may last several years and involve the investment of billions of dollars.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_1A_risk_factors_026",
+        "text": "The company's large-scale projects may be subject to complex government approvals, as well as legal or regulatory challenges by third parties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_7_mdna_020",
+        "text": "Equity affiliates' income decreased 1%, or $1.8, driven by our share of income from an asset sale in the prior year, partially offset by higher income from an affiliate in Mexico.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_7_mdna_032",
+        "text": "Operating margin of 29.6% decreased 150 bp from 31.1% in the prior year as the margin impacts of higher costs and higher energy cost pass-through to customers were partially offset by favorable business mix.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_7_mdna_000",
+        "text": "The company's offerings include gases, equipment, technologies, and applications that enable customers to improve their sustainability performance.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "APD_FY2025_7_mdna_005",
+        "text": "The company sold its former LNG process technology and equipment business to Honeywell International Inc. on 30 September 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "APD_FY2025_1A_risk_factors_022",
+    "APD_FY2025_7_mdna_022",
+    "APD_FY2025_7_mdna_005",
+    "APD_FY2025_1A_risk_factors_021",
+    "APD_FY2025_7_mdna_000",
+    "APD_FY2025_1A_risk_factors_007",
+    "APD_FY2025_7_mdna_020",
+    "APD_FY2025_7_mdna_032",
+    "APD_FY2025_1A_risk_factors_054",
+    "APD_FY2025_1A_risk_factors_051",
+    "APD_FY2025_1A_risk_factors_025"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_022",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_051",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

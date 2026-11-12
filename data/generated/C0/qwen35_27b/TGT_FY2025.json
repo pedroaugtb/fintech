@@ -1,0 +1,246 @@
+{
+  "ticker": "TGT",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Target maintains strong liquidity with $4.0 billion in committed credit facilities and no outstanding commercial paper as of February 1, 2025. Credit ratings remain investment-grade (A2/A/A), supporting access to capital markets. While leverage covenants are met, profitability faces headwinds; trailing twelve-month Net Operating Profit After Taxes declined to $4.53 billion from $4.62 billion. Key risks include potential credit rating downgrades, cybersecurity incidents, and macroeconomic volatility impacting consumer spending. Management expects liquidity sources to remain adequate for operations, dividends, and share repurchases.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Target holds a $1.0 billion 364-day unsecured revolving credit facility expiring October 2025 and a $3.0 billion facility expiring October 2028.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "No balances were outstanding under Target's credit facilities or commercial paper program as of February 1, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Target's long-term debt credit ratings as of February 1, 2025, were A2 (Moody's), A (S&P), and A (Fitch).",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Target is currently in compliance with debt leverage covenants and expects to remain so.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_007",
+          "TGT_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Management believes operating cash flows and credit facility capacity are adequate to meet future obligations and fund strategic initiatives.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Target's Net Operating Profit After Taxes (NOPAT) for the trailing twelve months ended February 1, 2025, was $4,534 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "NOPAT decreased by $90 million year-over-year, from $4,624 million in the prior period to $4,534 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Operating income for the trailing twelve months ended February 1, 2025, was $5,566 million, down from $5,707 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Increases in the effective income tax rate could adversely affect Target's net earnings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Deterioration in U.S. macroeconomic conditions or consumer confidence could reduce sales and gross margins.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Target faces risks from information security, cybersecurity, and data privacy incidents that could disrupt operations and damage reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_022",
+          "TGT_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Adverse perceptions regarding ESG initiatives, including recent changes to diversity goals, could lead to consumer boycotts or litigation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "A credit rating downgrade could adversely impact Target's ability to access debt markets and increase borrowing costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Certain outstanding notes allow holders to put notes to Target if a change in control occurs alongside a downgrade to non-investment grade.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Uncharacteristic weather conditions or natural disasters could lead to lower sales or increased markdowns, affecting results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "TGT_FY2025_7_mdna_007",
+    "TGT_FY2025_7_mdna_008",
+    "TGT_FY2025_7_mdna_006",
+    "TGT_FY2025_7_mdna_009",
+    "TGT_FY2025_7_mdna_000",
+    "TGT_FY2025_1A_risk_factors_043",
+    "TGT_FY2025_1A_risk_factors_031",
+    "TGT_FY2025_1A_risk_factors_022",
+    "TGT_FY2025_1A_risk_factors_008",
+    "TGT_FY2025_1A_risk_factors_023"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_023",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

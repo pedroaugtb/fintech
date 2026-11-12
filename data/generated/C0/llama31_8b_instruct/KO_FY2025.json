@@ -1,0 +1,260 @@
+{
+  "ticker": "KO",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "The Coca-Cola Company's FY2025 financial performance is characterized by a prudent leverage position, adequate liquidity, and improving profitability. However, the company faces various risks, including foreign currency exchange rate fluctuations, interest rate changes, and cybersecurity threats. The company's geographic diversity and use of derivative financial instruments help mitigate some of these risks. Nevertheless, the company's financial results may be negatively affected by these risks, and it is essential to monitor and address them to ensure long-term success.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "The company maintains levels of debt that it considers prudent based on its cash flows, interest coverage ratio, and percentage of debt to capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "The company uses debt financing to lower its cost of capital, which increases its return on shareowners' equity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "The company uses derivative financial instruments to reduce its exposure to interest rate risks.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "The company's liquidity position is adequate, with sufficient cash and cash equivalents to meet its financial obligations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "The company's cash flows are influenced by various factors, including forecasts and budgets of financial needs, liquidity plans, capital improvement programs, merger and acquisition plans, and planned loans to other non-U.S. subsidiaries.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "The company's gross profit margin increased to 61.6% in 2025 from 61.1% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "The company's operating income contribution by operating segment and Corporate on a percentage basis is as follows: EMEA 31.2%, Latin America 27.2%, North America 36.8%, Asia Pacific 14.9%, Bottling Investments 3.1%, and Corporate -13.2% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "The company's operating margin is a ratio calculated by dividing operating income by net operating revenues.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "The company faces various risks, including foreign currency exchange rate fluctuations, interest rate changes, and cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_052",
+          "KO_FY2025_1A_risk_factors_070",
+          "KO_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "Unauthorized access to or improper disclosure of personal data in violation of privacy and data protection laws could harm the company's reputation, cause loss of consumer confidence, and result in regulatory enforcement actions and private litigation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "The company has incurred, and will continue to incur, expenses to comply with privacy and data protection standards and protocols imposed by law, regulation, industry standards, and contractual obligations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "The company's financial results may be negatively affected by foreign currency exchange rate fluctuations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "The company's financial results may be negatively affected by interest rate changes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "The company's financial results may be negatively affected by cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_070"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "The company's geographic diversity and use of derivative financial instruments help mitigate some of the risks inherent in exposures to foreign currency exchange rate fluctuations and interest rate changes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "KO_FY2025_1A_risk_factors_060",
+    "KO_FY2025_7_mdna_027",
+    "KO_FY2025_1A_risk_factors_062",
+    "KO_FY2025_7_mdna_036",
+    "KO_FY2025_7_mdna_001",
+    "KO_FY2025_1A_risk_factors_061",
+    "KO_FY2025_7_mdna_055",
+    "KO_FY2025_7_mdna_060",
+    "KO_FY2025_7_mdna_056",
+    "KO_FY2025_1A_risk_factors_052",
+    "KO_FY2025_1A_risk_factors_070",
+    "KO_FY2025_1A_risk_factors_075"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_036",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_055",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_060",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_056",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

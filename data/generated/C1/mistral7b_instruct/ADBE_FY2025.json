@@ -1,0 +1,244 @@
+{
+  "ticker": "ADBE",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Adobe's FY2025 10-K highlights several risk factors that may impact the company's financial performance. The company's leverage is a concern due to potential increased debt and dilution of shareholders' ownership and earnings per share from acquisitions or transactions. Liquidity risks are also present, with potential higher costs for integrating acquired businesses, increased collection times, and bad debt write-offs. Profitability is affected by the company's investment in new technologies, which may not yield the expected business or financial benefits. Additionally, the company faces risks related to the development and use of AI in its solutions, including potential reputational harm, liability, and adverse business and financial results.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Adobe's leverage may be impacted by incurring additional debt to finance transactions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Adobe's leverage may be impacted by issuance of equity securities to finance transactions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Adobe's liquidity may be impacted by higher than anticipated costs for integrating acquired businesses.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Adobe's liquidity may be impacted by increased collection times and bad debt write-offs related to receivables of an acquired business.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Adobe's profitability may be impacted by the company's investment in new technologies that may not yield the expected business or financial benefits.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Adobe faces risks related to the development and use of AI in its solutions, including potential reputational harm, liability, and adverse business and financial results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Adobe's revenue and earnings are relatively predictable as a result of its subscription-based business model.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Adobe's cost of revenue increased by 8% compared to fiscal 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Adobe's operating expenses remained relatively flat compared to fiscal 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Adobe's net income increased by 28% compared to fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Adobe's cash flows from operations increased by 25% compared to fiscal 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Adobe's remaining performance obligations increased by 13% from fiscal 2024 to fiscal 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Adobe's total Adobe ARR grew to $25.20 billion exiting fiscal 2025, representing 11.5% year-over-year growth.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Adobe's revenue increased in all geographic regions as compared to fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Adobe's U.S. Dollar primarily strengthened against APAC currencies and weakened against EMEA currencies during fiscal 2025 as compared to fiscal 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "ADBE_FY2025_1A_risk_factors_015",
+    "ADBE_FY2025_1A_risk_factors_014",
+    "ADBE_FY2025_7_mdna_012",
+    "ADBE_FY2025_7_mdna_021",
+    "ADBE_FY2025_7_mdna_014",
+    "ADBE_FY2025_1A_risk_factors_001",
+    "ADBE_FY2025_7_mdna_004",
+    "ADBE_FY2025_7_mdna_003",
+    "ADBE_FY2025_1A_risk_factors_008",
+    "ADBE_FY2025_1A_risk_factors_005"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

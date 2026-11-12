@@ -1,0 +1,252 @@
+{
+  "ticker": "CL",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Colgate's FY2025 results show a significant decline in GAAP operating profit margin to 16.2% from 21.2% in 2024, driven primarily by a $794 million goodwill impairment and higher raw material costs. While non-GAAP operating profit margin remained relatively stable at 21.3%, gross margins compressed due to input costs despite pricing actions. Liquidity strategies focus on free cash flow generation and cost reduction initiatives. Key risks include credit market volatility, supply chain disruptions from single-source suppliers, and exposure to global trade policy changes and climate-related events.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "GAAP operating profit margin decreased to 16.2% in 2025 from 21.2% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "A non-cash, after-tax impairment charge of $794 million was recorded in Q4 2025 for goodwill and intangible assets related to the skin health business.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_022",
+          "CL_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Non-GAAP operating profit margin was 21.3% in 2025, a decrease of 40 basis points from 21.7% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Worldwide Gross profit margin decreased to 60.1% in 2025 from 60.5% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Higher raw and packaging material costs negatively impacted gross profit margin by 420 basis points in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Cost savings from funding-the-growth initiatives offset gross margin pressure by 260 basis points in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "The company prioritizes strong free cash flow performance to drive future growth and shareholder return.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Liquidity strategies include optimizing working capital and high return capital expenditures focused on growth.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Disruptions in credit markets or changes to credit ratings could negatively impact the availability or cost of funding.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Acquisitions have resulted in and could result in substantial additional debt and contingent liabilities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The company purchases certain key raw and packaging materials from single-source or limited suppliers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Approximately two-thirds of Net sales originate in markets outside the United States, creating exposure to foreign currency fluctuations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Climate change and extreme weather conditions could adversely impact business operations and financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Cybersecurity incidents or IT system failures could cause business interruptions and reputational harm.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Changes in tax rates or laws in the U.S. and foreign jurisdictions could adversely impact future results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_053"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CL_FY2025_1A_risk_factors_052",
+    "CL_FY2025_1A_risk_factors_022",
+    "CL_FY2025_1A_risk_factors_053",
+    "CL_FY2025_7_mdna_008",
+    "CL_FY2025_7_mdna_003",
+    "CL_FY2025_7_mdna_053",
+    "CL_FY2025_7_mdna_027",
+    "CL_FY2025_7_mdna_021",
+    "CL_FY2025_1A_risk_factors_025",
+    "CL_FY2025_1A_risk_factors_000",
+    "CL_FY2025_1A_risk_factors_038"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_053",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_053",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

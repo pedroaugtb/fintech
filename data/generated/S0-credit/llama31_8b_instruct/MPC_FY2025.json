@@ -1,0 +1,221 @@
+{
+  "ticker": "MPC",
+  "fiscal_year": 2025,
+  "condition": "S0-credit",
+  "stress_template": "credit",
+  "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Based on the provided information, we recommend declining the USD 500 million unsecured credit facility to MPC. The company's leverage, liquidity, profitability, and risk factors indicate potential concerns that may impact its ability to repay the loan. Specifically, the company's reliance on long-term agreements with MPLX, potential inventory valuation adjustments, and significant reductions in refined product margins may negatively impact its cash flows and profitability. Additionally, the company faces risks related to cybersecurity, regulatory developments, and market trends that may decrease demand for its liquid transportation fuels. Therefore, we believe that approving the credit facility may pose a risk to the bank's interests.",
+    "claims": [
+      {
+        "claim_id": "EVIDENCE_1",
+        "text": "MPC has long-term agreements with MPLX that may negatively impact its segment adjusted EBITDA in periods of lower throughput or sales.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_2",
+        "text": "MPC's inventory valuation adjustments could have a negative effect on earnings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_3",
+        "text": "MPC's profitability is affected by changes in refining operating costs and committed distribution costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_4",
+        "text": "MPC's profitability is also affected by the cost of energy used by its refineries and the level of maintenance costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_5",
+        "text": "MPC has a significant amount of long-term debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_6",
+        "text": "MPC's segment adjusted EBITDA for Refining & Marketing increased by 8.6% in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_7",
+        "text": "MPC's segment adjusted EBITDA for Midstream increased by 2.9% in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_8",
+        "text": "MPC's segment adjusted EBITDA for Renewable Diesel decreased by 26.7% in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_9",
+        "text": "MPC's total revenues and other income decreased by 3.7% in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_10",
+        "text": "MPC's cost of revenues (excludes items below) decreased by 5.4% in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_11",
+        "text": "MPC's net income decreased by 4.1% in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_12",
+        "text": "MPC's cash flows from operating activities decreased by 14.1% in 2025 compared to 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_13",
+        "text": "MPC's cash flows from investing activities increased by 21.1% in 2025 compared to 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_14",
+        "text": "MPC's cash flows from financing activities decreased by 12.5% in 2025 compared to 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_15",
+        "text": "MPC's cash and cash equivalents decreased by 14.1% in 2025 compared to 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MPC_FY2025_7_mdna_015",
+    "MPC_FY2025_7_mdna_007",
+    "MPC_FY2025_7_mdna_017",
+    "MPC_FY2025_7_mdna_003",
+    "MPC_FY2025_7_mdna_002",
+    "MPC_FY2025_1A_risk_factors_003",
+    "MPC_FY2025_7_mdna_021",
+    "MPC_FY2025_7_mdna_006",
+    "MPC_FY2025_1A_risk_factors_010",
+    "MPC_FY2025_1A_risk_factors_005",
+    "MPC_FY2025_1A_risk_factors_004"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

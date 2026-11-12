@@ -1,0 +1,228 @@
+{
+  "ticker": "MCD",
+  "fiscal_year": 2025,
+  "condition": "S1-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "McDonald's FY2025 financial report indicates potential risks to leverage, liquidity, profitability, and risk factors. Commodity markets for ingredients such as beef and chicken are volatile due to various factors, which could impact restaurant profitability. Decrease in credit ratings or increase in funding costs could also adversely affect profitability. The company's interest expense, availability of counterparties, ability to obtain funding on favorable terms, collateral requirements, and operating or financial flexibility could be negatively affected by changes in credit ratings. Liquidity may be affected by regulations affecting capital flows, financial markets, or financial institutions. The trading volatility and price of the company's common stock may be adversely affected by many factors, including global economic and market conditions, governmental action or inaction, and media reports. Cybersecurity risks, including those from third parties, could compromise company data or negatively impact operations. The company has various processes and programs to manage these risks, but a cybersecurity event could have a material adverse effect. The company is subject to various laws and regulations that impact its business. Unfavorable rulings could result in a material adverse impact on net income. A 12-month price target and assessment of share valuation are not provided in the evidence.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Commodity markets for ingredients such as beef and chicken are volatile due to various factors.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "A decrease in credit ratings or an increase in funding costs could adversely affect profitability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Our credit ratings may be negatively affected by our results of operations or changes in our debt levels.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Our interest expense, the availability of acceptable counterparties, our ability to obtain funding on favorable terms, our collateral requirements and our operating or financial flexibility could all be negatively affected, especially if lenders were to impose new operating or financial covenants.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_039",
+          "MCD_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Our operations may be impacted by regulations affecting capital flows, financial markets or financial institutions, which can limit our ability to manage and deploy our liquidity or increase our funding costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_039",
+          "MCD_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The trading volatility and price of our common stock may be adversely affected by many factors.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_048",
+          "MCD_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Many factors affect the trading volatility and price of our common stock in addition to our operating results and prospects.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_048",
+          "MCD_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Cybersecurity risks, including those from third parties, could compromise company data or negatively impact operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company has various processes and programs to manage cybersecurity risks associated with third parties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Unfavorable rulings could result in a material adverse impact on the Company’s net income for the period in which they occur and/or future periods.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Management considers the potential impact to the Company’s results of operations, control framework, and financial condition, as well as the potential impact, if any, to our business strategy and/or reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Events such as severe weather conditions, natural disasters, hostilities, social and geopolitical unrest and climate change, among others, can adversely affect our results and prospects.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Severe weather conditions, natural disasters, acts of war, terrorism or other hostilities, social and geopolitical unrest, including anti-American sentiment, and climate change (or expectations or uncertainty about them) can adversely affect consumer confidence levels and behavior, supply availability and costs and local operations, including temporary restaurant closures and delayed new restaurant openings, all of which can affect our results and prospects.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Climate change may also increase the frequency and severity of weather-related events and natural disasters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Our receipt of proceeds under any insurance we maintain with respect to some of these risks may be delayed or the proceeds may be insufficient to cover our losses fully.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MCD_FY2025_1A_risk_factors_038",
+    "MCD_FY2025_7_mdna_047",
+    "MCD_FY2025_7_mdna_076",
+    "MCD_FY2025_7_mdna_007",
+    "MCD_FY2025_1A_risk_factors_039",
+    "MCD_FY2025_7_mdna_048",
+    "MCD_FY2025_7_mdna_077",
+    "MCD_FY2025_7_mdna_062",
+    "MCD_FY2025_7_mdna_055",
+    "MCD_FY2025_7_mdna_056",
+    "MCD_FY2025_7_mdna_053"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MCD_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_047",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_048",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_077",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_062",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_055",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_056",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_053",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

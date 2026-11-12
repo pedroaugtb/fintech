@@ -1,0 +1,223 @@
+{
+  "ticker": "NFLX",
+  "fiscal_year": 2025,
+  "condition": "S0-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "NFLX delivered strong FY2025 profitability with 16% revenue growth and a 29.5% operating margin. However, the proposed WBD acquisition introduces significant leverage risks, potentially adding $67.2B in debt facilities and assuming WBD's existing obligations. While current liquidity remains adequate with $3B in undrawn credit, the transaction's regulatory hurdles pose a $5.8B termination fee risk. Given the substantial increase in financial leverage and execution uncertainty surrounding the merger, we recommend a HOLD position until deal terms and regulatory outcomes are clarified.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Streaming revenues increased 16% year-over-year to $45.2 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Operating margin expanded to 29.5% in FY2025, up 2.8 percentage points from 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Net income for FY2025 reached $10.98 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "As of December 31, 2025, outstanding senior notes totaled $14.5 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The company has secured commitments for up to $42.2 billion in senior unsecured bridge term loans for the WBD transaction.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Additional financing facilities include a $5 billion revolving credit facility and a $20 billion delayed draw term loan.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Completion of the WBD transaction will require assuming additional outstanding debt from WBD.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "New debt covenants associated with the WBD transaction may be more restrictive than current arrangements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "The company maintains a $3 billion unsecured revolving credit facility with zero borrowings as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Total content liabilities stood at approximately $5.7 billion as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Rising interest rates or market disruptions could increase the cost of refinancing existing indebtedness.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_060",
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Failure to complete the WBD transaction could trigger a $5.8 billion termination fee.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_079"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Regulatory agencies may impose divestitures or restrictions that could materially adversely affect the combined business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_079"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Stock price volatility is driven by variations in operating results and market expectations regarding the WBD transaction.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_075",
+          "NFLX_FY2025_1A_risk_factors_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Forecasting revenue from new ad-supported plans and multi-household usage limits involves significant uncertainty.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NFLX_FY2025_1A_risk_factors_064",
+    "NFLX_FY2025_1A_risk_factors_061",
+    "NFLX_FY2025_1A_risk_factors_062",
+    "NFLX_FY2025_1A_risk_factors_060",
+    "NFLX_FY2025_1A_risk_factors_059",
+    "NFLX_FY2025_7_mdna_000",
+    "NFLX_FY2025_1A_risk_factors_075",
+    "NFLX_FY2025_1A_risk_factors_077",
+    "NFLX_FY2025_1A_risk_factors_076",
+    "NFLX_FY2025_1A_risk_factors_054",
+    "NFLX_FY2025_1A_risk_factors_079"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_064",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_077",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_079",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

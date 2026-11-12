@@ -1,0 +1,173 @@
+{
+  "ticker": "CVX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Chevron Corporation's FY2025 financial results show a decrease in leverage, as indicated by a rise in ROCE from 10.1% in FY2024 to 11.9% in FY2023, and a capital employed of $232,934 million at the end of FY2025. However, the company's liquidity may be affected by factors such as supply and demand for refined products, potential declines in liquidity, and the impact of government actions and shifting customer preferences on the company's results of operations and financial condition. Profitability for FY2025 was $12,299 million, with a ROSE of 7.3%. Risk factors include potential cyberattacks, changes in management's estimates and assumptions, and the impact of AI technologies on the company's operations.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Chevron Corporation's FY2025 capital employed is $232,934 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Chevron Corporation's FY2025 ROCE is 11.9%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Chevron Corporation's FY2025 net income attributable to Chevron is $12,299 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Chevron Corporation's FY2025 ROSE is 7.3%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Chevron Corporation's FY2025 liquidity may be affected by factors such as supply and demand for refined products, potential declines in liquidity, and the impact of government actions and shifting customer preferences on the company's results of operations and financial condition.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_003",
+          "CVX_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Chevron Corporation may face potential cyberattacks, changes in management's estimates and assumptions, and the impact of AI technologies on the company's operations as risk factors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_006",
+          "CVX_FY2025_1A_risk_factors_009",
+          "CVX_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CVX_FY2025_7_mdna_000",
+    "CVX_FY2025_7_mdna_049",
+    "CVX_FY2025_7_mdna_023",
+    "CVX_FY2025_1A_risk_factors_003",
+    "CVX_FY2025_1A_risk_factors_022",
+    "CVX_FY2025_1A_risk_factors_011",
+    "CVX_FY2025_7_mdna_030",
+    "CVX_FY2025_7_mdna_001",
+    "CVX_FY2025_1A_risk_factors_006",
+    "CVX_FY2025_1A_risk_factors_032",
+    "CVX_FY2025_1A_risk_factors_009"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_049",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_023",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

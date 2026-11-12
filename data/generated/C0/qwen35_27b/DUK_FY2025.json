@@ -1,0 +1,252 @@
+{
+  "ticker": "DUK",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Duke Energy reported FY2025 GAAP EPS of $6.31, up from $5.71 in 2024, driven by record peak usage in Carolinas due to extreme weather. Electric Utilities operating revenues grew $1.26 billion to $29.36 billion. The company plans to replace certain debt and equity issuances with proceeds from transactions closing between 2026 and 2028. However, significant risks remain regarding regulatory cost recovery, environmental compliance costs, and potential litigation. Customer growth and demand face headwinds from economic conditions and energy efficiency measures, while severe weather events continue to impact operational continuity and storm cost recovery timelines.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "GAAP Reported EPS was $6.31 for FY2025, compared to $5.71 for FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Electric Utilities and Infrastructure operating revenues increased by $1,264 million to $29,357 million in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Duke Energy Carolinas and Progress achieved a new record for combined peak usage in January 2025 due to freezing temperatures.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "A summer heat wave in June 2025 resulted in a new summertime record for electricity usage in North and South Carolina.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Proceeds from upcoming transactions will support the capital plan and replace certain originally planned long-term debt and common equity issuances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Planned transactions are scheduled to be completed through a series of closings starting in March 2026 through mid-2028.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Termination of the Piedmont purchase agreement could require Duke Energy to seek alternative funding sources such as additional long-term debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Storm costs are expected to be fully recovered across all jurisdictions by early 2026 via regulatory frameworks.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Customer growth and usage are affected by external factors including inflation, tariffs, interest rate volatility, and economic conditions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Failure to recover capital and operating costs for environmental compliance through rate structures could materially affect financial position.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Regulatory decisions on rate cases could materially adversely affect results of operations and the ability to recover infrastructure investment costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Increased competition from deregulation or restructuring legislation could significantly adversely impact utility businesses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Jurisdictions utilizing carbon-intensive generation may experience difficulty attracting investors and obtaining economical financing terms.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Serious operational accidents could result in losses not covered by insurance, materially affecting financial condition and reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Compliance with Coal Combustion Residual (CCR) regulations could materially increase expenditures and rate impacts.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_027",
+          "DUK_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DUK_FY2025_7_mdna_006",
+    "DUK_FY2025_7_mdna_009",
+    "DUK_FY2025_7_mdna_033",
+    "DUK_FY2025_1A_risk_factors_027",
+    "DUK_FY2025_1A_risk_factors_016",
+    "DUK_FY2025_1A_risk_factors_007",
+    "DUK_FY2025_7_mdna_039",
+    "DUK_FY2025_7_mdna_037",
+    "DUK_FY2025_1A_risk_factors_009",
+    "DUK_FY2025_1A_risk_factors_031",
+    "DUK_FY2025_1A_risk_factors_024"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_033",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

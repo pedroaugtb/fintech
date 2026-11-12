@@ -1,0 +1,252 @@
+{
+  "ticker": "CHTR",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Charter Communications' FY2025 financial performance is impacted by significant debt, which may limit its ability to raise capital and react to changes in the business. The company's leverage ratio is 4.15 times Adjusted EBITDA, and it expects to incur additional debt in the future. This may lead to increased interest expenses, reduced cash flow, and decreased flexibility in planning for changes in the business. Additionally, the company faces risks from competition, cybersecurity threats, and economic conditions, which may negatively impact its cash flow, results of operations, and financial condition. The company's liquidity is also affected by restrictions in its debt agreements, which may limit its ability to operate its business. Furthermore, the company's profitability is impacted by competition, changes in tax rates and laws, and the increasing use of alternative methods for content distribution and viewing. Overall, Charter Communications faces significant risks and challenges that may impact its financial performance and ability to meet its debt service requirements.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Charter Communications has a significant amount of debt, with a total principal amount of approximately $94.6 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Charter Communications' leverage ratio is 4.15 times Adjusted EBITDA as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Charter Communications expects to incur additional debt in the future, including to refinance and/or in connection with the assumption of indebtedness of Cox Communications and/or its subsidiaries after the completion of the Cox Transactions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Charter Communications' significant amount of debt may impact its ability to raise additional capital at reasonable rates, or at all.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_023",
+          "CHTR_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Charter Communications' significant amount of debt may make it vulnerable to interest rate increases.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Charter Communications' significant amount of debt may expose it to increased interest expense to the extent it refinance existing debt with higher cost debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Charter Communications' significant amount of debt may require it to dedicate a significant portion of its cash flow from operating activities to make payments on its debt, reducing its funds available for capital expenditures and other general corporate purposes.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Charter Communications' significant amount of debt may limit its flexibility in planning for, or reacting to, changes in its business, the cable and telecommunications industries, and the economy at large.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Charter Communications' significant amount of debt may place it at a disadvantage compared to its competitors that have proportionately less debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Charter Communications' significant amount of debt may adversely affect its relationship with customers and suppliers.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Charter Communications' significant amount of debt may impact its ability to meet cash flow requirements, including debt service requirements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Charter Communications' significant amount of debt may contribute to future impairments of its franchises and goodwill.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Charter Communications' significant amount of debt may impact its ability to raise additional capital at reasonable rates, or at all.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Charter Communications' significant amount of debt may make it vulnerable to interest rate increases.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Charter Communications' significant amount of debt may expose it to increased interest expense to the extent it refinance existing debt with higher cost debt.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CHTR_FY2025_1A_risk_factors_023",
+    "CHTR_FY2025_1A_risk_factors_026",
+    "CHTR_FY2025_1A_risk_factors_024",
+    "CHTR_FY2025_1A_risk_factors_025",
+    "CHTR_FY2025_1A_risk_factors_021",
+    "CHTR_FY2025_7_mdna_004",
+    "CHTR_FY2025_7_mdna_005",
+    "CHTR_FY2025_7_mdna_015",
+    "CHTR_FY2025_1A_risk_factors_003",
+    "CHTR_FY2025_1A_risk_factors_001",
+    "CHTR_FY2025_1A_risk_factors_004"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_023",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

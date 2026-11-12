@@ -1,0 +1,259 @@
+{
+  "ticker": "CAT",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Caterpillar's FY2025 operating profit declined 15% to $11.15 billion, driven by higher tariffs and unfavorable price realization, reducing margins to 16.5%. Leverage risks persist due to debt covenants requiring minimum net worth and interest coverage ratios; a breach could trigger debt acceleration. Liquidity depends heavily on Cat Financial's access to capital markets, which faces volatility risks and potential rating downgrades. Key risks include cybersecurity threats, pension funding obligations, and customer credit deterioration. Management anticipates $300–$350 million in restructuring costs for 2026, with expected incremental cost benefits.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Operating profit decreased by 15% to $11.151 billion in 2025 compared to $13.072 billion in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CAT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Operating profit margin fell to 16.5% in 2025 from 20.2% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CAT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Unfavorable manufacturing costs of $2.148 billion, largely due to higher tariffs, contributed to the profit decline.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CAT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Construction Industries segment profit dropped 24% to $4.675 billion in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CAT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Power & Energy segment profit increased 12% to $6.418 billion in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CAT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "The company expects to incur $300 million to $350 million in restructuring costs in 2026.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CAT_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Debt agreements contain covenants requiring maintenance of a minimum consolidated net worth.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CAT_FY2025_1A_risk_factors_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Cat Financial is subject to a leverage ratio covenant defined as consolidated debt to consolidated net worth.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CAT_FY2025_1A_risk_factors_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Cat Financial must maintain a minimum interest coverage ratio calculated over the prior four fiscal quarters.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CAT_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "A breach of debt covenants could result in acceleration of outstanding amounts and termination of credit commitments.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CAT_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "A credit rating downgrade could increase borrowing costs and restrict access to the commercial paper market.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CAT_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Cat Financial's ability to access global medium-term note and commercial paper markets is not assured under extreme conditions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CAT_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Sustained increases in pension funding obligations may impair the company's liquidity or financial condition.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CAT_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Cybersecurity attacks pose risks of reputational damage, litigation, and system disruption that could affect financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CAT_FY2025_1A_risk_factors_016",
+          "CAT_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Increases in delinquencies or net losses among Cat Financial customers could materially adversely affect earnings and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CAT_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CAT_FY2025_1A_risk_factors_027",
+    "CAT_FY2025_1A_risk_factors_036",
+    "CAT_FY2025_1A_risk_factors_037",
+    "CAT_FY2025_1A_risk_factors_028",
+    "CAT_FY2025_1A_risk_factors_029",
+    "CAT_FY2025_1A_risk_factors_025",
+    "CAT_FY2025_7_mdna_027",
+    "CAT_FY2025_7_mdna_030",
+    "CAT_FY2025_7_mdna_018",
+    "CAT_FY2025_1A_risk_factors_017",
+    "CAT_FY2025_1A_risk_factors_016",
+    "CAT_FY2025_1A_risk_factors_033"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CAT_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CAT_FY2025_1A_risk_factors_036",
+      "section": "1A_risk_factors",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CAT_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CAT_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CAT_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CAT_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CAT_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CAT_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CAT_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CAT_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CAT_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CAT_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0000018230-26-000008",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

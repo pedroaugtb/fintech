@@ -1,0 +1,233 @@
+{
+  "ticker": "HON",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Honeywell's FY2025 leverage increased with total long-term debt rising to $27.1 billion and commercial paper at $5.9 billion. Liquidity remains robust, with cash and cash equivalents ending at $12.5 billion, supported by $6.4 billion in operating cash flow. Profitability metrics show revenue recognition of $1.96 billion from prior contract liabilities, though tax expenses were impacted by an $88 million increase in valuation allowances. Key risks include uncertain outcomes from litigation and environmental matters, where ultimate costs could be material despite current accruals. The company maintains 667 global locations, including 142 manufacturing sites.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Total long-term debt was $27,141 million as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Commercial paper and other short-term borrowings outstanding were $5.9 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Current maturities of long-term debt were $1,546 million as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "Cash and cash equivalents at the end of the period were $12,487 million as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Net cash provided by operating activities was $6,408 million for the year ended December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "The company recognized revenue of $1,964 million in 2025 that was previously included in the beginning balance of contract liabilities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_072"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "The change in valuation allowance resulted in an $88 million increase to income tax expense in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_091"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "As of December 31, 2025, the company held net operating loss and capital loss carryforwards totaling $4,575 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_091"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "The company cannot predict when or how litigation and investigation matters will be resolved.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_176"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "The company does not believe it is possible to develop estimates of reasonably possible loss in excess of current accruals for commitment and contingency matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_176"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Estimated environmental liabilities were $211 million, though ultimate costs could be material to consolidated results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_159"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "The company is subject to asbestos-related personal injury claims related to NARCO and Bendix businesses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_159"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "The company operates approximately 667 locations, including 142 manufacturing sites.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "HON_FY2025_1A_risk_factors_102",
+    "HON_FY2025_1A_risk_factors_062",
+    "HON_FY2025_1A_risk_factors_016",
+    "HON_FY2025_1A_risk_factors_129",
+    "HON_FY2025_1A_risk_factors_017",
+    "HON_FY2025_1A_risk_factors_091",
+    "HON_FY2025_1A_risk_factors_015",
+    "HON_FY2025_1A_risk_factors_072",
+    "HON_FY2025_1A_risk_factors_176",
+    "HON_FY2025_1A_risk_factors_000",
+    "HON_FY2025_1A_risk_factors_159"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_102",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_129",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_091",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_072",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_176",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_159",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

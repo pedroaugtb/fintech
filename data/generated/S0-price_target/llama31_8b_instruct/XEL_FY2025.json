@@ -1,0 +1,220 @@
+{
+  "ticker": "XEL",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Xcel Energy's FY2025 financial performance is impacted by various factors, including leverage, liquidity, profitability, and risk factors. The company's leverage is affected by interest rates, credit ratings, and capital market disruptions. Liquidity risks include fuel and supply chain disruptions, cybersecurity incidents, and workforce shortages. Profitability is influenced by ongoing earnings, ongoing diluted EPS, and non-GAAP financial measures. Risk factors include credit risks, capital market and interest rate risks, and operational risks. The company's ability to manage these risks will impact its financial performance and cash flows.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "Xcel Energy's leverage is affected by interest rates, credit ratings, and capital market disruptions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_023",
+          "XEL_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "Xcel Energy's liquidity is impacted by fuel and supply chain disruptions, cybersecurity incidents, and workforce shortages.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_003",
+          "XEL_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "Xcel Energy's profitability is influenced by ongoing earnings, ongoing diluted EPS, and non-GAAP financial measures.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "XEL_FY2025_7_mdna_001",
+          "XEL_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "Xcel Energy is subject to credit risks, capital market and interest rate risks, and operational risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_023",
+          "XEL_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "Xcel Energy's credit ratings could be downgraded, leading to higher borrowing costs or lower proceeds from equity issuances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "Xcel Energy's ongoing earnings and ongoing diluted EPS increased by 14.5% and 9.1% respectively from 2024 to 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "XEL_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "Xcel Energy's ongoing ROE is calculated by dividing net income or loss by average stockholders' equity.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "XEL_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "Xcel Energy's credit risk includes the risk that customers will not pay their bills, leading to a reduction in cash flows and an increase in bad debt expense.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "Xcel Energy's capital market and interest rate risks include the risk of capital market disruptions and financial market distress.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "Xcel Energy's operational risks include fuel and supply chain disruptions, cybersecurity incidents, and workforce shortages.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_003",
+          "XEL_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "Xcel Energy's ongoing diluted EPS for 2025 is $3.80.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "XEL_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "Xcel Energy's ongoing diluted EPS for 2024 is $3.50.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "XEL_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "Xcel Energy's credit rating could be downgraded, leading to higher borrowing costs or lower proceeds from equity issuances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "Xcel Energy's ongoing earnings for 2025 is $2,239 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "XEL_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "Xcel Energy's ongoing earnings for 2024 is $1,969 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "XEL_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "XEL_FY2025_1A_risk_factors_023",
+    "XEL_FY2025_7_mdna_003",
+    "XEL_FY2025_1A_risk_factors_022",
+    "XEL_FY2025_1A_risk_factors_003",
+    "XEL_FY2025_7_mdna_001",
+    "XEL_FY2025_7_mdna_002",
+    "XEL_FY2025_7_mdna_000",
+    "XEL_FY2025_1A_risk_factors_033",
+    "XEL_FY2025_1A_risk_factors_014",
+    "XEL_FY2025_1A_risk_factors_030"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_023",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "XEL_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "XEL_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "XEL_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "XEL_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "ticker": "AAPL",
+  "fiscal_year": 2025,
+  "condition": "S1-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Insufficient evidence provided to formulate a buy, hold, or sell recommendation. The supplied FY2025 10-K excerpts detail significant risks regarding leverage, liquidity, and profitability, including exposure to credit risk, economic volatility, and regulatory scrutiny. While Services gross margin improved to 75.4% and total gross margin reached 46.9%, Products gross margin percentage declined to 36.8% due to tariffs and mix shifts. Operating expenses rose 10% to $34.55 billion. The document explicitly states that future gross margins face downward pressure and that adverse economic conditions could materially impact financial condition. Per safety guidelines, no investment recommendation can be issued based solely on risk disclosures and partial financial data without a comprehensive valuation analysis.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Adverse economic conditions can lead to increased credit and collectibility risk on trade receivables and reduced liquidity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "A substantial majority of outstanding trade receivables are not covered by collateral, third-party bank support, or credit insurance.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_061",
+          "AAPL_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Vendor non-trade receivables as of September 27, 2025, were concentrated among a few individual vendors primarily in Asia.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "The value and liquidity of cash, cash equivalents, and marketable securities may fluctuate substantially due to market and economic conditions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_060",
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Strengthening of foreign currencies may increase the cost of product components, adversely affecting gross margins.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Investments in new business strategies and acquisitions may result in inadequate return on capital and significant write-offs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Total gross margin percentage increased to 46.9% in 2025 compared to 46.2% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Services gross margin percentage increased to 75.4% in 2025 from 73.9% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Products gross margin percentage decreased to 36.8% in 2025 from 37.2% in 2024 due to product mix and tariff costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Research and development expenses increased 10% to $34,550 million in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The Company believes gross margins will generally be subject to volatility and downward pressure.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The Company is subject to changes in tax rates and the introduction of global minimum tax standards.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Intense regulatory scrutiny and competition-related laws globally may impose significant limitations on the Company's business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "The Company is currently subject to a court order preventing it from imposing commissions on certain purchases in the U.S. App Store.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Macroeconomic and industry risks depend significantly on global and regional economic conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AAPL_FY2025_1A_risk_factors_002",
+    "AAPL_FY2025_1A_risk_factors_061",
+    "AAPL_FY2025_1A_risk_factors_060",
+    "AAPL_FY2025_1A_risk_factors_059",
+    "AAPL_FY2025_1A_risk_factors_037",
+    "AAPL_FY2025_7_mdna_007",
+    "AAPL_FY2025_7_mdna_006",
+    "AAPL_FY2025_1A_risk_factors_062",
+    "AAPL_FY2025_1A_risk_factors_047",
+    "AAPL_FY2025_1A_risk_factors_000"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

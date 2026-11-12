@@ -1,0 +1,222 @@
+{
+  "ticker": "SRE",
+  "fiscal_year": 2025,
+  "condition": "S1-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "The provided evidence outlines Sempra's (SRE) capital structure, liquidity needs, and operational risks for FY2025 but does not contain sufficient financial performance data to support a specific investment recommendation. Sharyland Utilities' capital structure was approved at 59% debt. The company faces significant liquidity requirements for its five-year capital plan and risks related to forward sale agreements. Profitability is exposed to regulatory changes, inflation, and climate policies. Operational risks include severe weather and cybersecurity threats. Due to the absence of earnings, cash flow, or valuation metrics in the supplied text, no buy, hold, or sell recommendation can be made.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "In November 2025, the PUCT approved Sharyland Utilities' capital structure ratio at 59% debt to 41% equity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Sharyland Utilities' authorized long-term cost of debt was set at 4.52% in November 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Sempra's ability to pay dividends and meet obligations depends largely on the performance of its subsidiaries.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "Future issuance of equity or convertible debt securities may materially dilute voting rights and economic interests of common stockholders.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Oncor's capital expenditures plan will result in significant liquidity needs that may necessitate additional investments.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Sempra aims to finance its five-year capital expenditures plan to maintain investment-grade credit ratings, but success is not guaranteed.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Settlement provisions in forward sale agreements under the ATM program may result in lower liquidity benefits if cash or net share settlement is elected.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Profitability is exposed to volatility in inflation, interest rates, commodity prices, and foreign currency exchange rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Climate policies and regulations regarding the reduction of natural gas reliance pose risks to operating margins and asset recovery.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "The company faces risks related to severe weather, natural disasters, and physical attacks on its infrastructure.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_013",
+          "SRE_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Evolving cybersecurity, technology resiliency, and data security risks, including those related to artificial intelligence, are identified as material risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_013",
+          "SRE_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Credit rating agencies may downgrade Sempra's credit ratings or place them on negative outlook, affecting financing costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_013",
+          "SRE_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "International operations expose the company to increased legal, regulatory, tax, economic, and geopolitical risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Forward sale agreements may require the company to pay significant cash or deliver shares if the stock price exceeds the forward price.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "The provided evidence does not contain specific FY2025 revenue, net income, or cash flow figures to assess overall profitability trends.",
+        "topic": "profitability",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SRE_FY2025_7_mdna_094",
+    "SRE_FY2025_7_mdna_013",
+    "SRE_FY2025_1A_risk_factors_011",
+    "SRE_FY2025_7_mdna_015",
+    "SRE_FY2025_1A_risk_factors_009",
+    "SRE_FY2025_1A_risk_factors_007",
+    "SRE_FY2025_7_mdna_000",
+    "SRE_FY2025_1A_risk_factors_010",
+    "SRE_FY2025_7_mdna_010",
+    "SRE_FY2025_1A_risk_factors_018",
+    "SRE_FY2025_7_mdna_009"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_094",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

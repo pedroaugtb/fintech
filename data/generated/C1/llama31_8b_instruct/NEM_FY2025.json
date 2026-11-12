@@ -1,0 +1,258 @@
+{
+  "ticker": "NEM",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Newmont's FY2025 financial performance is marked by increased net income from continuing operations attributable to Newmont stockholders, primarily due to higher average realized gold prices and a net gain on completed divestments. However, the company faces various risks, including leverage, liquidity, and risk factors that may impact its financial position and results of operations. The company's credit ratings are subject to change, and a downgrade could increase borrowing costs and affect the availability of new financing. Newmont's operations are also exposed to foreign exchange fluctuations, capital controls, and changes in tax regimes, which may impact its costs and earnings. Additionally, the company is dependent on technology and faces cybersecurity risks, and its exploration programs and acquisitions may not result in the expansion or replacement of current production with new ore reserves or operations.",
+    "claims": [
+      {
+        "claim_id": "a",
+        "text": "Newmont's credit ratings are BBB+, A3, and A- with stable outlook.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "b",
+        "text": "Newmont's credit ratings could be downgraded.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "c",
+        "text": "A downgrade in credit ratings could increase borrowing costs and affect the availability of new financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "d",
+        "text": "Newmont's operations are exposed to foreign exchange fluctuations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "e",
+        "text": "Newmont's operations are exposed to capital controls.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "f",
+        "text": "Newmont's operations are exposed to changes in tax regimes.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_137"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "g",
+        "text": "Newmont's net income from continuing operations attributable to Newmont stockholders increased in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "h",
+        "text": "Newmont's net income from continuing operations attributable to Newmont stockholders increased by $3,805 in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "i",
+        "text": "Newmont's net income from continuing operations attributable to Newmont stockholders per common share, diluted, increased in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "j",
+        "text": "Newmont's net income from continuing operations attributable to Newmont stockholders per common share, diluted, increased by $3.53 in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "k",
+        "text": "Newmont's net income from continuing operations attributable to Newmont stockholders increased in FY2025 compared to FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "l",
+        "text": "Newmont's net income from continuing operations attributable to Newmont stockholders increased by $5,801 in FY2025 compared to FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "m",
+        "text": "Newmont's net income from continuing operations attributable to Newmont stockholders per common share, diluted, increased in FY2025 compared to FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "n",
+        "text": "Newmont's net income from continuing operations attributable to Newmont stockholders per common share, diluted, increased by $5.86 in FY2025 compared to FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "o",
+        "text": "Newmont's gold sales increased in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NEM_FY2025_1A_risk_factors_053",
+    "NEM_FY2025_1A_risk_factors_054",
+    "NEM_FY2025_1A_risk_factors_137",
+    "NEM_FY2025_1A_risk_factors_040",
+    "NEM_FY2025_1A_risk_factors_159",
+    "NEM_FY2025_1A_risk_factors_201",
+    "NEM_FY2025_7_mdna_010",
+    "NEM_FY2025_7_mdna_009",
+    "NEM_FY2025_7_mdna_011",
+    "NEM_FY2025_1A_risk_factors_028",
+    "NEM_FY2025_1A_risk_factors_006",
+    "NEM_FY2025_1A_risk_factors_094"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_053",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_137",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_159",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_201",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_094",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

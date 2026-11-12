@@ -1,0 +1,215 @@
+{
+  "ticker": "VZ",
+  "fiscal_year": 2025,
+  "condition": "S0-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Based on the provided evidence, we recommend holding the stock. While Verizon faces significant risks, including leverage, liquidity, and cybersecurity threats, the company's financial performance and management's efforts to address these risks suggest a stable position. The company's effective interest rate has decreased, and its average debt outstanding has decreased, indicating a manageable leverage position. Additionally, Verizon's initiatives to reduce its indebtedness and achieve a target leverage ratio may be successful, despite potential macroeconomic and business challenges. Furthermore, the company's investments in advanced technologies and data system capabilities demonstrate its commitment to innovation and growth. However, investors should remain cautious due to the company's significant competition, potential unionization of its workforce, and cybersecurity risks. Overall, holding the stock appears to be a prudent decision, but investors should closely monitor the company's progress and adjust their strategy as needed.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Verizon's effective interest rate decreased from 5.1% to 5.0%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Verizon's average debt outstanding decreased from $150,361 million to $147,406 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Verizon's initiatives to reduce its indebtedness and achieve a target leverage ratio may be successful.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Verizon's investments in advanced technologies and data system capabilities demonstrate its commitment to innovation and growth.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Verizon's total interest expense increased by $45 million, or 0.7%, in 2025 compared to 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Verizon's total interest expense as a percentage of average debt outstanding decreased from 5.1% to 5.0% in 2025 compared to 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Verizon's average debt outstanding is a financial measure calculated by applying a simple average of prior thirteen-month end balances of total short-term and long-term debt, net of discounts, premiums and unamortized debt issuance costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Verizon's effective interest rate is the rate of actual interest incurred on debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Verizon's total interest expense increased during 2025 compared to 2024 primarily as a result of a decrease in capitalized interest due to additional C-Band spectrum licenses being placed into service, partially offset by a decrease in interest costs due to lower average debt balances and a lower interest rate.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Verizon's total interest expense decreased from $7,612 million to $7,434 million in 2025 compared to 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Verizon's total interest expense as a percentage of total revenue decreased from 2.3% to 2.1% in 2025 compared to 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Verizon's total interest expense as a percentage of total revenue decreased from 2.3% to 2.1% in 2025 compared to 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Verizon's total interest expense as a percentage of total revenue decreased from 2.3% to 2.1% in 2025 compared to 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Verizon's total interest expense as a percentage of total revenue decreased from 2.3% to 2.1% in 2025 compared to 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Verizon's total interest expense as a percentage of total revenue decreased from 2.3% to 2.1% in 2025 compared to 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "VZ_FY2025_7_mdna_014",
+    "VZ_FY2025_1A_risk_factors_028",
+    "VZ_FY2025_1A_risk_factors_029",
+    "VZ_FY2025_7_mdna_005",
+    "VZ_FY2025_7_mdna_012",
+    "VZ_FY2025_7_mdna_028",
+    "VZ_FY2025_7_mdna_013",
+    "VZ_FY2025_1A_risk_factors_000",
+    "VZ_FY2025_1A_risk_factors_018",
+    "VZ_FY2025_1A_risk_factors_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

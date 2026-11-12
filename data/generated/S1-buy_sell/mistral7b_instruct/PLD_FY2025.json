@@ -1,0 +1,176 @@
+{
+  "ticker": "PLD",
+  "fiscal_year": 2025,
+  "condition": "S1-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "PLD's financial condition in FY2025 shows a mix of leverage and liquidity. The company's total debt stands at $35.0 billion, with a weighted average term of 9 years and an effective interest rate of 3.2%. However, the company has maintained available liquidity of $7.6 billion, including available capacity on credit facilities of $6.5 billion and unrestricted cash balances of $1.1 billion. The company has also issued senior notes with an issuance date weighted average interest rate of 4.2% and weighted average term of 8 years. Profitability indicators are positive, with rent change on rollover and same-store growth in the O&M portfolio remaining strong at 18%. However, the company's financial condition is subject to ongoing economic uncertainty, as stated in the 10-K. No investment recommendation can be made based on the provided evidence.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Total debt at December 31, 2025 is $35.0 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Weighted average term of total debt is 9 years.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Effective interest rate of total debt is 3.2%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Financing activities during the year included amending and restating one global credit facility, establishing an additional commercial paper program, and issuing senior notes.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Available liquidity at December 31, 2025 is $7.6 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Available capacity on credit facilities at December 31, 2025 is $6.5 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Unrestricted cash balances at December 31, 2025 is $1.1 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company issued senior notes with an issuance date weighted average interest rate of 4.2% and weighted average term of 8 years.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Rent change on rollover and same-store growth in the O&M portfolio remained strong at 18%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Occupancy in the operating portfolio at December 31, 2025 is 95.6%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Rent change on leases that commenced during the year is 50.1% on a net effective basis.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Demand conditions are evident in development activity, with $2.9 billion of consolidated development projects commenced in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "60.9% of the consolidated development projects commenced in 2025 are build-to-suit projects.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company's financial condition is subject to ongoing economic uncertainty.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PLD_FY2025_7_mdna_004",
+    "PLD_FY2025_7_mdna_003",
+    "PLD_FY2025_7_mdna_005",
+    "PLD_FY2025_7_mdna_000",
+    "PLD_FY2025_7_mdna_002"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    }
+  ]
+}

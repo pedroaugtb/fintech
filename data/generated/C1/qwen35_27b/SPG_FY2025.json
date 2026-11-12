@@ -1,0 +1,235 @@
+{
+  "ticker": "SPG",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "SPG executed significant debt refinancing in FY2025, issuing $1.5 billion in senior notes and securing a €350 million term loan while repaying maturing obligations. The company maintains a robust liquidity framework with $8.5 billion in committed credit facilities and a $2.0 billion commercial paper program. Profitability remains tied to REIT status, with international operations contributing 9.7% of NOI. Key risks include potential credit rating downgrades affecting borrowing costs, cybersecurity threats, and vulnerabilities in the retail environment such as anchor tenant losses and e-commerce competition.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "On August 19, 2025, the Operating Partnership issued $700 million of senior unsecured notes at 4.375% and $800 million at 5.125%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SPG_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "On March 20, 2025, the Operating Partnership entered into a €350 million unsecured term loan maturing March 20, 2027.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SPG_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "The company repaid €500 million of notes maturing on May 13, 2025, using proceeds from the Supplemental Facility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SPG_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Consolidated mortgage debt increased by $3.1 billion on October 31, 2025, due to the TRG Acquisition.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SPG_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The Operating Partnership maintains a $5.0 billion unsecured revolving credit facility and a $3.5 billion supplemental facility.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SPG_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "The company has a global unsecured commercial paper note program of $2.0 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SPG_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "International activities accounted for 9.7% of net operating income for the year ended December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SPG_FY2025_1A_risk_factors_084"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Simon Property Group operates as a REIT and generally avoids U.S. federal corporate income taxes by distributing 100% of taxable income.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SPG_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "If the IRS challenges the Operating Partnership's status, Simon could fail to qualify as a REIT.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SPG_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Adverse changes in credit ratings could affect borrowing capacity and terms.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SPG_FY2025_1A_risk_factors_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Failure to comply with data security regulations could result in fines, litigation, and reputational damage.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SPG_FY2025_1A_risk_factors_080"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The loss of anchor stores or large tenants could materially and adversely affect the company.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SPG_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "The company faces competition from e-commerce and evolving consumer preferences.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SPG_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "An adverse interest rate environment could prevent access to capital at attractive rates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SPG_FY2025_1A_risk_factors_063"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SPG_FY2025_7_mdna_014",
+    "SPG_FY2025_1A_risk_factors_063",
+    "SPG_FY2025_7_mdna_013",
+    "SPG_FY2025_7_mdna_006",
+    "SPG_FY2025_1A_risk_factors_043",
+    "SPG_FY2025_1A_risk_factors_084",
+    "SPG_FY2025_7_mdna_000",
+    "SPG_FY2025_1A_risk_factors_000",
+    "SPG_FY2025_1A_risk_factors_080",
+    "SPG_FY2025_1A_risk_factors_001"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SPG_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0001104659-26-019419",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SPG_FY2025_1A_risk_factors_063",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-019419",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SPG_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001104659-26-019419",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SPG_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001104659-26-019419",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SPG_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-019419",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SPG_FY2025_1A_risk_factors_084",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-019419",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SPG_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001104659-26-019419",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SPG_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-019419",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SPG_FY2025_1A_risk_factors_080",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-019419",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SPG_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-019419",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

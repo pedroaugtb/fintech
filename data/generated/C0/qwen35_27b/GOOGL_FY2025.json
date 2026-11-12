@@ -1,0 +1,252 @@
+{
+  "ticker": "GOOGL",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Alphabet reported strong FY2025 profitability with revenues rising 15% to $402.8B and net income surging 32% to $132.2B, driven by a 301% jump in other income. Operating margins remained stable at 32%. However, leverage risks are elevated as the company increased debt issuance and credit support for infrastructure, potentially restricting financial flexibility. Liquidity is managed through discretionary share repurchases and dividends, though cash reserves could diminish. Key risks include evolving global regulations on data and AI, geopolitical tensions affecting international operations (52% of revenue), and cybersecurity threats from state-sponsored actors.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Consolidated revenues increased 15% to $402,836 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GOOGL_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Net income grew 32% to $132,170 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GOOGL_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Operating margin remained flat at 32% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GOOGL_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Other income (expense), net surged 301% to $29,787 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GOOGL_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "International revenues accounted for approximately 52% of consolidated revenues in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "The company raised capital through debt issuance in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GOOGL_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Alphabet provided credit support, including backstops and guarantees, to infrastructure counterparties in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GOOGL_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Current and future indebtedness, including leases and guarantees, could reduce financial flexibility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Difficulty accessing capital markets could increase financing costs and restrict investment ability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Share repurchases and dividends are discretionary and may be suspended, potentially reducing cash reserves.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_070",
+          "GOOGL_FY2025_1A_risk_factors_071"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Dividend declarations depend on factors including earnings, liquidity, and level of indebtedness.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_071"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Evolving data protection laws and AI regulations pose risks of fines and operational changes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Geopolitical tensions and armed conflicts increase risks of cyber attacks and data exfiltration.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "International operations face risks from foreign exchange controls and sanctions that may hinder cash repatriation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Undesirable platform activity or security incidents could result in significant legal and reputational harm.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GOOGL_FY2025_7_mdna_005",
+    "GOOGL_FY2025_1A_risk_factors_028",
+    "GOOGL_FY2025_1A_risk_factors_027",
+    "GOOGL_FY2025_1A_risk_factors_071",
+    "GOOGL_FY2025_1A_risk_factors_070",
+    "GOOGL_FY2025_7_mdna_017",
+    "GOOGL_FY2025_7_mdna_016",
+    "GOOGL_FY2025_1A_risk_factors_024",
+    "GOOGL_FY2025_1A_risk_factors_061",
+    "GOOGL_FY2025_1A_risk_factors_039",
+    "GOOGL_FY2025_1A_risk_factors_043"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GOOGL_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_071",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

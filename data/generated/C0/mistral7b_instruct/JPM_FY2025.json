@@ -1,0 +1,249 @@
+{
+  "ticker": "JPM",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "JPMorgan Chase & Co.'s FY2025 10-K report indicates a significant increase in leverage, with Standardized Tier 2 capital increasing by 5,505 and Advanced Tier 2 capital increasing by 4,315. The company's liquidity position is strong, with external TLAC and eligible LTD amounts totaling $563.7 billion and $246.0 billion, respectively, representing 27.6% and 12.0% of RWA. Profitability was affected by adverse economic conditions and governmental policies, particularly impacting the company's consumer businesses. Risk factors include legal and regulatory risks, strategic risks, conduct risks, reputation risks, country risks, and climate change risks.",
+    "claims": [
+      {
+        "claim_id": "JPM_FY2025_7_mdna_042_leverage",
+        "text": "Standardized Tier 2 capital at December 31, 2025 is $36,213.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_7_mdna_042_change_in_standardized_tier_2_capital",
+        "text": "Standardized Tier 2 capital increased by 5,505 from the previous year.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_7_mdna_053_external_tlac",
+        "text": "As of December 31, 2025, the total eligible amount of external TLAC is $563.7 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_7_mdna_053_external_tlac_percent_of_rwa",
+        "text": "As of December 31, 2025, external TLAC represents 27.6% of RWA.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_7_mdna_053_ldt",
+        "text": "As of December 31, 2025, the total eligible amount of LTD is $246.0 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_7_mdna_053_ldt_percent_of_rwa",
+        "text": "As of December 31, 2025, LTD represents 12.0% of RWA.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_1A_risk_factors_048_affected_by_adverse_economic_conditions",
+        "text": "JPMorgan Chase's profitability is affected by adverse economic conditions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_1A_risk_factors_030_affected_by_adverse_impacts_of_governmental_policies",
+        "text": "JPMorgan Chase's profitability is affected by adverse impacts of governmental policies.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_1A_risk_factors_035_increase_in_allowance_for_credit_losses",
+        "text": "JPMorgan Chase may experience an increase in the allowance for credit losses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_1A_risk_factors_035_higher_delinquencies_defaults_and_charge_offs",
+        "text": "JPMorgan Chase may experience higher delinquencies, defaults, and charge-offs within its commercial real estate loan portfolio.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_1A_risk_factors_035_increase_in_foreclosures",
+        "text": "An increase in foreclosures could result in higher operational risk associated with JPMorganChase owning and managing real property.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_1A_risk_factors_035_regulatory_scrutiny_and_reputational_harm",
+        "text": "Any inadequacy in governance or control over the foreclosed properties could result in regulatory scrutiny and reputational harm.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_1A_risk_factors_031_unfavorable_market_and_economic_conditions",
+        "text": "Unfavorable market and economic conditions could adversely affect JPMorganChase’s wholesale businesses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "JPM_FY2025_1A_risk_factors_000_material_risk_factors",
+        "text": "The principal risk factors include legal and regulatory risks, strategic risks, conduct risks, reputation risks, country risks, and climate change risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "JPM_FY2025_7_mdna_042",
+    "JPM_FY2025_7_mdna_053",
+    "JPM_FY2025_7_mdna_024",
+    "JPM_FY2025_1A_risk_factors_048",
+    "JPM_FY2025_7_mdna_039",
+    "JPM_FY2025_7_mdna_038",
+    "JPM_FY2025_1A_risk_factors_030",
+    "JPM_FY2025_1A_risk_factors_035",
+    "JPM_FY2025_1A_risk_factors_031",
+    "JPM_FY2025_1A_risk_factors_000",
+    "JPM_FY2025_1A_risk_factors_090",
+    "JPM_FY2025_1A_risk_factors_004"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_042",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_053",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_038",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_090",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

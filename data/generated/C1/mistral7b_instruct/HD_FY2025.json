@@ -1,0 +1,244 @@
+{
+  "ticker": "HD",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "HD's FY2025 10-K indicates potential risks to the company's leverage, liquidity, profitability, and operations. The company's leverage is affected by its debt issuance ability, interest rates, foreign currency exchange rates, and commodity prices. Liquidity is impacted by the company's capital allocation, dividend payments, and share repurchases. Profitability is influenced by seasonal factors, weather conditions, geopolitical events, and supply chain disruptions. The company also faces risks related to product and service quality, legal and regulatory changes, and reputation damage. Additionally, strong competition, economic conditions, and uncertainty in the housing and home improvement markets could adversely affect the company's performance.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company's leverage is affected by its debt issuance ability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Leverage is impacted by interest rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Leverage is affected by foreign currency exchange rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Leverage is affected by commodity prices.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Liquidity is impacted by capital allocation.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HD_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Liquidity is affected by dividend payments.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HD_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Liquidity is affected by share repurchases.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HD_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Profitability is influenced by seasonal factors.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HD_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Profitability is affected by weather conditions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HD_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Profitability is affected by geopolitical events.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HD_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Profitability is affected by supply chain disruptions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HD_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The company faces risks related to product and service quality.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HD_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The company faces risks related to legal and regulatory changes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HD_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company faces risks related to reputation damage.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HD_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Strong competition could adversely affect the company's performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HD_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "HD_FY2025_7_mdna_002",
+    "HD_FY2025_7_mdna_003",
+    "HD_FY2025_1A_risk_factors_057",
+    "HD_FY2025_7_mdna_010",
+    "HD_FY2025_7_mdna_009",
+    "HD_FY2025_1A_risk_factors_044",
+    "HD_FY2025_1A_risk_factors_048",
+    "HD_FY2025_7_mdna_000",
+    "HD_FY2025_1A_risk_factors_055",
+    "HD_FY2025_1A_risk_factors_000"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "HD_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000354950-25-000085",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HD_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000354950-25-000085",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HD_FY2025_1A_risk_factors_057",
+      "section": "1A_risk_factors",
+      "accession": "0000354950-25-000085",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HD_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0000354950-25-000085",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HD_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000354950-25-000085",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HD_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "accession": "0000354950-25-000085",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HD_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0000354950-25-000085",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000354950-25-000085",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HD_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000354950-25-000085",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HD_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000354950-25-000085",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

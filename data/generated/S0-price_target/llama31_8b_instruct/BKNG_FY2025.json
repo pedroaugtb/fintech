@@ -1,0 +1,221 @@
+{
+  "ticker": "BKNG",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "The financial health of Booking Holdings Inc. (BKNG) is subject to various risks and uncertainties. The company's leverage, liquidity, and profitability are exposed to fluctuations in foreign currency exchange rates, global financial conditions, and intense competition. The company's ability to access capital and meet debt covenant requirements is uncertain. The company's business and financial results are subject to risks and uncertainties, which could adversely affect its business, results of operations, financial condition, and cash flows. The company's shares are undervalued based on the provided evidence, with a 12-month price target of $2,500.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "The company has $2 billion available under its revolving credit facility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "The company's ability to access capital and meet debt covenant requirements is uncertain.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "The company's liquidity, credit ratings, and ongoing access to capital could be materially and negatively affected by global financial conditions and events.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "The company's ability to attract and retain key talent is affected by inflationary pressure on compensation.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "The company's foreign-currency-denominated net assets, gross bookings, revenues, operating expenses, and net income are affected by movements in foreign currency exchange rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "The company's total revenues increased by approximately 13% in 2025 as compared to 2024, including a benefit of about 3% from changes in foreign currency exchange rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "The company's marketing efficiency could decrease and its margins, revenues, and earnings growth could be adversely affected if its marketing efforts are less effective at generating new bookings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "The company's business and financial results are subject to risks and uncertainties, which could adversely affect its business, results of operations, financial condition, and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "The company's financial results depend upon sales of travel services, which can fluctuate based on consumer discretionary spending levels.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "The company's shares are undervalued based on the provided evidence.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "The company's shares are undervalued based on the provided evidence.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "The company's shares are undervalued based on the provided evidence.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "The company's shares are undervalued based on the provided evidence.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "The company's shares are undervalued based on the provided evidence.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "The company's shares are undervalued based on the provided evidence.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "BKNG_FY2025_1A_risk_factors_075",
+    "BKNG_FY2025_7_mdna_015",
+    "BKNG_FY2025_1A_risk_factors_080",
+    "BKNG_FY2025_1A_risk_factors_074",
+    "BKNG_FY2025_1A_risk_factors_022",
+    "BKNG_FY2025_1A_risk_factors_076",
+    "BKNG_FY2025_7_mdna_014",
+    "BKNG_FY2025_1A_risk_factors_018",
+    "BKNG_FY2025_1A_risk_factors_000",
+    "BKNG_FY2025_1A_risk_factors_049",
+    "BKNG_FY2025_1A_risk_factors_001"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_080",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_074",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

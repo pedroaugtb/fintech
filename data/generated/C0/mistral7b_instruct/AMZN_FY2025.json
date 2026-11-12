@@ -1,0 +1,252 @@
+{
+  "ticker": "AMZN",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "AMZN's FY2025 financial results show a decrease in net income by $341 million, primarily due to a decrease in interest income and an increase in operating expenses. Leverage ratios are high, with long-term debt at $65.6 billion and long-term lease liabilities at $87.3 billion. Liquidity is strong, with cash and cash equivalents at $37.8 billion and cash provided by operating activities at $54.3 billion. Profitability is affected by increased operating expenses, particularly in cost of sales, fulfillment, technology and infrastructure, and sales and marketing. Risk factors include intense competition, potential data breaches, and regulatory risks.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Net income decreased by $341 million in FY2025",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Interest income decreased",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Interest expense decreased slightly",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Long-term debt is $65.6 billion",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Long-term lease liabilities are $87.3 billion",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Cash and cash equivalents are $37.8 billion",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Cash provided by operating activities is $54.3 billion",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Operating expenses increased",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_035",
+          "AMZN_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Cost of sales increased",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Fulfillment expenses increased",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Technology and infrastructure expenses increased",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Sales and marketing expenses increased",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "General and administrative expenses decreased slightly",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Risk factors include intense competition",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMZN_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Risk factors include potential data breaches",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMZN_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AMZN_FY2025_7_mdna_037",
+    "AMZN_FY2025_7_mdna_019",
+    "AMZN_FY2025_7_mdna_018",
+    "AMZN_FY2025_7_mdna_015",
+    "AMZN_FY2025_7_mdna_017",
+    "AMZN_FY2025_7_mdna_035",
+    "AMZN_FY2025_7_mdna_027",
+    "AMZN_FY2025_7_mdna_002",
+    "AMZN_FY2025_1A_risk_factors_000",
+    "AMZN_FY2025_1A_risk_factors_027",
+    "AMZN_FY2025_1A_risk_factors_001"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_035",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

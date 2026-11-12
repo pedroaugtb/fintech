@@ -1,0 +1,265 @@
+{
+  "ticker": "WMT",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "WMT's FY2025 10-K indicates potential risks to financial performance from increased competition, macro-economic factors, and health-related legislation. Leverage may be affected by alliances and partnerships that could allow competitors to offer a wider variety of products at competitive prices. Liquidity may be impacted by fluctuations in currency exchange rates and capital expenditures. Profitability is shown to have increased due to higher gross profit rate and lower operating expenses as a percentage of net sales. Risk factors include natural disasters, geopolitical events, and cybersecurity threats, among others.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Increased competition could adversely affect WMT's financial performance.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Macro-economic factors, both domestically and internationally, may materially adversely affect WMT's financial performance.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Health-related legislation at the federal and state level may have an adverse effect on WMT's business.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_083"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Fluctuations in currency exchange rates during fiscal 2025 and 2024 affected WMT's liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_014",
+          "WMT_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Capital expenditures affected WMT's liquidity in fiscal 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Free cash flow is an important financial measure for evaluating WMT's financial performance.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Free cash flow should be considered in addition to, rather than as a substitute for, consolidated net income as a measure of WMT's performance and net cash provided by operating activities as a measure of WMT's liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "WMT's gross profit rate increased 40 and 27 basis points for fiscal 2025 and 2024, respectively, when compared to the previous fiscal year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012",
+          "WMT_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The increase in WMT's gross profit rate was primarily driven by the Walmart U.S. segment.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012",
+          "WMT_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Operating expenses as a percentage of net sales increased 36 and decreased 60 basis points for fiscal 2025 and 2024, respectively, when compared to the previous fiscal year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012",
+          "WMT_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The increase in operating expenses as a percentage of net sales for fiscal 2025 was primarily due to higher variable pay as a result of exceeding planned performance, increased marketing and higher depreciation expenses.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012",
+          "WMT_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The decrease in operating expenses as a percentage of net sales for fiscal 2024 was primarily due to the lapping of business reorganization and restructuring charges incurred related to Flipkart and Massmart in fiscal 2023 and an increase in sales in fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012",
+          "WMT_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Natural disasters, climate change, geopolitical events, catastrophic and other events could materially adversely affect WMT's financial performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_029",
+          "WMT_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Any disruption or failure on WMT's part to provide attractive, user-friendly and secure digital platforms could place WMT at a competitive disadvantage, result in the loss of eCommerce and other sales, harm WMT's reputation with customers, have a material adverse impact on the growth of WMT's eCommerce business globally and have a material adverse impact on WMT's business and results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Any failure to maintain the privacy or security of WMT's information could damage WMT's reputation, result in litigation or other legal actions against WMT, result in fines, penalties, and liability, cause WMT to incur substantial additional costs and materially adversely affect WMT's business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "WMT_FY2025_1A_risk_factors_024",
+    "WMT_FY2025_7_mdna_005",
+    "WMT_FY2025_1A_risk_factors_083",
+    "WMT_FY2025_7_mdna_018",
+    "WMT_FY2025_7_mdna_020",
+    "WMT_FY2025_7_mdna_014",
+    "WMT_FY2025_7_mdna_012",
+    "WMT_FY2025_7_mdna_024",
+    "WMT_FY2025_7_mdna_032",
+    "WMT_FY2025_1A_risk_factors_029",
+    "WMT_FY2025_1A_risk_factors_047",
+    "WMT_FY2025_1A_risk_factors_074"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_083",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_074",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

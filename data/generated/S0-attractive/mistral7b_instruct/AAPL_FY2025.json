@@ -1,0 +1,215 @@
+{
+  "ticker": "AAPL",
+  "fiscal_year": 2025,
+  "condition": "S0-attractive",
+  "stress_template": "attractive",
+  "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Apple Inc.'s financial condition and stock price could be materially adversely affected by various economic, political, and regulatory factors, making it unclear whether it is an attractive investment right now.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Apple Inc.'s financial condition and stock price could be materially adversely affected by various economic, political, and regulatory factors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The Company’s business can be impacted by political events, trade and other uncertainties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Uncertainty about, or a decline in, global or regional economic conditions can also have a significant impact on the Company’s suppliers, contract manufacturers, logistics providers, distributors, cellular network carriers and other channel partners, and developers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Potential outcomes include financial instability; inability to obtain credit to finance business operations; and insolvency.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Adverse economic conditions can also lead to increased credit and collectibility risk on the Company’s trade receivables; the failure of derivative counterparties and other financial institutions; limitations on the Company’s ability to issue new debt; reduced liquidity; and declines in the fair values of the Company’s financial instruments.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The Company is subject to changes in tax rates, the adoption of new U.S. or international tax legislation and exposure to additional tax liabilities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The value and liquidity of the Company’s cash, cash equivalents and marketable securities may fluctuate substantially.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Although the Company has not realized significant losses on its cash, cash equivalents and marketable securities, future fluctuations in their value could result in significant losses and could have a material adverse impact on the Company’s results of operations, financial condition and stock price.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The Company is exposed to credit risk on its trade accounts receivable, vendor non-trade receivables and prepayments related to long-term supply agreements, and this risk is heightened during periods when economic conditions worsen.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The Company distributes its products and certain of its services through third-party cellular network carriers and other resellers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "A substantial majority of the Company’s outstanding trade receivables are not covered by collateral, third-party bank support or financing arrangements, or credit insurance, and a significant portion of the Company’s trade receivables can be concentrated within cellular network carriers or other resellers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The Company’s exposure to credit and collectibility risk on its trade receivables is higher in certain international markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The Company also has unsecured vendor non-trade receivables resulting from purchases of components by outsourcing partners and other vendors that manufacture subassemblies or assemble final products for the Company.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "In addition, the Company has made prepayments associated with long-term supply agreements to secure supply of inventory components.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "If the Company is unable to monitor and limit exposure to credit risk on its trade and vendor non-trade receivables, as well as long-term prepayments, the Company’s results of operations, financial condition and stock price could be materially adversely affected.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AAPL_FY2025_1A_risk_factors_002",
+    "AAPL_FY2025_1A_risk_factors_061",
+    "AAPL_FY2025_1A_risk_factors_060",
+    "AAPL_FY2025_1A_risk_factors_059",
+    "AAPL_FY2025_1A_risk_factors_037",
+    "AAPL_FY2025_7_mdna_007",
+    "AAPL_FY2025_7_mdna_006",
+    "AAPL_FY2025_1A_risk_factors_062",
+    "AAPL_FY2025_1A_risk_factors_047",
+    "AAPL_FY2025_1A_risk_factors_000"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

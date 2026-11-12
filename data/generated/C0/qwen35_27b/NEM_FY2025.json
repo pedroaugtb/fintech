@@ -1,0 +1,259 @@
+{
+  "ticker": "NEM",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Newmont (NEM) reported strong FY2025 profitability, with net income rising to $7.1B and diluted EPS reaching $6.39, driven by higher gold prices and divestiture gains. However, leverage risks persist as credit rating downgrades could increase borrowing costs and restrict financing. Liquidity faces pressure from foreign exchange volatility, particularly in the Australian and Canadian dollars, and potential capital controls in jurisdictions like Papua New Guinea. Key operational risks include uncertain mineral reserve estimates, cybersecurity threats to critical IT systems, and evolving climate regulations that may increase compliance costs and impact project economics.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net income from continuing operations attributable to Newmont stockholders increased to $7,085 million in FY2025 from $3,280 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Diluted earnings per share rose to $6.39 in FY2025 compared to $2.86 in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "The increase in net income was primarily driven by higher average realized gold prices and a net gain on completed divestments.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Total consolidated sales reached $22,669 million in FY2025, an increase of $3,987 million from the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Profitability was partially offset by increased income and mining tax benefits and impairment charges, primarily at Yanacocha.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Newmont maintains a Standard & Poor's credit rating of BBB+ with a stable outlook.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "A downgrade in credit ratings could increase borrowing costs and adversely affect the availability of new financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_053",
+          "NEM_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Australia's Debt Deduction Creation Rules, effective for the 2025 year, could limit the tax deductibility of intercompany interest expense.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_137"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Foreign exchange fluctuations, particularly in the Australian and Canadian dollars, may adversely affect costs and earnings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Capital controls or changes in banking regulations in jurisdictions like Papua New Guinea could impact the remittance of profits and cash.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_159"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Dividend payments are not guaranteed and depend on financial results, liquidity requirements, and Board discretion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_201"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Estimates of proven and probable mineral reserves are uncertain, and actual recovered volumes may vary from estimates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Cybersecurity threats, including ransomware and AI-related risks, pose significant dangers to operational technology and financial performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Proposed changes to Ghana's mineral royalty regime could increase operating costs if a sliding scale of 5% to 12% is enacted.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Regulatory shifts toward a low-carbon economy may increase operational and capital expenses for compliance and closure reclamation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_094"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NEM_FY2025_1A_risk_factors_053",
+    "NEM_FY2025_1A_risk_factors_054",
+    "NEM_FY2025_1A_risk_factors_137",
+    "NEM_FY2025_1A_risk_factors_040",
+    "NEM_FY2025_1A_risk_factors_159",
+    "NEM_FY2025_1A_risk_factors_201",
+    "NEM_FY2025_7_mdna_010",
+    "NEM_FY2025_7_mdna_009",
+    "NEM_FY2025_7_mdna_011",
+    "NEM_FY2025_1A_risk_factors_028",
+    "NEM_FY2025_1A_risk_factors_006",
+    "NEM_FY2025_1A_risk_factors_094"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_053",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_137",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_159",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_201",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_094",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

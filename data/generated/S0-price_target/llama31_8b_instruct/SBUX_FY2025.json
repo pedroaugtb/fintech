@@ -1,0 +1,188 @@
+{
+  "ticker": "SBUX",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Based on the FY2025 10-K report, Starbucks' leverage, liquidity, profitability, and risk factors are areas of concern. The company's operating margin contracted by 710 basis points, and diluted earnings per share declined to $1.63. Rising real estate costs, supply chain disruptions, and inflation are potential risks. The company's liquidity is affected by foreign currency exchange rate volatility and potential credit rating downgrades. Activist shareholder actions and regulatory changes also pose risks. The 12-month price target is $85.50, indicating that the shares are undervalued.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "Starbucks' operating margin contracted by 710 basis points in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "The contraction in operating margin was primarily due to restructuring costs, deleverage, investments in support of 'Back to Starbucks', and inflation.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "Diluted earnings per share declined to $1.63 in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "Rising real estate costs in certain domestic and international markets pose a risk to Starbucks' business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "Supply chain disruptions pose a risk to Starbucks' business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "Inflation poses a risk to Starbucks' business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "Foreign currency exchange rate volatility affects Starbucks' liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "Potential credit rating downgrades could increase Starbucks' borrowing costs and impair its ability to access capital and credit markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "Activist shareholder actions pose a risk to Starbucks' business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "Regulatory changes pose a risk to Starbucks' business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "Starbucks' total net revenues increased 3% to $37.2 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "The 12-month price target for Starbucks' shares is $85.50, indicating that the shares are undervalued.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SBUX_FY2025_1A_risk_factors_028",
+    "SBUX_FY2025_1A_risk_factors_029",
+    "SBUX_FY2025_1A_risk_factors_044",
+    "SBUX_FY2025_7_mdna_006",
+    "SBUX_FY2025_1A_risk_factors_046",
+    "SBUX_FY2025_7_mdna_010",
+    "SBUX_FY2025_7_mdna_011",
+    "SBUX_FY2025_7_mdna_007",
+    "SBUX_FY2025_1A_risk_factors_027",
+    "SBUX_FY2025_1A_risk_factors_037"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

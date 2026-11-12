@@ -1,0 +1,237 @@
+{
+  "ticker": "MCD",
+  "fiscal_year": 2025,
+  "condition": "S0-credit",
+  "stress_template": "credit",
+  "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Based on the provided evidence, we recommend declining the USD 500 million unsecured credit facility to McDonald's Corporation. The company's high leverage, liquidity concerns, and various risk factors, including commodity price volatility, cybersecurity threats, and potential legal proceedings, pose significant risks to its financial stability and ability to repay the loan. While McDonald's has a history of paying dividends and repurchasing shares, its credit ratings and funding costs may be negatively affected by its results of operations and debt levels, which could impact its ability to service the loan. Therefore, we advise caution in approving this credit facility.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "McDonald's Corporation has high leverage, which could negatively impact its operating results and profitability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047",
+          "MCD_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "McDonald's Corporation has liquidity concerns, which could limit its ability to manage and deploy its liquidity or increase its funding costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_047",
+          "MCD_FY2025_7_mdna_048",
+          "MCD_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "McDonald's Corporation is exposed to commodity price volatility, which could have an adverse impact on its profitability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "McDonald's Corporation is vulnerable to cybersecurity threats, which could have a material adverse effect on its business and financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_055",
+          "MCD_FY2025_7_mdna_056",
+          "MCD_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "McDonald's Corporation has a history of paying dividends and repurchasing shares, but its credit ratings and funding costs may be negatively affected by its results of operations and debt levels.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_007",
+          "MCD_FY2025_7_mdna_047",
+          "MCD_FY2025_7_mdna_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "McDonald's Corporation's credit ratings may be negatively affected by its results of operations or changes in its debt levels.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "McDonald's Corporation's interest expense, availability of acceptable counterparties, ability to obtain funding on favorable terms, collateral requirements, and operating or financial flexibility could be negatively affected if lenders were to impose new operating or financial covenants.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "McDonald's Corporation's operations may be impacted by regulations affecting capital flows, financial markets, or financial institutions, which can limit its ability to manage and deploy its liquidity or increase its funding costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_047",
+          "MCD_FY2025_7_mdna_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "McDonald's Corporation's trading volatility and price of its common stock may be adversely affected by many factors, including global economic and market conditions, governmental action or inaction, and media reports and commentary.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_047",
+          "MCD_FY2025_7_mdna_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "McDonald's Corporation's results and prospects may be adversely affected by severe weather conditions, natural disasters, hostilities, social and geopolitical unrest, and climate change.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "McDonald's Corporation's receipt of proceeds under any insurance it maintains with respect to some of these risks may be delayed or the proceeds may be insufficient to cover its losses fully.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "McDonald's Corporation has pending a number of claims and lawsuits that have been filed in various jurisdictions, which could have a material adverse effect on its financial condition or results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "McDonald's Corporation's cybersecurity risk is an important and evolving focus, and no company is immune to cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_053",
+          "MCD_FY2025_7_mdna_055",
+          "MCD_FY2025_7_mdna_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "McDonald's Corporation's Board of Directors has primary responsibility for enterprise-wide risk management, including cybersecurity risk, within the Company.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "McDonald's Corporation's net income decreased by 3.5% from 2024 to 2025, and its operating income decreased by 5.5% from 2024 to 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_077",
+          "MCD_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MCD_FY2025_1A_risk_factors_038",
+    "MCD_FY2025_7_mdna_047",
+    "MCD_FY2025_7_mdna_076",
+    "MCD_FY2025_7_mdna_007",
+    "MCD_FY2025_1A_risk_factors_039",
+    "MCD_FY2025_7_mdna_048",
+    "MCD_FY2025_7_mdna_077",
+    "MCD_FY2025_7_mdna_062",
+    "MCD_FY2025_7_mdna_055",
+    "MCD_FY2025_7_mdna_056",
+    "MCD_FY2025_7_mdna_053"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MCD_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_047",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_048",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_077",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_062",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_055",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_056",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_053",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

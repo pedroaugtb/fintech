@@ -1,0 +1,256 @@
+{
+  "ticker": "MPC",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "MPC's FY2025 financial performance was marked by a decrease in revenues and profitability, with a 5.2% decline in total revenues and a 4.1% decrease in segment adjusted EBITDA. The company's leverage and liquidity positions remain stable, but it faces significant risks related to declining demand for liquid transportation fuels and increasing competition from alternative energy sources. MPC's profitability is also impacted by the cost of energy used by its refineries and the level of maintenance costs. The company's cybersecurity and infrastructure protection technologies may not be sufficient to defend against all unauthorized attempts to access its information or impact its systems.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "MPC's leverage position is stable.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_015",
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "MPC's liquidity position is stable.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_002",
+          "MPC_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "MPC's profitability decreased by 4.1% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_006",
+          "MPC_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "MPC's revenues decreased by 5.2% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_006",
+          "MPC_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "MPC's segment adjusted EBITDA decreased by 4.1% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_006",
+          "MPC_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "MPC's cost of energy used by its refineries and maintenance costs impact its profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "MPC's cybersecurity and infrastructure protection technologies may not be sufficient to defend against all unauthorized attempts to access its information or impact its systems.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "MPC's operations are subject to business interruptions and inherent hazards and risks that could adversely impact its results of operations and financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "Declining demand for liquid transportation fuels and increasing competition from alternative energy sources pose a risk to MPC's business, financial condition, results of operations, and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "Government regulations and consumer acceptance of alternative fuel vehicles may decrease demand for MPC's liquid transportation fuels.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "MPC's Refining & Marketing segment adjusted EBITDA was $6,138 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "MPC's Midstream segment adjusted EBITDA was $6,750 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "MPC's Renewable Diesel segment adjusted EBITDA was -$110 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "MPC's total segment adjusted EBITDA was $12,778 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "MPC's total revenues were $135,222 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MPC_FY2025_7_mdna_015",
+    "MPC_FY2025_7_mdna_007",
+    "MPC_FY2025_7_mdna_017",
+    "MPC_FY2025_7_mdna_003",
+    "MPC_FY2025_7_mdna_002",
+    "MPC_FY2025_1A_risk_factors_003",
+    "MPC_FY2025_7_mdna_021",
+    "MPC_FY2025_7_mdna_006",
+    "MPC_FY2025_1A_risk_factors_010",
+    "MPC_FY2025_1A_risk_factors_005",
+    "MPC_FY2025_1A_risk_factors_004"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001510295-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0001510295-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001510295-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001510295-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001510295-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0001510295-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001510295-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001510295-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0001510295-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0001510295-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0001510295-26-000009",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

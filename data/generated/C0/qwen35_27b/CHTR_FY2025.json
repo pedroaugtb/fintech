@@ -1,0 +1,254 @@
+{
+  "ticker": "CHTR",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Charter Communications (CHTR) reported FY2025 revenues of $54.8 billion, down 0.6%, with Adjusted EBITDA rising slightly to $22.7 billion. The company maintains a high leverage ratio of 4.15x, targeting 4.0-4.5x pre-Cox transaction and 3.5-3.75x post-closing. Significant debt obligations ($94.6B principal) constrain liquidity and flexibility, exposing the firm to interest rate volatility and covenant restrictions. Key risks include intense competition from streaming and wireless providers, potential goodwill impairments, and escalating cybersecurity threats that could disrupt operations and damage reputation.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total debt principal was approximately $94.6 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "The leverage ratio stood at 4.15 times Adjusted EBITDA as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Charter plans to maintain leverage near the midpoint of its 4.0 to 4.5 times Adjusted EBITDA target range prior to the Cox Transactions closing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Post-Cox Transactions, Charter plans to adjust its long-term target leverage range to 3.5 to 3.75 times Adjusted EBITDA.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Approximately 13% of borrowings were subject to variable interest rates as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Debt agreements contain covenants restricting the ability to incur additional debt, pay dividends, or sell assets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_026",
+          "CHTR_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Credit facilities require compliance with maximum total leverage and maximum first lien leverage covenants.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Significant debt requires dedicating a large portion of operating cash flow to debt service, reducing funds for capital expenditures.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Total revenues decreased 0.6% to $54,774 million in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CHTR_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Adjusted EBITDA increased 0.6% to $22,708 million in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CHTR_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Income from operations decreased 1.6% to $12,908 million in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CHTR_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Revenue decline was primarily driven by lower customer counts, higher seamless entertainment allocation, and lower advertising sales.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CHTR_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Income from operations was negatively impacted by increased loss on disposal of assets and merger and acquisition costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CHTR_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Intense competition from streaming services and wireless providers may reduce future cash flows and lead to goodwill impairments.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_003",
+          "CHTR_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Cybersecurity risks, including ransomware and nation-state attacks, pose increasing threats to network integrity and reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CHTR_FY2025_1A_risk_factors_003",
+          "CHTR_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CHTR_FY2025_1A_risk_factors_023",
+    "CHTR_FY2025_1A_risk_factors_026",
+    "CHTR_FY2025_1A_risk_factors_024",
+    "CHTR_FY2025_1A_risk_factors_025",
+    "CHTR_FY2025_1A_risk_factors_021",
+    "CHTR_FY2025_7_mdna_004",
+    "CHTR_FY2025_7_mdna_005",
+    "CHTR_FY2025_7_mdna_015",
+    "CHTR_FY2025_1A_risk_factors_003",
+    "CHTR_FY2025_1A_risk_factors_001",
+    "CHTR_FY2025_1A_risk_factors_004"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_023",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CHTR_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0001091667-26-000017",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

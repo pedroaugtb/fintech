@@ -1,0 +1,197 @@
+{
+  "ticker": "MPC",
+  "fiscal_year": 2025,
+  "condition": "S1-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "MPC reported FY2025 total reportable segment adjusted EBITDA of $12,778 million, up from $12,097 million in 2024. Revenues declined to $135,222 million from $140,412 million. The company recorded a $254 million gain on the sale of its ethanol joint venture interest. Key risks include potential demand reduction for liquid fuels due to electric vehicle adoption and regulatory changes, as well as cybersecurity threats. While operational costs and inventory valuation adjustments pose earnings volatility, the company maintains a focus on capital discipline and value chain optimization. No investment recommendation can be provided based on this analysis.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Total reportable segment adjusted EBITDA was $12,778 million in 2025 compared to $12,097 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Refining & Marketing segment adjusted EBITDA increased to $6,138 million in 2025 from $5,703 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Total revenues and other income decreased to $135,222 million in 2025 from $140,412 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "MPC recorded a $254 million gain on the sale of its 49.9% interest in The Andersons Marathon Holdings LLC in July 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Future inventory valuation adjustments could negatively affect earnings based on refined product price movements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Long-term agreements with MPLX include minimum commitments that may negatively impact segment adjusted EBITDA if throughput is lower.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_015",
+          "MPC_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Significant reductions in refined product margins could require MPC to reduce capital expenditures and re-evaluate capital allocation priorities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Developments in electric and alternative fuel vehicles may decrease demand for liquid transportation fuels.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_003",
+          "MPC_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Regulatory changes, including California's Advanced Clean Cars regulations, could adversely affect sales of liquid transportation fuels.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "MPC is subject to risks of cyberattacks and cybersecurity incidents that could impact its systems.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MPC_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "The company focuses on optimizing its portfolio of investment opportunities to ensure efficient deployment of capital.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_003",
+          "MPC_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Renewable Diesel segment adjusted EBITDA was negative $110 million in 2025, an improvement from negative $150 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MPC_FY2025_7_mdna_015",
+    "MPC_FY2025_7_mdna_007",
+    "MPC_FY2025_7_mdna_017",
+    "MPC_FY2025_7_mdna_003",
+    "MPC_FY2025_7_mdna_002",
+    "MPC_FY2025_1A_risk_factors_003",
+    "MPC_FY2025_7_mdna_021",
+    "MPC_FY2025_7_mdna_006",
+    "MPC_FY2025_1A_risk_factors_010",
+    "MPC_FY2025_1A_risk_factors_005",
+    "MPC_FY2025_1A_risk_factors_004"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

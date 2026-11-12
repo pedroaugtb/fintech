@@ -1,0 +1,258 @@
+{
+  "ticker": "JPM",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "JPMorgan Chase's FY2025 financial performance is characterized by a leverage ratio of 10.6% and a surplus in Tier 2 capital. The company's liquidity is supported by a surplus of $60.1 billion in its regulatory liquidity buffer. However, the firm faces risks related to regulatory requirements, market conditions, and operational risks. The company's profitability is sensitive to economic conditions, interest rates, and consumer behavior. JPMorgan Chase's risk factors include legal and regulatory risks, competition, strategic risks, conduct risks, reputation risks, and country risks. The company's ability to adapt to changing market conditions and regulatory requirements is crucial to its success.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "JPMorgan Chase's leverage ratio is 10.6% as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "JPMorgan Chase has a surplus of $60.1 billion in its regulatory liquidity buffer as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "JPMorgan Chase's Tier 2 capital is $36.213 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "JPMorgan Chase's Tier 1 capital is $307.630 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "JPMorgan Chase's Advanced Tier 2 capital is $21.332 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "JPMorgan Chase's Advanced Tier 1 capital is $328.962 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "JPMorgan Chase's Standardized Tier 2 capital is $36.213 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "JPMorgan Chase's Standardized Tier 1 capital is $343.843 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "JPMorgan Chase's Advanced Total capital is $328.962 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "JPMorgan Chase's Standardized Total capital is $343.843 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "JPMorgan Chase's consumer businesses are affected by U.S. and global economic conditions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "JPMorgan Chase's earnings are sensitive to interest rates and consumer behavior.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "JPMorgan Chase's risk factors include legal and regulatory risks, competition, strategic risks, conduct risks, reputation risks, and country risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "JPMorgan Chase operates in a highly competitive environment.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "JPMorgan Chase's ability to adapt to changing market conditions and regulatory requirements is crucial to its success.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_090"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "JPM_FY2025_7_mdna_042",
+    "JPM_FY2025_7_mdna_053",
+    "JPM_FY2025_7_mdna_024",
+    "JPM_FY2025_1A_risk_factors_048",
+    "JPM_FY2025_7_mdna_039",
+    "JPM_FY2025_7_mdna_038",
+    "JPM_FY2025_1A_risk_factors_030",
+    "JPM_FY2025_1A_risk_factors_035",
+    "JPM_FY2025_1A_risk_factors_031",
+    "JPM_FY2025_1A_risk_factors_000",
+    "JPM_FY2025_1A_risk_factors_090",
+    "JPM_FY2025_1A_risk_factors_004"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_042",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_053",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_038",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_090",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

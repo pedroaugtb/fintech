@@ -1,0 +1,244 @@
+{
+  "ticker": "BA",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Boeing's FY2025 financial performance was impacted by lower expected return on plan assets and higher amortization of net actuarial losses, leading to a decrease in net earnings. The company's leverage increased due to higher debt balances, and liquidity risks are present due to potential downgrades in credit ratings and disruptions in the capital markets. Profitability was affected by changes in segment operating earnings, and the company faces risks related to litigation, regulation, and competition in the markets it operates in.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "Boeing's FY2025 net earnings decreased compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "Boeing's leverage increased in FY2025 compared to FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "Boeing's liquidity is at risk due to potential downgrades in credit ratings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "Boeing's liquidity is at risk due to disruptions in the capital markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "Boeing's profitability was affected by changes in segment operating earnings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "Boeing faces risks related to litigation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "Boeing faces risks related to regulation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "Boeing faces risks related to competition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "Boeing's FY2025 net earnings decreased compared to FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "Boeing's FY2025 net earnings decreased compared to FY2023 due to lower expected return on plan assets and higher amortization of net actuarial losses.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "Boeing's leverage increased in FY2025 compared to FY2023.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "Boeing's liquidity is at risk due to potential downgrades in credit ratings and disruptions in the capital markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "Boeing's FY2025 core operating earnings increased compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "Boeing's FY2025 core operating loss increased compared to FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "Boeing's FY2025 non-operating pension income decreased compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "BA_FY2025_7_mdna_017",
+    "BA_FY2025_7_mdna_016",
+    "BA_FY2025_1A_risk_factors_047",
+    "BA_FY2025_1A_risk_factors_048",
+    "BA_FY2025_1A_risk_factors_049",
+    "BA_FY2025_1A_risk_factors_046",
+    "BA_FY2025_7_mdna_013",
+    "BA_FY2025_1A_risk_factors_041",
+    "BA_FY2025_1A_risk_factors_012",
+    "BA_FY2025_1A_risk_factors_018"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "BA_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BA_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BA_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

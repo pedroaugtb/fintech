@@ -1,0 +1,244 @@
+{
+  "ticker": "SBUX",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Starbucks Corporation's FY2025 10-K highlights potential risks to the company's leverage, liquidity, profitability, and operations. The company faces risks from changes in trade agreements, tariffs, labor unrest, geopolitical instability, terrorism, anti-American sentiment, public health crises, foreign currency exchange rate volatility, and unfavorable economic conditions. These factors could increase borrowing costs, impair access to capital and credit markets, adversely affect liquidity and capital resources, or significantly increase cost of capital. Additionally, the company could face increased costs, legal expenses, and stock price volatility due to activist shareholder actions, regulatory and litigation risks, and environmental regulations. Failure to meet market expectations for financial performance could also negatively impact the stock price.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Starbucks Corporation faces risks from changes in trade agreements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Tariffs imposed on commodities or goods could adversely affect Starbucks Corporation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Labor unrest, geopolitical instability, terrorism, anti-American sentiment, or public health crises could adversely affect Starbucks Corporation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Foreign currency exchange rate volatility could adversely affect Starbucks Corporation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Unfavorable economic conditions could adversely affect Starbucks Corporation's suppliers and licensees.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Unfavorable economic conditions could lead to supplier or licensee insolvency, increase bad debt expense, or cause Starbucks Corporation to increase unsecured credit.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Failure to meet market expectations for Starbucks Corporation's financial performance could adversely affect the stock price.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Activist shareholder actions could cause Starbucks Corporation to incur expense, hinder execution of business strategy, and adversely impact stock price.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Regulatory and litigation risks could harm Starbucks Corporation's business and financial results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Environmental regulations could lead to higher compliance costs, capital expenditures, and other financial obligations for Starbucks Corporation and its partners.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Certain jurisdictions have enacted or proposed taxes or other restrictions on Starbucks Corporation's products, particularly beverages containing caloric sweeteners.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Environmentally focused taxes or other measures could adversely affect Starbucks Corporation's financial performance by raising product costs, reducing consumption, or generating negative publicity.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Total net revenues increased 3% to $37.2 billion in fiscal 2025 compared to $36.2 billion in fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Consolidated operating income decreased to $2.9 billion in fiscal 2025 compared to $5.4 billion in fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Operating margin contraction of 710 basis points was primarily due to restructuring costs associated with the closure of coffeehouses and simplification of support organization, deleverage, investments in support of ‘Back to Starbucks,’ which were largely in labor hours, and inflation.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SBUX_FY2025_1A_risk_factors_028",
+    "SBUX_FY2025_1A_risk_factors_029",
+    "SBUX_FY2025_1A_risk_factors_044",
+    "SBUX_FY2025_7_mdna_006",
+    "SBUX_FY2025_1A_risk_factors_046",
+    "SBUX_FY2025_7_mdna_010",
+    "SBUX_FY2025_7_mdna_011",
+    "SBUX_FY2025_7_mdna_007",
+    "SBUX_FY2025_1A_risk_factors_027",
+    "SBUX_FY2025_1A_risk_factors_037"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

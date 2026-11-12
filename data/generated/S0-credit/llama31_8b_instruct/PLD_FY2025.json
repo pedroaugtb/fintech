@@ -1,0 +1,185 @@
+{
+  "ticker": "PLD",
+  "fiscal_year": 2025,
+  "condition": "S0-credit",
+  "stress_template": "credit",
+  "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Based on the provided information, we recommend declining the USD 500 million unsecured credit facility. The company has a total debt of $35.0 billion with a weighted average term of 9 years and an effective interest rate of 3.2%, indicating a manageable leverage position. However, the company's liquidity position is strong with $7.6 billion in total available liquidity, including $6.5 billion in available capacity on its credit facilities. The company's profitability is also strong, with a 18% mark-to-market of existing leases and 50.1% rent change on leases that commenced during the year. Therefore, we believe the company has sufficient financial flexibility and does not require additional credit facilities at this time.",
+    "claims": [
+      {
+        "claim_id": "EVIDENCE_1",
+        "text": "The company's total debt was $35.0 billion at December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_2",
+        "text": "The company's weighted average term of debt is 9 years.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_3",
+        "text": "The company's effective interest rate is 3.2%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_4",
+        "text": "The company has a total available liquidity of $7.6 billion at December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_5",
+        "text": "The company's available capacity on its credit facilities is $6.5 billion at December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_6",
+        "text": "The company's unrestricted cash balances are $1.1 billion at December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_7",
+        "text": "The company's mark-to-market of existing leases is 18% at December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_8",
+        "text": "The company's rent change on leases that commenced during the year is 50.1% on a net effective basis at December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_9",
+        "text": "The company's occupancy in its operating portfolio is 95.6% at December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_10",
+        "text": "The company's development activity includes $2.9 billion of consolidated development projects, of which 60.9% are build-to-suit projects at December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_11",
+        "text": "The company's total available liquidity is sufficient to meet its financial obligations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_12",
+        "text": "The company's financial condition and results of operations are affected by ongoing economic uncertainty.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_13",
+        "text": "The company's financial condition and results of operations are also affected by the potential impact of the COVID-19 pandemic and other external factors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_14",
+        "text": "The company's financial condition and results of operations are also affected by the potential impact of the COVID-19 pandemic and other external factors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_15",
+        "text": "The company's financial condition and results of operations are also affected by the potential impact of the COVID-19 pandemic and other external factors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PLD_FY2025_7_mdna_004",
+    "PLD_FY2025_7_mdna_003",
+    "PLD_FY2025_7_mdna_005",
+    "PLD_FY2025_7_mdna_000",
+    "PLD_FY2025_7_mdna_002"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    }
+  ]
+}

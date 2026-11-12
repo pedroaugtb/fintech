@@ -1,0 +1,219 @@
+{
+  "ticker": "SBUX",
+  "fiscal_year": 2025,
+  "condition": "S0-attractive",
+  "stress_template": "attractive",
+  "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Starbucks' FY2025 results show significant profitability deterioration, with operating income halving and EPS dropping 51% due to $892M in restructuring costs, deleverage, and inflation. While liquidity remains supported by strategic initiatives like the 'Back to Starbucks' plan and a new China joint venture, leverage risks are elevated by potential credit market disruptions and rising borrowing costs. Given the substantial margin compression and execution risks associated with its turnaround strategy, the company currently presents a high-risk profile that may not be attractive for conservative investors seeking immediate stability.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total net revenues increased 3% to $37.2 billion in fiscal 2025 compared to $36.2 billion in fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Consolidated operating income decreased to $2.9 billion in fiscal 2025 from $5.4 billion in fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007",
+          "SBUX_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Operating margin contracted by 710 basis points to 7.9% in fiscal 2025 from 15.0% in fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Restructuring and impairment costs totaled $892 million in fiscal 2025, contributing approximately 240 basis points to margin contraction.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007",
+          "SBUX_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Diluted earnings per share (EPS) declined to $1.63 in fiscal 2025 from $3.31 in fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Store operating expenses as a percentage of total net revenues increased 360 basis points, driven by deleverage, additional labor, and marketing.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "A disruption in credit markets or a downgrade of the company's credit rating could increase borrowing costs and impair access to capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Unfavorable economic conditions could lead to supplier or licensee insolvency, increasing bad debt expense.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_028",
+          "SBUX_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "The company is implementing the 'Back to Starbucks' initiative to enhance customer experience and drive future transaction growth.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Starbucks announced a strategic joint venture with Boyu Capital in November 2025 to accelerate long-term growth in China.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Evolving environmental regulations and potential taxes on sweetened beverages could increase compliance costs and reduce consumption.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Macroeconomic factors including inflation, interest rate fluctuations, and supply chain disruptions pose material adverse risks to operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Activist shareholder actions could incur significant legal expenses and hinder the execution of business strategy.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Failure to meet market expectations or announced guidance could adversely affect the market price and volatility of the stock.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The company faces risks from tariffs, trade agreement changes, and geopolitical instability in key markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_027",
+          "SBUX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SBUX_FY2025_1A_risk_factors_028",
+    "SBUX_FY2025_1A_risk_factors_029",
+    "SBUX_FY2025_1A_risk_factors_044",
+    "SBUX_FY2025_7_mdna_006",
+    "SBUX_FY2025_1A_risk_factors_046",
+    "SBUX_FY2025_7_mdna_010",
+    "SBUX_FY2025_7_mdna_011",
+    "SBUX_FY2025_7_mdna_007",
+    "SBUX_FY2025_1A_risk_factors_027",
+    "SBUX_FY2025_1A_risk_factors_037"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

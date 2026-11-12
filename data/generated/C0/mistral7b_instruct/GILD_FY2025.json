@@ -1,0 +1,172 @@
+{
+  "ticker": "GILD",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "GILD's FY2025 10-K indicates potential risks to the company's leverage, liquidity, profitability, and risk factors. The company has significant exposure to foreign currency exchange rates, particularly the Euro, and fluctuations in interest rates could expose the company to increased financial risk. High inflation has adversely impacted the company's business and financial results. The company is subject to anti-bribery laws and operates in heavily regulated international markets. Product demand may be adversely affected by physician perceptions and purchasing patterns of non-retail customers. The company's success depends on the launch of commercially successful new products or new indications for existing products. Cybersecurity incidents could disrupt operations and affect financial results. Fluctuations in the purchasing patterns of non-retail customers, particularly in Europe, could impact revenue. The company sells most of its products in the U.S. exclusively through three wholesalers, and changes in inventory levels held by these wholesalers can cause operating results to fluctuate. Changes to the 340B program or the Medicaid program at the federal or state level could have a material adverse effect on the company's business.",
+    "claims": [
+      {
+        "claim_id": "GILD_FY2025_1A_risk_factors_058",
+        "text": "The company has significant exposure to foreign currency exchange rates, particularly the Euro, and fluctuations in interest rates could expose the company to increased financial risk.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_058"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GILD_FY2025_1A_risk_factors_008",
+        "text": "Product demand may be adversely affected if physicians do not see the benefit of the company's products.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GILD_FY2025_1A_risk_factors_000",
+        "text": "The company's success depends on developing and commercializing new products or expanding the indications for existing products.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GILD_FY2025_1A_risk_factors_070",
+        "text": "If the company's information systems or third-party information systems on which it relies suffer severe damage, disruption or shutdown, the company could experience delays in reporting financial results and lose revenue and profits.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_070"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GILD_FY2025_1A_risk_factors_009",
+        "text": "Fluctuations in the purchasing patterns of the company's non-retail customers, particularly in Europe, could impact revenue.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GILD_FY2025_1A_risk_factors_021",
+        "text": "Changes to the 340B program or the Medicaid program at the federal or state level could have a material adverse effect on the company's business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GILD_FY2025_1A_risk_factors_067",
+        "text": "Due to the specialized and technical nature of the company's business, the failure to attract, develop and retain highly qualified personnel could adversely impact the company.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_067"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GILD_FY2025_1A_risk_factors_058",
+    "GILD_FY2025_1A_risk_factors_008",
+    "GILD_FY2025_7_mdna_008",
+    "GILD_FY2025_7_mdna_000",
+    "GILD_FY2025_1A_risk_factors_000",
+    "GILD_FY2025_1A_risk_factors_005",
+    "GILD_FY2025_1A_risk_factors_070",
+    "GILD_FY2025_1A_risk_factors_009",
+    "GILD_FY2025_1A_risk_factors_021",
+    "GILD_FY2025_1A_risk_factors_067"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_058",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GILD_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GILD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_067",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

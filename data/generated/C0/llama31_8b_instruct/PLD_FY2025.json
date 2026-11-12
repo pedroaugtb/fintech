@@ -1,0 +1,209 @@
+{
+  "ticker": "PLD",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Prologis' FY2025 financial performance was marked by strong rent growth, favorable lease mark-to-market, and increased development activity. However, the company's leverage and liquidity positions require close monitoring due to ongoing economic uncertainty. The company's profitability remains strong, driven by embedded rent growth in its in-place portfolio and development pipeline. Key risks include potential economic downturns and interest rate fluctuations.",
+    "claims": [
+      {
+        "claim_id": "EVIDENCE_1",
+        "text": "As of December 31, 2025, Prologis' total debt was $35.0 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_2",
+        "text": "Prologis' weighted average term of debt is 9 years.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_3",
+        "text": "Prologis' effective interest rate is 3.2%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_4",
+        "text": "Prologis' total available liquidity was $7.6 billion as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_5",
+        "text": "Prologis' available capacity on credit facilities was $6.5 billion as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_6",
+        "text": "Prologis' unrestricted cash balances were $1.1 billion as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_7",
+        "text": "Prologis' operating results in FY2025 reflected favorable mark-to-market of existing leases, resulting in a 18% positive mark-to-market.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_8",
+        "text": "Prologis' occupancy in its operating portfolio was 95.6% as of December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_9",
+        "text": "Prologis' rent change on leases that commenced during FY2025 was 50.1% on a net effective basis.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_10",
+        "text": "Prologis' development activity in FY2025 included $2.9 billion of consolidated development projects.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_11",
+        "text": "Prologis' build-to-suit projects accounted for 60.9% of its consolidated development projects in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_12",
+        "text": "Prologis' economic uncertainty may impact its business, future financial condition, and operating results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_13",
+        "text": "Prologis' interest rate may fluctuate, impacting its financial condition and operating results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_14",
+        "text": "Prologis' ability to access credit facilities may be impacted by its available commitments.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_15",
+        "text": "Prologis' ability to issue commercial paper notes may be impacted by its available commitments under its credit facilities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PLD_FY2025_7_mdna_004",
+    "PLD_FY2025_7_mdna_003",
+    "PLD_FY2025_7_mdna_005",
+    "PLD_FY2025_7_mdna_000",
+    "PLD_FY2025_7_mdna_002"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001193125-26-051453",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001193125-26-051453",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001193125-26-051453",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001193125-26-051453",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001193125-26-051453",
+      "retrieval_topic": "profitability"
+    }
+  ]
+}

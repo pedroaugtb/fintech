@@ -1,0 +1,253 @@
+{
+  "ticker": "HON",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Honeywell International Inc. (HON) has a significant amount of long-term debt, with a total of $27,141 million as of FY2025. The company's liquidity position is strong, with cash and cash equivalents increasing by $1,920 million in FY2025. HON's profitability has been affected by changes in assets and liabilities, with a net change of $529 million in contract assets and a net change of $236 million in contract liabilities. The company faces various risks, including litigation and environmental liabilities, which could have a material adverse effect on its consolidated financial position. However, HON does not expect these risks to have a material impact on its financial position.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "HON had a total of $27,141 million in long-term debt as of FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "HON's cash and cash equivalents increased by $1,920 million in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "HON's net change in contract assets was $529 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_072"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "HON's net change in contract liabilities was $236 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_072"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "HON faces various risks, including litigation and environmental liabilities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_176",
+          "HON_FY2025_1A_risk_factors_159"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "HON does not expect litigation and environmental liabilities to have a material adverse effect on its consolidated financial position.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_176",
+          "HON_FY2025_1A_risk_factors_159"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "HON's total long-term debt increased by $1,701 million from FY2024 to FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "HON's cash and cash equivalents decreased by $2,642 million from FY2024 to FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "HON's net operating loss, capital loss, tax credit carryforwards, and other attributes were $4,575 million as of FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_091"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "HON recognized revenue of $1,964 million from contract assets in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_072"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "HON recognized revenue of $2,101 million from contract assets in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_072"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "HON has approximately 667 locations, of which 142 are manufacturing sites.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "HON has approximately 220 locations in the United States, of which 50 are manufacturing sites.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "HON has approximately 234 locations in Europe, of which 46 are manufacturing sites.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "HON has approximately 213 locations in other international areas, of which 46 are manufacturing sites.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "HON_FY2025_1A_risk_factors_102",
+    "HON_FY2025_1A_risk_factors_062",
+    "HON_FY2025_1A_risk_factors_016",
+    "HON_FY2025_1A_risk_factors_129",
+    "HON_FY2025_1A_risk_factors_017",
+    "HON_FY2025_1A_risk_factors_091",
+    "HON_FY2025_1A_risk_factors_015",
+    "HON_FY2025_1A_risk_factors_072",
+    "HON_FY2025_1A_risk_factors_176",
+    "HON_FY2025_1A_risk_factors_000",
+    "HON_FY2025_1A_risk_factors_159"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_102",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_129",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_091",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_072",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_176",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_159",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

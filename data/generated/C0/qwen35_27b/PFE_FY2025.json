@@ -1,0 +1,247 @@
+{
+  "ticker": "PFE",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Pfizer's FY2025 leverage increased due to debt financing for Seagen and Metsera acquisitions, raising concerns over credit rating downgrades and reduced financial flexibility. Liquidity remains exposed to global economic volatility, trade tensions, and capital market disruptions. Profitability faces pressure from potential asset impairments, integration challenges, and equity investment volatility. Key risks include regulatory changes like the OBBBA, pricing pressures, and heavy revenue concentration in 12 products comprising 65% of total sales.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Pfizer incurred substantial indebtedness to fund the acquisitions of Seagen and Metsera.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_171"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Future business development transactions may require additional equity or debt financing, potentially increasing leverage.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_171",
+          "PFE_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Increased indebtedness could result in a downgrade of Pfizer's credit ratings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_171",
+          "PFE_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "High debt levels reduce operating and financial flexibility by requiring cash flow for interest payments.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_172"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Global economic conditions, including inflation and recession, pose risks to Pfizer's liquidity position.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_119"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Liquidity is exposed to volatility in capital markets and potential lack of liquidity in emerging markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_119"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Changes in the fair value of equity investments recognized in net income may increase income volatility.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_181"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Failure to achieve anticipated cost savings or revenue growth from acquisitions may impact profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_173"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Unsuccessful clinical trials or commercialization challenges could lead to impairment of acquired assets.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_172",
+          "PFE_FY2025_1A_risk_factors_173"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Twelve products accounted for 65% of total revenues in FY2025, creating concentration risk.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_113"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Eliquis alone accounted for 13% of total revenues in FY2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_113"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "The One Big Beautiful Bill Act (OBBBA), enacted July 4, 2025, introduces regulatory uncertainty.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_7_mdna_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Government-mandated price reductions and access restrictions in markets like China and Europe pose risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_7_mdna_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Legal proceedings, including environmental contamination and tax litigation, present financial contingencies.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_7_mdna_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Integration of acquired businesses risks loss of key employees and disruption of ongoing operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_173"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PFE_FY2025_1A_risk_factors_171",
+    "PFE_FY2025_1A_risk_factors_172",
+    "PFE_FY2025_7_mdna_016",
+    "PFE_FY2025_7_mdna_011",
+    "PFE_FY2025_1A_risk_factors_119",
+    "PFE_FY2025_1A_risk_factors_181",
+    "PFE_FY2025_1A_risk_factors_173",
+    "PFE_FY2025_7_mdna_025",
+    "PFE_FY2025_1A_risk_factors_000",
+    "PFE_FY2025_1A_risk_factors_113"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_171",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_172",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PFE_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PFE_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_119",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_181",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_173",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PFE_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_113",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

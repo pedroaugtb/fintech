@@ -1,0 +1,251 @@
+{
+  "ticker": "CL",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "The company's financial health is impacted by various factors, including leverage, liquidity, and profitability. The company's leverage is affected by disruptions in the credit markets, changes in credit ratings, and the assumption of debt from acquisitions. Liquidity is supported by strong free cash flow performance and efficient use of the balance sheet. Profitability is impacted by factors such as raw material costs, pricing, and mix. The company also faces various risks, including those related to credit markets, qualified personnel, government regulations, natural disasters, and cybersecurity incidents. These risks could have a material and adverse impact on the company's business, results of operations, cash flows, and financial condition.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "The company's leverage is affected by disruptions in the credit markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "The company's liquidity is supported by strong free cash flow performance.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "The company's profitability is impacted by raw material costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "The company's profitability is impacted by pricing.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "The company's profitability is impacted by mix.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "The company's leverage is affected by changes in credit ratings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "The company's liquidity is impacted by the efficient use of the balance sheet.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "The company's profitability decreased by 500 basis points in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "The company's operating profit margin was 16.2% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "The company's operating profit margin decreased by 40 basis points in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "The company faces risks related to credit markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "The company faces risks related to qualified personnel.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "The company faces risks related to government regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "The company faces risks related to natural disasters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "The company faces risks related to cybersecurity incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CL_FY2025_1A_risk_factors_052",
+    "CL_FY2025_1A_risk_factors_022",
+    "CL_FY2025_1A_risk_factors_053",
+    "CL_FY2025_7_mdna_008",
+    "CL_FY2025_7_mdna_003",
+    "CL_FY2025_7_mdna_053",
+    "CL_FY2025_7_mdna_027",
+    "CL_FY2025_7_mdna_021",
+    "CL_FY2025_1A_risk_factors_025",
+    "CL_FY2025_1A_risk_factors_000",
+    "CL_FY2025_1A_risk_factors_038"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_053",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_053",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "ticker": "NFLX",
+  "fiscal_year": 2025,
+  "condition": "S0-attractive",
+  "stress_template": "attractive",
+  "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Netflix's substantial indebtedness and potential for increased debt, coupled with volatility in stock price and risks associated with the WBD transaction, suggest caution for potential investors.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Netflix has a substantial amount of indebtedness",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061",
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Netflix may incur additional indebtedness in the future",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Netflix may not be able to generate sufficient cash to service its debt",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Netflix may need to refinance or restructure its debt prior to maturity",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Netflix's ability to raise additional capital may be negatively impacted by difficult or costly capital markets",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Netflix's ability to raise additional capital may be negatively impacted by rising interest rates",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Netflix's ability to raise additional capital may be negatively impacted by fluctuations in foreign currency exchange rates",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Netflix's substantial indebtedness and other obligations, including streaming content obligations, may require it to use a substantial amount of cash",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Netflix's results of operations may be adversely impacted by its substantial indebtedness",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Netflix may seek additional capital that may result in stockholder dilution",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Netflix may have to comply with more onerous covenants if it refinances or restructures its debt",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Netflix's substantial indebtedness and other obligations, including streaming content obligations, could adversely affect its financial position",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Netflix's ability to make payments on its debt and other obligations will depend on its financial and operating performance",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Netflix's substantial indebtedness and other obligations, including streaming content obligations, may require it to use a substantial amount of cash in the near-term",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Netflix's liquidity and results of operations could be adversely affected if revenue growth does not meet expectations",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NFLX_FY2025_1A_risk_factors_064",
+    "NFLX_FY2025_1A_risk_factors_061",
+    "NFLX_FY2025_1A_risk_factors_062",
+    "NFLX_FY2025_1A_risk_factors_060",
+    "NFLX_FY2025_1A_risk_factors_059",
+    "NFLX_FY2025_7_mdna_000",
+    "NFLX_FY2025_1A_risk_factors_075",
+    "NFLX_FY2025_1A_risk_factors_077",
+    "NFLX_FY2025_1A_risk_factors_076",
+    "NFLX_FY2025_1A_risk_factors_054",
+    "NFLX_FY2025_1A_risk_factors_079"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_064",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_077",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_079",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

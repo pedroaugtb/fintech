@@ -1,0 +1,245 @@
+{
+  "ticker": "PM",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "PM's total debt increased to $48.8 billion in FY2025 from $45.7 billion in FY2024, with a weighted-average maturity of approximately 7 years. Cash and cash equivalents rose to $4.9 billion, though significant portions are held in foreign subsidiaries subject to capital controls. Net cash used in financing activities decreased to $8.1 billion, driven by lower debt repayments compared to 2024, while dividends increased to $8.6 billion. Key risks include declining cigarette consumption, foreign currency fluctuations impacting profitability, and potential operational disruptions from cybersecurity and AI integration challenges. The company maintains investment-grade credit ratings with stable or positive outlooks.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Total debt was $48.8 billion at December 31, 2025, compared to $45.7 billion at December 31, 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "The weighted-average time to maturity of long-term debt was approximately 7 years at the end of 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Credit ratings as of February 6, 2026, include Moody's A2 (Stable), S&P A- (Positive), and Fitch A (Stable).",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "Cash and cash equivalents were $4.9 billion at December 31, 2025, up from $4.2 billion in 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_077",
+          "PM_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Significant cash holdings include $2.3 billion held in Russia as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Capital controls in jurisdictions like Argentina and Russia may restrict the ability to pay dividends or settle imports.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Net cash used in financing activities was $8.1 billion in 2025, a decrease from $9.5 billion in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Dividends paid increased to $8.6 billion in 2025 from $8.2 billion in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Foreign currency fluctuations may reduce net revenues, operating income, and EPS.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Consumption of tax-paid cigarettes is declining due to increased taxes, pricing, and health concerns.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PM_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Declining cigarette consumption could materially adversely affect revenues, cash flows, and profitability.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PM_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Cyberattacks and security incidents could result in data breaches, business disruption, and significant fines.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PM_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "AI integration involves risks of operational disruptions, data loss, and system failures.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PM_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Capital expenditures were $1.6 billion in 2025, primarily for smoke-free product manufacturing capacity.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Foreign currency denominated debt and derivatives are subject to exchange rate fluctuations, primarily between the Euro and U.S. Dollar.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PM_FY2025_7_mdna_078",
+    "PM_FY2025_7_mdna_077",
+    "PM_FY2025_7_mdna_074",
+    "PM_FY2025_7_mdna_076",
+    "PM_FY2025_1A_risk_factors_046",
+    "PM_FY2025_7_mdna_072",
+    "PM_FY2025_7_mdna_073",
+    "PM_FY2025_1A_risk_factors_011",
+    "PM_FY2025_1A_risk_factors_056",
+    "PM_FY2025_1A_risk_factors_060"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PM_FY2025_7_mdna_078",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_077",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_074",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_072",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_073",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

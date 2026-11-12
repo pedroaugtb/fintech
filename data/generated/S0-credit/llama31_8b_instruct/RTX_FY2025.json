@@ -1,0 +1,215 @@
+{
+  "ticker": "RTX",
+  "fiscal_year": 2025,
+  "condition": "S0-credit",
+  "stress_template": "credit",
+  "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Based on the provided evidence, we recommend declining the USD 500 million unsecured credit facility to RTX. The company's high leverage, liquidity risks, and operational risks outweigh its potential profitability. The company's operating profit margin has decreased from 10.5% in 2023 to 10.5% in 2025, indicating a lack of improvement in profitability. Additionally, the company faces significant risks from supply chain disruptions, cybersecurity threats, and potential patent enforcement actions, which could negatively impact its liquidity and financial condition. Furthermore, the company's dependence on the aerospace industry, which is cyclical in nature, adds to its liquidity risks. Given these factors, we believe that approving the credit facility would increase the bank's risk exposure to RTX.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "RTX's operating profit margin has decreased from 10.5% in 2023 to 10.5% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "RTX faces significant risks from supply chain disruptions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "RTX faces significant risks from cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "RTX's dependence on the aerospace industry adds to its liquidity risks.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "RTX's operating profit has increased from $3,561 million in 2023 to $9,300 million in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "RTX's total net sales have increased from $68,920 million in 2023 to $88,603 million in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "RTX's leverage has increased.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "RTX's liquidity risks are high.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "RTX's financial performance is dependent on the condition of the aerospace industry.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "RTX's business and financial performance may be adversely affected by cyber-attacks on information technology (IT) infrastructure and products.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "RTX's ability to protect and enforce its intellectual property rights may be limited in certain countries outside the U.S.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "RTX may be subject to disruptions, losses, and liability resulting from various cybersecurity attacks or IT failures.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "RTX's competitive position may be adversely impacted by limitations on its ability to obtain possession of, and ownership of, necessary licenses concerning data important to the development or provision of its products or service offerings.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "RTX may experience prolonged delays for certain critical component parts and sub-systems.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "RTX may experience declines in revenues and industry segment share which could have a material adverse effect on its competitive position, results of operations, financial condition, or liquidity.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "RTX_FY2025_7_mdna_017",
+    "RTX_FY2025_1A_risk_factors_039",
+    "RTX_FY2025_1A_risk_factors_009",
+    "RTX_FY2025_1A_risk_factors_019",
+    "RTX_FY2025_1A_risk_factors_068",
+    "RTX_FY2025_7_mdna_011",
+    "RTX_FY2025_1A_risk_factors_041",
+    "RTX_FY2025_1A_risk_factors_035",
+    "RTX_FY2025_1A_risk_factors_032",
+    "RTX_FY2025_1A_risk_factors_056"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "RTX_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "RTX_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "ticker": "PSA",
+  "fiscal_year": 2025,
+  "condition": "S0-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Recommendation: HOLD. PSA's FY2025 results show deteriorating profitability, with net income per share falling 15% to $9.01, driven by a $318M surge in foreign exchange losses and higher interest expenses. While self-storage net operating income grew $53M, same-store facilities saw revenue stagnation due to declining occupancy. Liquidity is constrained by elevated interest rates increasing refinancing costs and potential impediments to capital repatriation from Shurgard. Significant risks include regulatory constraints on rent collection, cyber threats, and leadership transition uncertainty. Given the margin compression and macroeconomic headwinds, the stock warrants a hold until profitability stabilizes.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net income allocable to common shareholders decreased to $1.6 billion ($9.01 per share) in 2025 from $1.9 billion ($10.64 per share) in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "The decline in 2025 net income was primarily driven by a $317.8 million increase in foreign currency exchange losses.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Interest expense increased by $17.1 million in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Self-storage net operating income increased by $53.1 million in 2025, driven by Non-Same Store Facilities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Same Store Facilities experienced a $15.3 million decrease in net operating income due to declining average occupancy.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "FFO per diluted common share decreased 8.0% to $15.81 in 2025 from $17.19 in 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Elevated interest rates significantly increase the cost of refinancing indebtedness or issuing new debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Higher interest rates adversely impact the relative attractiveness of the company's common share dividend yield.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Laws in Europe and the U.S. may impede or increase the cost of repatriating distributions from Shurgard.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Government restrictions may limit the ability to collect rent or evict delinquent tenants.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Economic uncertainty and unemployment increases could lead to lower occupancies and rent roll-down.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The company faces risks from cyberattacks where insurance coverage may be inadequate for incurred losses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Recent leadership changes in the Chairman, CEO, and CFO roles pose execution risks to the strategic plan.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Potential losses from bridge loans could materially adversely affect operating revenue if borrower forecasts prove incorrect.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Compliance with evolving data privacy and securities laws imposes significant costs and operational risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PSA_FY2025_1A_risk_factors_014",
+    "PSA_FY2025_1A_risk_factors_009",
+    "PSA_FY2025_1A_risk_factors_029",
+    "PSA_FY2025_1A_risk_factors_012",
+    "PSA_FY2025_7_mdna_010",
+    "PSA_FY2025_7_mdna_006",
+    "PSA_FY2025_7_mdna_007",
+    "PSA_FY2025_7_mdna_008",
+    "PSA_FY2025_1A_risk_factors_044",
+    "PSA_FY2025_1A_risk_factors_026"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

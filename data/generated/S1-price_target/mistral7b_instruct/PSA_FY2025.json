@@ -1,0 +1,215 @@
+{
+  "ticker": "PSA",
+  "fiscal_year": 2025,
+  "condition": "S1-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "PSA's FY2025 10-K indicates potential risks to the company's leverage, liquidity, profitability, and operations. Leverage risks include elevated interest rates, government regulations, and lending decisions. Liquidity risks include impediments to capital repatriation, collective bargaining, and potential operating and country risks. Profitability risks include economic slowdowns, increased costs, and compliance with laws and regulations. The company's FFO and net income have decreased in the last two years. The shares' 12-month price target cannot be determined from the provided evidence.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company operates in the self-storage industry.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Elevated interest rates could adversely impact the company and its tenants.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Government restrictions could adversely impact the company's operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Change in move-out patterns could lead to lower occupancies and rent roll down.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Negative impacts on cost and availability of debt and equity capital could impact the company's capital and growth plans.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Economic conditions can adversely affect the company's results of operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company could incur losses from lending decisions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Impediments to capital repatriation could negatively impact the realization of the company's investment in Shurgard.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Risks of collective bargaining could negatively impact Shurgard’s labor costs or operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Potential operating and individual country risks could pose challenges or result in future reductions of Shurgard’s operating cash flows.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The company has no plans to liquidate its interest in Shurgard, but its ability to liquidate shares in Shurgard in an efficient manner could be limited.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Historical costs and depreciation impact FFO and FFO per share.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "FFO and FFO per share are not a substitute for net income or earnings per share.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company's FFO decreased in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The company's net income allocable to common shareholders decreased in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PSA_FY2025_1A_risk_factors_014",
+    "PSA_FY2025_1A_risk_factors_009",
+    "PSA_FY2025_1A_risk_factors_029",
+    "PSA_FY2025_1A_risk_factors_012",
+    "PSA_FY2025_7_mdna_010",
+    "PSA_FY2025_7_mdna_006",
+    "PSA_FY2025_7_mdna_007",
+    "PSA_FY2025_7_mdna_008",
+    "PSA_FY2025_1A_risk_factors_044",
+    "PSA_FY2025_1A_risk_factors_026"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

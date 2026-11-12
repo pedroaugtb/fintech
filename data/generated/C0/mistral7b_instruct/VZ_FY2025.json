@@ -1,0 +1,199 @@
+{
+  "ticker": "VZ",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Verizon's FY2025 10-K indicates a slight increase in total interest expense, primarily due to a decrease in capitalized interest due to additional C-Band spectrum licenses being placed into service, partially offset by a decrease in interest costs due to lower average debt balances and a lower interest rate. The effective interest rate was 5.0%, a slight increase from 2024. The average debt outstanding was $147,406, a decrease from 2024. The company's liquidity position appears strong, with $131.1 billion of outstanding unsecured indebtedness, $12.0 billion of unused borrowing capacity under their existing revolving credit facility and $27.1 billion of outstanding secured indebtedness. Profitability was impacted by a number of factors, including workforce reductions and an increase in asset and business rationalization charges. The company's profitability measures, such as segment operating income margin and segment EBITDA, were down compared to 2024. Risk factors include competition, potential labor disputes, damage to reputation or brands, and cybersecurity risks.",
+    "claims": [
+      {
+        "claim_id": "VZ_FY2025_7_mdna_014",
+        "text": "Total interest expense increased during 2025 compared to 2024 primarily as a result of a decrease in capitalized interest due to additional C-Band spectrum licenses being placed into service, partially offset by a decrease in interest costs due to lower average debt balances and a lower interest rate.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_7_mdna_005",
+        "text": "Verizon requires a significant amount of capital to operate and grow their business. During the year ended December 31, 2025, these investments included $17.0 billion for capital expenditures.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_7_mdna_012",
+        "text": "Profitability was impacted by e number of retail postpaid connections per retail postpaid account as of the end of the period. Wireless retail postpaid connections per account is calculated by dividing the total number of retail postpaid connections by the number of retail postpaid accounts as of the end of the period.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_1A_risk_factors_028",
+        "text": "As of December 31, 2025, Verizon had approximately $131.1 billion of outstanding unsecured indebtedness, $12.0 billion of unused borrowing capacity under their existing revolving credit facility and $27.1 billion of outstanding secured indebtedness.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_1A_risk_factors_029",
+        "text": "Verizon's debt level and related debt service obligations could have negative consequences, including: requiring us to dedicate significant cash flow from operations to the payment of principal, interest and other amounts payable on our debt, which would reduce the funds we have available for other purposes, such as working capital, capital expenditures, dividend payments, share repurchases and acquisitions; making it more difficult or expensive for us to obtain any necessary future financing for working capital, capital expenditures, debt service requirements, debt refinancing, acquisitions or other purposes; reducing our flexibility in planning for or reacting to changes in our industries and market conditions; making us more vulnerable in the event of a downturn in our business; and exposing us to increased interest rate risk to the extent that (i) our debt obligations are subject to variable interest rates or (ii) we need to refinance existing debt that bears interest at a rate lower than current market rates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_7_mdna_028",
+        "text": "The number of retail postpaid connections per retail postpaid account as of the end of the period is calculated by dividing the total number of retail postpaid connections by the number of retail postpaid accounts as of the end of the period.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_7_mdna_013",
+        "text": "Net income was $107, with Other income (expense), net reflecting certain items not directly related to our core operations, including interest income, debt extinguishment gains, components of net periodic pension and postretirement benefit income and cost and certain foreign exchange gains and losses.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_1A_risk_factors_000",
+        "text": "The following discussion of 'Risk Factors' identifies factors that may adversely affect our business, operations, financial condition or future performance. This information should be read in conjunction with 'Management’s Discussion and Analysis of Financial Condition and Result of Operations' and the consolidated financial statements and related notes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_1A_risk_factors_018",
+        "text": "Damage to our reputation or brands could adversely affect our business. We believe that our reputation and brands significantly contribute to the success of our business and our relationships with our customers, employees and other stakeholders.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_1A_risk_factors_011",
+        "text": "The rapid evolution and increased adoption of artificial intelligence technologies may intensify our cybersecurity risks by increasing the frequency and severity of cyberattacks against us or other companies and by making cyberattacks more difficult to detect, contain or mitigate.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "VZ_FY2025_7_mdna_014",
+    "VZ_FY2025_1A_risk_factors_028",
+    "VZ_FY2025_1A_risk_factors_029",
+    "VZ_FY2025_7_mdna_005",
+    "VZ_FY2025_7_mdna_012",
+    "VZ_FY2025_7_mdna_028",
+    "VZ_FY2025_7_mdna_013",
+    "VZ_FY2025_1A_risk_factors_000",
+    "VZ_FY2025_1A_risk_factors_018",
+    "VZ_FY2025_1A_risk_factors_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

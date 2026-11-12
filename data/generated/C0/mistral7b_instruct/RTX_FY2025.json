@@ -1,0 +1,244 @@
+{
+  "ticker": "RTX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "RTX's FY2025 financial performance shows a significant improvement in profitability with a 10.5% operating profit margin, up from 6.5% in FY2024. However, the company faces several risks that may impact its leverage, liquidity, and profitability. Leverage risks include supply chain disruptions, increased costs due to inflation, labor market shortages, and geopolitical conflicts. Liquidity risks are associated with the cyclical nature of the aerospace industry, which affects capital spending and demand for aircraft engines, aerospace products, and component aftermarket parts and services. Profitability risks include prolonged delays for critical component parts and sub-systems, increased operational and compliance expenditures due to evolving cybersecurity regulations, and potential cyber-attacks. Additionally, RTX faces risks related to intellectual property rights, patent enforcement actions, and data licensing limitations.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "RTX's operating profit margin increased from 6.5% in FY2024 to 10.5% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Supply chain disruptions are a leverage risk for RTX.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Inflation and labor market shortages are leverage risks for RTX.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Geopolitical conflicts are leverage risks for RTX.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The aerospace industry is cyclical and affects RTX's liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Capital spending and demand for aircraft engines, aerospace products, and component aftermarket parts and services are influenced by various factors.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Prolonged delays for critical component parts and sub-systems are profitability risks for RTX.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Evolving cybersecurity regulations increase operational and compliance expenditures for RTX.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Cyber-attacks pose a risk to RTX's IT infrastructure and products.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Limits on intellectual property rights may impact RTX's competitive position.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Patent enforcement actions may affect RTX's competitive position and sales.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Data licensing limitations may impact RTX's competitive position.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Cybersecurity attacks and IT failures may disrupt RTX's sales and marketing.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Judgments, penalties, and significant litigation costs may result from cybersecurity attacks or IT failures.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "RTX faces risks related to intellectual property rights, patent enforcement actions, and data licensing limitations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "RTX_FY2025_7_mdna_017",
+    "RTX_FY2025_1A_risk_factors_039",
+    "RTX_FY2025_1A_risk_factors_009",
+    "RTX_FY2025_1A_risk_factors_019",
+    "RTX_FY2025_1A_risk_factors_068",
+    "RTX_FY2025_7_mdna_011",
+    "RTX_FY2025_1A_risk_factors_041",
+    "RTX_FY2025_1A_risk_factors_035",
+    "RTX_FY2025_1A_risk_factors_032",
+    "RTX_FY2025_1A_risk_factors_056"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "RTX_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "RTX_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

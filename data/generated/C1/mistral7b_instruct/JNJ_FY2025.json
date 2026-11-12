@@ -1,0 +1,139 @@
+{
+  "ticker": "JNJ",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Johnson & Johnson's FY2025 10-K highlights several risks that may impact the company's leverage, liquidity, profitability, and overall operations. The company faces potential tariff-related uncertainties and risks to its global operations (JNJ_FY2025_1A_risk_factors_032). Weak financial performance, credit rating downgrades, or financial market disruptions could adversely affect the company's liquidity, capital position, borrowing costs, and access to capital markets (JNJ_FY2025_1A_risk_factors_000). The planned separation of the Orthopaedics business may not be completed on the terms or timeline currently contemplated (JNJ_FY2025_7_mdna_015). Legal proceedings, government investigations, and other legal matters pose risks to the company (Johnson & Johnson and certain of its subsidiaries are involved in various lawsuits and claims regarding product liability, intellectual property, commercial, employment, indemnification and other matters; governmental investigations; and other legal proceedings that arise from time to time) (JNJ_FY2025_7_mdna_000, JNJ_FY2025_7_mdna_020).",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company faces potential tariff-related uncertainties and risks to its global operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Weak financial performance, credit rating downgrades, or financial market disruptions could adversely affect the company's liquidity, capital position, borrowing costs, and access to capital markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The planned separation of the Orthopaedics business may not be completed on the terms or timeline currently contemplated.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Legal proceedings, government investigations, and other legal matters pose risks to the company.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_000",
+          "JNJ_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "JNJ_FY2025_1A_risk_factors_032",
+    "JNJ_FY2025_1A_risk_factors_000",
+    "JNJ_FY2025_7_mdna_015",
+    "JNJ_FY2025_1A_risk_factors_033",
+    "JNJ_FY2025_7_mdna_018",
+    "JNJ_FY2025_7_mdna_000",
+    "JNJ_FY2025_7_mdna_009",
+    "JNJ_FY2025_7_mdna_020",
+    "JNJ_FY2025_1A_risk_factors_016"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

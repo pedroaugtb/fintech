@@ -1,0 +1,195 @@
+{
+  "ticker": "MCD",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "McDonald's FY2025 results show revenue growth to $26.9B and operating income of $12.4B, driven by franchise expansion. However, profitability faces headwinds from volatile commodity costs and rising interest expenses. Liquidity remains robust with significant operating cash flow supporting 50 consecutive years of dividends and share repurchases. Key risks include credit rating downgrades, geopolitical instability, and cybersecurity threats. While the company maintains strong fundamentals, external macroeconomic pressures and potential covenant restrictions pose financial flexibility risks. The provided 10-K evidence does not contain sufficient data to establish a 12-month price target or determine if shares are undervalued or overvalued.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total revenues increased to $26,885 million in FY2025 from $25,920 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Operating income rose to $12,393 million in FY2025 compared to $11,712 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Net interest expense increased to $1,582 million in FY2025 from $1,506 million in FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Credit ratings may be negatively affected by changes in debt levels or operating results, potentially increasing funding costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The company has paid dividends on common stock for 50 consecutive years through 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Management utilizes excess cash flow for dividends and share repurchases to return value to shareholders.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Regulations affecting capital flows could limit the company's ability to manage liquidity or increase funding costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_039",
+          "MCD_FY2025_7_mdna_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Volatile commodity markets for ingredients like beef and chicken pose a risk to restaurant profitability.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038",
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Cybersecurity threats remain a material risk, though no material adverse effect occurred in 2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Geopolitical unrest, severe weather, and climate change can adversely affect operations and supply availability.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Unfavorable legal rulings could result in a material adverse impact on net income.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The provided 10-K evidence does not contain analyst price targets or valuation metrics required to determine if shares are undervalued or overvalued.",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MCD_FY2025_1A_risk_factors_038",
+    "MCD_FY2025_7_mdna_047",
+    "MCD_FY2025_7_mdna_076",
+    "MCD_FY2025_7_mdna_007",
+    "MCD_FY2025_1A_risk_factors_039",
+    "MCD_FY2025_7_mdna_048",
+    "MCD_FY2025_7_mdna_077",
+    "MCD_FY2025_7_mdna_062",
+    "MCD_FY2025_7_mdna_055",
+    "MCD_FY2025_7_mdna_056",
+    "MCD_FY2025_7_mdna_053"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MCD_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_047",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_048",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_077",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_062",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_055",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_056",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_053",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

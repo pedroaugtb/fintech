@@ -1,0 +1,244 @@
+{
+  "ticker": "SCHW",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "The Charles Schwab Corporation's FY2025 10-K indicates several risk factors that may impact the company's financial performance. Leverage risks include increased regulatory capital requirements, higher FDIC premiums, and special assessments, which could negatively impact profitability. Liquidity risks include significant decreases in securities lending activities, credit risk associated with investment portfolios, and potential disruptions in the credit and capital markets. Profitability risks include significant interest rate changes, client movement of cash balances out of sweep features, and a decline in short-term interest rates. Risk factors include extensive regulatory supervision, compliance risks, and other business risks.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company is subject to increased regulatory capital requirements",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The company is subject to higher FDIC premiums and special assessments",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company took measures to increase its capital",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The cost of resolving bank failures resulted in increased FDIC costs",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company has established policies and procedures to manage credit risk",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SCHW_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The company has exposure to credit risk associated with its investment portfolios",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SCHW_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "A significant decrease in securities lending activities could negatively impact the company",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SCHW_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company saw a significant decrease in clients’ asset allocation to sweep cash",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company extensively utilized higher-cost funding sources",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "A decline in interest rates may have a negative impact on the company’s net interest revenue",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The company could be adversely affected by a decline in interest rates if the rates that the Company earns on interest-earning assets decline more than the rates it pays on deposits",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "A reduction in the company’s liquidity position could reduce client confidence in us",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The company maintains diversified sources of funding",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "A downgrade in the company’s credit ratings could increase its borrowing costs and limit its access to the capital markets",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "When short-term interest rates rapidly increase, client movement of certain cash balances out of our sweep features and into higher-yielding alternatives generally increases",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SCHW_FY2025_1A_risk_factors_008",
+    "SCHW_FY2025_7_mdna_020",
+    "SCHW_FY2025_1A_risk_factors_003",
+    "SCHW_FY2025_1A_risk_factors_012",
+    "SCHW_FY2025_1A_risk_factors_009",
+    "SCHW_FY2025_7_mdna_026",
+    "SCHW_FY2025_7_mdna_028",
+    "SCHW_FY2025_1A_risk_factors_032",
+    "SCHW_FY2025_1A_risk_factors_041",
+    "SCHW_FY2025_1A_risk_factors_047"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

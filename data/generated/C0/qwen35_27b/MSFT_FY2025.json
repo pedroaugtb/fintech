@@ -1,0 +1,245 @@
+{
+  "ticker": "MSFT",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Microsoft reported strong FY2025 profitability with 15% revenue growth to $281.7B and 17% operating income growth, driven by Azure and Microsoft 365. Liquidity remains robust with $94.6B in cash and equivalents, sufficient to fund operations and commitments. Leverage is managed through significant contractual obligations totaling $397B, including $49.2B in long-term debt principal. Key risks include foreign exchange volatility, supply chain disruptions from trade policies, and estimation uncertainties in revenue recognition and goodwill impairment.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "FY2025 revenue increased 15% to $281.7 billion compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Operating income grew 17% to $128.5 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Microsoft Cloud gross margin percentage decreased to 69% due to AI infrastructure scaling costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Cash, cash equivalents, and short-term investments totaled $94.6 billion as of June 30, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Management expects existing cash and capital market access to fund operations for at least the next 12 months.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Cash used in investing activities decreased $24.4 billion to $72.6 billion in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Total long-term debt principal payments due are $49.2 billion as of June 30, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Total contractual obligations, including debt, leases, and purchase commitments, sum to approximately $397 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Debt proceeds are utilized for general corporate purposes including capital expenditures and share repurchases.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Foreign exchange rate fluctuations pose a risk to revenue and expenses from international operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Global trade policy changes and tariffs could increase supply chain challenges and cost volatility.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Revenue recognition requires significant judgment regarding variable consideration and delivery patterns.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_045",
+          "MSFT_FY2025_7_mdna_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Goodwill impairment testing relies on judgment regarding reporting unit fair value and business climate changes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Revenue is seasonal, typically higher in the fourth fiscal quarter due to multi-year contract volumes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Impairment of investment securities requires evaluation of market conditions and credit quality.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_049"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MSFT_FY2025_7_mdna_041",
+    "MSFT_FY2025_7_mdna_039",
+    "MSFT_FY2025_7_mdna_049",
+    "MSFT_FY2025_7_mdna_033",
+    "MSFT_FY2025_7_mdna_037",
+    "MSFT_FY2025_7_mdna_016",
+    "MSFT_FY2025_7_mdna_015",
+    "MSFT_FY2025_7_mdna_007",
+    "MSFT_FY2025_7_mdna_045",
+    "MSFT_FY2025_7_mdna_051"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_041",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_049",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_033",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_045",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_051",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

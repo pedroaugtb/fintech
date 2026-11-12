@@ -1,0 +1,247 @@
+{
+  "ticker": "DD",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "DuPont maintains $1.7B in net working capital and $0.7B in cash, supporting liquidity for operations and debt obligations. The company actively managed leverage by redeeming $226M of 2038 Notes in November 2025, though credit rating downgrades could increase borrowing costs. Profitability faces headwinds from complex tax law changes under the OBBBA and reliance on operational streamlining to drive margins. Key risks include significant exposure to PFAS litigation, cybersecurity threats from M&A integration, and potential failure to realize targeted cost synergies.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "As of December 31, 2025, the company held $1.7 billion in net working capital.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DD_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "As of December 31, 2025, the company held $0.7 billion in cash and cash equivalents.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DD_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "In November 2025, DuPont redeemed $226 million aggregate principal of its 2038 Notes.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DD_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "A decrease in credit ratings could negatively impact access to debt capital markets and increase borrowing costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_048",
+          "DD_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The company recognized a gain of $31 million from interest rate swaps in 2025, compared to a $138 million loss in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DD_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Profitability depends on maintaining a streamlined operating model and realizing cost synergies through facility consolidation and AI.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "The enactment of the One Big Beautiful Bill Act (OBBBA) introduces complex changes to international corporate income tax laws affecting the effective tax rate.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "The company faces risks from unasserted and asserted litigation, including PFAS-related personal injury and natural resource damage claims.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_014",
+          "DD_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Cybersecurity threats associated with merger and acquisition integration activities could lead to material adverse business disruptions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Failure to successfully optimize the facilities footprint or eliminate duplicative programs could adversely impact results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The company relies on debt capital markets and short-term borrowings to finance long-term and day-to-day operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_048",
+          "DD_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "A cumulative fair value basis adjustment loss of $46 million was recorded on the 2038 notes at the time of the November 2025 redemption.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DD_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Changes in laws and regulations applicable to PFAS chemicals create uncertainty regarding future remediation obligations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "The company expects cash generated from operations and access to debt markets to provide sufficient liquidity for continued operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DD_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Inability to attract and retain talented employees could increase costs and adversely impact results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DD_FY2025_1A_risk_factors_048",
+    "DD_FY2025_7_mdna_018",
+    "DD_FY2025_1A_risk_factors_047",
+    "DD_FY2025_7_mdna_000",
+    "DD_FY2025_1A_risk_factors_061",
+    "DD_FY2025_1A_risk_factors_043",
+    "DD_FY2025_7_mdna_021",
+    "DD_FY2025_1A_risk_factors_035",
+    "DD_FY2025_1A_risk_factors_014",
+    "DD_FY2025_1A_risk_factors_015"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DD_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DD_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

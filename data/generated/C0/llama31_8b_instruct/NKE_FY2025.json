@@ -1,0 +1,237 @@
+{
+  "ticker": "NKE",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "As a leading consumer products company, Nike faces various risks that may impact its financial performance. The company's leverage, liquidity, profitability, and risk factors are discussed below. The company's long-term debt is rated Investment Grade, but a downgrade could increase borrowing costs and limit financing options. Liquidity risks include supply chain disruptions, retailer insolvency, and counterparty default. Profitability is affected by global economic conditions, consumer spending, and tax regulations. The company also faces risks from AI integration, cybersecurity threats, and licensee performance. These risks may impact the company's financial statements and operating results.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Nike's long-term debt is currently rated Investment Grade by Standard & Poor's and Moody's Investors Service.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "In July 2025, Nike's rating was downgraded by Standard & Poor's.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Any negative change to Nike's credit rating will increase borrowing costs for existing facilities and may increase borrowing costs for future long-term debt or short-term credit facilities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Our financing options, including our access to credit or capital markets, could be adversely affected.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "We may also be subject to restrictive covenants that would reduce our flexibility to, among other things, incur additional indebtedness, make restricted payments, pledge assets as security, make investments, loans, advances, guarantees and acquisitions, undergo fundamental changes and enter into transactions with affiliates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Failure to comply with such covenants could result in a default, and as a result, the commitments of our lenders under our credit agreements may be terminated.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Our EBIT Margin for fiscal 2025 was 8.2%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Our EBIT Margin for fiscal 2024 was 12.7%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Our EBIT Margin for fiscal 2023 was 12.1%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Our Revenues for fiscal 2025 were $46,309 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Our Revenues for fiscal 2024 were $51,362 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Our Revenues for fiscal 2023 were $51,217 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Our Net income for fiscal 2025 was $3,219 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Our Net income for fiscal 2024 was $5,700 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Our Net income for fiscal 2023 was $5,070 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NKE_FY2025_1A_risk_factors_087",
+    "NKE_FY2025_7_mdna_006",
+    "NKE_FY2025_7_mdna_005",
+    "NKE_FY2025_1A_risk_factors_008",
+    "NKE_FY2025_1A_risk_factors_051",
+    "NKE_FY2025_1A_risk_factors_082",
+    "NKE_FY2025_7_mdna_002",
+    "NKE_FY2025_1A_risk_factors_006",
+    "NKE_FY2025_1A_risk_factors_049"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_087",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NKE_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NKE_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_051",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_082",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NKE_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

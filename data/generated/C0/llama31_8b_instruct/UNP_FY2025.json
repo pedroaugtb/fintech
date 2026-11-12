@@ -1,0 +1,244 @@
+{
+  "ticker": "UNP",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "UNP's FY2025 financial performance was marked by operational excellence, core pricing gains, and productivity improvements, which offset inflation and acquisition-related costs. However, the company faces significant risks related to leverage, liquidity, profitability, and risk factors, including capital market instability, geopolitical tensions, and regulatory changes. The combined company's indebtedness may limit its flexibility and increase borrowing costs. The company's ability to arrange additional financing or refinancing will depend on its financial condition and performance. The completion of the mergers and integration of the businesses may incur substantial expenses and may not be successful in realizing expected operating efficiencies and cost savings. Climate change and market or regulatory responses to climate change may have a material adverse effect on the company's results of operations, financial condition, and liquidity. The company is subject to significant governmental regulation and may be affected by climate change, market or regulatory responses to climate change, and industry consolidation.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "UNP's leverage may restrict its access to commercial paper and other financing sources.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "UNP's financial condition may deteriorate due to internal or external factors.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "UNP's credit rating may be reduced to below investment grade.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "UNP's combined company may not have sufficient funds to satisfy all of its obligations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "UNP's combined company may be required to raise additional financing for working capital, capital expenditures, acquisitions, or other general corporate purposes.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "UNP's combined company may incur substantial expenses related to the completion of the mergers and the integration of the Company and Norfolk Southern.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "UNP's combined company may not be successful in realizing expected operating efficiencies and cost savings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "UNP's combined company may be subject to increased competition among industry participants.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "UNP's results of operations, financial condition, and liquidity may be affected by climate change and market or regulatory responses to climate change.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "UNP's operating income increased 1% from 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "UNP's operating ratio improved 10 basis points to 59.8% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "UNP generated $9.3 billion of cash provided by operating activities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "UNP's cash provided by operating activities was positively impacted by $0.3 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "UNP's free cash flow was $2.3 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "UNP's net income was $7.1 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "UNP_FY2025_1A_risk_factors_030",
+    "UNP_FY2025_1A_risk_factors_055",
+    "UNP_FY2025_1A_risk_factors_029",
+    "UNP_FY2025_1A_risk_factors_052",
+    "UNP_FY2025_7_mdna_004",
+    "UNP_FY2025_1A_risk_factors_015",
+    "UNP_FY2025_1A_risk_factors_050",
+    "UNP_FY2025_1A_risk_factors_014",
+    "UNP_FY2025_1A_risk_factors_022",
+    "UNP_FY2025_1A_risk_factors_033"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UNP_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_050",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

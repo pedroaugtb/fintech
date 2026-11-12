@@ -1,0 +1,181 @@
+{
+  "ticker": "COST",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "COST's FY2025 results show a 8% increase in net sales, driven by comparable sales growth and new warehouse openings. Gross margin percentage increased by 20 basis points, while SG&A expenses as a percentage of net sales increased by 11 basis points. The effective tax rate was 25.1%. The company opened 27 new warehouses, including three relocations, in FY2025. However, the company faces several risks, including the impact of foreign-exchange rates, gasoline prices, and regulations on its business, financial condition, and results of operations. IT systems play a crucial role in conducting COST's business, and any debilitating failure could have a serious impact.",
+    "claims": [
+      {
+        "claim_id": "COST_FY2025_7_mdna_002",
+        "text": "COST's comparable sales growth is achieved through increasing shopping frequency from new and existing members and the amount they spend on each visit (average ticket).",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_7_mdna_005",
+        "text": "Higher tariffs are more likely to adversely impact rather than improve COST's results.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_7_mdna_010",
+        "text": "COST's net income increased 10% to $8,099, or $18.21 per diluted share compared to $7,367, or $16.56 per diluted share in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_1A_risk_factors_002",
+        "text": "COST's growth is dependent, in part, on its ability to acquire property and build or lease new warehouses and depots.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_1A_risk_factors_003",
+        "text": "Failure to effectively manage regulations globally may affect COST's ability to timely build or lease and operate new warehouses and depots, which could have a material adverse effect on its future growth and profitability.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_1A_risk_factors_008",
+        "text": "Failure to deliver IT projects efficiently and effectively could result in the loss of COST's competitive position and adversely impact its financial condition and results of operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_1A_risk_factors_009",
+        "text": "Any substantial slowing or sustained decline in COST's California market, which comprises 26% of U.S. net sales, could have a material adverse effect on its financial and operational performance.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_1A_risk_factors_010",
+        "text": "Failure to maintain the privacy and security of personal and business information could damage COST's business, including its reputation with members, suppliers, and employees, cause it to incur substantial additional costs, and become subject to litigation and regulatory action.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "COST_FY2025_7_mdna_002",
+    "COST_FY2025_1A_risk_factors_002",
+    "COST_FY2025_7_mdna_005",
+    "COST_FY2025_7_mdna_010",
+    "COST_FY2025_1A_risk_factors_009",
+    "COST_FY2025_1A_risk_factors_008",
+    "COST_FY2025_1A_risk_factors_000",
+    "COST_FY2025_7_mdna_009",
+    "COST_FY2025_1A_risk_factors_003",
+    "COST_FY2025_1A_risk_factors_010"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "COST_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "ticker": "SLB",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "SLB navigated a challenging 2025 backdrop with resilient liquidity, generating $6.5B operating cash flow and $4.1B free cash flow to return $4.0B to shareholders. Global revenue declined 2% to $35.7B, driven by a 6% organic drop offset by the ChampionX acquisition. Profitability remained robust with Q4 pretax income of $943M, supported by strong Performance Systems and Digital growth. While leverage metrics are not explicitly detailed, the company maintains a strong balance sheet to fund a $4B+ 2026 shareholder return. Key risks include geopolitical uncertainty, oversupplied oil markets, and regional activity declines in Saudi Arabia and Sub-Saharan Africa, though management anticipates a 2026 recovery.",
+    "claims": [
+      {
+        "claim_id": "C01",
+        "text": "SLB generated $6.5 billion in cash flow from operations in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_001",
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C02",
+        "text": "Free cash flow for FY2025 totaled $4.1 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_001",
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C03",
+        "text": "The company returned $4.0 billion to shareholders in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_001",
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C04",
+        "text": "Global revenue declined 2% year-over-year to $35.7 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C05",
+        "text": "Excluding the ChampionX acquisition, revenue declined 6% year-over-year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C06",
+        "text": "Fourth Quarter 2025 pretax income was $943 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C07",
+        "text": "Data Center Solutions revenue grew 121% year-over-year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C08",
+        "text": "Digital revenue increased 9% on a full-year basis.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C09",
+        "text": "International revenue declined 5% year-over-year due to lower activity in Saudi Arabia, Mexico, and Sub-Saharan Africa.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "The company completed the acquisition of ChampionX for $4.9 billion in Q3 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Management anticipates returning more than $4 billion to shareholders in 2026.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "FY2025 faced headwinds including lower commodity prices and an oversupplied oil market.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Geopolitical uncertainty was cited as a key challenge in FY2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Fourth quarter revenue increased sequentially across all four geographies for the first time since Q2 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Management expects rig activity in the Middle East to increase in 2026.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SLB_FY2025_7_mdna_006",
+    "SLB_FY2025_7_mdna_003",
+    "SLB_FY2025_7_mdna_000",
+    "SLB_FY2025_7_mdna_002",
+    "SLB_FY2025_7_mdna_001",
+    "SLB_FY2025_7_mdna_005"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "liquidity"
+    }
+  ]
+}

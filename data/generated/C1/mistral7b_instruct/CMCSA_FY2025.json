@@ -1,0 +1,171 @@
+{
+  "ticker": "CMCSA",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Comcast Corporation's FY2025 10-K report highlights several risks that may impact the company's leverage, liquidity, profitability, and overall operations. The company operates in highly competitive industries and faces intense competition from a growing number of companies. Weak economic conditions, both domestically and globally, could negatively affect demand for Comcast's products and services, impacting its results of operations. The company also operates internationally, which presents risks such as currency fluctuations, regulatory challenges, and potential losses that may not be fully covered by insurance. Comcast's financial performance is also influenced by its content acquisition and production costs, which can be significant and potentially over an extended contractual term. The company may also face adverse outcomes in lawsuits or investigations, which could result in significant monetary damages or injunctive relief, adversely affecting its businesses, results of operations, or financial condition.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Comcast operates in highly competitive industries.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Comcast faces intense competition from a growing number of companies.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Weak economic conditions could negatively affect demand for Comcast's products and services.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Comcast operates internationally, which presents risks such as currency fluctuations, regulatory challenges, and potential losses.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_030",
+          "CMCSA_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Comcast's content acquisition and production costs can be significant and potentially over an extended contractual term.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Adverse outcomes in lawsuits or investigations could result in significant monetary damages or injunctive relief, adversely affecting Comcast's businesses, results of operations, or financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CMCSA_FY2025_1A_risk_factors_030",
+    "CMCSA_FY2025_1A_risk_factors_031",
+    "CMCSA_FY2025_1A_risk_factors_035",
+    "CMCSA_FY2025_7_mdna_003",
+    "CMCSA_FY2025_1A_risk_factors_010",
+    "CMCSA_FY2025_1A_risk_factors_042",
+    "CMCSA_FY2025_7_mdna_001",
+    "CMCSA_FY2025_7_mdna_002",
+    "CMCSA_FY2025_1A_risk_factors_041",
+    "CMCSA_FY2025_1A_risk_factors_000",
+    "CMCSA_FY2025_1A_risk_factors_028"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "ticker": "GE",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "GE's FY2025 financial performance shows an increase in leverage, liquidity, and profitability. The company's debt increased by $1.2 billion, primarily due to new debt issuance and currency exchange. GE's liquidity position is strong, with free cash flow increasing to $7.7 billion. Profitability improved, with net income increasing by $1.9 billion and profit margin increasing by 210 basis points. However, the company faces various risk factors, including regulatory compliance, cybersecurity, and market risks.",
+    "claims": [
+      {
+        "claim_id": "EVIDENCE_1",
+        "text": "GE's debt increased by $1.2 billion from $19.3 billion to $20.5 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_058",
+          "GE_FY2025_1A_risk_factors_059",
+          "GE_FY2025_1A_risk_factors_057",
+          "GE_FY2025_1A_risk_factors_055",
+          "GE_FY2025_1A_risk_factors_065",
+          "GE_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_2",
+        "text": "GE's free cash flow increased to $7.7 billion in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_065"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_3",
+        "text": "GE's net income increased by $1.9 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_038",
+          "GE_FY2025_1A_risk_factors_037",
+          "GE_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_4",
+        "text": "GE's profit margin increased by 210 basis points in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_5",
+        "text": "GE's total revenue increased by $7.2 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_6",
+        "text": "GE's credit ratings were upgraded by Moody's and S&P in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_058",
+          "GE_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_7",
+        "text": "GE's credit ratings are subject to revision or withdrawal at any time.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_8",
+        "text": "GE's unused back-up revolving syndicated credit facility contains a customary net debt-to-EBITDA financial covenant.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_9",
+        "text": "GE's consolidated liquidity and availability under its revolving credit facilities will be sufficient to meet its liquidity needs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_10",
+        "text": "GE's primary sources of liquidity consist of cash and cash equivalents, free cash flow from its operating businesses, and access to capital markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_11",
+        "text": "GE's free cash flow was $7.7 billion and $6.2 billion for the years ended December 31, 2025 and 2024, respectively.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_065"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_12",
+        "text": "GE's net income from continuing operations increased by $1.9 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_038",
+          "GE_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_13",
+        "text": "GE's profit was $10.0 billion, an increase of $2.4 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_14",
+        "text": "GE's operating profit was $9.1 billion, an increase of $1.8 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_15",
+        "text": "GE's operating profit margin was 21.4%, an increase of 70 basis points in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GE_FY2025_1A_risk_factors_058",
+    "GE_FY2025_1A_risk_factors_059",
+    "GE_FY2025_1A_risk_factors_057",
+    "GE_FY2025_1A_risk_factors_055",
+    "GE_FY2025_1A_risk_factors_065",
+    "GE_FY2025_1A_risk_factors_054",
+    "GE_FY2025_1A_risk_factors_038",
+    "GE_FY2025_1A_risk_factors_037",
+    "GE_FY2025_1A_risk_factors_062",
+    "GE_FY2025_1A_risk_factors_006",
+    "GE_FY2025_1A_risk_factors_024",
+    "GE_FY2025_7_mdna_018"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_058",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_057",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_065",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GE_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

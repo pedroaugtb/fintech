@@ -1,0 +1,251 @@
+{
+  "ticker": "CMCSA",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Comcast's FY2025 financial performance is impacted by various factors, including leverage, liquidity, profitability, and risk factors. The company's leverage is affected by its ability to obtain financing and refinance existing debt, while liquidity is impacted by its ability to generate cash from operations and manage its working capital. Profitability is influenced by revenue growth, cost management, and competition. Risks include economic conditions, regulatory changes, cybersecurity incidents, and competition. These factors may have a negative impact on Comcast's business and results of operations.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Comcast's ability to obtain financing or refinance existing debt may be impacted by weak economic conditions and disruptions in the global financial markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Comcast's liquidity may be impacted by its ability to generate cash from operations and manage its working capital.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Comcast's profitability is influenced by revenue growth, cost management, and competition.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "Comcast's business and results of operations may be adversely affected by weak economic conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Comcast's business and results of operations may be adversely affected by cybersecurity incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Comcast's business and results of operations may be adversely affected by regulatory changes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Comcast's business and results of operations may be adversely affected by competition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Comcast's adjusted EBITDA margin decreased from 38.2% to 37.7% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Comcast's adjusted EBITDA margin decreased from 56.7% to 55.9% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Comcast's total customer relationships decreased by 967,000 to 50.8 million in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Comcast's domestic broadband customers decreased by 711,000 to 31.3 million in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Comcast's domestic video customers decreased by 1.3 million to 11.3 million in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Comcast's domestic homes and businesses passed increased by 1.3 million to 65.0 million in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Comcast's total Connectivity & Platforms capital expenditures increased 5.3% to $8.7 billion in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Comcast's adjusted EBITDA decreased primarily due to a decrease in revenue and an increase in other costs and expenses in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CMCSA_FY2025_1A_risk_factors_030",
+    "CMCSA_FY2025_1A_risk_factors_031",
+    "CMCSA_FY2025_1A_risk_factors_035",
+    "CMCSA_FY2025_7_mdna_003",
+    "CMCSA_FY2025_1A_risk_factors_010",
+    "CMCSA_FY2025_1A_risk_factors_042",
+    "CMCSA_FY2025_7_mdna_001",
+    "CMCSA_FY2025_7_mdna_002",
+    "CMCSA_FY2025_1A_risk_factors_041",
+    "CMCSA_FY2025_1A_risk_factors_000",
+    "CMCSA_FY2025_1A_risk_factors_028"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

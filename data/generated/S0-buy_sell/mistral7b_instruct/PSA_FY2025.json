@@ -1,0 +1,127 @@
+{
+  "ticker": "PSA",
+  "fiscal_year": 2025,
+  "condition": "S0-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Based on the provided evidence, we recommend a 'hold' position on PSA stock. The company's FY2025 financials show a decrease in profitability, with a 8.0% drop in FFO per diluted common share compared to the previous year. Additionally, the company faces several risks, including potential negative impacts from economic conditions, government regulations, and cybersecurity incidents. While the company has identified and expects to continue to identify cyberattacks and incidents, there are no assurances that the coverage provided by cybersecurity insurance would be adequate in relation to any incurred losses. Furthermore, the company's recent leadership changes may impact its ability to execute its strategic plan effectively. However, the company's leverage and liquidity ratios are not explicitly mentioned in the provided evidence, so further analysis is needed to fully assess these factors.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "FY2025 FFO per diluted common share is $15.81, a decrease of 8.0% compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "FY2025 net income allocable to common shareholders is $1.6 billion or $9.01 per diluted common share, a decrease of $287.1 million or $1.63 per diluted common share compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company faces risks from economic conditions, government regulations, and cybersecurity incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014",
+          "PSA_FY2025_1A_risk_factors_044",
+          "PSA_FY2025_1A_risk_factors_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company's recent leadership changes may impact its ability to execute its strategic plan effectively.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "There are no assurances that the cybersecurity insurance coverage would be adequate in relation to any incurred losses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_026"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PSA_FY2025_1A_risk_factors_014",
+    "PSA_FY2025_1A_risk_factors_009",
+    "PSA_FY2025_1A_risk_factors_029",
+    "PSA_FY2025_1A_risk_factors_012",
+    "PSA_FY2025_7_mdna_010",
+    "PSA_FY2025_7_mdna_006",
+    "PSA_FY2025_7_mdna_007",
+    "PSA_FY2025_7_mdna_008",
+    "PSA_FY2025_1A_risk_factors_044",
+    "PSA_FY2025_1A_risk_factors_026"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

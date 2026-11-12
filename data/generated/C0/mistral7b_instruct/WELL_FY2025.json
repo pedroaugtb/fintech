@@ -1,0 +1,188 @@
+{
+  "ticker": "WELL",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "WELL's FY2025 financial report indicates a net debt to book capitalization ratio of 25.2%, 26.8%, and 34.3% respectively for the years 2023, 2024, and 2025. The net debt to undepreciated book capitalization ratio is 21.3%, 21.6%, and 27.8% respectively for the same years. The company's leverage ratios are based on book capitalization, undepreciated book capitalization, and enterprise value. The enterprise value represents book capitalization adjusted for the fair market value of the company's common stock.",
+    "claims": [
+      {
+        "claim_id": ".1",
+        "text": "Net debt to book capitalization ratio for FY2025 is 25.2%",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": ".2",
+        "text": "Net debt to book capitalization ratio for FY2024 is 26.8%",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": ".3",
+        "text": "Net debt to book capitalization ratio for FY2023 is 34.3%",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": ".4",
+        "text": "Net debt to undepreciated book capitalization ratio for FY2025 is 21.3%",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": ".5",
+        "text": "Net debt to undepreciated book capitalization ratio for FY2024 is 21.6%",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": ".6",
+        "text": "Net debt to undepreciated book capitalization ratio for FY2023 is 27.8%",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": ".7",
+        "text": "The company's leverage ratios are based on book capitalization, undepreciated book capitalization, and enterprise value",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": ".8",
+        "text": "Enterprise value represents book capitalization adjusted for the fair market value of the company's common stock",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "WELL_FY2025_7_mdna_009",
+    "WELL_FY2025_7_mdna_007",
+    "WELL_FY2025_7_mdna_008",
+    "WELL_FY2025_1A_risk_factors_004",
+    "WELL_FY2025_1A_risk_factors_030",
+    "WELL_FY2025_1A_risk_factors_026",
+    "WELL_FY2025_1A_risk_factors_031",
+    "WELL_FY2025_7_mdna_004",
+    "WELL_FY2025_1A_risk_factors_006",
+    "WELL_FY2025_1A_risk_factors_050",
+    "WELL_FY2025_1A_risk_factors_033"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "WELL_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WELL_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WELL_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WELL_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_050",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

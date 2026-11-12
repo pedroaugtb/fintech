@@ -1,0 +1,260 @@
+{
+  "ticker": "BAC",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Bank of America's FY2025 leverage increased as total long-term debt rose $34.5 billion to $317.8 billion, driven by structured note issuances. Liquidity remains robust with total assets reaching $3.4 trillion, though cash equivalents declined $58.3 billion due to loan growth. Profitability improved in the GWIM segment, with net income up $407 million to $4.7 billion and operating margins stable at 25%. Key risks include macroeconomic volatility, potential credit losses exceeding estimates, regulatory capital changes, and operational disruptions from cybersecurity or emerging technologies.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Total long-term debt increased by $34.5 billion to $317.8 billion in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_144"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "The company issued $44.4 billion of structured notes during 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_146"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Total assets reached approximately $3.4 trillion as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "Cash and cash equivalents decreased by $58.3 billion primarily due to loan growth.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_018",
+          "BAC_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Federal funds sold and securities borrowed increased by $41.9 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_018",
+          "BAC_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "GWIM segment net income increased $407 million to $4.7 billion in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "GWIM operating margin remained stable at 25 percent in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "GWIM noninterest income rose $1.7 billion to $17.7 billion driven by asset management fees.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "GWIM return on average allocated capital increased to 24 percent from 23 percent.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Future credit losses may exceed current estimates due to economic assumptions and unemployment rates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "The company faces risks from adverse changes in regulatory capital and liquidity requirements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Operational risks include failures or breaches of information systems and cybersecurity incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Macroeconomic risks include inflation, interest rate fluctuations, and geopolitical instability.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "The company risks inability to access capital markets or maintain deposits.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Risks related to emerging technologies, including artificial intelligence, are identified.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "BAC_FY2025_1A_risk_factors_144",
+    "BAC_FY2025_1A_risk_factors_143",
+    "BAC_FY2025_1A_risk_factors_146",
+    "BAC_FY2025_1A_risk_factors_127",
+    "BAC_FY2025_1A_risk_factors_018",
+    "BAC_FY2025_7_mdna_019",
+    "BAC_FY2025_1A_risk_factors_049",
+    "BAC_FY2025_1A_risk_factors_002",
+    "BAC_FY2025_1A_risk_factors_059",
+    "BAC_FY2025_7_mdna_007",
+    "BAC_FY2025_1A_risk_factors_003",
+    "BAC_FY2025_1A_risk_factors_001"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_144",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_143",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_146",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_127",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BAC_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BAC_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

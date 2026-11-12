@@ -1,0 +1,252 @@
+{
+  "ticker": "BKNG",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "BKNG's FY2025 10-K indicates several risk factors that could impact the company's financial performance. The company's leverage is a concern due to its reliance on a revolving credit facility with financial covenants and the possibility of higher risk being ascribed to its rating levels. The company is also exposed to fluctuations in foreign currency exchange rates, which could impact its liquidity and profitability. The company's access to capital and the cost of financing could be negatively impacted if its credit ratings were downgraded or if financing sources ascribe higher risk to its rating levels. The company's liquidity could also be affected by global financial conditions and events. The company's profitability could be affected by competition, changes in consumer travel behavior due to foreign currency exchange rates, and the development and use of Gen AI. The company is also subject to various industry and business risks, including declines or disruptions in the travel industry, economic and political uncertainty, and geopolitical tensions.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company has $2 billion available under its revolving credit facility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The company's revolving credit facility contains financial covenants that it needs to comply with in order to access liquidity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The lenders have the right to require repayment of any amounts borrowed under the facility if the company is not in compliance.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company is exposed to fluctuations in foreign currency exchange rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075",
+          "BKNG_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company generally enters into derivative instruments to minimize the impact of foreign currency exchange rate fluctuations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The company may designate certain portions of the aggregate principal value of its Euro-denominated debt as a hedge of the foreign currency exposure of the net investment in certain Euro functional currency subsidiaries.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Foreign currency transaction gains or losses on the Euro-denominated debt that is not designated as a hedging instrument for accounting purposes are recognized in 'Other income (expense), net' in the Consolidated Statements of Operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company's ability to make payments of principal and interest on its indebtedness depends upon its future performance.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_080"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company may not have access to equity or debt markets or other sources of financing, or such financing may not be available to it on commercially reasonable terms, to repay or refinance its debt as it comes due.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_080"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company's ability to make share repurchases and the payment of dividends rely on its access to capital, which depends on cash flow generated by its business and the availability of financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_080"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The value of the company's investments could decline, which could adversely affect its financial<0x0A>position.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Regulations impairing the company's ability to serve customers or if it is less effective than its competitors in addressing these issues, its ability to improve performance on its platforms, business, competitive position, and results of operations could be adversely affected.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Failure or perceived failure to comply with evolving privacy regulations, guidance, and interpretations could result in significant fines, government enforcement actions, private litigation, and harm to the company's business, results of operations, or reputation.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company's continued access to sources of liquidity depends on multiple factors, including global economic and financial market conditions, the availability of sufficient amounts of financing, its ability to meet debt covenant requirements, its operating performance, and its credit ratings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Increased volatility in financial and securities markets will generally make access to capital less certain.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "BKNG_FY2025_1A_risk_factors_075",
+    "BKNG_FY2025_7_mdna_015",
+    "BKNG_FY2025_1A_risk_factors_080",
+    "BKNG_FY2025_1A_risk_factors_074",
+    "BKNG_FY2025_1A_risk_factors_022",
+    "BKNG_FY2025_1A_risk_factors_076",
+    "BKNG_FY2025_7_mdna_014",
+    "BKNG_FY2025_1A_risk_factors_018",
+    "BKNG_FY2025_1A_risk_factors_000",
+    "BKNG_FY2025_1A_risk_factors_049",
+    "BKNG_FY2025_1A_risk_factors_001"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_080",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_074",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

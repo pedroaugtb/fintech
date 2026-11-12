@@ -1,0 +1,231 @@
+{
+  "ticker": "WMT",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "WMT's FY2025 10-K indicates potential risks to the company's financial performance. Leverage risks include competition from national, regional, or international chains, alliances, and regulatory factors in the pharmacy and optometry sectors. Liquidity risks are primarily due to capital expenditures and free cash flow management. Profitability risks include gross profit rate and operating expense fluctuations, as well as eCommerce and other sales disruptions. Risk factors include natural disasters, geopolitical events, pandemics, and cybersecurity threats.",
+    "claims": [
+      {
+        "claim_id": "WMT_FY2025_1A_risk_factors_024",
+        "text": "Competition from national, regional, or international chains or alliances could adversely affect WMT's financial performance.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "WMT_FY2025_1A_risk_factors_083",
+        "text": "Regulatory factors in the pharmacy and optometry sectors may have an adverse effect on WMT's business.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_083"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "WMT_FY2025_7_mdna_005",
+        "text": "WMT competes with a number of factors including catastrophic events, weather, and other risks related to climate change, global health epidemics and pandemics, competitive pressures, consumer disposable income, consumer debt levels and buying patterns, consumer credit availability, disruptions in supply chain, inventory management, cost and availability of goods, currency exchange rate fluctuations, customer preferences, inflation, deflation, fuel and energy prices, general economic conditions, insurance costs, interest rates, labor availability and costs, tax rates, the imposition of tariffs, cybersecurity attacks, and unemployment.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "WMT_FY2025_7_mdna_018",
+        "text": "Capital expenditures for supply chain, customer-facing initiatives, technology, and other projects totaled $20.6 billion in FY2025, an increase from $17.7 billion in FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "WMT_FY2025_7_mdna_020",
+        "text": "Free cash flow for FY2025 increased from FY2024 primarily due to higher cash provided by operating income, as well as timing of certain payments and strategic inventory management as part of working capital initiatives, partially offset by payment of the remaining accrued opioid legal charges.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "WMT_FY2025_7_mdna_014",
+        "text": "WMT provides returns in the form of share repurchases and dividends.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "WMT_FY2025_7_mdna_012",
+        "text": "WMT aims to achieve operating income leverage, defined as growing operating income at a faster rate than net sales.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "WMT_FY2025_7_mdna_012",
+        "text": "WMT's gross profit rate increased 40 and 27 basis points for FY2025 and 2024, respectively, when compared to the previous fiscal year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "WMT_FY2025_7_mdna_032",
+        "text": "Segment operating income increased $0.6 billion and $1.9 billion for FY2025 and 2024, respectively, when compared to the previous fiscal year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "WMT_FY2025_1A_risk_factors_029",
+        "text": "A future pandemic, epidemic, or contagious disease outbreak could heighten other risks described in this Item 1A, including but not limited to those related to consumer behavior and expectations, competition, our reputation, implementation of strategic initiatives, cybersecurity threats, payment-related risks, technology systems disruption, supply chain disruptions, labor availability and cost, and litigation and regulatory requirements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "WMT_FY2025_1A_risk_factors_047",
+        "text": "Any failure to maintain the privacy or security of the information relating to our company, customers, members, associates, business partners and vendors could damage our reputation, result in litigation or other legal actions against us, result in fines, penalties, and liability, cause us to incur substantial additional costs and materially adversely affect our business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "WMT_FY2025_1A_risk_factors_074",
+        "text": "Political uncertainty surrounding trade and other international disputes could have a negative effect on consumer confidence and spending, which could also adversely affect WMT's business or financial performance and reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "WMT_FY2025_1A_risk_factors_024",
+    "WMT_FY2025_7_mdna_005",
+    "WMT_FY2025_1A_risk_factors_083",
+    "WMT_FY2025_7_mdna_018",
+    "WMT_FY2025_7_mdna_020",
+    "WMT_FY2025_7_mdna_014",
+    "WMT_FY2025_7_mdna_012",
+    "WMT_FY2025_7_mdna_024",
+    "WMT_FY2025_7_mdna_032",
+    "WMT_FY2025_1A_risk_factors_029",
+    "WMT_FY2025_1A_risk_factors_047",
+    "WMT_FY2025_1A_risk_factors_074"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_083",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_074",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

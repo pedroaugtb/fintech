@@ -1,0 +1,253 @@
+{
+  "ticker": "SCHW",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "The Charles Schwab Corporation's FY2025 10-K highlights several key areas of concern. The company's leverage and liquidity are impacted by regulatory requirements and market conditions, which could negatively affect profitability. The company's net interest revenue is sensitive to interest rate changes, and a decline in interest rates could reduce net interest revenue. Regulatory scrutiny and compliance risks are also significant, with potential penalties and reputational damage. The company operates in a highly competitive environment, with price competition from other financial services firms. The company's stock price is volatile and may be affected by various factors, including financial results, business metrics, and securities analyst coverage.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "The company's leverage is impacted by regulatory requirements and market conditions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_008",
+          "SCHW_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "The company's liquidity is impacted by market conditions and regulatory requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_009",
+          "SCHW_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "The company's net interest revenue is sensitive to interest rate changes.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_003",
+          "SCHW_FY2025_7_mdna_026",
+          "SCHW_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Regulatory scrutiny and compliance risks are significant.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_032",
+          "SCHW_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "The company operates in a highly competitive environment.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "The company's stock price is volatile.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "A decline in interest rates could reduce net interest revenue.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_003",
+          "SCHW_FY2025_7_mdna_026",
+          "SCHW_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Regulatory requirements and market conditions could negatively affect profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_008",
+          "SCHW_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "The company's leverage is impacted by regulatory capital requirements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "The company's liquidity is impacted by fluctuations in client cash or deposit balances.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "The company's net interest revenue is impacted by the composition of its investment securities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "The company's stock price is affected by financial results and business metrics.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "The company's stock price is affected by securities analyst coverage and estimates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "The company's stock price is affected by the announcement of new products and services.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Regulatory scrutiny and compliance risks could result in reputational damage.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_032",
+          "SCHW_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SCHW_FY2025_1A_risk_factors_008",
+    "SCHW_FY2025_7_mdna_020",
+    "SCHW_FY2025_1A_risk_factors_003",
+    "SCHW_FY2025_1A_risk_factors_012",
+    "SCHW_FY2025_1A_risk_factors_009",
+    "SCHW_FY2025_7_mdna_026",
+    "SCHW_FY2025_7_mdna_028",
+    "SCHW_FY2025_1A_risk_factors_032",
+    "SCHW_FY2025_1A_risk_factors_041",
+    "SCHW_FY2025_1A_risk_factors_047"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "ticker": "C",
+  "fiscal_year": 2025,
+  "condition": "S0-credit",
+  "stress_template": "credit",
+  "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Based on the provided information, we recommend declining the USD 500 million unsecured credit facility to the company. The company's leverage has increased significantly, with total liabilities increasing by 13% and long-term debt increasing by 10%. Additionally, the company faces various risk factors, including cybersecurity risks, changes in accounting assumptions, and geopolitical challenges. These factors may negatively impact the company's financial stability and ability to repay the loan. Furthermore, the company's liquidity has increased, but this may not be sufficient to cover potential losses or unexpected expenses. Therefore, we advise caution in approving the credit facility.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "The company's leverage has increased significantly.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_039",
+          "C_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Total liabilities increased by 13%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Long-term debt increased by 10%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "The company faces cybersecurity risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_180"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "The company faces changes in accounting assumptions, judgments, or estimates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_195"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "The company faces geopolitical challenges.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_147"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "The company's liquidity has increased.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "The company's liquidity may not be sufficient to cover potential losses or unexpected expenses.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_207"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "The company's net interest income increased by 11%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "The company's non-interest revenue decreased by 4%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "The company's average loans increased by 5%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "The company's average deposits increased by 4%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "The company's CET1 Capital ratio decreased to 13.2%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "The company's Supplementary Leverage ratio decreased to 5.5%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "The company's total assets increased by 13%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "C_FY2025_1A_risk_factors_039",
+    "C_FY2025_1A_risk_factors_037",
+    "C_FY2025_1A_risk_factors_038",
+    "C_FY2025_1A_risk_factors_043",
+    "C_FY2025_1A_risk_factors_207",
+    "C_FY2025_1A_risk_factors_042",
+    "C_FY2025_1A_risk_factors_049",
+    "C_FY2025_1A_risk_factors_018",
+    "C_FY2025_1A_risk_factors_021",
+    "C_FY2025_1A_risk_factors_180",
+    "C_FY2025_1A_risk_factors_195",
+    "C_FY2025_1A_risk_factors_147"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_207",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_180",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_195",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_147",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

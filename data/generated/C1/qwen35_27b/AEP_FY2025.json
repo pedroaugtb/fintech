@@ -1,0 +1,251 @@
+{
+  "ticker": "AEP",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "AEP reported FY2025 earnings attributable to common shareholders of $3.6 billion, a $0.6 billion increase from 2024, driven by transmission investments and favorable regulatory outcomes. However, the company faces significant leverage and liquidity risks due to its heavy reliance on capital markets for funding large-scale infrastructure projects, including exposure to international banks. Potential credit rating downgrades could constrain funding access. Profitability risks stem from regulatory challenges to formula rates, climate change impacts on demand and costs, and potential nuclear facility incidents. Wildfire exposure presents substantial liability and insurance risks that could materially affect financial condition.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Earnings attributable to AEP common shareholders increased from $3.0 billion in 2024 to $3.6 billion in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AEP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "The increase in 2025 earnings was primarily driven by investments in transmission assets resulting in higher revenues.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AEP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "AEP relies on access to capital markets as a significant source of liquidity for capital requirements not satisfied by operating cash flows.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "As of December 31, 2025, approximately 8%, 23%, and 15% of AEP's available credit facilities were with European, Canadian, and Asian banks, respectively.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Meeting increased electricity demand from new data centers requires substantial investment that may exceed historical utility financing needs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "AEP's ability to undertake capital-intensive projects depends on continued access to debt and equity markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Downgrades in AEP's credit ratings could constrain capital available and limit access to funding for operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "AEP's financial metrics have approached, and may in the future approach, thresholds designated by credit rating agencies for potential ratings downgrades.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Future FERC orders regarding formula rates could result in revenue reductions, refunds, and reduced net income.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Climate change creates physical and financial risks, including changes in weather conditions that could alter customer energy use.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "A major incident at a nuclear facility could require AEP to make material contributory payments or result in unit shutdowns.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Wildfires could subject AEP to significant liability, even if effective mitigation procedures are followed.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Wildfire risks include the potential for a credit downgrade and subsequent additional costs to access capital markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Regulatory violations by federal and state agencies could impose significant civil and criminal penalties impacting results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Shareholder activism could result in substantial costs and divert management attention from business execution.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AEP_FY2025_1A_risk_factors_029",
+    "AEP_FY2025_1A_risk_factors_031",
+    "AEP_FY2025_1A_risk_factors_003",
+    "AEP_FY2025_1A_risk_factors_032",
+    "AEP_FY2025_1A_risk_factors_016",
+    "AEP_FY2025_7_mdna_004",
+    "AEP_FY2025_1A_risk_factors_011",
+    "AEP_FY2025_1A_risk_factors_042",
+    "AEP_FY2025_1A_risk_factors_046",
+    "AEP_FY2025_1A_risk_factors_045",
+    "AEP_FY2025_1A_risk_factors_051"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AEP_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_051",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

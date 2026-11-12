@@ -1,0 +1,209 @@
+{
+  "ticker": "DOW",
+  "fiscal_year": 2025,
+  "condition": "S0-attractive",
+  "stress_template": "attractive",
+  "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Dow Inc. has experienced a decline in profitability and an increase in leverage, which may raise concerns for investors. The company faces various risks, including liquidity risks due to its significant investments and debt, and operational risks due to global economic conditions and trade policies. However, the company has taken steps to address these challenges and maintain its competitiveness. Overall, the company's current financial situation and risks may make it a less attractive investment opportunity at this time.",
+    "claims": [
+      {
+        "claim_id": "EVIDENCE_1",
+        "text": "Dow Inc.'s interest expense and amortization of debt discount increased by $54 million in 2025 compared to 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_2",
+        "text": "Dow Inc.'s sundry income (expense) - net decreased by $275 million in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_3",
+        "text": "Dow Inc.'s net income attributable to noncontrolling interests increased by $94 million in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_4",
+        "text": "Dow Inc.'s net income (loss) available for Dow Inc. common stockholders was a loss of $2,623 million in 2025 compared to income of $1,116 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_5",
+        "text": "Dow Inc.'s net income (loss) available for the TDCC common stockholder was a loss of $2,598 million in 2025 compared to income of $1,127 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_6",
+        "text": "Dow Inc.'s effective tax rate may fluctuate based on various factors, including income earned, tax attributes, and equity earnings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_7",
+        "text": "Dow Inc. may face liquidity risks due to its significant investments and debt.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_8",
+        "text": "Dow Inc. may face increased borrowing costs and reduced sources of liquidity due to adverse economic conditions, a contraction in the availability of credit, or changes in its credit ratings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_9",
+        "text": "Dow Inc. operates in a global, competitive environment, which gives rise to operating and market risk exposure.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_10",
+        "text": "Dow Inc. faces risks related to the security of chemical plant locations and the transportation of hazardous chemicals.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_11",
+        "text": "Dow Inc. faces risks related to changes in trade policies, which could impact its sales volume, sales price, and production and other costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_12",
+        "text": "Dow Inc. may face additional uncertainty and adverse impact on its business, financial condition, and results of operations due to changes in trade policies.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_13",
+        "text": "Dow Inc.'s effective tax rate may fluctuate based on various factors, including income earned, tax attributes, and equity earnings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_14",
+        "text": "Dow Inc. may face increased borrowing costs and reduced sources of liquidity due to adverse economic conditions, a contraction in the availability of credit, or changes in its credit ratings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_15",
+        "text": "Dow Inc. operates in a global, competitive environment, which gives rise to operating and market risk exposure.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DOW_FY2025_7_mdna_026",
+    "DOW_FY2025_7_mdna_025",
+    "DOW_FY2025_7_mdna_024",
+    "DOW_FY2025_1A_risk_factors_004",
+    "DOW_FY2025_1A_risk_factors_005",
+    "DOW_FY2025_7_mdna_010",
+    "DOW_FY2025_7_mdna_029",
+    "DOW_FY2025_1A_risk_factors_018",
+    "DOW_FY2025_1A_risk_factors_008"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

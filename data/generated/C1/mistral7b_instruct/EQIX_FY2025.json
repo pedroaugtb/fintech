@@ -1,0 +1,246 @@
+{
+  "ticker": "EQIX",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "EQIX's FY2025 10-K indicates several risk factors that may impact the company's financial performance. The company has a significant amount of debt, which could increase its cost of borrowing, limit its ability to access additional debt, and make it more vulnerable to adverse economic and industry conditions and changes in governmental regulations. The company's substantial debt and related covenants, off-balance sheet commitments, and intent to raise additional debt could require a substantial portion of its cash flow from operations to make interest and principal payments, reducing the availability of cash flow for future capital expenditures, working capital, and other general corporate requirements. The company's substantial debt could also limit its operating flexibility through covenants with which it must comply, limit its ability to borrow additional funds, and make it more vulnerable to increases in interest rates. The company's substantial debt and capital strategy could adversely affect its cash flows and limit its flexibility to raise additional capital.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "EQIX has a significant amount of debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_076",
+          "EQIX_FY2025_1A_risk_factors_077",
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "EQIX's debt could increase its cost of borrowing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "EQIX's debt could limit its ability to access additional debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "EQIX's debt could make it more vulnerable to adverse economic and industry conditions and changes in governmental regulations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "EQIX's debt could limit its flexibility in planning for, or reacting to, changes in its business and industry.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "EQIX's debt could limit its operating flexibility through covenants with which it must comply.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "EQIX's debt could limit its ability to borrow additional funds, even when necessary to maintain adequate liquidity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "EQIX's debt could make it more vulnerable to increases in interest rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "EQIX's substantial debt could have important consequences.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "EQIX's substantial debt could require a substantial portion of its cash flow from operations to make interest and principal payments.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "EQIX's substantial debt could increase the likelihood of negative outlook from its credit rating agencies, or of a downgrade to its current rating.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "EQIX's substantial debt could make it more difficult for it to satisfy its obligations under its various debt instruments.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "EQIX's substantial debt could limit its flexibility in planning for, or reacting to, changes in its business and industry, which may place it at a competitive disadvantage compared with its competitors.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "EQIX's substantial debt could limit its operating flexibility through covenants with which it must comply.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "EQIX's substantial debt could limit its ability to borrow additional funds, even when necessary to maintain adequate liquidity, which would also limit its ability to further expand its business.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "EQIX_FY2025_1A_risk_factors_078",
+    "EQIX_FY2025_1A_risk_factors_077",
+    "EQIX_FY2025_1A_risk_factors_076",
+    "EQIX_FY2025_7_mdna_001",
+    "EQIX_FY2025_7_mdna_006",
+    "EQIX_FY2025_1A_risk_factors_107",
+    "EQIX_FY2025_1A_risk_factors_108",
+    "EQIX_FY2025_1A_risk_factors_000",
+    "EQIX_FY2025_1A_risk_factors_120",
+    "EQIX_FY2025_1A_risk_factors_093"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_078",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_077",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_107",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_108",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_120",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_093",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

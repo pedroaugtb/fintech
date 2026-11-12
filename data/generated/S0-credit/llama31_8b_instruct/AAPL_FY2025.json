@@ -1,0 +1,217 @@
+{
+  "ticker": "AAPL",
+  "fiscal_year": 2025,
+  "condition": "S0-credit",
+  "stress_template": "credit",
+  "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Based on the provided evidence, we recommend declining the USD 500 million unsecured credit facility to Apple Inc. due to the company's high leverage, liquidity risks, and potential profitability challenges. The company's exposure to credit and collectibility risk on its trade receivables, vendor non-trade receivables, and prepayments related to long-term supply agreements is a significant concern. Additionally, the company's investments can be negatively affected by changes in liquidity, credit deterioration, financial results, market and economic conditions, political risk, sovereign risk, interest rate fluctuations, or other factors. Furthermore, the company is subject to intense media, political, and regulatory scrutiny, which exposes it to increasing regulation, government investigations, legal actions, and penalties. Therefore, we believe that approving the credit facility may pose a significant risk to the bank's assets and reputation.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Apple Inc. has a high exposure to credit and collectibility risk on its trade receivables, vendor non-trade receivables, and prepayments related to long-term supply agreements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_061",
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Apple Inc.'s investments can be negatively affected by changes in liquidity, credit deterioration, financial results, market and economic conditions, political risk, sovereign risk, interest rate fluctuations, or other factors.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Apple Inc. is subject to intense media, political, and regulatory scrutiny, which exposes it to increasing regulation, government investigations, legal actions, and penalties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Apple Inc.'s business, reputation, results of operations, financial condition, and stock price could be materially adversely affected by changes in tax rates, the adoption of new U.S. or international tax legislation, and exposure to additional tax liabilities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Apple Inc. has a high exposure to credit and collectibility risk on its trade receivables, vendor non-trade receivables, and prepayments related to long-term supply agreements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_061",
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Apple Inc.'s investments can be negatively affected by changes in liquidity, credit deterioration, financial results, market and economic conditions, political risk, sovereign risk, interest rate fluctuations, or other factors.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Apple Inc. is subject to intense media, political, and regulatory scrutiny, which exposes it to increasing regulation, government investigations, legal actions, and penalties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Apple Inc.'s business, reputation, results of operations, financial condition, and stock price could be materially adversely affected by changes in tax rates, the adoption of new U.S. or international tax legislation, and exposure to additional tax liabilities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Apple Inc.'s future gross margins can be impacted by a variety of factors, including changes in the mix of products and services, tariff costs, and other factors.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Apple Inc.'s operating expenses for 2025 were $34,550 million, which is a 10% increase from 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Apple Inc.'s services gross margin increased during 2025 compared to 2024 primarily due to higher services net sales and a different mix of services.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Apple Inc.'s products gross margin increased during 2025 compared to 2024 primarily due to favorable costs and a different mix of products, partially offset by tariff costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Apple Inc.'s products gross margin percentage decreased during 2025 compared to 2024 primarily due to a different mix of products and tariff costs, partially offset by other favorable costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Apple Inc.'s services gross margin percentage increased during 2025 compared to 2024 primarily due to a different mix of services, partially offset by higher costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Apple Inc.'s total gross margin percentage for 2025 was 46.9%, which is an increase from 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AAPL_FY2025_1A_risk_factors_002",
+    "AAPL_FY2025_1A_risk_factors_061",
+    "AAPL_FY2025_1A_risk_factors_060",
+    "AAPL_FY2025_1A_risk_factors_059",
+    "AAPL_FY2025_1A_risk_factors_037",
+    "AAPL_FY2025_7_mdna_007",
+    "AAPL_FY2025_7_mdna_006",
+    "AAPL_FY2025_1A_risk_factors_062",
+    "AAPL_FY2025_1A_risk_factors_047",
+    "AAPL_FY2025_1A_risk_factors_000"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

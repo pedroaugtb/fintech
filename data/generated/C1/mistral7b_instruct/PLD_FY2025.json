@@ -1,0 +1,209 @@
+{
+  "ticker": "PLD",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "PLD's FY2025 financial report indicates a high leverage ratio, with total debt of $35.0 billion and an effective interest rate of 3.2%. The company extended maturity dates on existing credit facilities and established a commercial paper program, increasing its borrowing capacity. However, the potential impact of ongoing economic uncertainty on the company's financial condition is difficult to predict. The company's profitability is strong, with a 18% lease mark-to-market, 95.6% occupancy in the operating portfolio, and 50.1% rent change on leases that commenced during the year. Liquidity is also robust, with total available liquidity of $7.6 billion.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Total debt was $35.0 billion at December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The weighted average term of the debt is 9 years.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The effective interest rate of the debt is 3.2%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company amended and restated one of its global credit facilities, maintaining its existing borrowing capacity of $3.0 billion and extending the maturity date to June 2029 with an option to extend to June 2030.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company established an additional commercial paper program, allowing it to issue, repay and re-issue short-term unsecured commercial paper notes up to €1.0 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The company issued $3.4 billion of senior notes with an issuance date weighted average interest rate of 4.2% and weighted average term of 8 years.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company generated net proceeds of $2.7 billion and realized net gains on real estate transactions of $944 million in 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company completed the listing of China AMC Prologis Logistics REIT on the Shenzhen Stock Exchange in December 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company had total available liquidity of $7.6 billion at December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company's lease mark-to-market remained meaningfully positive at 18% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Occupancy in the operating portfolio was 95.6% at December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Rent change on leases that commenced during the year was 50.1% on a net effective basis.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Demand conditions were evident in the company's development activity in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company commenced $2.9 billion of consolidated development projects in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "60.9% of the development projects commenced in 2025 were build-to-suit projects.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PLD_FY2025_7_mdna_004",
+    "PLD_FY2025_7_mdna_003",
+    "PLD_FY2025_7_mdna_005",
+    "PLD_FY2025_7_mdna_000",
+    "PLD_FY2025_7_mdna_002"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001193125-26-051453",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001193125-26-051453",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001193125-26-051453",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001193125-26-051453",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001193125-26-051453",
+      "retrieval_topic": "profitability"
+    }
+  ]
+}

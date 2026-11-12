@@ -1,0 +1,176 @@
+{
+  "ticker": "MCD",
+  "fiscal_year": 2025,
+  "condition": "S0-attractive",
+  "stress_template": "attractive",
+  "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "McDonald's FY2025 results show profitability, but volatility in commodity markets, potential cybersecurity threats, and geopolitical risks may impact future performance, making investment attractiveness uncertain.",
+    "claims": [
+      {
+        "claim_id": "MCD_FY2025_7_mdna_077",
+        "text": "Income before provision for income taxes: $10,897",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "MCD_FY2025_7_mdna_062",
+        "text": "McDonald’s has a comprehensive approach to address cybersecurity risk",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "MCD_FY2025_1A_risk_factors_038",
+        "text": "Volatility in commodity markets could have an adverse impact on profitability",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "MCD_FY2025_7_mdna_047",
+        "text": "Volatility in commodity markets could have an adverse impact on profitability",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "MCD_FY2025_7_mdna_048",
+        "text": "Volatility in commodity markets could have an adverse impact on profitability",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "MCD_FY2025_7_mdna_055",
+        "text": "Cybersecurity events impacting third parties may compromise Company data or negatively impact the Company’s ability to conduct business",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "MCD_FY2025_7_mdna_056",
+        "text": "Cybersecurity incidents could have a material adverse effect on McDonald’s or its business strategy, results of operations or financial condition",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "MCD_FY2025_7_mdna_053",
+        "text": "Severe weather conditions, natural disasters, acts of war, terrorism or other hostilities, social and geopolitical unrest, and climate change can adversely affect results and prospects",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "MCD_FY2025_7_mdna_007",
+        "text": "Liquidity risks include changes in capital flows, financial markets or financial institutions",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "MCD_FY2025_1A_risk_factors_039",
+        "text": "Liquidity risks include changes in capital flows, financial markets or financial institutions",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MCD_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MCD_FY2025_1A_risk_factors_038",
+    "MCD_FY2025_7_mdna_047",
+    "MCD_FY2025_7_mdna_076",
+    "MCD_FY2025_7_mdna_007",
+    "MCD_FY2025_1A_risk_factors_039",
+    "MCD_FY2025_7_mdna_048",
+    "MCD_FY2025_7_mdna_077",
+    "MCD_FY2025_7_mdna_062",
+    "MCD_FY2025_7_mdna_055",
+    "MCD_FY2025_7_mdna_056",
+    "MCD_FY2025_7_mdna_053"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MCD_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_047",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_048",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_077",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_062",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_055",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_056",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MCD_FY2025_7_mdna_053",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

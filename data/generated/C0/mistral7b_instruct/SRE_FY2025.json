@@ -1,0 +1,188 @@
+{
+  "ticker": "SRE",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "SRE's FY2025 10-K reveals the company's financial status across four key areas: leverage, liquidity, profitability, and risk factors. The company's leverage is moderately high, with an authorized cost of debt at 4.39%. SRE's subsidiary, Oncor, has a capital structure ratio of 59% debt to 41% equity, an ROE of 9.60%, and a long-term cost of debt of 4.52%. Sempra Infrastructure's revenues are regulated and subject to inflation adjustments. Liquidity risks include significant liquidity needs due to Oncor's capital expenditures plan and potential risks associated with SRE's ATM program. Profitability is affected by various factors, including regulatory actions, climate policies, and weather-related incidents. Risk factors include SRE's dependence on subsidiary performance, capital expenditure execution risks, potential dilution from additional equity issuance, operational risks, cybersecurity threats, and debt service obligations.",
+    "claims": [
+      {
+        "claim_id": "SRE_FY2025_7_mdna_094",
+        "text": "Oncor’s most recent comprehensive base rate proceeding and a settlement request will change Oncor’s capital structure, authorized ROE and authorized cost of debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_7_mdna_013",
+        "text": "SRE faces risks related to Sempra, including the impact of subsidiary performance and capital expenditure execution risks.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_7_mdna_015",
+        "text": "Oncor’s facilities and supporting systems are subject to extensive regulation.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_7_mdna_000",
+        "text": "SRE's MD&A discusses the company's financial condition and results of operations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_1A_risk_factors_011",
+        "text": "Settlement provisions contained in forward sale agreements in connection with SRE's ATM program subject SRE to certain risks.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_1A_risk_factors_007",
+        "text": "SRE may be required to pay a significant amount of cash or deliver a significant number of shares of common stock to a forward purchaser if the price of common stock at which purchases are made exceeds the applicable forward price.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_7_mdna_010",
+        "text": "Actions by credit rating agencies to downgrade SRE's credit ratings or place those ratings on negative outlook, instability in the capital markets, and fluctuating interest rates and inflation can impact SRE's profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_1A_risk_factors_018",
+        "text": "Weather-related incidents can have a greater impact on SRE's businesses than currently anticipated and, for SRE's regulated utilities, rates may not be adequately or timely adjusted to reflect any such increased impact.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SRE_FY2025_7_mdna_094",
+    "SRE_FY2025_7_mdna_013",
+    "SRE_FY2025_1A_risk_factors_011",
+    "SRE_FY2025_7_mdna_015",
+    "SRE_FY2025_1A_risk_factors_009",
+    "SRE_FY2025_1A_risk_factors_007",
+    "SRE_FY2025_7_mdna_000",
+    "SRE_FY2025_1A_risk_factors_010",
+    "SRE_FY2025_7_mdna_010",
+    "SRE_FY2025_1A_risk_factors_018",
+    "SRE_FY2025_7_mdna_009"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_094",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001032208-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

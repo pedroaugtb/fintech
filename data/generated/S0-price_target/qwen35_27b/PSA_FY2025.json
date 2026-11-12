@@ -1,0 +1,214 @@
+{
+  "ticker": "PSA",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "PSA's FY2025 results show declining profitability, with net income dropping 15% to $1.6B due to higher interest and foreign exchange costs, despite a $53M increase in self-storage NOI. FFO per share fell 8% to $15.81. Leverage risks are elevated by high interest rates, increasing refinancing costs and debt service. Liquidity is constrained by potential impediments to capital repatriation from Shurgard and market volatility. Key risks include regulatory changes, cybersecurity threats, and leadership succession. While operational fundamentals remain resilient with rent growth offsetting occupancy declines, the macroeconomic headwinds and rising cost of capital present significant challenges. No price target or valuation assessment can be provided as the supplied evidence lacks market price data, analyst consensus, or valuation multiples required for such a determination.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net income allocable to common shareholders decreased to $1.6 billion in 2025 from $1.9 billion in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Net income per diluted common share fell to $9.01 in 2025 from $10.64 in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "FFO per diluted common share decreased 8.0% to $15.81 in 2025 compared to $17.19 in 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "The decline in net income was primarily driven by a $317.8 million increase in foreign currency exchange losses.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Interest expense increased by $17.1 million in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Self-storage net operating income increased by $53.1 million in 2025, driven by Non-Same Store Facilities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Same Store Facilities revenues remained relatively unchanged due to higher rent per square foot offsetting a decline in average occupancy.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006",
+          "PSA_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Elevated interest rates could significantly increase debt service costs if the company refinances indebtedness.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "High interest rates may adversely impact the company's external growth prospects by affecting yield assessments for acquisitions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Laws in Europe and the U.S. may impede or increase the cost of repatriating distributions from Shurgard.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The company faces risks related to the liquidity of its ownership stake in Shurgard due to limited public float.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Government regulations could limit rent increases, evictions, or facility usage, adversely impacting operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Cybersecurity incidents could result in costs, fines, or lawsuits that exceed available insurance coverage.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Recent leadership changes in the Chairman, CEO, and CFO roles pose execution risks to the strategic plan.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The company cannot provide a price target or valuation assessment as the provided evidence lacks market price and valuation multiple data.",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PSA_FY2025_1A_risk_factors_014",
+    "PSA_FY2025_1A_risk_factors_009",
+    "PSA_FY2025_1A_risk_factors_029",
+    "PSA_FY2025_1A_risk_factors_012",
+    "PSA_FY2025_7_mdna_010",
+    "PSA_FY2025_7_mdna_006",
+    "PSA_FY2025_7_mdna_007",
+    "PSA_FY2025_7_mdna_008",
+    "PSA_FY2025_1A_risk_factors_044",
+    "PSA_FY2025_1A_risk_factors_026"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

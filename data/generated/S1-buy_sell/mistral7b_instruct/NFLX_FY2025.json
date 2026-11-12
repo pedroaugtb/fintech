@@ -1,0 +1,222 @@
+{
+  "ticker": "NFLX",
+  "fiscal_year": 2025,
+  "condition": "S1-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Netflix's FY2025 10-K reveals significant risks and uncertainties, including substantial indebtedness, potential liquidity issues, and volatile profitability. The company is planning to incur additional debt to finance the WBD transaction, which may increase its financial risks. The WBD transaction may not be completed on the currently contemplated timeline or terms, or at all. Given these factors, we recommend exercising caution and holding the stock until the company's financial situation becomes clearer.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Netflix has a substantial amount of indebtedness and other obligations, including streaming content obligations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061",
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Netflix may incur additional indebtedness in the future and incur other obligations, including any additional streaming content obligations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Netflix may draw on financing facilities or issue or obtain other debt financing to finance a portion of the cash consideration for the WBD transaction.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Netflix expects to assume additional outstanding debt of WBD upon completion of the WBD transaction.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The terms of the indebtedness Netflix may incur or assume in connection with the WBD transaction could vary materially and may include secured debt and/or debt with restrictive covenants that are more burdensome than those in existing debt arrangements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Netflix's ability to make payments on its debt and other obligations will depend on its financial and operating performance.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Netflix may need to refinance or restructure all or a portion of such obligations prior to maturity if it is unable to service its debt and other obligations from cash flows.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Rising interest rates or any disruption in the capital markets could make it more difficult and expensive for Netflix to raise additional capital or refinance its existing indebtedness.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Netflix may have to comply with more onerous covenants if it refinances or restructures its obligations, which could further restrict its business operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "As of December 31, 2025, Netflix had the equivalent of $14.5 billion aggregate principal amount of senior notes outstanding.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Netflix has entered into a revolving credit agreement that provides for a $3 billion unsecured revolving credit facility.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "As of December 31, 2025, Netflix has not borrowed any amount under its revolving credit facility.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "As of December 31, 2025, Netflix had approximately $5.7 billion of total content liabilities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Netflix may seek additional capital that may result in stockholder dilution or that may have rights senior to those of common stockholders.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Netflix's liquidity and results of operations may be adversely impacted if revenue growth does not meet expectations due to content commitments and accelerated payment requirements of certain agreements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NFLX_FY2025_1A_risk_factors_064",
+    "NFLX_FY2025_1A_risk_factors_061",
+    "NFLX_FY2025_1A_risk_factors_062",
+    "NFLX_FY2025_1A_risk_factors_060",
+    "NFLX_FY2025_1A_risk_factors_059",
+    "NFLX_FY2025_7_mdna_000",
+    "NFLX_FY2025_1A_risk_factors_075",
+    "NFLX_FY2025_1A_risk_factors_077",
+    "NFLX_FY2025_1A_risk_factors_076",
+    "NFLX_FY2025_1A_risk_factors_054",
+    "NFLX_FY2025_1A_risk_factors_079"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_064",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_077",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_079",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

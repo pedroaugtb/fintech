@@ -1,0 +1,161 @@
+{
+  "ticker": "PLD",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Prologis (PLD) reported strong FY2025 fundamentals with total debt of $35.0B at a 3.2% effective rate and $7.6B in liquidity. Profitability remains robust, driven by an 18% lease mark-to-market and 95.6% occupancy. However, the provided 10-K evidence contains no stock price data, valuation metrics, or analyst consensus required to establish a 12-month price target or determine if shares are undervalued or overvalued. Consequently, a valuation conclusion cannot be derived from the supplied financial statements.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Total debt stood at $35.0 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "The weighted average term of total debt was 9 years with an effective interest rate of 3.2%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "The company issued $3.4 billion of senior notes with a weighted average interest rate of 4.2%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "Total available liquidity was $7.6 billion at year-end, comprising $6.5 billion in credit facility capacity and $1.1 billion in unrestricted cash.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "A new commercial paper program was established with an aggregate capacity of up to €1.0 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Lease mark-to-market remained positive at 18% on a net effective rent basis.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Occupancy in the operating portfolio reached 95.6% as of December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Rent change on leases commencing during the year was 50.1% on a net effective basis.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "The company generated net proceeds of $2.7 billion from real estate transactions in 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Ongoing economic uncertainty presents a risk to future financial condition and operating results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "The provided 10-K evidence does not contain current stock price or valuation multiples.",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "C12",
+        "text": "No 12-month price target can be calculated from the supplied financial data.",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "C13",
+        "text": "A determination of whether shares are undervalued or overvalued cannot be made based on the provided text.",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PLD_FY2025_7_mdna_004",
+    "PLD_FY2025_7_mdna_003",
+    "PLD_FY2025_7_mdna_005",
+    "PLD_FY2025_7_mdna_000",
+    "PLD_FY2025_7_mdna_002"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    }
+  ]
+}

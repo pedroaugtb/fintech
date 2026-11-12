@@ -1,0 +1,258 @@
+{
+  "ticker": "GS",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Goldman Sachs Group, Inc. (GS) has a strong leverage position, as evidenced by the unsecured credit ratings and outlook of its various entities. As of December 2025, GS Bank USA, GSIB, GSBE, GS&Co., and GSI have A+ ratings from Fitch, A1 from Moody’s, and A+ from S&P for long-term debt. The ratings outlook for all entities is stable. Additionally, Goldman Sachs Capital II and Goldman Sachs Capital III have APEX ratings. However, the company's liquidity position may be affected by contractual and contingent outflows, such as upcoming maturities of unsecured debt, term deposits, and secured funding, as well as the withdrawal of customer credit balances in the prime brokerage business.",
+    "claims": [
+      {
+        "claim_id": "GS_FY2025_7_mdna_047",
+        "text": "GS has APEX ratings issued by Goldman Sachs Capital II and Goldman Sachs Capital III.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_036",
+        "text": "GS's credit ratings are primarily based on the credit rating agencies’ assessment of leverage and off-balance sheet arrangements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_029",
+        "text": "GS maintains a highly liquid balance sheet.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_083",
+        "text": "The majority of GS's unsecured borrowings is raised by Group Inc.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_083"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_049",
+        "text": "GS's credit exposure on unrestricted cash and cash equivalents is primarily with financial institutions and sovereign entities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_050",
+        "text": "GS's cash and cash equivalents decreased by $17.83 billion to $164.26 billion at the end of 2025, primarily due to net cash used for operating activities and investing activities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_025",
+        "text": "GS's profitability may be adversely affected by an inability to access the debt capital markets or to sell assets.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_051",
+        "text": "GS's earnings may be affected by changes in interest rates and the impact of changes in counterparty and our own credit spreads on derivatives, as well as changes in our own credit spreads on financial liabilities for which the fair value option was elected.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_004",
+        "text": "GS has in the past had and may in the future have material adverse financial effects and significant reputational consequences, which in turn could seriously harm our business prospects.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_009",
+        "text": "GS is subject to political, legal, regulatory, tax and other risks that are inherent in operating in many countries.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_004",
+        "text": "The application of regulatory strategies and requirements in the U.S. and in non-U.S. jurisdictions to facilitate the orderly resolution of large financial institutions could create greater risk of loss for Group Inc.’s security holders.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_004",
+        "text": "The application of Group Inc.’s proposed resolution strategy could result in greater losses for Group Inc.’s security holders.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_009",
+        "text": "GS's commodities activities, particularly our physical commodities activities, subject us to extensive regulation and involve certain potential risks, including environmental, reputational and other risks that may expose us to significant liabilities and costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_009",
+        "text": "Competition may adversely affect GS's results due to the composition of its client base, the financial services industry being highly competitive, and the growth of electronic trading.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_009",
+        "text": "GS is exposed to various geopolitical risks, including economic, political and market activities, regulatory reform, and weak global uncertainty.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GS_FY2025_7_mdna_047",
+    "GS_FY2025_7_mdna_036",
+    "GS_FY2025_7_mdna_029",
+    "GS_FY2025_7_mdna_083",
+    "GS_FY2025_7_mdna_049",
+    "GS_FY2025_7_mdna_050",
+    "GS_FY2025_1A_risk_factors_025",
+    "GS_FY2025_7_mdna_051",
+    "GS_FY2025_7_mdna_058",
+    "GS_FY2025_1A_risk_factors_004",
+    "GS_FY2025_1A_risk_factors_009",
+    "GS_FY2025_7_mdna_003"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GS_FY2025_7_mdna_047",
+      "section": "7_mdna",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_036",
+      "section": "7_mdna",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_083",
+      "section": "7_mdna",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_049",
+      "section": "7_mdna",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_050",
+      "section": "7_mdna",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_051",
+      "section": "7_mdna",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_058",
+      "section": "7_mdna",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000886982-26-000091",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

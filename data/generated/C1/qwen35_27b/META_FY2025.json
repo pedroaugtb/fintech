@@ -1,0 +1,259 @@
+{
+  "ticker": "META",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "META reported FY2025 total revenue of $200.97 billion, a 22% increase driven by advertising growth, with operating income reaching $83.28 billion. However, Reality Labs investments reduced operating profit by approximately $19.19 billion, with similar losses expected in 2026. Liquidity risks include potential cash repatriation limits, foreign exchange controls, and the impact of share repurchases and dividends on cash reserves. Profitability faces uncertainty from volatile tax regimes and potential adverse tax audit outcomes. Key risks involve cybersecurity incidents, global regulatory compliance, and the possibility that strategic investments may not yield expected long-term returns.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total revenue for FY2025 was $200.97 billion, representing a 22% increase compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Income from operations for FY2025 was $83.28 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Reality Labs investments reduced overall operating profit by approximately $19.19 billion in 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Reality Labs operating losses in 2026 are expected to remain similar to 2025 levels.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The company may seek to raise additional capital through debt or equity, which could result in increased fixed obligations or dilution.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068",
+          "META_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Acquisitions or strategic transactions may require substantial cash or debt, potentially adversely affecting liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Foreign exchange controls and tax regulations may prevent the repatriation of cash earned outside the United States.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Share repurchases and dividend payments will diminish the company's cash reserves.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_117"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Future income tax rates could be volatile due to changes in jurisdictional profit splits, tax laws, or accounting principles.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_106"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Adverse outcomes from tax authority audits could increase the worldwide effective tax rate and harm financial results.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_105"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The company faces risks related to complex and evolving global privacy, data protection, and competition laws.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Cybersecurity incidents could result in significant expenses, liability, and a decline in active user base or engagement.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_165"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Product and investment decisions may not prioritize short-term financial results, potentially affecting near-term profitability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "There is no assurance that the company will realize expected synergies or a favorable return on investment for strategic acquisitions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The declaration and payment of cash dividends may be discontinued or reduced at any time based on capital availability and market conditions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_117"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "META_FY2025_1A_risk_factors_068",
+    "META_FY2025_1A_risk_factors_101",
+    "META_FY2025_1A_risk_factors_037",
+    "META_FY2025_7_mdna_001",
+    "META_FY2025_1A_risk_factors_090",
+    "META_FY2025_1A_risk_factors_117",
+    "META_FY2025_1A_risk_factors_106",
+    "META_FY2025_7_mdna_002",
+    "META_FY2025_1A_risk_factors_105",
+    "META_FY2025_1A_risk_factors_000",
+    "META_FY2025_1A_risk_factors_002",
+    "META_FY2025_1A_risk_factors_165"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_101",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_090",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_117",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_106",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_105",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_165",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

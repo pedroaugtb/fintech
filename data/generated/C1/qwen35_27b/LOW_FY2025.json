@@ -1,0 +1,237 @@
+{
+  "ticker": "LOW",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Lowe's FY2025 results show declining net sales to $83.67B and net earnings to $6.96B compared to FY2023, with diluted EPS dropping to $12.23. Operating cash flow was $9.63B. Significant risks include potential adverse impacts from tariffs, trade policy changes, and supply chain disruptions which could affect liquidity and profitability. The company faces operational risks from supply chain transformation investments that may not yield anticipated benefits. Cybersecurity threats remain a material risk, with potential for financial losses and reputational damage despite insurance coverage. Macroeconomic factors like inflation and higher interest rates pose additional challenges to financial results.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net sales decreased to $83,674 million in FY2024 compared to $86,377 million in FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LOW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Net earnings declined to $6,957 million in FY2024 from $7,726 million in FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LOW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Diluted earnings per share were $12.23 in FY2024, down from $13.20 in FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LOW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Net cash provided by operating activities was $9,625 million in FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LOW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Tariff activity and trade policy changes could adversely affect liquidity and net income.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Longer-term macroeconomic consequences of tariffs could include slower growth, inflation, and higher interest rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Supply chain transformation initiatives could disrupt operations and fail to provide anticipated benefits.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Inability to manage supply chain investments could materially and adversely affect financial results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Cybersecurity breaches could lead to financial losses, litigation, and reputational damage.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Cybersecurity insurance may be insufficient to compensate for losses from data breaches.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Increased remote work infrastructure has expanded the attack surface for cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Changes in trade policy could negatively impact consumer demand for products sold.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Financial instability among key vendors poses a risk to the supply chain.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Fiscal years 2024 and 2023 contained 52 weeks of operating results.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LOW_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Implementation of new technologies in supply chain could reduce operational efficiency.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "LOW_FY2025_1A_risk_factors_019",
+    "LOW_FY2025_1A_risk_factors_021",
+    "LOW_FY2025_1A_risk_factors_018",
+    "LOW_FY2025_7_mdna_001",
+    "LOW_FY2025_7_mdna_000",
+    "LOW_FY2025_1A_risk_factors_022",
+    "LOW_FY2025_1A_risk_factors_032",
+    "LOW_FY2025_1A_risk_factors_030",
+    "LOW_FY2025_1A_risk_factors_000"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LOW_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LOW_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

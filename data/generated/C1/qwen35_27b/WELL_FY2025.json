@@ -1,0 +1,253 @@
+{
+  "ticker": "WELL",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Welltower's FY2025 leverage improved, with the net debt to book capitalization ratio declining to 25.2% from 26.8% in 2024, driven by a rise in equity to $43.2 billion. Liquidity remains robust with a fixed charge coverage ratio of 5.28x, up from 4.99x. Profitability metrics show Adjusted EBITDA grew to $4.17 billion, though net income slightly decreased to $961.8 million due to significant stock-based compensation and gains on real estate dispositions. Key risks include exposure to healthcare industry regulations, potential occupancy declines from pandemics, international operational complexities, and capital structure vulnerabilities related to interest rates and credit ratings.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Net debt to book capitalization ratio decreased to 25.2% in FY2025 from 26.8% in FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Total equity and noncontrolling interests increased to $43,202,939 thousand in FY2025 from $32,572,586 thousand in FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Total net debt was $14,527,907 thousand in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "Fixed charge coverage ratio improved to 5.28x in FY2025 from 4.99x in FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Adjusted fixed charge coverage ratio increased to 5.97x in FY2025 from 4.95x in FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Adjusted EBITDA rose to $4,169,347 thousand in FY2025 from $3,151,811 thousand in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_007",
+          "WELL_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Net income decreased slightly to $961,837 thousand in FY2025 from $972,857 thousand in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Stock-based compensation expense increased significantly to $1,555,858 thousand in FY2025 from $74,482 thousand in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "The company recorded a gain on real estate dispositions and acquisitions of controlling interests of $1,449,043 thousand in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WELL_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Risks arising from the capital structure include exposure to future leverage, covenants, and elevated interest rates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WELL_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Occupancy levels for Seniors Housing Operating and Triple-net properties are exposed to risks from epidemics, pandemics, and public health crises.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WELL_FY2025_1A_risk_factors_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "International operations in the U.K. and Canada represent approximately 20.0% and 6.8% of total revenues, respectively, exposing the company to currency and regulatory risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WELL_FY2025_1A_risk_factors_030",
+          "WELL_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Unfavorable resolution of pending and future litigation matters could have a material adverse effect on financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WELL_FY2025_1A_risk_factors_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Changing laws and regulations, including those potentially limiting REIT ownership, pose risks to the business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WELL_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "The company faces risks related to bank failures, cybersecurity incidents, and severe weather conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WELL_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "WELL_FY2025_7_mdna_009",
+    "WELL_FY2025_7_mdna_007",
+    "WELL_FY2025_7_mdna_008",
+    "WELL_FY2025_1A_risk_factors_004",
+    "WELL_FY2025_1A_risk_factors_030",
+    "WELL_FY2025_1A_risk_factors_026",
+    "WELL_FY2025_1A_risk_factors_031",
+    "WELL_FY2025_7_mdna_004",
+    "WELL_FY2025_1A_risk_factors_006",
+    "WELL_FY2025_1A_risk_factors_050",
+    "WELL_FY2025_1A_risk_factors_033"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "WELL_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WELL_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WELL_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WELL_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_050",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WELL_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0000766704-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

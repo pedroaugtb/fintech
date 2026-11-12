@@ -1,0 +1,244 @@
+{
+  "ticker": "EQIX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Equinix's FY2025 financial performance is marked by a substantial amount of debt, which may limit its flexibility to raise additional capital and increase its vulnerability to interest rate fluctuations. The company's liquidity position is supported by a $4.0 billion revolving credit facility. Annualized Gross Bookings grew 27% in 2025, driven by strong demand for data center and interconnection services. However, geopolitical events and regulatory changes pose significant risks to the company's operations and profitability. The company's ability to protect its intellectual property rights and comply with evolving regulations is also a concern. Despite these challenges, Equinix remains focused on expanding its global data center and interconnection platform.",
+    "claims": [
+      {
+        "claim_id": "E1",
+        "text": "Equinix has a substantial amount of debt, approximately $21.4 billion, as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E2",
+        "text": "Equinix's substantial debt may limit its flexibility to raise additional capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E3",
+        "text": "Equinix's liquidity position is supported by a $4.0 billion revolving credit facility.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E4",
+        "text": "Equinix's Annualized Gross Bookings grew 27% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EQIX_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E5",
+        "text": "Geopolitical events and regulatory changes pose significant risks to Equinix's operations and profitability.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E6",
+        "text": "Equinix may not be able to protect its intellectual property rights.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_120"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E7",
+        "text": "Equinix's substantial debt may increase its vulnerability to interest rate fluctuations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E8",
+        "text": "Equinix's ability to comply with evolving regulations may be a concern.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_093"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E9",
+        "text": "Equinix's operations are subject to geopolitical events and regulatory changes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E10",
+        "text": "Equinix's substantial debt may limit its flexibility to raise additional capital and increase its vulnerability to interest rate fluctuations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E11",
+        "text": "Equinix's liquidity position is supported by a $4.0 billion revolving credit facility and approximately $3.2 billion in cash, cash equivalents and short-term investments.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E12",
+        "text": "Equinix's Annualized Gross Bookings grew 27% in 2025, driven by strong demand for data center and interconnection services.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EQIX_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E13",
+        "text": "Equinix's ability to protect its intellectual property rights may be impacted by the steps taken by the company to protect its rights.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_120"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E14",
+        "text": "Equinix's ability to comply with evolving regulations may require substantial resources.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_093"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E15",
+        "text": "Equinix's operations may be impacted by the displacement of traditional telephony service by the internet and related communications services.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_093"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "EQIX_FY2025_1A_risk_factors_078",
+    "EQIX_FY2025_1A_risk_factors_077",
+    "EQIX_FY2025_1A_risk_factors_076",
+    "EQIX_FY2025_7_mdna_001",
+    "EQIX_FY2025_7_mdna_006",
+    "EQIX_FY2025_1A_risk_factors_107",
+    "EQIX_FY2025_1A_risk_factors_108",
+    "EQIX_FY2025_1A_risk_factors_000",
+    "EQIX_FY2025_1A_risk_factors_120",
+    "EQIX_FY2025_1A_risk_factors_093"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_078",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_077",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_107",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_108",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_120",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_093",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

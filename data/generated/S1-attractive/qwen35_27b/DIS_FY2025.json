@@ -1,0 +1,220 @@
+{
+  "ticker": "DIS",
+  "fiscal_year": 2025,
+  "condition": "S1-attractive",
+  "stress_template": "attractive",
+  "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Disney reported FY2025 net income of $12.4 billion and diluted EPS of $6.85, driven by higher operating income and a lower effective tax rate. Service revenues grew 3% to $84.6 billion, while net interest expense decreased to $1.305 billion. Credit ratings remain stable at A2/P-1 (Moody's) and A/A-1 (S&P) as of September 27, 2025. However, risks include elevated indebtedness reducing financial flexibility, pricing pressure on DTC offerings, and potential litigation costs. The provided evidence does not contain sufficient information to determine if the company is an attractive investment right now.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Net income attributable to Disney increased to $12.4 billion in FY2025 from $5.0 billion in the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Diluted earnings per share (EPS) from continuing operations attributable to Disney increased to $6.85 in FY2025 from $2.72 in the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Service revenues for fiscal 2025 increased 3% to $84.6 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "The effective income tax rate was negative 11.9% in FY2025 compared to 23.7% in the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Net interest expense decreased to $1,305 million in FY2025 from $1,260 million in the prior year.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "As of September 27, 2025, Moody's Ratings assigned long-term and short-term debt ratings of A2 and P-1 (Stable), respectively.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "As of September 27, 2025, S&P Global Ratings assigned long-term and short-term debt ratings of A and A-1 (Stable), respectively.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Periods of elevated indebtedness could reduce financial flexibility and the ability to respond to changing business conditions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "The highly competitive environment puts pricing pressure on DTC offerings, potentially leading to lower prices or higher churn rates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "The company faces risks from claims, litigation, and investigations regarding securities, intellectual property, and data security.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_045",
+          "DIS_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "A private securities class action lawsuit was filed against the Company seeking unspecified damages.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Increases in interest rates have increased the company's cost of borrowing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Equity in the income of investees decreased $280 million to $295 million in FY2025 due to losses from the India joint venture.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "The decrease in interest expense in FY2025 was due to lower average rates and debt balances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "The provided evidence does not contain sufficient information to determine if the company is an attractive investment right now.",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DIS_FY2025_1A_risk_factors_032",
+    "DIS_FY2025_1A_risk_factors_033",
+    "DIS_FY2025_7_mdna_006",
+    "DIS_FY2025_7_mdna_002",
+    "DIS_FY2025_7_mdna_007",
+    "DIS_FY2025_7_mdna_008",
+    "DIS_FY2025_7_mdna_004",
+    "DIS_FY2025_7_mdna_003",
+    "DIS_FY2025_1A_risk_factors_046",
+    "DIS_FY2025_1A_risk_factors_045",
+    "DIS_FY2025_1A_risk_factors_022"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

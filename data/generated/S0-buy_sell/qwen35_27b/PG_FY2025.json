@@ -1,0 +1,220 @@
+{
+  "ticker": "PG",
+  "fiscal_year": 2025,
+  "condition": "S0-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "PG faces elevated leverage risks from significant floating-rate and foreign currency debt, exposing cash flows to interest rate hikes and FX volatility. Liquidity is threatened by potential credit market disruptions, banking partner instability, and ongoing operational suspensions in Russia. Profitability remains vulnerable to geopolitical shifts, supply chain constraints, and the inability to pass on cost increases, which could impair dividend and buyback capacity. Critical operational risks include cybersecurity threats and regulatory compliance burdens. Given the confluence of debt sensitivity, geopolitical uncertainty, and supply chain fragility, we recommend a HOLD position until macroeconomic stability improves and debt refinancing risks are mitigated.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "PG generates over 50% of annual net sales outside the U.S., creating significant exposure to foreign exchange fluctuations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "The company holds significant floating-rate and foreign currency debt, exposing it to global interest rate movements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Appreciation of foreign currencies, particularly the Euro, could adversely impact cash flows and interest expense on debt maturities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Disruptions in credit markets or a downgrade in credit ratings could reduce access to capital and increase borrowing costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_009",
+          "PG_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Reliance on top-tier banking partners creates liquidity risk if these partners face economic or political disruptions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Ongoing sanctions and operational suspensions in Russia pose risks of asset impairments and working capital write-downs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Insufficient sales or cash flow generation could impair the company's ability to maintain expected share repurchases and dividends.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_005",
+          "PG_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Geopolitical conditions and changing political policies create uncertainty regarding future business results and financial performance.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_005",
+          "PG_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Supply chain disruptions, including sole supplier dependencies, threaten the ability to meet customer needs and cost targets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "A significant cybersecurity or IT/OT incident could materially adversely impact business operations and financial results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_019",
+          "PG_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The company faces expanding legal and regulatory compliance risks across multiple jurisdictions, including environmental and data protection laws.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Inflationary pressures and energy cost increases could lead to economic recessions affecting global sales.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_009",
+          "PG_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Customer financial hardships due to economic conditions may lead to uncollectible accounts or longer collection cycles.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Trade policies, tariffs, and discriminatory fiscal measures could adversely affect business results.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Management utilizes non-GAAP measures like Core EPS and adjusted free cash flow to evaluate performance amidst these risks.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PG_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PG_FY2025_1A_risk_factors_002",
+    "PG_FY2025_1A_risk_factors_009",
+    "PG_FY2025_1A_risk_factors_010",
+    "PG_FY2025_1A_risk_factors_008",
+    "PG_FY2025_7_mdna_006",
+    "PG_FY2025_1A_risk_factors_005",
+    "PG_FY2025_7_mdna_001",
+    "PG_FY2025_1A_risk_factors_019",
+    "PG_FY2025_1A_risk_factors_022",
+    "PG_FY2025_1A_risk_factors_031"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PG_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PG_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

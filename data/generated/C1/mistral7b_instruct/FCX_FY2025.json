@@ -1,0 +1,252 @@
+{
+  "ticker": "FCX",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "FCX's FY2025 10-K indicates high leverage due to substantial debt payments and potential need to sell assets or reduce debt, which may place the company at a competitive disadvantage. The company's debt and financial commitments limit financial and operating flexibility, with total consolidated debt at $9.4 billion as of December 31, 2025. The company's credit ratings could be downgraded if they are unable to maintain indebtedness and financial ratios at acceptable levels, which could adversely affect their business, projects, and financial position. Liquidity may be insufficient to repay borrowings if debt is accelerated upon an event of default. The company's liquidity could also be affected by mine closure and reclamation regulations, scrutiny from stakeholders, and sustainability-related practices and performance.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "FCX has substantial debt payments",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_018",
+          "FCX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "FCX may need to sell assets to reduce debt",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "FCX may be at a competitive disadvantage due to debt and financial commitments",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "FCX's available cash and liquidity may not be sufficient to repay borrowings if debt is accelerated upon an event of default",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "FCX's current credit ratings could be downgraded",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "FCX's credit ratings downgrade could adversely affect the value of their outstanding securities and existing debt",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "FCX's credit ratings downgrade could increase their borrowing costs",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "FCX's debt and financial commitments limit financial and operating flexibility",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "FCX's total consolidated debt was $9.4 billion as of December 31, 2025",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "FCX's total consolidated cash and cash equivalents was $3.8 billion as of December 31, 2025",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "FCX may incur additional debt in future periods",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "FCX may reduce their holdings of cash and cash equivalents to fund existing operations, capital expenditures, dividends, share or debt repurchases, or in pursuing other business opportunities",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "FCX's debt and other financial commitments could have important consequences to their business",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "FCX's level of indebtedness, restricted cash and other financial commitments could limit their flexibility in planning for, or reacting to, changes in the industry in which they operate",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "FCX's level of indebtedness, restricted cash and other financial commitments could increase their vulnerability to general adverse economic, financial, industry and regulatory conditions",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "FCX_FY2025_1A_risk_factors_018",
+    "FCX_FY2025_1A_risk_factors_016",
+    "FCX_FY2025_1A_risk_factors_019",
+    "FCX_FY2025_1A_risk_factors_017",
+    "FCX_FY2025_1A_risk_factors_048",
+    "FCX_FY2025_1A_risk_factors_027",
+    "FCX_FY2025_1A_risk_factors_028",
+    "FCX_FY2025_1A_risk_factors_026",
+    "FCX_FY2025_1A_risk_factors_002",
+    "FCX_FY2025_1A_risk_factors_034",
+    "FCX_FY2025_1A_risk_factors_009"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

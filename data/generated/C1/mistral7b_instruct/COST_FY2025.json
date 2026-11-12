@@ -1,0 +1,248 @@
+{
+  "ticker": "COST",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "COST's FY2025 results show a 8% increase in net sales, driven by growth in comparable sales and new warehouse openings. Gross margin percentage increased by 20 basis points, while SG&A expenses as a percentage of net sales increased by 11 basis points. The effective tax rate was 25.1%. The company opened 27 new warehouses, including three relocations, in FY2025. However, the company faces several risks, including fluctuations in currency exchange rates, inflation or deflation in gasoline prices, and the impact of tariffs. IT systems play a crucial role in COST's operations, and any disruption could have a serious impact on the business.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "COST's net sales increased by 8% in FY2025",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Gross margin percentage increased by 20 basis points in FY2025",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "SG&A expenses as a percentage of net sales increased by 11 basis points in FY2025",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The effective tax rate was 25.1% in FY2025",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "COST opened 27 new warehouses in FY2025",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "COST faces risks from fluctuations in currency exchange rates",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "COST faces risks from inflation or deflation in gasoline prices",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "COST faces risks from tariffs",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "IT systems play a crucial role in COST's operations",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_009",
+          "COST_FY2025_1A_risk_factors_008",
+          "COST_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Disruption of COST's IT systems could have a serious impact on the business",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_009",
+          "COST_FY2025_1A_risk_factors_008",
+          "COST_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "COST is highly dependent on the financial performance of its U.S. and Canadian operations",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "COST faces risks from increased security threats and cyber misconduct",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "COST collects, stores, and processes sensitive information",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Operating IT systems and networks securely is critical to COST's business operations and strategy",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Remote work has expanded possible attack surfaces",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "COST_FY2025_7_mdna_002",
+    "COST_FY2025_1A_risk_factors_002",
+    "COST_FY2025_7_mdna_005",
+    "COST_FY2025_7_mdna_010",
+    "COST_FY2025_1A_risk_factors_009",
+    "COST_FY2025_1A_risk_factors_008",
+    "COST_FY2025_1A_risk_factors_000",
+    "COST_FY2025_7_mdna_009",
+    "COST_FY2025_1A_risk_factors_003",
+    "COST_FY2025_1A_risk_factors_010"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "COST_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

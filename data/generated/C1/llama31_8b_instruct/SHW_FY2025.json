@@ -1,0 +1,251 @@
+{
+  "ticker": "SHW",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Sherwin-Williams Company (SHW) FY2025 financial performance is characterized by a slight increase in leverage, strong liquidity, stable profitability, and various risk factors. The company's leverage ratio increased to 2.4 times EBITDA, with total debt outstanding reaching $10.871 billion. SHW's liquidity remains strong, with $3.649 billion in unused capacity under its credit agreements. Profitability is stable, with a 2.1% increase in net sales and a 0.9% increase in adjusted diluted net income per share. However, the company faces various risk factors, including cybersecurity threats, data privacy regulations, and increased competition.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "SHW's leverage ratio increased to 2.4 times EBITDA in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "SHW's total debt outstanding reached $10.871 billion in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "SHW's liquidity remains strong, with $3.649 billion in unused capacity under its credit agreements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "SHW's net sales increased by 2.1% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "SHW's adjusted diluted net income per share increased by 0.9% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "SHW's consolidated cost of goods sold increased by $155.4 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "SHW's available capacity under its committed credit agreements is reduced for amounts outstanding under its domestic commercial paper program and letters of credit.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "SHW's Net debt was $10.664 billion and was 2.4 times the Company’s EBITDA in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "SHW's consolidated Net sales increased 2.1% in the year to $23.574 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "SHW's diluted net income per share decreased by 2.7% to $10.26 per share in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "SHW's adjusted diluted net income per share increased by 0.9% to $11.43 per share in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "SHW's Net operating cash of $3.452 billion, or 14.6% of Net sales in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "SHW's total debt outstanding, including Short-term borrowings, increased by $982.9 million to $10.871 billion in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "SHW's available capacity under its committed credit agreements is $3.649 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "SHW's consolidated Cost of goods sold increased $155.4 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SHW_FY2025_7_mdna_039",
+    "SHW_FY2025_7_mdna_024",
+    "SHW_FY2025_7_mdna_031",
+    "SHW_FY2025_1A_risk_factors_035",
+    "SHW_FY2025_1A_risk_factors_034",
+    "SHW_FY2025_7_mdna_001",
+    "SHW_FY2025_7_mdna_008",
+    "SHW_FY2025_7_mdna_044",
+    "SHW_FY2025_1A_risk_factors_045",
+    "SHW_FY2025_1A_risk_factors_016",
+    "SHW_FY2025_1A_risk_factors_021"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_044",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

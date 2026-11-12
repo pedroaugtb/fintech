@@ -1,0 +1,244 @@
+{
+  "ticker": "RTX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "RTX reported strong FY2025 profitability with net sales rising to $88.6B and operating profit margin expanding to 10.5%. However, liquidity and operational stability face headwinds from cyclical aerospace demand, supply chain disruptions, and inflationary pressures. Key risks include potential contract definitization delays with the U.S. government, escalating cybersecurity threats, and environmental compliance costs. While the company is well-positioned for new defense initiatives like the Golden Dome project, ongoing supply constraints and geopolitical tensions pose material risks to future margins and production flow.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total net sales increased to $88,603 million in FY2025 from $80,738 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Operating profit margin expanded to 10.5% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Operating profit reached $9,300 million in FY2025, up from $6,538 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Global supply chain disruptions have impacted the procurement of raw materials and increased costs due to inflation and labor shortages.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Credit market conditions, including higher interest rates, have negatively impacted suppliers and subcontractors.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Uncertainties in final contract prices and terms for U.S. government contracts may negatively affect profitability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "The U.S. government can unilaterally definitize contracts, obligating RTX to perform under imposed terms without agreement.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Financial performance is heavily dependent on the cyclical nature of the commercial aerospace industry.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Tightening of credit in financial markets and availability of financing alternatives directly influence commercial aerospace demand.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Environmental compliance violations could result in suspension or debarment from U.S. government contracts.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The 'Golden Dome for America' project represents a significant new revenue opportunity with $24.4 billion in allocated funding.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Prolonged delays for critical components and supplier bankruptcies could increase operating costs and affect liquidity.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Evolving cybersecurity regulations are expected to increase operational and compliance expenditures.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Cyber-attacks on IT infrastructure pose risks of disrupting operations and compromising confidential data.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Inability to protect intellectual property rights or defend against patent enforcement actions could materially adversely affect competitive position.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "RTX_FY2025_7_mdna_017",
+    "RTX_FY2025_1A_risk_factors_039",
+    "RTX_FY2025_1A_risk_factors_009",
+    "RTX_FY2025_1A_risk_factors_019",
+    "RTX_FY2025_1A_risk_factors_068",
+    "RTX_FY2025_7_mdna_011",
+    "RTX_FY2025_1A_risk_factors_041",
+    "RTX_FY2025_1A_risk_factors_035",
+    "RTX_FY2025_1A_risk_factors_032",
+    "RTX_FY2025_1A_risk_factors_056"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "RTX_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "RTX_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "accession": "0000101829-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

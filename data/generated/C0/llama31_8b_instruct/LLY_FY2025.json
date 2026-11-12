@@ -1,0 +1,252 @@
+{
+  "ticker": "LLY",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Eli Lilly and Company's FY2025 financial performance was marked by revenue growth and increased profitability, driven by the success of Mounjaro and Zepbound. However, the company faces significant risks, including leverage, liquidity, and regulatory challenges. The company's global operations and complex supply chain expose it to geopolitical and cross-border risks, and the emergence of AI and other technologies may exacerbate existing risks. The company's ability to manage these risks and continue to innovate and grow will be crucial to its long-term success.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Eli Lilly and Company's revenue increased by 45% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_017",
+          "LLY_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "The company's net income increased by 95% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Eli Lilly and Company's leverage is exposed to risks such as government price controls, public and private restrictions on pricing, reimbursement, and access for its drugs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "The company's liquidity is exposed to risks such as changes to existing U.S. and foreign tax laws and increased scrutiny by tax authorities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Eli Lilly and Company's profitability is exposed to risks such as restrictive or unfavorable pricing, coverage, or reimbursement determinations for its medicines or product candidates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "The company's global operations and complex supply chain expose it to geopolitical and cross-border risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_057"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "The emergence of AI and other technologies may exacerbate existing risks for Eli Lilly and Company.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Eli Lilly and Company's ability to manage its risks and continue to innovate and grow will be crucial to its long-term success.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "The company's foreign currency risk exposure from fluctuating currency exchange rates can have a material impact on its consolidated results of operations in any given period.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Eli Lilly and Company's business development activities are exposed to risks such as regulatory focus on business combinations and competition for attractive targets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "The company's ability to integrate and retain new personnel and operations may be a challenge.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Eli Lilly and Company's success depends on a market that is observant of intellectual property rights and regulatory requirements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "The company's business may be impacted by the production, marketing, and sale of counterfeit, misbranded, adulterated, and mass-compounded incretins.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Eli Lilly and Company's ability to manage the use of AI technologies by its employees is crucial to protecting its confidential information, intellectual property, and reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "The company's consolidated financial position or results of operations may be negatively impacted by the costs of its business development activities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "LLY_FY2025_1A_risk_factors_057",
+    "LLY_FY2025_1A_risk_factors_061",
+    "LLY_FY2025_1A_risk_factors_005",
+    "LLY_FY2025_1A_risk_factors_000",
+    "LLY_FY2025_7_mdna_017",
+    "LLY_FY2025_7_mdna_001",
+    "LLY_FY2025_7_mdna_020",
+    "LLY_FY2025_1A_risk_factors_017",
+    "LLY_FY2025_7_mdna_018",
+    "LLY_FY2025_1A_risk_factors_010",
+    "LLY_FY2025_1A_risk_factors_055"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_057",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "ticker": "JNJ",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Johnson & Johnson's FY2025 financial performance is impacted by various risks and uncertainties, including leverage, liquidity, profitability, and risk factors. The company's credit ratings are subject to downgrade, which could increase borrowing costs and reduce access to capital markets. The planned separation of the Orthopaedics business may not be completed on the terms or timeline contemplated, and may not achieve the expected results. The company faces substantial competition in its operating segments and geographic markets, and is exposed to fluctuations in currency exchange rates. The company's financial statements require estimates and assumptions that may differ from actual results. The company is involved in various lawsuits and claims, and is subject to scrutiny by government agencies and state attorneys general, which could result in significant civil and criminal penalties. Changes in tax laws or exposures to additional tax liabilities could negatively impact the company's operating results. The company's long-term implications of regional conflicts are difficult to predict, and the financial impact of known existing conflicts in the fiscal 2025 was not material. The company's businesses operate in highly competitive product markets, and competitive pressures could adversely affect the company's earnings.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "Johnson & Johnson's credit ratings are subject to downgrade.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_000",
+          "JNJ_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "The planned separation of the Orthopaedics business may not be completed on the terms or timeline contemplated, and may not achieve the expected results.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "Johnson & Johnson faces substantial competition in its operating segments and geographic markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "Johnson & Johnson is exposed to fluctuations in currency exchange rates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "The company's financial statements require estimates and assumptions that may differ from actual results.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "Johnson & Johnson is involved in various lawsuits and claims.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "The company is subject to scrutiny by government agencies and state attorneys general, which could result in significant civil and criminal penalties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "Changes in tax laws or exposures to additional tax liabilities could negatively impact the company's operating results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "The company's long-term implications of regional conflicts are difficult to predict.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "The financial impact of known existing conflicts in the fiscal 2025 was not material.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "Johnson & Johnson's businesses operate in highly competitive product markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "Competitive pressures could adversely affect Johnson & Johnson's earnings.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "A 1% change in the value of the U.S. Dollar as compared to all foreign currencies in which Johnson & Johnson had sales, income or expense in 2025 would have increased or decreased the translation of foreign sales by approximately $0.4 billion and net income by approximately $0.2 billion.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "Johnson & Johnson has not provided deferred taxes on the undistributed earnings on certain international subsidiaries where the earnings are considered to be indefinitely reinvested.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "The tax effect of repatriating the undistributed earnings would be approximately $0.6 billion under currently enacted tax laws and regulations and at current currency exchange rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "JNJ_FY2025_1A_risk_factors_032",
+    "JNJ_FY2025_1A_risk_factors_000",
+    "JNJ_FY2025_7_mdna_015",
+    "JNJ_FY2025_1A_risk_factors_033",
+    "JNJ_FY2025_7_mdna_018",
+    "JNJ_FY2025_7_mdna_000",
+    "JNJ_FY2025_7_mdna_009",
+    "JNJ_FY2025_7_mdna_020",
+    "JNJ_FY2025_1A_risk_factors_016"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

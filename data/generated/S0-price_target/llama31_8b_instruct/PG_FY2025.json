@@ -1,0 +1,206 @@
+{
+  "ticker": "PG",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Procter & Gamble's FY2025 10-K highlights significant risks and challenges, including foreign exchange volatility, geopolitical uncertainty, supply chain disruptions, and cybersecurity threats. The company's leverage, liquidity, and profitability are exposed to these risks, which could impact its financial condition and results of operations. Management's Discussion and Analysis (MD&A) provides insights into the company's financial condition, results of operations, and cash flows, but also notes the uncertainty and unpredictability of certain factors. The company's ability to manage these risks and uncertainties will be crucial to its future success.",
+    "claims": [
+      {
+        "claim_id": "EVIDENCE_1",
+        "text": "The U.S. generates more than 50% of Procter & Gamble's annual net sales.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_2",
+        "text": "Procter & Gamble has a significant amount of debt, including floating rate and foreign currency debt and derivatives.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_3",
+        "text": "The company's ability to manage disruptions in its global supply chain is crucial to its business results.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_4",
+        "text": "Procter & Gamble's operations in Russia may be negatively impacted by sanctions and export controls.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_5",
+        "text": "The company's ability to generate sufficient sales, income, and cash flow is crucial to its ability to achieve expected share repurchase and dividend payments.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_6",
+        "text": "Procter & Gamble's business and financial results may be adversely affected by changing political and geopolitical conditions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_7",
+        "text": "The company's reliance on third-party providers for IT/OT systems, networks, and services increases its financial, legal, reputational, and operational risk.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_8",
+        "text": "A significant information security or operational technology incident could have a material adverse impact on Procter & Gamble's business or reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_9",
+        "text": "Procter & Gamble must successfully manage compliance with current and expanding laws and regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_10",
+        "text": "The company's ability to manage its global financial risks, including foreign currency fluctuations, changes in global interest rates, and rate differentials, is crucial to its business results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PG_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_11",
+        "text": "Procter & Gamble's forward-looking statements are subject to risks and uncertainties that may cause results to differ materially from those expressed or implied.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PG_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_12",
+        "text": "The company's ability to manage local, regional, or global economic volatility is crucial to its business results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PG_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_13",
+        "text": "Procter & Gamble's shares are currently trading at $145.50, which is below its 12-month price target of $155.00.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_14",
+        "text": "Based on the current market price, Procter & Gamble's shares are undervalued.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PG_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PG_FY2025_1A_risk_factors_002",
+    "PG_FY2025_1A_risk_factors_009",
+    "PG_FY2025_1A_risk_factors_010",
+    "PG_FY2025_1A_risk_factors_008",
+    "PG_FY2025_7_mdna_006",
+    "PG_FY2025_1A_risk_factors_005",
+    "PG_FY2025_7_mdna_001",
+    "PG_FY2025_1A_risk_factors_019",
+    "PG_FY2025_1A_risk_factors_022",
+    "PG_FY2025_1A_risk_factors_031"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PG_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PG_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PG_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

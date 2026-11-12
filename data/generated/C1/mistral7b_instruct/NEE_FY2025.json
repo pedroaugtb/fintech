@@ -1,0 +1,181 @@
+{
+  "ticker": "NEE",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "NEE's FY2025 financial report indicates a focus on managing leverage through debt issuances and borrowings, with higher average debt balances and associated interest rate and foreign currency exchange rate risks. The company's liquidity is supported by a combination of cash flows from operations, short- and long-term borrowings, equity securities issuances, proceeds from differential membership investors, sales of tax credits, and sales of ownership interests in assets/businesses. Profitability for FPL decreased primarily due to higher interest expense and unfavorable non-qualifying hedge activity compared to 2024, while NEER's profitability increased due to higher results at new investments, existing clean energy projects, and other factors. Risk factors include extensive regulation of their business, potential changes in Florida law or regulation increasing competition, and ineffective risk management tools against potential risks.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Higher average debt balances increase leverage risk.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Interest rate and foreign currency exchange rate risks are associated with debt issuances and borrowings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Cash flows from operations, short- and long-term borrowings, equity securities issuances, proceeds from differential membership investors, sales of tax credits, and sales of ownership interests in assets/businesses are used to satisfy funding requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "FPL's net income decreased primarily due to higher interest expense and unfavorable non-qualifying hedge activity compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "NEER's net income increased primarily due to higher results at new investments, existing clean energy projects, and other factors.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Extensive regulation of NEE's and FPL's business may have a materially adverse effect on their financial condition, results of operations, and prospects.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEE_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Changes in Florida law or regulation increasing competition may have a material adverse effect on NEE's and FPL's business, financial condition, results of operations, and prospects.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEE_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Ineffective risk management tools against potential risks may have a material adverse effect on NEE's business, financial condition, results of operations, and prospects.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEE_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NEE_FY2025_7_mdna_024",
+    "NEE_FY2025_7_mdna_027",
+    "NEE_FY2025_7_mdna_007",
+    "NEE_FY2025_7_mdna_028",
+    "NEE_FY2025_7_mdna_017",
+    "NEE_FY2025_7_mdna_018",
+    "NEE_FY2025_7_mdna_000",
+    "NEE_FY2025_1A_risk_factors_001",
+    "NEE_FY2025_1A_risk_factors_009",
+    "NEE_FY2025_1A_risk_factors_046"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEE_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEE_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEE_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

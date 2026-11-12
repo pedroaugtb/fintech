@@ -1,0 +1,182 @@
+{
+  "ticker": "GS",
+  "fiscal_year": 2025,
+  "condition": "S0-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Goldman Sachs (GS) presents a stable financial position with strong credit ratings and a highly liquid balance sheet. The company's leverage, as indicated by its unsecured credit ratings, is favorable, with ratings ranging from A+ to AA- across various subsidiaries. Liquidity is robust, with a significant portion of unrestricted cash and cash equivalents placed with highly-rated banks and central banks. Profitability, however, may be affected by factors such as inflationary pressures, changes in client activity levels, and interest rate fluctuations. Risk factors include potential adverse effects from geopolitical instability, regulatory changes, competition, and commodities activities. Given the company's strong financial position and liquidity, we recommend holding GS stock.",
+    "claims": [
+      {
+        "claim_id": "GS_FY2025_7_mdna_036",
+        "text": "The credit ratings for GS are primarily based on the credit rating agencies’ assessment of leverage and off-balance sheet arrangements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_047",
+        "text": "GS has unsecured credit ratings ranging from A+ to AA- across various subsidiaries.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_083",
+        "text": "The majority of GS's unsecured borrowings is raised by Group Inc., which provides loans to non-investment-grade counterparties.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_083"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_049",
+        "text": "GS's credit exposure on cash and cash equivalents arises from unrestricted cash, and includes both interest-bearing and non-interest-bearing deposits.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_050",
+        "text": "GS's net cash used for operating activities primarily reflected cash outflows from trading assets and customer and other receivables and payables, partially offset by cash inflows from trading liabilities and net earnings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_025",
+        "text": "GS's earnings may be adversely affected by an inability to access the debt capital markets or to sell assets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_051",
+        "text": "GS's net cash used for investing activities primarily reflected net purchases of U.S. government obligations accounted for as available-for-sale securities and an increase in net lending activities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_004",
+        "text": "GS has in the past had and may in the future have material adverse financial effects and significant reputational consequences, which in turn could seriously harm our business prospects.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_009",
+        "text": "GS is subject to political, legal, regulatory, tax and other risks that are inherent in operating in many countries.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_029",
+        "text": "GS operates in a highly competitive financial services industry.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GS_FY2025_7_mdna_047",
+    "GS_FY2025_7_mdna_036",
+    "GS_FY2025_7_mdna_029",
+    "GS_FY2025_7_mdna_083",
+    "GS_FY2025_7_mdna_049",
+    "GS_FY2025_7_mdna_050",
+    "GS_FY2025_1A_risk_factors_025",
+    "GS_FY2025_7_mdna_051",
+    "GS_FY2025_7_mdna_058",
+    "GS_FY2025_1A_risk_factors_004",
+    "GS_FY2025_1A_risk_factors_009",
+    "GS_FY2025_7_mdna_003"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GS_FY2025_7_mdna_047",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_036",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_083",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_049",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_050",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_051",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_058",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

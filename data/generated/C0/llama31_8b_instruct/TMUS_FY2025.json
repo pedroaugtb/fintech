@@ -1,0 +1,258 @@
+{
+  "ticker": "TMUS",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "T-Mobile US (TMUS) FY2025 10-K Analysis: The company's leverage and liquidity are stable, with a manageable debt burden and sufficient cash flow to meet debt obligations. However, macroeconomic trends and geopolitical risks may impact credit loss activity and fair value estimates. The company's profitability is driven by growing customer base and cost efficiencies, but is exposed to regulatory and competitive risks. Key risks include intense competition, regulatory compliance, and potential tax law changes.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "TMUS has a manageable debt burden.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "TMUS has sufficient cash flow to meet debt obligations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "TMUS's profitability is driven by growing customer base and cost efficiencies.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "TMUS is exposed to regulatory and competitive risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "TMUS's liquidity is stable.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "TMUS's ability to attract and retain customers will depend on multiple factors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "TMUS may be impacted by new or amended tax laws or regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "TMUS is subject to various disputes, governmental and/or regulatory inspections, investigations and proceedings.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "TMUS's credit loss activity may be impacted by macroeconomic trends and geopolitical risks.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "TMUS's fair value estimates may be impacted by macroeconomic trends and geopolitical risks.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "TMUS's profitability may be impacted by regulatory and competitive risks.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "TMUS's liquidity may be impacted by changes in credit market conditions and other factors.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "TMUS's ability to access the capital markets may be impacted by volatility in the credit and equity markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "TMUS's credit ratings may be impacted by deterioration in its operating performance.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "TMUS's ability to access the debt capital markets may be impacted by its credit ratings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "TMUS_FY2025_7_mdna_021",
+    "TMUS_FY2025_1A_risk_factors_037",
+    "TMUS_FY2025_7_mdna_022",
+    "TMUS_FY2025_1A_risk_factors_027",
+    "TMUS_FY2025_1A_risk_factors_038",
+    "TMUS_FY2025_7_mdna_006",
+    "TMUS_FY2025_7_mdna_015",
+    "TMUS_FY2025_7_mdna_019",
+    "TMUS_FY2025_7_mdna_010",
+    "TMUS_FY2025_1A_risk_factors_000",
+    "TMUS_FY2025_1A_risk_factors_053",
+    "TMUS_FY2025_1A_risk_factors_049"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_022",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_053",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

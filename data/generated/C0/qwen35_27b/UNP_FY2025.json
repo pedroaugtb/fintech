@@ -1,0 +1,245 @@
+{
+  "ticker": "UNP",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Union Pacific reported FY2025 operating income of $9.8 billion and net income of $7.1 billion, with an operating ratio improving to 59.8%. Strong productivity and pricing offset inflation and acquisition costs. However, the pending merger with Norfolk Southern introduces significant leverage and liquidity risks, including higher debt service obligations and potential covenant breaches. The company faces material risks from capital market instability, which could restrict access to financing or increase borrowing costs. Additionally, regulatory changes, climate-related costs, and integration complexities pose threats to future profitability and operational efficiency.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Operating income increased 1% to $9.8 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Net income reached $7.1 billion, representing an 8% increase from the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "The operating ratio improved by 10 basis points to 59.8% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Free cash flow was $2.3 billion after investing activities and dividends.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The combined company's indebtedness may increase borrowing costs and limit financial flexibility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Cash required to service indebtedness will be greater than pre-merger levels for either company individually.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Failure to comply with financing covenants could result in default and debt acceleration.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Capital market instability or elevated interest rates could restrict access to financing and increase costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_030",
+          "UNP_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "A significant deterioration in financial condition could lead to a credit rating downgrade below investment grade.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "High debt levels could reduce dividend payments and share repurchases.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Regulatory changes regarding pricing or common carrier rules could reduce capital spending viability and increase costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Climate change regulations and emissions controls could significantly increase operating costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "The merger integration is expected to incur substantial expenses with no assurance of realizing anticipated efficiencies.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Delays in merger completion could result in additional transaction costs and loss of revenues.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Geopolitical conflicts and fuel supply disruptions could materially adversely affect results of operations and liquidity.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "UNP_FY2025_1A_risk_factors_030",
+    "UNP_FY2025_1A_risk_factors_055",
+    "UNP_FY2025_1A_risk_factors_029",
+    "UNP_FY2025_1A_risk_factors_052",
+    "UNP_FY2025_7_mdna_004",
+    "UNP_FY2025_1A_risk_factors_015",
+    "UNP_FY2025_1A_risk_factors_050",
+    "UNP_FY2025_1A_risk_factors_014",
+    "UNP_FY2025_1A_risk_factors_022",
+    "UNP_FY2025_1A_risk_factors_033"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UNP_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_050",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "ticker": "MSFT",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Microsoft Corporation's FY2025 10-K indicates a shift in revenue recognition from transaction-based to subscription-based models, which may impact profitability. Leverage is high, with total debt of $49.206 billion as of June 30, 2025, and long-term debt principal payments of $3,000 in 2026 and $46,206 thereafter. Liquidity is strong, with cash, cash equivalents, and short-term investments totaling $94.6 billion as of June 30, 2025. Risk factors include foreign exchange rate fluctuations, global economic developments, and changes in global trade policies.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Revenue recognition has shifted from transaction-based to subscription-based models.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Total debt is $49.206 billion as of June 30, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Long-term debt principal payments are $3,000 in 2026 and $46,206 thereafter.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Cash, cash equivalents, and short-term investments totaled $94.6 billion as of June 30, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Foreign exchange rate fluctuations, global economic developments, and changes in global trade policies are risk factors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_007",
+          "MSFT_FY2025_7_mdna_045",
+          "MSFT_FY2025_7_mdna_051"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MSFT_FY2025_7_mdna_041",
+    "MSFT_FY2025_7_mdna_039",
+    "MSFT_FY2025_7_mdna_049",
+    "MSFT_FY2025_7_mdna_033",
+    "MSFT_FY2025_7_mdna_037",
+    "MSFT_FY2025_7_mdna_016",
+    "MSFT_FY2025_7_mdna_015",
+    "MSFT_FY2025_7_mdna_007",
+    "MSFT_FY2025_7_mdna_045",
+    "MSFT_FY2025_7_mdna_051"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_041",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_049",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_033",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_045",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_051",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "ticker": "BKNG",
+  "fiscal_year": 2025,
+  "condition": "S0-credit",
+  "stress_template": "credit",
+  "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Approve the USD 500 million unsecured credit facility. Booking Holdings (BKNG) demonstrates strong liquidity with $2 billion available under its existing revolving credit facility and robust profitability, evidenced by a 13% revenue increase in FY2025. While the company faces leverage risks tied to debt covenants and significant exposure to foreign currency fluctuations due to its global operations, its ability to service debt relies on strong operating cash flows. Key risks include macroeconomic volatility, regulatory scrutiny, and marketing efficiency pressures. However, the company's substantial cash generation and existing credit capacity suggest it can comfortably absorb additional unsecured debt without immediate distress, provided covenants are monitored.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "BKNG currently has $2 billion available under its revolving credit facility.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Access to the revolving credit facility is subject to financial covenants that must be met.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Lenders have the right to require immediate repayment if BKNG fails to meet covenant requirements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "BKNG's total revenues increased by approximately 13% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Foreign currency exchange rate changes contributed a benefit of about 3% to FY2025 revenue growth.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Operating margins have not been significantly impacted by currency fluctuations due to expense alignment.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "A substantial majority of BKNG's financial results are generated from businesses outside the U.S.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_076",
+          "BKNG_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "BKNG faces exposure to fluctuations in foreign currency exchange rates, principally Euros and British Pounds Sterling.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_076",
+          "BKNG_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Declines in the travel industry due to economic conditions or geopolitical tensions could adversely affect financial performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_000",
+          "BKNG_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Increased competition for search placement, including AI-generated results, could increase costs-per-click and reduce marketing efficiency.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Regulatory investigations or litigation could result in fines, damages, or changes to business practices with material adverse effects.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "BKNG's ability to service indebtedness depends on future performance and access to capital markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_080"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Global financial conditions and credit rating downgrades could materially and negatively affect liquidity and access to capital.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "BKNG uses derivative instruments to minimize the impact of foreign currency exchange rate fluctuations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Inability to attract and retain skilled talent due to regulatory or inflationary pressures could adversely affect results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "BKNG_FY2025_1A_risk_factors_075",
+    "BKNG_FY2025_7_mdna_015",
+    "BKNG_FY2025_1A_risk_factors_080",
+    "BKNG_FY2025_1A_risk_factors_074",
+    "BKNG_FY2025_1A_risk_factors_022",
+    "BKNG_FY2025_1A_risk_factors_076",
+    "BKNG_FY2025_7_mdna_014",
+    "BKNG_FY2025_1A_risk_factors_018",
+    "BKNG_FY2025_1A_risk_factors_000",
+    "BKNG_FY2025_1A_risk_factors_049",
+    "BKNG_FY2025_1A_risk_factors_001"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_080",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_074",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

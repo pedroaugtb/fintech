@@ -1,0 +1,251 @@
+{
+  "ticker": "AMT",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "AMT's FY2025 10-K indicates significant leverage and debt service obligations, which could negatively impact the company's business, results of operations, and financial condition. The company has approximately $37.2 billion of consolidated debt, with the ability to borrow additional aggregate amounts of approximately $9.6 billion. This high leverage could require a substantial portion of cash flow from operations to service debt, impair the ability to meet financial ratio covenants, and limit flexibility in planning for or reacting to changes in the business. Additionally, the company may be restricted in raising additional capital due to high debt capital costs, diminished credit availability, or less favorable equity markets. The company also faces liquidity risks due to restrictive covenants in agreements related to securitization transactions, credit facilities, and debt securities, which could materially and adversely affect the business by limiting flexibility and potentially leading to default. Profitability risks include the company's reliance on a small number of customers in the telecommunications industry, with 59% of revenues derived from four customers, and concentrations of credit risk in certain geographic areas. The company's ability to receive distributions from its TRSs may be limited, and the majority of income and cash flows from the TRSs are generated from international operations, which may be impacted by local withholding taxes, currency controls, and foreign taxes. Lastly, the company faces various risk factors, including environmental and occupational safety and health laws, government regulations, and disputes with customers that could lead to a termination of leases, a material adverse modification of lease terms, or a deterioration in relationships with customers.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "AMT has approximately $37.2 billion of consolidated debt as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "AMT has the ability to borrow additional aggregate amounts of approximately $9.6 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "High leverage could require a substantial portion of cash flow from operations to service debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "High leverage could impair the ability to meet financial ratio covenants.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "High leverage could limit flexibility in planning for or reacting to changes in the business.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The company may be restricted in raising additional capital due to high debt capital costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company may be restricted in raising additional capital due to diminished credit availability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company may be restricted in raising additional capital due to less favorable equity markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company may be restricted in raising additional capital due to restrictive covenants in agreements related to securitization transactions, credit facilities, and debt securities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company may be prohibited from paying dividends if it is in breach of restrictive covenants in agreements related to securitization transactions, credit facilities, and debt securities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The company may have liability under environmental and occupational safety and health laws.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The company's ability to receive distributions from its TRSs may be limited.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The majority of the company's income and cash flows from its TRSs are generated from international operations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company could have liability under local withholding taxes and currency controls that may impact its ability or willingness to repatriate funds to the United States to help satisfy REIT distribution requirements.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The company could have liability under environmental and occupational safety and health laws.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AMT_FY2025_1A_risk_factors_019",
+    "AMT_FY2025_1A_risk_factors_021",
+    "AMT_FY2025_1A_risk_factors_025",
+    "AMT_FY2025_1A_risk_factors_028",
+    "AMT_FY2025_1A_risk_factors_020",
+    "AMT_FY2025_1A_risk_factors_042",
+    "AMT_FY2025_1A_risk_factors_039",
+    "AMT_FY2025_7_mdna_004",
+    "AMT_FY2025_1A_risk_factors_002",
+    "AMT_FY2025_1A_risk_factors_034",
+    "AMT_FY2025_7_mdna_008"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_020",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMT_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

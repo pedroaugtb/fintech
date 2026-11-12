@@ -1,0 +1,244 @@
+{
+  "ticker": "SBUX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "As a financial risk analyst, I have identified key areas of concern for Starbucks in FY2025, including leverage, liquidity, profitability, and risk factors. The company faces challenges in managing its debt, maintaining liquidity, and navigating a competitive market. Rising costs, supply chain disruptions, and regulatory changes pose significant risks to the company's financial performance and growth plans. To mitigate these risks, Starbucks is implementing strategic initiatives, such as the 'Back to Starbucks' plan, to drive efficiency, accountability, and agility. However, the company's ability to execute these plans and adapt to changing market conditions will be crucial to its long-term success.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Starbucks' leverage is a concern due to the potential for increased borrowing costs and impaired access to capital markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "The company's liquidity may be affected by supplier or licensee insolvency, which could lead to disrupted operations and increased bad debt expense.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Starbucks' profitability has declined due to restructuring costs, deleverage, and investments in support of the 'Back to Starbucks' strategy.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "The company's operating margin contraction was primarily due to restructuring costs, deleverage, investments in support of the 'Back to Starbucks' strategy, and inflation.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Starbucks' diluted earnings per share declined to $1.63 in FY2025 compared to $3.31 in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "The company's operating income decreased to $2.9 billion in FY2025 compared to $5.4 billion in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Starbucks' total net revenues increased 3% to $37.2 billion in FY2025 compared to $36.2 billion in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "The company's operating margin contraction of 710 basis points was primarily due to restructuring costs, deleverage, investments in support of the 'Back to Starbucks' strategy, and inflation.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Starbucks faces risks related to economic uncertainty, including changes in consumer spending habits, supply chain disruptions, and climate change.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "The company is exposed to legal risk due to its positions on social and environmental issues, which could lead to reputational harm and legal costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SBUX_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Starbucks' store operating expenses as a percentage of total net revenues increased 360 basis points in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "The company's product and distribution costs as a percentage of total net revenues increased 50 basis points in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Starbucks' general and administrative expenses increased $94 million in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "The company's restructuring and impairments were $892 million in FY2025, largely due to costs associated with the closure of coffeehouses and simplification of its support organization.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Starbucks' diluted earnings per share declined by 50.8% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SBUX_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SBUX_FY2025_1A_risk_factors_028",
+    "SBUX_FY2025_1A_risk_factors_029",
+    "SBUX_FY2025_1A_risk_factors_044",
+    "SBUX_FY2025_7_mdna_006",
+    "SBUX_FY2025_1A_risk_factors_046",
+    "SBUX_FY2025_7_mdna_010",
+    "SBUX_FY2025_7_mdna_011",
+    "SBUX_FY2025_7_mdna_007",
+    "SBUX_FY2025_1A_risk_factors_027",
+    "SBUX_FY2025_1A_risk_factors_037"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SBUX_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0000829224-25-000114",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "ticker": "AMT",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "AMT's FY2025 10-K indicates significant leverage and debt service obligations, which could negatively impact the company's business, results of operations, or financial condition. The company has a substantial amount of indebtedness, with approximately $37.2 billion of consolidated debt as of December 31, 2025. The ability to borrow additional amounts under the company's credit facilities is also limited. The company's leverage and debt service obligations could require a substantial portion of cash flow from operations for debt servicing, potentially impacting other purposes such as capital expenditures and REIT distributions. Additionally, an increase in total leverage could lead to a downgrade of the company's credit rating, which could negatively impact its ability to access credit markets or preclude it from obtaining funds on investment grade terms, rates, and conditions.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "AMT has a substantial amount of indebtedness as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The ability to borrow additional amounts under the company's credit facilities is limited.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company's leverage and debt service obligations could require a substantial portion of cash flow from operations for debt servicing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019",
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "An increase in total leverage could lead to a downgrade of the company's credit rating.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The downgrade of the company's credit rating could negatively impact its ability to access credit markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The downgrade of the company's credit rating could preclude it from obtaining funds on investment grade terms, rates, and conditions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company's leverage and debt service obligations could have significant negative consequences to its business, results of operations, or financial condition.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019",
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company's leverage and debt service obligations could impair its ability to meet one or more of the financial ratio covenants contained in its debt agreements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company's leverage and debt service obligations could result in an acceleration of some or all of its outstanding debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The towers securing the company's debt could be lost if a default remains uncured.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The company may need to raise additional capital through debt financing activities, asset sales, or equity issuances.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The company's ability to generate cash sufficient to pay interest or principal due under its debt agreements could be impacted.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The company's leverage and debt service obligations could limit its ability to obtain additional debt or equity financing.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company's leverage and debt service obligations could limit its flexibility in planning for, or reacting to, changes in its business and the markets in which it competes.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The company's majority of income and cash flows from its TRSs are generated from its international operations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AMT_FY2025_1A_risk_factors_019",
+    "AMT_FY2025_1A_risk_factors_021",
+    "AMT_FY2025_1A_risk_factors_025",
+    "AMT_FY2025_1A_risk_factors_028",
+    "AMT_FY2025_1A_risk_factors_020",
+    "AMT_FY2025_1A_risk_factors_042",
+    "AMT_FY2025_1A_risk_factors_039",
+    "AMT_FY2025_7_mdna_004",
+    "AMT_FY2025_1A_risk_factors_002",
+    "AMT_FY2025_1A_risk_factors_034",
+    "AMT_FY2025_7_mdna_008"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_020",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMT_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "ticker": "MSFT",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Microsoft's FY2025 financial performance is marked by a 15% revenue growth, driven by Intelligent Cloud and More Personal Computing segments. The company's leverage has increased, with total debt reaching $49.2 billion. Liquidity remains strong, with $94.6 billion in cash and cash equivalents as of June 30, 2025. Profitability has improved, with a 13% increase in gross margin. However, the company faces risks related to foreign exchange rates, global economic developments, and seasonality in revenue. Critical accounting estimates, such as revenue recognition and goodwill impairment, also pose a risk to the company's financial condition and results of operations.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "Microsoft's total debt reached $49.2 billion as of June 30, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_039",
+          "MSFT_FY2025_7_mdna_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "Microsoft's cash and cash equivalents totaled $94.6 billion as of June 30, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "Microsoft's revenue grew 15% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_016",
+          "MSFT_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "Microsoft's gross margin increased 13% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "Microsoft's operating income increased 17% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "Microsoft's revenue is subject to fluctuations due to seasonality.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "Microsoft's international operations are subject to foreign exchange rate fluctuations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "Microsoft's financial statements require critical accounting estimates, including revenue recognition and goodwill impairment.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_045",
+          "MSFT_FY2025_7_mdna_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "Microsoft's cash and cash equivalents decreased by $19.1 billion from FY2024 to FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "Microsoft's cash used in investing decreased by $24.4 billion in FY2025 compared to FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "Microsoft's operating expenses increased 6% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "Microsoft's net income increased 16% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "Microsoft's diluted earnings per share increased 16% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "Microsoft's Intelligent Cloud revenue increased driven by Azure.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "Microsoft's More Personal Computing revenue increased driven by Gaming and Search and news advertising.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MSFT_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MSFT_FY2025_7_mdna_041",
+    "MSFT_FY2025_7_mdna_039",
+    "MSFT_FY2025_7_mdna_049",
+    "MSFT_FY2025_7_mdna_033",
+    "MSFT_FY2025_7_mdna_037",
+    "MSFT_FY2025_7_mdna_016",
+    "MSFT_FY2025_7_mdna_015",
+    "MSFT_FY2025_7_mdna_007",
+    "MSFT_FY2025_7_mdna_045",
+    "MSFT_FY2025_7_mdna_051"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_041",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_049",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_033",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_045",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MSFT_FY2025_7_mdna_051",
+      "section": "7_mdna",
+      "accession": "0000950170-25-100235",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

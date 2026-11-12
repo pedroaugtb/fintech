@@ -1,0 +1,253 @@
+{
+  "ticker": "ED",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Con Edison reported FY2025 diluted EPS of $5.64, up from $5.24 in 2024, driven by higher rate bases despite increased interest expenses. Liquidity faces pressure from slow accounts receivable recovery and a projected $37.1 billion capital expenditure requirement over five years, necessitating external financing. Leverage risks include dividend restrictions limiting parent company cash flow and potential credit rating impacts from tax law changes. Key risks involve extensive regulatory oversight, potential rate plan inadequacies, and significant exposure to cyber incidents and wholesale energy market disruptions.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Diluted earnings per share increased to $5.64 in 2025 from $5.24 in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "CECONY net income for common stock rose to $1,906 million in 2025 from $1,748 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_016",
+          "ED_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Higher interest expense reduced net income by $38 million and EPS by $0.11 in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Con Edison Transmission expects to sell its remaining MVP interest in H1 2026 for total aggregate consideration of $357.5 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Parent company ability to pay dividends and interest depends on distributions from subsidiaries, which are capped by NYSPSC regulations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Utilities estimate capital expenditures will exceed $37,100 million over the next five years.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Continued slow recovery of accounts receivable balances is expected to materially impact company liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Changes in tax laws could adversely impact credit ratings and liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Disruptions in wholesale energy markets or supplier failures could adversely affect the ability to meet customer needs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Significant cyber incidents could cause material operational disruption, revenue loss, and reputational damage.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Approved rate plans do not guarantee recovery of costs or a reasonable return on equity.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The company is subject to extensive regulation and potential substantial penalties from federal, state, and local agencies.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_000",
+          "ED_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Con Edison was not subject to the higher 7.25% corporate franchise tax rate in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "FY2025 results included a $10 million impairment loss related to the Honeoye investment.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ED_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The company relies on external borrowings and capital markets to satisfy funding requirements for capital expenditures.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ED_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "ED_FY2025_7_mdna_010",
+    "ED_FY2025_1A_risk_factors_015",
+    "ED_FY2025_7_mdna_020",
+    "ED_FY2025_1A_risk_factors_016",
+    "ED_FY2025_7_mdna_007",
+    "ED_FY2025_1A_risk_factors_017",
+    "ED_FY2025_7_mdna_016",
+    "ED_FY2025_7_mdna_017",
+    "ED_FY2025_1A_risk_factors_009",
+    "ED_FY2025_1A_risk_factors_002",
+    "ED_FY2025_1A_risk_factors_000"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "ED_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ED_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ED_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ED_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ED_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ED_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001047862-26-000031",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

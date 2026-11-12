@@ -1,0 +1,251 @@
+{
+  "ticker": "CVX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Chevron's FY2025 financial performance shows a decline in profitability and liquidity, with a net income of $2,845 million, a decrease from $3,613 million in FY2024. The company's leverage has increased, with a total debt of $39,781 million at the end of FY2025. The company faces various risks, including climate change, cybersecurity threats, and changes in management's estimates and assumptions. The company's return on average capital employed (ROCE) decreased to 6.6% in FY2025, from 10.1% in FY2024. The company's return on average stockholders' equity (ROSE) decreased to 7.3% in FY2025, from 11.3% in FY2024.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Chevron's total debt increased to $39,781 million at the end of FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Chevron's net income decreased to $2,845 million in FY2025, from $3,613 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Chevron's return on average capital employed (ROCE) decreased to 6.6% in FY2025, from 10.1% in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Chevron's return on average stockholders' equity (ROSE) decreased to 7.3% in FY2025, from 11.3% in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Chevron's liquidity may be affected by a significant or sustained decline in the supply and demand for refined products and associated margins.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Chevron's business may be impacted by climate change, including increased and substantial capital, compliance, operating, and maintenance costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Chevron's business may be impacted by cybersecurity threats, including cyberattacks and events affecting its operational technology networks or other digital infrastructure.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Changes in management's estimates and assumptions may have a material impact on Chevron's consolidated financial statements and financial or operational performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Chevron's use of artificial intelligence technologies may present business, compliance, and reputational risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Chevron's total capital employed increased to $232,934 million at the end of FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Chevron's net income attributable to noncontrolling interests was $75 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Chevron's average capital employed was $205,316 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Chevron's average stockholders' equity was $169,384 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Chevron's total pension expense for 2025 was $677 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "A one percent increase in the expected long-term return on plan assets or the discount rate would reduce Chevron's total pension plan expense for 2025 by approximately $93 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_023"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CVX_FY2025_7_mdna_000",
+    "CVX_FY2025_7_mdna_049",
+    "CVX_FY2025_7_mdna_023",
+    "CVX_FY2025_1A_risk_factors_003",
+    "CVX_FY2025_1A_risk_factors_022",
+    "CVX_FY2025_1A_risk_factors_011",
+    "CVX_FY2025_7_mdna_030",
+    "CVX_FY2025_7_mdna_001",
+    "CVX_FY2025_1A_risk_factors_006",
+    "CVX_FY2025_1A_risk_factors_032",
+    "CVX_FY2025_1A_risk_factors_009"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_049",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_023",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

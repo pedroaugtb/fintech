@@ -1,0 +1,254 @@
+{
+  "ticker": "UNH",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "UnitedHealth Group (UNH) FY2025 10-K highlights potential risks to the company's financial position and operations. The company's leverage is a concern due to the potential impact of downgrades in credit ratings, which could increase borrowing and operating costs. The company's liquidity is also at risk due to regulatory requirements and the need for regulatory approvals to market products and services, which could delay growth and increase costs. Profitability is affected by market fluctuations, which could impair the value of the company's investment and loan portfolio and increase medical costs. Risk factors include changes in laws or regulations, cybersecurity threats, and reliance on new and evolving technologies.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company's credit ratings impact both the cost and availability of future borrowings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The company may not be able to maintain its current credit ratings in future periods.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company's investment and loan portfolio may sustain losses which could adversely affect its profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Market fluctuations could impair the value of the company's investment and loan portfolio and its profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Risks and uncertainties may materially affect the company's results of operations, financial position and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_041",
+          "UNH_FY2025_1A_risk_factors_043",
+          "UNH_FY2025_1A_risk_factors_045",
+          "UNH_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The company is regulated by federal, state and local governments in the United States and other countries where it does business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company's insurance and HMO subsidiaries must be licensed by and are subject to regulation in the jurisdictions in which they conduct business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Certain laws and regulations restrict or prohibit companies from performing work for government agencies that might be viewed to involve an actual or potential conflict of interest.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company must obtain and maintain regulatory approvals to market many of its products and services.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Premium rates for the company's health insurance and managed care products are subject to regulatory review or approval in many states and by the federal government.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The company's business activities in the United States and other countries are highly regulated and new laws or regulations or changes in existing laws or regulations or their enforcement or application could materially and adversely affect its business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The company is subject to the terms of its contracts with government agencies and laws and regulations regarding government contracts.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The company's relationships with physicians, hospitals and customers are subject to state telemedicine regulations; debt collection laws; banking regulations; consumer financial protection laws; distributor and producer licensing requirements; state corporate practice of medicine restrictions; fee-splitting rules; and health care facility licensure and certificate of need requirements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company's cash flows from operations were $19.7 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The company's diluted earnings per common share was $13.23 in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "UNH_FY2025_1A_risk_factors_040",
+    "UNH_FY2025_1A_risk_factors_036",
+    "UNH_FY2025_1A_risk_factors_043",
+    "UNH_FY2025_1A_risk_factors_041",
+    "UNH_FY2025_1A_risk_factors_045",
+    "UNH_FY2025_7_mdna_004",
+    "UNH_FY2025_7_mdna_005",
+    "UNH_FY2025_7_mdna_014",
+    "UNH_FY2025_1A_risk_factors_013",
+    "UNH_FY2025_1A_risk_factors_062",
+    "UNH_FY2025_7_mdna_006"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_036",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_013",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

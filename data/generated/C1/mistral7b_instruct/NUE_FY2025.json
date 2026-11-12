@@ -1,0 +1,251 @@
+{
+  "ticker": "NUE",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Nucor Corporation's FY2025 financial report indicates a shift in leverage, with the company amending and restating its revolving credit facility to increase borrowing capacity from $1.75 billion to $2.25 billion and extending its maturity date to March 11, 2030. The facility includes only one financial covenant, a limit of 60% on the ratio of funded debt to total capital. The company also repurchased $700 million in stock, reduced cash dividends, and increased long-term debt repayments in 2025. However, the report notes a risk factor related to the company's capital requirements potentially not being adequate for future cash needs.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Nucor Corporation amended and restated its revolving credit facility in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The borrowing capacity of Nucor Corporation's revolving credit facility was increased from $1.75 billion to $2.25 billion in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The maturity date of Nucor Corporation's revolving credit facility was extended to March 11, 2030 in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The revolving credit facility includes only one financial covenant, a limit of 60% on the ratio of funded debt to total capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Nucor Corporation repurchased $700 million in stock in 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Nucor Corporation reduced cash dividends to stockholders from $522 million in 2024 to $512 million in 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Nucor Corporation increased long-term debt repayments from $10 million in 2024 to $1.02 billion in 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Nucor Corporation's business requires substantial capital investment and maintenance expenditures.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Nucor Corporation's capital resources may not be adequate to provide for all of its cash requirements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Nucor Corporation's total capital expenditures were approximately $8.90 billion for the three-year period ended December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Nucor Corporation's current ratio was 2.9 at year-end 2025 compared with 2.5 at year-end 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Nucor Corporation's funds provided by operations, cash and cash equivalents, short-term investments and new borrowings under existing credit facilities are expected to be adequate to meet future capital expenditures, current debt maturities and working capital requirements for existing operations for at least the next 24 months.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Nucor Corporation has adequate access to capital markets for liquidity purposes.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Nucor Corporation has no off-balance sheet arrangements or relationships with unconsolidated special purpose entities that could have a material impact on its financial condition or liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Nucor Corporation's effective tax rate in 2025 was 20.64% compared with 20.09% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_025"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NUE_FY2025_7_mdna_039",
+    "NUE_FY2025_7_mdna_038",
+    "NUE_FY2025_1A_risk_factors_008",
+    "NUE_FY2025_7_mdna_031",
+    "NUE_FY2025_7_mdna_032",
+    "NUE_FY2025_7_mdna_025",
+    "NUE_FY2025_7_mdna_026",
+    "NUE_FY2025_7_mdna_023",
+    "NUE_FY2025_1A_risk_factors_020",
+    "NUE_FY2025_1A_risk_factors_006",
+    "NUE_FY2025_1A_risk_factors_021"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_038",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_023",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_020",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

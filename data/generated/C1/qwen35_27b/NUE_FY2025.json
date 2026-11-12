@@ -1,0 +1,254 @@
+{
+  "ticker": "NUE",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Nucor maintained strong liquidity in FY2025 with a current ratio of 2.9, supported by $2.26 billion in cash and equivalents. Leverage management included increasing revolving credit capacity to $2.25 billion and redeeming $1.0 billion in 2025 Notes, while net interest expense rose to $59 million. Profitability metrics show an effective tax rate of 20.64%, with significant capital expenditures totaling $8.90 billion over the last three years. Key risks include intense competition from imports and alternative materials, substantial capital investment requirements, and exposure to cybersecurity threats and operational disruptions.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Nucor increased its revolving credit facility borrowing capacity from $1.75 billion to $2.25 billion in March 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_038",
+          "NUE_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "The revolving credit facility includes a financial covenant limiting the ratio of funded debt to total capital to 60%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "In 2025, Nucor repaid $1.02 billion of long-term debt, a significant increase from $10 million in 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Nucor redeemed all outstanding $1.00 billion of 2025 Notes using proceeds from new 2030 and 2035 Notes issued in March 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Cash and cash equivalents decreased to $2,260 million at December 31, 2025, from $3,558 million in 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "The current ratio improved to 2.9 at year-end 2025 compared to 2.5 at year-end 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_031",
+          "NUE_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Management expects funds from operations and existing credit facilities to be adequate for at least the next 24 months.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "The company has no off-balance sheet arrangements that could materially impact financial condition or liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Net interest expense increased to $59 million in 2025 from a net interest income of $30 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "The effective tax rate was 20.64% in 2025, compared to 20.09% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Total capital expenditures were approximately $8.90 billion for the three-year period ended December 31, 2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NUE_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The company faces competition from other steel producers, imports, and alternative materials like concrete and aluminum.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NUE_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Cybersecurity threats and system failures could result in operational disruptions, data breaches, and lost revenues.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NUE_FY2025_1A_risk_factors_020",
+          "NUE_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Operations are subject to business interruptions and casualty losses from events such as explosions, fires, and natural disasters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NUE_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Capital resources may not be adequate to provide for all cash requirements, including funding for capital expenditures and debt service.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NUE_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NUE_FY2025_7_mdna_039",
+    "NUE_FY2025_7_mdna_038",
+    "NUE_FY2025_1A_risk_factors_008",
+    "NUE_FY2025_7_mdna_031",
+    "NUE_FY2025_7_mdna_032",
+    "NUE_FY2025_7_mdna_025",
+    "NUE_FY2025_7_mdna_026",
+    "NUE_FY2025_7_mdna_023",
+    "NUE_FY2025_1A_risk_factors_020",
+    "NUE_FY2025_1A_risk_factors_006",
+    "NUE_FY2025_1A_risk_factors_021"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_038",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_023",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_020",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071575",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

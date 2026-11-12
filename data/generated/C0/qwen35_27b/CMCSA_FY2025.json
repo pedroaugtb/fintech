@@ -1,0 +1,251 @@
+{
+  "ticker": "CMCSA",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Comcast's FY2025 performance reflects margin compression and customer attrition amid a challenging macroeconomic environment. Adjusted EBITDA margins declined across key segments, with total customer relationships dropping by 967,000. While capital expenditures rose 5.3% to $8.7 billion, liquidity remains exposed to high interest rates and potential refinancing costs. Significant risks include intense competition for content rights, regulatory scrutiny, and the potential for goodwill impairments from strategic initiatives. The company faces ongoing pressure from weak economic conditions affecting discretionary spending and operational costs.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Adjusted EBITDA margin for the Media segment decreased from 38.2% to 37.7%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Adjusted EBITDA margin for Business Services Connectivity decreased from 56.7% to 55.9%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Total customer relationships decreased by 967,000 to 50.8 million.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Domestic broadband customers decreased by 711,000 to 31.3 million.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Total Connectivity & Platforms capital expenditures increased 5.3% to $8.7 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "High interest rates may impact the ability to refinance existing debt on acceptable terms.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Strategic initiatives and acquisitions may result in the incurrence of significant debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Acquisitions and strategic initiatives could result in the impairment of goodwill and long-lived assets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Competition for sports rights may result in significantly increased costs over extended contractual terms.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "There is no assurance that revenue from content contracts will exceed the costs of rights and distribution.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Weak economic conditions may adversely affect demand for products and services by impacting discretionary spending.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The company operates in intensely competitive environments with no assurance of effective competition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Unfavorable litigation outcomes could result in significant monetary damages or injunctive relief.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Failure to comply with applicable laws could result in administrative enforcement actions, fines, and liability.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The loss of key management personnel or creative talent could have a negative impact on businesses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CMCSA_FY2025_1A_risk_factors_030",
+    "CMCSA_FY2025_1A_risk_factors_031",
+    "CMCSA_FY2025_1A_risk_factors_035",
+    "CMCSA_FY2025_7_mdna_003",
+    "CMCSA_FY2025_1A_risk_factors_010",
+    "CMCSA_FY2025_1A_risk_factors_042",
+    "CMCSA_FY2025_7_mdna_001",
+    "CMCSA_FY2025_7_mdna_002",
+    "CMCSA_FY2025_1A_risk_factors_041",
+    "CMCSA_FY2025_1A_risk_factors_000",
+    "CMCSA_FY2025_1A_risk_factors_028"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

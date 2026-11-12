@@ -1,0 +1,258 @@
+{
+  "ticker": "KO",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Coca-Cola's FY2025 results show improved gross profit margin to 61.6%, driven by pricing and refranchising, though operating income contributions declined across most segments compared to 2024. The company maintains debt levels deemed prudent based on cash flows and interest coverage, utilizing derivatives to mitigate interest rate and foreign currency risks. Liquidity management involves strategic decisions on undistributed earnings in foreign subsidiaries. Key risks include potential credit rating downgrades affecting borrowing costs, litigation liabilities, and cybersecurity threats impacting reputation and operations.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Gross profit margin increased to 61.6% in 2025 from 61.1% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "The increase in gross profit margin was primarily due to favorable pricing initiatives and prior year refranchising of bottling operations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Selling, general and administrative expenses decreased to $14,521 million in 2025 from $14,582 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Operating income contribution percentage for EMEA declined from 42.6% in 2024 to 31.2% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Operating income contribution percentage for North America declined from 45.6% in 2024 to 36.8% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "The company maintains debt levels considered prudent based on cash flows, interest coverage ratio, and percentage of debt to capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Debt financing is used to lower the cost of capital, which increases return on shareowners' equity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "The company uses derivative financial instruments to reduce exposure to interest rate risks.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Fluctuations in foreign currency exchange rates could materially affect financial results.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Decisions on undistributed earnings in non-U.S. subsidiaries consider liquidity plans and capital improvement programs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Local restrictions on remittances can influence the determination of undistributed earnings in foreign subsidiaries.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "A downgrade in credit ratings could increase the company's cost of borrowing.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Litigation claims could expose the company to significant liabilities and damage its reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Cybersecurity incidents experienced by bottling partners could cause reputational harm to the company.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_070"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Unauthorized access to personal data could result in regulatory enforcement actions, fines, and loss of revenue.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "KO_FY2025_1A_risk_factors_060",
+    "KO_FY2025_7_mdna_027",
+    "KO_FY2025_1A_risk_factors_062",
+    "KO_FY2025_7_mdna_036",
+    "KO_FY2025_7_mdna_001",
+    "KO_FY2025_1A_risk_factors_061",
+    "KO_FY2025_7_mdna_055",
+    "KO_FY2025_7_mdna_060",
+    "KO_FY2025_7_mdna_056",
+    "KO_FY2025_1A_risk_factors_052",
+    "KO_FY2025_1A_risk_factors_070",
+    "KO_FY2025_1A_risk_factors_075"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_036",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_055",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_060",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_056",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

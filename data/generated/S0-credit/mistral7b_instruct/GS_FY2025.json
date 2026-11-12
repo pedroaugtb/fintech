@@ -1,0 +1,191 @@
+{
+  "ticker": "GS",
+  "fiscal_year": 2025,
+  "condition": "S0-credit",
+  "stress_template": "credit",
+  "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Goldman Sachs Group, Inc. (GS) has a strong credit profile, with unsecured debt ratings of A+ from Fitch, A1 from Moody’s, and A+ from S&P. However, the bank’s liquidity position is moderately concentrated, with 89% of its unrestricted cash and cash equivalents held with sovereign entities. The bank’s liquidity may be impaired by an inability to access secured and/or unsecured debt markets. Given the moderate liquidity concentration and the size of the proposed USD 500 million unsecured credit facility, we recommend a cautious approach. Approval of the facility should be contingent on a thorough assessment of GS’s liquidity position and its ability to access debt markets in the future.",
+    "claims": [
+      {
+        "claim_id": "GS_FY2025_7_mdna_036",
+        "text": "The credit ratings for GS are primarily based on the credit rating agencies’ assessment of leverage and off-balance sheet arrangements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_047",
+        "text": "GS has unsecured credit ratings of A+ from Fitch, A1 from Moody’s, and A+ from S&P for various entities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_083",
+        "text": "The majority of GS’s unsecured borrowings is raised by Group Inc., which provides loans to non-investment-grade counterparties.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_083"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_049",
+        "text": "GS’s credit exposure on unrestricted cash and cash equivalents is primarily with sovereign entities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_050",
+        "text": "GS’s cash and cash equivalents decreased by $17.83 billion to $164.26 billion at the end of 2025, primarily due to net cash used for operating activities and investing activities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_025",
+        "text": "GS’s liquidity, profitability, and businesses may be adversely affected by an inability to access the debt capital markets or to sell assets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_051",
+        "text": "GS’s net cash provided by financing activities primarily reflected cash inflows from other secured financings and deposits.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_7_mdna_058",
+        "text": "GS manages its interest rate risk using the EaR metric.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_058"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_004",
+        "text": "GS has in the past had and may in the future have material adverse financial effects and significant reputational consequences, which in turn could seriously harm its business prospects.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_009",
+        "text": "GS is subject to political, legal, regulatory, tax, and other risks that are inherent in operating in many countries.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "GS_FY2025_1A_risk_factors_029",
+        "text": "GS operates in a highly competitive financial services industry.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GS_FY2025_7_mdna_047",
+    "GS_FY2025_7_mdna_036",
+    "GS_FY2025_7_mdna_029",
+    "GS_FY2025_7_mdna_083",
+    "GS_FY2025_7_mdna_049",
+    "GS_FY2025_7_mdna_050",
+    "GS_FY2025_1A_risk_factors_025",
+    "GS_FY2025_7_mdna_051",
+    "GS_FY2025_7_mdna_058",
+    "GS_FY2025_1A_risk_factors_004",
+    "GS_FY2025_1A_risk_factors_009",
+    "GS_FY2025_7_mdna_003"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GS_FY2025_7_mdna_047",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_036",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_083",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_049",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_050",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_051",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_058",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

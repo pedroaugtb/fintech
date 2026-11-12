@@ -1,0 +1,229 @@
+{
+  "ticker": "C",
+  "fiscal_year": 2025,
+  "condition": "S0-attractive",
+  "stress_template": "attractive",
+  "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Citi's FY2025 results show growth in assets, deposits, and net interest income, but also increased leverage and liquidity risks due to market disruptions, changes in fiscal and monetary policies, and competition for deposits. Profitability is mixed, with growth in Services revenue offset by declines in All Other managed basis. Risk factors include cybersecurity threats, incorrect accounting assumptions, and geopolitical challenges.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Citi's total assets increased by 15% in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_039",
+          "C_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Citi's deposits increased by 9% in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_039",
+          "C_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Net interest income increased by 12% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Non-interest revenue decreased by 4% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Citi faces liquidity risks due to factors it cannot control, such as general disruptions in the financial markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_207"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Citi competes with other banks and non-bank financial institutions for deposits, which represent Citi’s most stable and lowest cost source of long-term funding.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_207"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Citi’s costs to obtain and access wholesale funding are directly related to changes in interest and currency exchange rates and its credit spreads.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_207"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Citi’s net income in FY2025 was $14,306 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Services revenue is generated primarily from spreads and fees associated with cash management, payments, trade and working capital solutions, and securities services.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Citi faces liquidity risks due to negative investor or counterparty perceptions of Citi’s creditworthiness.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_207"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Citi faces liquidity risks due to deposit outflows or unfavorable changes in deposit mix.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_207"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Citi faces liquidity risks due to unexpected increases in cash or collateral requirements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_207"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Citi faces liquidity risks due to the consequent inability to monetize available liquidity resources.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_207"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Citi faces liquidity risks due to the inability to access the U.S. Federal Reserve’s discount window.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_207"
+        ],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "15",
+        "text": "Citi faces liquidity risks due to the inability to access the European Central Bank’s discount window.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_207"
+        ],
+        "sufficient_evidence": false
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "C_FY2025_1A_risk_factors_039",
+    "C_FY2025_1A_risk_factors_037",
+    "C_FY2025_1A_risk_factors_038",
+    "C_FY2025_1A_risk_factors_043",
+    "C_FY2025_1A_risk_factors_207",
+    "C_FY2025_1A_risk_factors_042",
+    "C_FY2025_1A_risk_factors_049",
+    "C_FY2025_1A_risk_factors_018",
+    "C_FY2025_1A_risk_factors_021",
+    "C_FY2025_1A_risk_factors_180",
+    "C_FY2025_1A_risk_factors_195",
+    "C_FY2025_1A_risk_factors_147"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_207",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_180",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_195",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_147",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

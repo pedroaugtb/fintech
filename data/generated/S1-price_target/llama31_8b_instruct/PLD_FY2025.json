@@ -1,0 +1,185 @@
+{
+  "ticker": "PLD",
+  "fiscal_year": 2025,
+  "condition": "S1-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Prologis' FY2025 financial performance was marked by strong rent growth, favorable lease mark-to-market, and increased development activity. However, the company's leverage and liquidity positions require monitoring due to ongoing economic uncertainty. The company's profitability remains strong, driven by embedded rent growth in its in-place portfolio and development pipeline. The company's risk factors include potential economic uncertainty and its impact on the business, financial condition, and operating results.",
+    "claims": [
+      {
+        "claim_id": "E1",
+        "text": "At December 31, 2025, Prologis' total debt was $35.0 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E2",
+        "text": "Prologis' weighted average term of debt was 9 years at December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E3",
+        "text": "Prologis' effective interest rate was 3.2% at December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E4",
+        "text": "Prologis amended and restated one of its global credit facilities in May 2025, maintaining its existing borrowing capacity of $3.0 billion and extending the maturity date to June 2029.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E5",
+        "text": "Prologis established an additional commercial paper program in June 2025, allowing it to issue up to €1.0 billion in short-term unsecured commercial paper notes.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E6",
+        "text": "Prologis issued $3.4 billion of senior notes with an issuance date weighted average interest rate of 4.2% and weighted average term of 8 years.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E7",
+        "text": "Prologis had total available liquidity of $7.6 billion at December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E8",
+        "text": "Prologis had available capacity on its credit facilities of $6.5 billion and unrestricted cash balances of $1.1 billion at December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E9",
+        "text": "Prologis' results during 2025 reflected the favorable mark-to-market of its existing leases, with a lease mark-to-market of 18% at December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E10",
+        "text": "Prologis' occupancy in its operating portfolio was 95.6% at December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E11",
+        "text": "Prologis commenced $2.9 billion of consolidated development projects in 2025, with 60.9% being build-to-suit projects.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E12",
+        "text": "Prologis' financial condition and results of operations for 2025 compared to 2024 are discussed in the Management's Discussion and Analysis of Financial Condition and Results of Operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E13",
+        "text": "Prologis' potential impact of ongoing economic uncertainty on its business, financial condition, and operating results remains difficult to predict.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E14",
+        "text": "Prologis listed China AMC Prologis Logistics REIT on the Shenzhen Stock Exchange in December 2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E15",
+        "text": "Prologis owned 20.7% of the China AMC Prologis Logistics REIT at December 31, 2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PLD_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PLD_FY2025_7_mdna_004",
+    "PLD_FY2025_7_mdna_003",
+    "PLD_FY2025_7_mdna_005",
+    "PLD_FY2025_7_mdna_000",
+    "PLD_FY2025_7_mdna_002"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PLD_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    }
+  ]
+}

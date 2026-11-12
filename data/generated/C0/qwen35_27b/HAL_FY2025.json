@@ -1,0 +1,255 @@
+{
+  "ticker": "HAL",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "HAL reported FY2025 operating income of $2.26 billion, a 41% decline driven by lower activity in North America and the Middle East, alongside a $154 million SAP migration expense. Liquidity remains robust with $2.2 billion in cash and $3.5 billion in committed credit, supporting a manageable debt profile with no financial covenants. Credit ratings are stable (S&P BBB+, Moody's A3). Key risks include potential payment delays from a primary Mexican customer (7% of receivables), ongoing cybersecurity threats, and operational disruptions from the extended SAP implementation.",
+    "claims": [
+      {
+        "claim_id": "C01",
+        "text": "Total operating income decreased 41% to $2.26 billion in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_104"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C02",
+        "text": "Completion and Production segment operating income fell 21% to $2.1 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_104"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C03",
+        "text": "Drilling and Evaluation segment operating income declined 14% to $1.4 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_104",
+          "HAL_FY2025_7_mdna_105"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C04",
+        "text": "The company incurred $154 million in expenses related to the SAP S4 migration in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C05",
+        "text": "North America revenue decreased 6% to $9.1 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_105"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C06",
+        "text": "Cash and equivalents totaled $2.2 billion as of December 31, 2025, down from $2.6 billion in 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_090",
+          "HAL_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C07",
+        "text": "The company has $3.5 billion in available committed bank credit under a facility expiring in 2030.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C08",
+        "text": "Operating cash flows were $2.9 billion in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C09",
+        "text": "The company repurchased 42.4 million shares of common stock for $1.0 billion in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Debt maturities are manageable with approximately $90 million due in February 2027.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_095",
+          "HAL_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Bank agreements contain no financial covenants or material adverse change provisions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Credit ratings remain stable at S&P BBB+ (long-term) and Moody's A3 (long-term).",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_097"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Receivables from a primary customer in Mexico represented 7% of total receivables as of December 31, 2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_097"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "The company faces risks of material adverse effects from potential future cybersecurity incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_078",
+          "HAL_FY2025_7_mdna_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "The SAP S4 migration project extension is expected to cost approximately $45 million per quarter going forward.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "HAL_FY2025_7_mdna_095",
+    "HAL_FY2025_7_mdna_097",
+    "HAL_FY2025_7_mdna_094",
+    "HAL_FY2025_7_mdna_090",
+    "HAL_FY2025_7_mdna_019",
+    "HAL_FY2025_7_mdna_104",
+    "HAL_FY2025_7_mdna_119",
+    "HAL_FY2025_7_mdna_105",
+    "HAL_FY2025_7_mdna_078",
+    "HAL_FY2025_7_mdna_063",
+    "HAL_FY2025_7_mdna_073"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_095",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_097",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_094",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_090",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_104",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_119",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_105",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_078",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_063",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_073",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "ticker": "BKNG",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Booking Holdings (BKNG) faces significant leverage risks tied to a $2 billion revolving credit facility with strict covenants, where non-compliance could trigger immediate repayment. Liquidity is contingent on global financial conditions, credit ratings, and the ability to meet debt requirements. Profitability in FY2025 saw a 13% revenue increase, partially driven by a 3% foreign currency benefit, though operating margins remain sensitive to exchange rate fluctuations and marketing efficiency. Key risks include travel industry volatility, geopolitical tensions, regulatory investigations, and potential goodwill impairments, all of which could materially impact financial results and access to capital.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "The company currently has $2 billion available under its revolving credit facility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "The revolving credit facility contains financial covenants that must be met to access liquidity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Lenders have the right to require repayment of borrowed amounts if the company is not in compliance with covenants.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Indebtedness requires the dedication of a portion of cash flow from operations to service debt, reducing cash available for other purposes.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_080"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The company's ability to make share repurchases and pay dividends relies on access to capital and cash flow generation.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_080"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Liquidity and access to capital depend on global economic conditions, credit ratings, and the ability to meet debt covenant requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Increased volatility in financial markets generally makes access to capital less certain.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Impairments of goodwill, long-term investments, and increases in provisions for expected credit losses could negatively impact results of operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Total revenues increased by approximately 13% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "The revenue increase included a benefit of about 3% from changes in foreign currency exchange rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Operating margins have not been significantly impacted by currency fluctuations because expenses are generally denominated in foreign currencies similar to revenues.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "A strengthening U.S. Dollar results in lower foreign-currency-denominated revenues and net income when expressed in U.S. Dollars.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Decreased marketing efficiency or increased costs-per-click could adversely affect margins, revenues, and earnings growth.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Declines in the travel industry due to economic conditions or political uncertainty could adversely affect business and financial performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Regulatory investigations or litigation could result in fines, damages, or changes to business practices with a material adverse effect on financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BKNG_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "BKNG_FY2025_1A_risk_factors_075",
+    "BKNG_FY2025_7_mdna_015",
+    "BKNG_FY2025_1A_risk_factors_080",
+    "BKNG_FY2025_1A_risk_factors_074",
+    "BKNG_FY2025_1A_risk_factors_022",
+    "BKNG_FY2025_1A_risk_factors_076",
+    "BKNG_FY2025_7_mdna_014",
+    "BKNG_FY2025_1A_risk_factors_018",
+    "BKNG_FY2025_1A_risk_factors_000",
+    "BKNG_FY2025_1A_risk_factors_049",
+    "BKNG_FY2025_1A_risk_factors_001"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_080",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_074",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BKNG_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0001075531-26-000009",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "ticker": "DD",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "DuPont's FY2025 financial performance is influenced by leverage, liquidity, profitability, and risk factors. The company's leverage is impacted by its reliance on debt capital markets and short-term borrowings. Liquidity is supported by $1.7 billion of net working capital and $0.7 billion in cash and cash equivalents. Profitability is affected by tax uncertainty and the company's ability to maintain a streamlined operating model. Risks include cybersecurity threats, litigation, and environmental matters. The company's ability to access debt capital markets and maintain credit ratings is crucial to its financial performance.",
+    "claims": [
+      {
+        "claim_id": "a",
+        "text": "DuPont relies on debt capital markets and short-term borrowings to finance its long-term and day-to-day operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_047",
+          "DD_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "b",
+        "text": "DuPont has $1.7 billion of net working capital and $0.7 billion in cash and cash equivalents.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DD_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "c",
+        "text": "DuPont's profitability is affected by tax uncertainty.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "d",
+        "text": "DuPont's ability to maintain a streamlined operating model is crucial to its profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "e",
+        "text": "DuPont faces risks from cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "f",
+        "text": "DuPont faces risks from litigation and environmental matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_014",
+          "DD_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "g",
+        "text": "DuPont's credit ratings are important to its cost of capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "h",
+        "text": "A decrease in DuPont's credit ratings could increase its cost of borrowing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "i",
+        "text": "DuPont's ability to access debt capital markets is crucial to its liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "j",
+        "text": "DuPont's ability to maintain a streamlined operating model is crucial to its profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "k",
+        "text": "DuPont's profitability is affected by tax uncertainty.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "l",
+        "text": "DuPont faces risks from cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "m",
+        "text": "DuPont faces risks from litigation and environmental matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_014",
+          "DD_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "n",
+        "text": "DuPont has $1.7 billion of net working capital and $0.7 billion in cash and cash equivalents.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DD_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "o",
+        "text": "DuPont's credit ratings are important to its cost of capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DD_FY2025_1A_risk_factors_048",
+    "DD_FY2025_7_mdna_018",
+    "DD_FY2025_1A_risk_factors_047",
+    "DD_FY2025_7_mdna_000",
+    "DD_FY2025_1A_risk_factors_061",
+    "DD_FY2025_1A_risk_factors_043",
+    "DD_FY2025_7_mdna_021",
+    "DD_FY2025_1A_risk_factors_035",
+    "DD_FY2025_1A_risk_factors_014",
+    "DD_FY2025_1A_risk_factors_015"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DD_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DD_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

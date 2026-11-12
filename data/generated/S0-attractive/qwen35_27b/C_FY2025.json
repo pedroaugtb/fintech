@@ -1,0 +1,229 @@
+{
+  "ticker": "C",
+  "fiscal_year": 2025,
+  "condition": "S0-attractive",
+  "stress_template": "attractive",
+  "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Citigroup reported FY2025 revenue growth of 6% and net income of $14.3 billion, driven by higher net interest income and deposit expansion, though leverage ratios declined slightly due to increased risk-weighted assets and share repurchases. While liquidity remains robust with $1.4 trillion in deposits, the company faces significant risks from geopolitical instability, cybersecurity threats, and potential accounting estimate errors. Given the solid profitability offset by elevated macroeconomic and operational risks, the investment attractiveness is mixed and contingent on the investor's risk tolerance regarding global market volatility.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Total assets increased by $304 billion (13%) to $2.66 trillion in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Long-term debt increased by $29 billion (10%) primarily due to senior bank and non-bank debt issuances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_039",
+          "C_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "The Common Equity Tier 1 (CET1) Capital ratio decreased to 13.2% from 13.6% year-over-year.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "The Supplementary Leverage ratio declined to 5.5% from 5.8% due to increased Total Leverage Exposure.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Total deposits grew by $119 billion (9%) to $1.40 trillion, driven by operational deposits in Services.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_039",
+          "C_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Cash and deposits with banks increased by $73 billion (26%) due to deposit growth exceeding loan growth.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Liquidity is exposed to risks from deposit outflows, market disruptions, and competition for low-cost funding.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_207"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Net income attributable to Citigroup was $14.3 billion in FY2025, a 13% increase from the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Total revenues increased 6% to $85.2 billion, driven by an 11% rise in net interest income.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Non-interest revenue declined 4% year-over-year, offsetting gains in net interest income.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "TTS revenues increased 6% driven by a 12% rise in net interest income from higher deposit spreads.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "The company faces significant cybersecurity risks including AI-driven fraud and potential data breaches.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_180"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Geopolitical tensions, including conflicts in Russia-Ukraine and the Middle East, pose risks to global economic activity and credit losses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_147"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Changes in accounting assumptions and estimates could result in significant losses or adverse impacts.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_195"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Interest rate changes by central banks could adversely affect the company's results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_147"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "C_FY2025_1A_risk_factors_039",
+    "C_FY2025_1A_risk_factors_037",
+    "C_FY2025_1A_risk_factors_038",
+    "C_FY2025_1A_risk_factors_043",
+    "C_FY2025_1A_risk_factors_207",
+    "C_FY2025_1A_risk_factors_042",
+    "C_FY2025_1A_risk_factors_049",
+    "C_FY2025_1A_risk_factors_018",
+    "C_FY2025_1A_risk_factors_021",
+    "C_FY2025_1A_risk_factors_180",
+    "C_FY2025_1A_risk_factors_195",
+    "C_FY2025_1A_risk_factors_147"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_207",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_180",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_195",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_147",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

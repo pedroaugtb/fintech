@@ -1,0 +1,207 @@
+{
+  "ticker": "MDLZ",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "MDLZ's FY2025 10-K indicates potential risks to the company's leverage, liquidity, profitability, and risk factors. The company regularly accesses the commercial paper markets in the US and Europe for funding requirements, but a downgrade in their credit ratings could increase borrowing costs and affect their ability to issue commercial paper. Disruptions in global commercial paper markets or volatile economic conditions could also reduce the amount of commercial paper issued and raise borrowing costs. The company uses cash management programs to manage liquidity, but if these programs are not continued or alternative programs cannot be secured, cash and working capital may be negatively affected. Profitability is affected by restructuring charges, gains or losses on goodwill and intangible assets, divestiture-related items, acquisition-related items, operating results from short-term distributor agreements, remeasurement of net monetary position of highly inflationary countries, mark-to-market impacts from commodity and foreign currency derivative contracts, resolution of tax matters, incremental costs due to the war in Ukraine, European Commission legal matter, pension participation changes, operating costs from the ERP System Implementation program, gains or losses on debt extinguishment and related expenses, gains or losses on marketable securities transactions, initial impacts from enacted tax law changes, and gains or losses on equity method investment transactions. Risk factors include commodity and other input price volatility, cybersecurity risks, expropriation or further curtailment of ability to conduct business operations in Russia, and developments in the Middle East.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company regularly accesses the commercial paper markets in the US and Europe for funding requirements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "A downgrade in their credit ratings could increase borrowing costs and affect their ability to issue commercial paper.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Disruptions in global commercial paper markets or volatile economic conditions could reduce the amount of commercial paper issued and raise borrowing costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company uses cash management programs, such as factoring and supply chain finance arrangements, to manage liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "If these programs or underlying customer or supplier terms do not continue and the company is unable to secure alternative programs, cash and working capital may be negatively affected.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Profitability is affected by restructuring charges, gains or losses on goodwill and intangible assets, divestiture-related items, acquisition-related items, operating results from short-term distributor agreements, remeasurement of net monetary position of highly inflationary countries, mark-to-market impacts from commodity and foreign currency derivative contracts, resolution of tax matters, incremental costs due to the war in Ukraine, European Commission legal matter, pension participation changes, operating costs from the ERP System Implementation program, gains or losses on debt extinguishment and related expenses, gains or losses on marketable securities transactions, initial impacts from enacted tax law changes, and gains or losses on equity method investment transactions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_062",
+          "MDLZ_FY2025_7_mdna_101",
+          "MDLZ_FY2025_7_mdna_102",
+          "MDLZ_FY2025_7_mdna_103"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Risk factors include commodity and other input price volatility.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Cybersecurity risks are a potential threat to the company.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Expropriation or further curtailment of ability to conduct business operations in Russia is a risk.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_085"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Developments in the Middle East could impact the company's business operations, financial performance, and results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_085"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MDLZ_FY2025_1A_risk_factors_105",
+    "MDLZ_FY2025_7_mdna_063",
+    "MDLZ_FY2025_7_mdna_105",
+    "MDLZ_FY2025_7_mdna_062",
+    "MDLZ_FY2025_7_mdna_101",
+    "MDLZ_FY2025_7_mdna_102",
+    "MDLZ_FY2025_7_mdna_103",
+    "MDLZ_FY2025_1A_risk_factors_031",
+    "MDLZ_FY2025_7_mdna_074",
+    "MDLZ_FY2025_7_mdna_085"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MDLZ_FY2025_1A_risk_factors_105",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_063",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_105",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_062",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_101",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_102",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_103",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_074",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_085",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

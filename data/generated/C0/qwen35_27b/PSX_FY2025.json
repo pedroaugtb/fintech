@@ -1,0 +1,247 @@
+{
+  "ticker": "PSX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "PSX reported FY2025 earnings of $4.4 billion and generated $5 billion in operating cash flow, funding $2.2 billion in capex and significant shareholder returns. However, profitability was pressured by a $948 million impairment on WRB equity interests and a 78% surge in income tax expense. Leverage increased with a 15% rise in interest costs due to higher debt balances, though the company targets reducing total debt to $17 billion by 2027. Liquidity remains robust with $1.1 billion in cash and $5.7 billion in committed credit capacity. Key risks include California regulatory actions (SBx 1-2) threatening asset impairments, climate change litigation, and renewable fuel mandates eroding refined product margins.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "PSX reported net income attributable to Phillips 66 of $4.4 billion for FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Operating cash flow generated in FY2025 was $5 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_001",
+          "PSX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Capital expenditures and investments funded in FY2025 totaled $2.2 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_001",
+          "PSX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "The company recognized a before-tax impairment of $948 million related to its equity method investment in WRB in Q3 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Total impairments increased by $604 million in 2025 compared to the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Income tax expense increased by 78% in 2025, primarily driven by higher income before taxes.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Interest and debt expense increased by 15% in 2025 due to higher average debt balances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "PSX ended FY2025 with $1.1 billion in cash and cash equivalents.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "The company has $5.7 billion of total committed capacity available under its credit facilities as of year-end 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Management targets reducing total debt to $17 billion by the end of 2027.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The company paid $1.2 billion to repurchase common stock and $1.9 billion in dividends during FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "California legislation (SBx 1-2) poses a risk of material asset impairment charges and accelerated depreciation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSX_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Renewable fuel mandates and subsidies may reduce demand for refined petroleum products and compress margins.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSX_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Climate change concerns and regulatory programs create uncertainty regarding future GHG emission limits and potential litigation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSX_FY2025_1A_risk_factors_040",
+          "PSX_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The expiration of the Biodiesel Blender Tax Credit contributed to a $462 million increase in taxes other than income taxes in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PSX_FY2025_7_mdna_016",
+    "PSX_FY2025_7_mdna_005",
+    "PSX_FY2025_7_mdna_001",
+    "PSX_FY2025_1A_risk_factors_022",
+    "PSX_FY2025_7_mdna_010",
+    "PSX_FY2025_7_mdna_000",
+    "PSX_FY2025_7_mdna_021",
+    "PSX_FY2025_1A_risk_factors_025",
+    "PSX_FY2025_1A_risk_factors_046",
+    "PSX_FY2025_1A_risk_factors_040"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

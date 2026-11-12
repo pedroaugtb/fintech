@@ -1,0 +1,250 @@
+{
+  "ticker": "COST",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Costco reported FY2025 net sales of $269.9B, up 8%, driven by comparable sales growth and 24 net new warehouse openings. Net income rose 10% to $8.1B, with gross margin expanding 20 basis points despite gasoline price deflation. The company increased its quarterly dividend by 12%. However, profitability remains heavily concentrated in the U.S. and Canada (86% of sales), creating regional exposure. Key risks include IT system disruptions, cybersecurity threats, and regulatory hurdles affecting warehouse expansion. While SG&A leverage improved, rising gasoline prices and new store cannibalization pose ongoing operational challenges.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net sales increased 8% to $269,912 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_010",
+          "COST_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Net income increased 10% to $8,099 million, or $18.21 per diluted share.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Gross margin percentage increased by 20 basis points in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_010",
+          "COST_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Membership fee revenue increased 10% to $5,323 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_010",
+          "COST_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The Board approved a 12% increase in the quarterly cash dividend in April.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "U.S. and Canadian operations comprised 86% of net sales in FY2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "California operations accounted for 26% of U.S. net sales in FY2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "The company opened 24 net new warehouses in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "New warehouse openings may cannibalize sales at existing locations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_005",
+          "COST_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Failure of critical IT systems could cause serious impairment to business operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_009",
+          "COST_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Cybersecurity attacks pose a risk to systems, networks, and sensitive data.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Regulatory restrictions on warehouse construction may increase site costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_002",
+          "COST_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Rising gasoline prices benefit net sales growth but negatively impact gross margin percentage.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Foreign exchange rates had a negative impact on net income of $97 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "SG&A expenses as a percentage of net sales increased 11 basis points.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "COST_FY2025_7_mdna_002",
+    "COST_FY2025_1A_risk_factors_002",
+    "COST_FY2025_7_mdna_005",
+    "COST_FY2025_7_mdna_010",
+    "COST_FY2025_1A_risk_factors_009",
+    "COST_FY2025_1A_risk_factors_008",
+    "COST_FY2025_1A_risk_factors_000",
+    "COST_FY2025_7_mdna_009",
+    "COST_FY2025_1A_risk_factors_003",
+    "COST_FY2025_1A_risk_factors_010"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "COST_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "ticker": "LLY",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "LLY reported FY2025 revenue of $65.18B and net income of $20.64B, driven by volume growth in Mounjaro and Zepbound despite lower realized prices. Profitability expanded significantly, with net income rising 95% year-over-year. Liquidity and leverage are exposed to global economic downturns, potential customer payment delays, and capital market access limitations. Key risks include regulatory scrutiny of business combinations, foreign currency fluctuations, pricing pressures from government programs, and emerging AI-related competitive and compliance challenges. The company faces uncertainty regarding tax law changes and the impact of counterfeit products on its market position.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "FY2025 revenue was $65,179 million, a 45% increase from FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "FY2025 net income was $20,640 million, a 95% increase from FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Revenue growth in 2025 was primarily driven by increased volume, partially offset by lower realized prices.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Mounjaro and Zepbound were the primary drivers of increased volume and lower realized prices in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_001",
+          "LLY_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Net income growth was primarily due to higher gross margin, partially offset by increased operating expenses.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Uneven economic growth or downturns could limit the company's ability to access capital markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_057"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Financial difficulties among customers, suppliers, or partners could lead to slower collections or performance defaults.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_057"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "The company faces foreign currency risk exposure from fluctuating exchange rates against the euro, yen, yuan, and pound.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Significant fluctuations in currency rates can materially impact consolidated results of operations and cash flows.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Regulatory focus on business combinations could delay, jeopardize, or increase costs of business development activities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_005",
+          "LLY_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Pricing pressures, rebates, and reimbursement policy changes from government programs could adversely impact financial results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The production and sale of counterfeit incretins could materially impact the company's business and reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Emerging AI technologies may intensify competition and create regulatory uncertainty regarding compliance and data privacy.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Changes to U.S. tax laws, including the One Big Beautiful Bill Act, could materially impact future results and cash flows.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Global operations expose the company to geopolitical risks, trade disputes, and cross-border regulatory actions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_057"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "LLY_FY2025_1A_risk_factors_057",
+    "LLY_FY2025_1A_risk_factors_061",
+    "LLY_FY2025_1A_risk_factors_005",
+    "LLY_FY2025_1A_risk_factors_000",
+    "LLY_FY2025_7_mdna_017",
+    "LLY_FY2025_7_mdna_001",
+    "LLY_FY2025_7_mdna_020",
+    "LLY_FY2025_1A_risk_factors_017",
+    "LLY_FY2025_7_mdna_018",
+    "LLY_FY2025_1A_risk_factors_010",
+    "LLY_FY2025_1A_risk_factors_055"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_057",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

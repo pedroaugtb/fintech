@@ -1,0 +1,271 @@
+{
+  "ticker": "SO",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Southern Company's FY2025 financial performance is impacted by leverage, liquidity, and profitability concerns. The company's ability to access capital markets is crucial for meeting capital requirements and funding unexpected expenditures. A credit rating downgrade could trigger collateral requirements and increase borrowing costs. The company's profitability is also affected by changes in energy prices and fuel costs, as well as the success of its pipeline projects. Additionally, the company faces risks associated with regulatory, legislative, and litigation matters, cybersecurity threats, and insurance availability. The company's long-lived assets are also subject to impairment testing, which could result in additional charges. Overall, Southern Company's financial performance is subject to various risks and uncertainties that could impact its results and reputation.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "Southern Company's leverage is a concern due to its debt-to-equity ratio.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_064",
+          "SO_FY2025_7_mdna_064",
+          "SO_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "The company's ability to access capital markets is crucial for meeting capital requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_070",
+          "SO_FY2025_1A_risk_factors_070",
+          "SO_FY2025_1A_risk_factors_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "A credit rating downgrade could trigger collateral requirements and increase borrowing costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_064",
+          "SO_FY2025_7_mdna_064",
+          "SO_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "The company's profitability is affected by changes in energy prices and fuel costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_048",
+          "SO_FY2025_7_mdna_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "The company's pipeline projects may not be completed on schedule or at budgeted cost.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_048",
+          "SO_FY2025_7_mdna_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "The company faces risks associated with regulatory, legislative, and litigation matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_000",
+          "SO_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "The company's long-lived assets are subject to impairment testing.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_079"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "Cybersecurity threats pose a risk to the company's ability to fulfill critical business functions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_079"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "The company's insurance availability may decrease, and the insurance that it is able to obtain may have higher deductibles, higher premiums, and more restrictive policy terms.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "The company's use of derivative contracts could result in financial losses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "The company's financial performance is subject to various risks and uncertainties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_000",
+          "SO_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "The company's results and reputation may be adversely affected by various risks and uncertainties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_000",
+          "SO_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "The company's long-lived assets were $5.2 billion and $5.0 billion for Southern Company and Southern Company Gas, respectively.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_079"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "The company has implemented a cybersecurity program to assess, identify, and manage risks from cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_079"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "The company's ability to access capital markets is crucial for funding unexpected expenditures.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_070",
+          "SO_FY2025_1A_risk_factors_070",
+          "SO_FY2025_1A_risk_factors_063"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SO_FY2025_1A_risk_factors_064",
+    "SO_FY2025_7_mdna_064",
+    "SO_FY2025_7_mdna_062",
+    "SO_FY2025_7_mdna_070",
+    "SO_FY2025_1A_risk_factors_070",
+    "SO_FY2025_1A_risk_factors_063",
+    "SO_FY2025_1A_risk_factors_048",
+    "SO_FY2025_7_mdna_048",
+    "SO_FY2025_7_mdna_076",
+    "SO_FY2025_1A_risk_factors_000",
+    "SO_FY2025_7_mdna_000",
+    "SO_FY2025_7_mdna_079"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SO_FY2025_1A_risk_factors_064",
+      "section": "1A_risk_factors",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_064",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_062",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_070",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SO_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SO_FY2025_1A_risk_factors_063",
+      "section": "1A_risk_factors",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SO_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_048",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SO_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_079",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

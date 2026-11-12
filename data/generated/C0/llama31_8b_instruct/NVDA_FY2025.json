@@ -1,0 +1,209 @@
+{
+  "ticker": "NVDA",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "NVIDIA's FY2025 financial performance is marked by significant growth, with revenue increasing by 114% to $130.5 billion and net income rising by 145% to $72.9 billion. However, the company faces various risks, including leverage, liquidity, profitability, and risk factors. The company's leverage is a concern due to potential acquisitions and investments, while liquidity risks arise from market-wide disruptions and investment portfolio risks. Profitability is affected by factors such as supply chain disruptions, employee absence, and tax changes. Additionally, the company faces risks related to cybersecurity, litigation, and regulatory compliance. Overall, NVIDIA's growth is impressive, but it must navigate these risks to maintain its momentum.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "NVIDIA's revenue increased by 114% to $130.5 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NVDA_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "NVIDIA's net income rose by 145% to $72.9 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NVDA_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "NVIDIA's gross margin increased by 2.3 percentage points to 75.0% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NVDA_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "NVIDIA's operating expenses increased by 45% to $16.4 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NVDA_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "NVIDIA's operating income rose by 147% to $81.5 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NVDA_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "NVIDIA's net income per diluted share increased by 147% to $2.94 in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NVDA_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "NVIDIA's leverage is a concern due to potential acquisitions and investments.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NVDA_FY2025_1A_risk_factors_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "NVIDIA faces liquidity risks due to market-wide disruptions and investment portfolio risks.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NVDA_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "NVIDIA's profitability is affected by supply chain disruptions, employee absence, and tax changes.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NVDA_FY2025_1A_risk_factors_058",
+          "NVDA_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "NVIDIA faces risks related to cybersecurity, litigation, and regulatory compliance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NVDA_FY2025_1A_risk_factors_104",
+          "NVDA_FY2025_1A_risk_factors_033",
+          "NVDA_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NVDA_FY2025_1A_risk_factors_050",
+    "NVDA_FY2025_1A_risk_factors_029",
+    "NVDA_FY2025_1A_risk_factors_058",
+    "NVDA_FY2025_1A_risk_factors_028",
+    "NVDA_FY2025_1A_risk_factors_027",
+    "NVDA_FY2025_7_mdna_021",
+    "NVDA_FY2025_7_mdna_011",
+    "NVDA_FY2025_1A_risk_factors_101",
+    "NVDA_FY2025_1A_risk_factors_104",
+    "NVDA_FY2025_1A_risk_factors_033",
+    "NVDA_FY2025_1A_risk_factors_061"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_050",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_058",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_101",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_104",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NVDA_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001045810-25-000023",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

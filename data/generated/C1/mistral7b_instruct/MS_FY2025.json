@@ -1,0 +1,244 @@
+{
+  "ticker": "MS",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "MS's FY2025 10-K indicates increased leverage due to an increase in litigation-related incidents, G-SIB Capital Surcharge, and external TLAC, long-term debt, and clean holding company requirements. The company is subject to additional risk-based capital surcharge, the G-SIB capital surcharge, which must be satisfied using CET1 capital. The surcharge is calculated based on the G-SIB’s size, interconnectedness, cross-jurisdictional activity, and complexity and substitutability. The Federal Reserve has established external TLAC, long-term debt, and clean holding company requirements for top-tier BHCs of U.S. G-SIBs, including the Parent Company. These requirements are designed to ensure that covered BHCs will have enough loss-absorbing resources at the point of failure to be recapitalized through the conversion of eligible LTD to equity or otherwise by imposing losses on eligible LTD or other forms of TLAC where an SPOE resolution strategy is used. The company must maintain minimum external TLAC equal to the greater of (i) 18% of total RWA or (ii) 7.5% of total leverage exposure (the SLR denominator).",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "MS is subject to an additional risk-based capital surcharge, the G-SIB capital surcharge.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The G-SIB capital surcharge is calculated based on the G-SIB’s size, interconnectedness, cross-jurisdictional activity, and complexity and substitutability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The Federal Reserve has established external TLAC, long-term debt, and clean holding company requirements for top-tier BHCs of U.S. G-SIBs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "These requirements are designed to ensure that covered BHCs will have enough loss-absorbing resources at the point of failure to be recapitalized through the conversion of eligible LTD to equity or otherwise by imposing losses on eligible LTD or other forms of TLAC where an SPOE resolution strategy is used.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company must maintain minimum external TLAC equal to the greater of (i) 18% of total RWA or (ii) 7.5% of total leverage exposure (the SLR denominator).",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "MS's FY2025 10-K indicates increased liquidity risks.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company's credit evaluations typically involve the assessment of financial statements; leverage; liquidity; capital strength; asset composition and quality; market capitalization; access to capital markets; adequacy of collateral, if applicable; and, in the case of certain loans, cash flow projections and debt service requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company's credit risk metrics assigned to borrowers during the evaluation process are incorporated into the CRM maintenance of the allowance for credit losses.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company's results of operations, including net interest income, are sensitive to changes in interest rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Holding large and concentrated positions may expose the company to losses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Concentration of risk may reduce revenues or result in losses in the company's market-making, investing, underwriting, and lending businesses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The company's risk management and monitoring processes seek to quantify and mitigate risk to more extreme market moves, but severe market events have historically been difficult to predict, and the company could realize significant losses if extreme market events were to occur.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Significant changes to interest rates could adversely affect the company's results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company's control functions help ensure that risks are measured and closely monitored and are made transparent to senior management.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The Market Risk Department is responsible for ensuring the transparency of material market risks, monitoring compliance with established limits and escalating risk concentrations to appropriate senior management.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MS_FY2025_7_mdna_002",
+    "MS_FY2025_7_mdna_003",
+    "MS_FY2025_7_mdna_060",
+    "MS_FY2025_7_mdna_059",
+    "MS_FY2025_1A_risk_factors_006",
+    "MS_FY2025_7_mdna_028",
+    "MS_FY2025_7_mdna_050",
+    "MS_FY2025_1A_risk_factors_005",
+    "MS_FY2025_7_mdna_037",
+    "MS_FY2025_7_mdna_027"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MS_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_060",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_059",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_050",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MS_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

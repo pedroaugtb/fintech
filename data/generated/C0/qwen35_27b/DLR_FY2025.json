@@ -1,0 +1,246 @@
+{
+  "ticker": "DLR",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Digital Realty (DLR) reported $18.6 billion in consolidated indebtedness as of December 31, 2025, exposing the company to significant refinancing and interest rate risks due to variable-rate debt exposure. Liquidity remains supported by approximately $3.3 billion available under its Global Revolving Credit Facility. Profitability faces pressure from potential real estate impairments and REIT distribution requirements limiting retained earnings, though the company generated $1.1 billion in equity proceeds and recorded a $30.2 million gain on asset contributions in Q4 2025. Key risks include cyberattacks, geopolitical instability in emerging markets, and construction cost inflation, which could adversely affect cash flows and debt service capabilities.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total consolidated indebtedness was approximately $18.6 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_081"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "A significant portion of the company's debt bears interest at variable rates, increasing exposure to interest rate hikes.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_085",
+          "DLR_FY2025_1A_risk_factors_086"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "The company faces refinancing risks if cash flows are insufficient to repay maturing debt or if interest rates rise upon refinancing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_085"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Approximately $3.3 billion was available under the Global Revolving Credit Facility as of December 31, 2025, net of letters of credit.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_082"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The Global Revolving Credit Facility can be increased by up to $1.8 billion subject to lender commitments.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_082"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "REIT status requires the distribution of at least 90% of taxable income, limiting the ability to fund capital needs from operating cash flow.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_091"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Real estate impairment losses, driven by subjective cash flow assumptions, could significantly reduce net income.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "The company generated net proceeds of approximately $1.1 billion from the issuance of common shares in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DLR_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "A gain of approximately $30.2 million was recorded in Q4 2025 from contributing data center interests to a Fund.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DLR_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "The company redeemed €1.075 billion of 2.500% notes due 2026 prior to maturity in December 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DLR_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Construction cost increases due to inflation could adversely impact investment yields and the ability to satisfy debt obligations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_081"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The company faces ongoing risks from sophisticated cyberattacks, including social engineering and AI-driven threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Geopolitical instability and economic volatility in regions like Latin America and Asia pose risks to operations and financial results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Adverse changes in credit ratings could negatively affect financing activity and access to capital markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_086"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Counterparty default risk exists regarding interest rate hedges and derivative contracts due to potential market disruptions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_085",
+          "DLR_FY2025_1A_risk_factors_086"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DLR_FY2025_1A_risk_factors_085",
+    "DLR_FY2025_1A_risk_factors_081",
+    "DLR_FY2025_1A_risk_factors_086",
+    "DLR_FY2025_1A_risk_factors_082",
+    "DLR_FY2025_1A_risk_factors_095",
+    "DLR_FY2025_1A_risk_factors_091",
+    "DLR_FY2025_7_mdna_008",
+    "DLR_FY2025_1A_risk_factors_164",
+    "DLR_FY2025_1A_risk_factors_023",
+    "DLR_FY2025_1A_risk_factors_060"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_085",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_081",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_086",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_082",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_095",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_091",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DLR_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_164",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_023",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

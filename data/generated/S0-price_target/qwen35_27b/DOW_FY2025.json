@@ -1,0 +1,205 @@
+{
+  "ticker": "DOW",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Dow Inc. reported a significant deterioration in FY2025 profitability, swinging from a $1.1B profit to a $2.6B loss, driven by joint venture margin compression and pension charges. Leverage increased as interest expense rose to $865M following $1.4B in new debt issuances. Liquidity remains exposed to credit market contractions and potential rating downgrades. Key risks include global trade policy shifts, litigation liabilities, and competitive pricing pressures. While the provided 10-K evidence details operational and financial performance, it contains no valuation metrics, analyst consensus, or forward-looking price targets. Consequently, a 12-month price target and an assessment of whether shares are undervalued or overvalued cannot be derived from the supplied text.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net income available for Dow Inc. common stockholders was a loss of $2,623 million in 2025, compared to income of $1,116 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Earnings per share for Dow Inc. was a loss of $3.70 in 2025, down from earnings of $1.57 per share in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Interest expense and amortization of debt discount increased to $865 million in 2025 from $811 million in 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "The increase in interest expense was primarily due to $1.4 billion of senior unsecured notes issued in the third quarter of 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Equity in losses of nonconsolidated affiliates was $240 million in 2025, compared to losses of $6 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Sundry income decreased to $140 million in 2025 from $415 million in 2024, partly due to pension settlement charges.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Adverse economic conditions or a contraction in credit availability could increase borrowing costs and reduce liquidity sources.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Failure to maintain an investment-grade credit rating could restrict the Company's flexibility to fund capital projects.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Changes in U.S. trade policy and global trade uncertainty could negatively impact sales volume, prices, and production costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "The Company faces significant litigation risks, including asbestos-related liabilities from Union Carbide Corporation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Increased global competition has resulted in lower prices and sales volumes, challenging ongoing results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Net income attributable to noncontrolling interests increased to $179 million in 2025 from $85 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "The Company utilizes cash from operations and capital market access to meet working capital and debt maturity needs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "A 12-month price target cannot be determined from the provided 10-K evidence as it lacks valuation metrics or analyst consensus.",
+        "topic": "profitability",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "C015",
+        "text": "An assessment of whether shares are undervalued or overvalued cannot be made based solely on the provided financial statements and risk factors.",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DOW_FY2025_7_mdna_026",
+    "DOW_FY2025_7_mdna_025",
+    "DOW_FY2025_7_mdna_024",
+    "DOW_FY2025_1A_risk_factors_004",
+    "DOW_FY2025_1A_risk_factors_005",
+    "DOW_FY2025_7_mdna_010",
+    "DOW_FY2025_7_mdna_029",
+    "DOW_FY2025_1A_risk_factors_018",
+    "DOW_FY2025_1A_risk_factors_008"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

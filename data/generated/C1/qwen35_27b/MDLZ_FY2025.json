@@ -1,0 +1,249 @@
+{
+  "ticker": "MDLZ",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "MDLZ relies on commercial paper markets and cash management programs for liquidity, facing risks from credit downgrades or market disruptions that could increase borrowing costs. Profitability analysis utilizes Adjusted Operating Income and EPS, excluding items like restructuring charges, impairments, and pension participation changes. Key risks include volatile commodity prices, geopolitical instability in Russia and the Middle East, and potential cybersecurity incidents. While no material breaches occurred recently, future threats remain. The company notes that macroeconomic volatility and trade actions could further amplify operational and financial risks.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "MDLZ regularly accesses commercial paper markets in the United States and Europe for ongoing funding requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "A downgrade in credit ratings could increase borrowing costs and adversely affect the ability to issue commercial paper.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Disruptions in global commercial paper markets could reduce the amount of commercial paper issued and raise borrowing costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "The company uses cash management programs, such as factoring and supply chain finance, to manage liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "If cash management programs are unavailable, the company may need to increase long-term borrowings for liquidity requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Adjusted Operating Income excludes restructuring charges, intangible asset impairments, and mark-to-market impacts from derivatives.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Adjusted EPS excludes gains or losses on debt extinguishment, marketable securities, and equity method investment transactions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "The company incurred restructuring charges of $3 million and intangible asset impairment charges of $33 million in the reported period.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_105"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Mark-to-market losses from derivatives were $1,342 million in the reported period.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_105"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Pension participation changes resulted in a $348 million expense in the reported period.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_105"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Commodity and other input prices are volatile and may increase significantly or become constrained.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Operations in Russia face risks of asset expropriation or curtailment of business operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_085"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Conflict in the Middle East caused limited adverse sales impacts in certain AMEA markets in 2024 and 2025 but was not material.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_085"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "The company has not experienced a known material information security breach over the last three years.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Cybersecurity incidents could lead to reputational harm, revenue loss, legal actions, and statutory penalties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MDLZ_FY2025_1A_risk_factors_105",
+    "MDLZ_FY2025_7_mdna_063",
+    "MDLZ_FY2025_7_mdna_105",
+    "MDLZ_FY2025_7_mdna_062",
+    "MDLZ_FY2025_7_mdna_101",
+    "MDLZ_FY2025_7_mdna_102",
+    "MDLZ_FY2025_7_mdna_103",
+    "MDLZ_FY2025_1A_risk_factors_031",
+    "MDLZ_FY2025_7_mdna_074",
+    "MDLZ_FY2025_7_mdna_085"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MDLZ_FY2025_1A_risk_factors_105",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_063",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_105",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_062",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_101",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_102",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_103",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_074",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_085",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "ticker": "UNH",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "UnitedHealth Group's FY2025 financial performance was impacted by elevated medical cost trends, restructuring actions, and the Change Healthcare cyberattack. The company's leverage, liquidity, and profitability were affected by these factors. The company faces risks related to its business, including cybersecurity threats, regulatory changes, and market competition. UnitedHealth Group's ability to access funds from its regulated subsidiaries and maintain its credit ratings are also significant risks. The company's future performance is uncertain and subject to various risks and challenges.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "UnitedHealth Group's credit ratings impact both the cost and availability of future borrowings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Any downgrades in UnitedHealth Group's credit ratings could materially increase its costs of or ability to access funds in the debt capital markets and otherwise materially increase its operating costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "UnitedHealth Group's investment and loan portfolio may sustain losses which could adversely affect its profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Market fluctuations could impair the value of UnitedHealth Group's investment and loan portfolio and its profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "UnitedHealth Group's consolidated revenues grew 12% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "UnitedHealth Group's UnitedHealthcare revenues grew 16% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "UnitedHealth Group's Optum revenues grew 7% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "UnitedHealth Group's cash flows from operations were $19.7 billion in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "UnitedHealth Group's ability to access funds from its regulated subsidiaries could be restricted.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "UnitedHealth Group's credit ratings may be downgraded in future periods.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "UnitedHealth Group's business activities are highly regulated and new laws or regulations could materially and adversely affect its business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "UnitedHealth Group's operations are subject to cybersecurity threats and the costs to eliminate or address these threats could be material.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "UnitedHealth Group's reliance on new and evolving technologies, including AI, may impose new compliance obligations, increase operating costs, or limit certain uses of AI.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "UnitedHealth Group's ability to reinvest in its business, service its debt, and return capital to its shareholders may be restricted.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "UnitedHealth Group's future performance is uncertain and subject to various risks and challenges.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "UNH_FY2025_1A_risk_factors_040",
+    "UNH_FY2025_1A_risk_factors_036",
+    "UNH_FY2025_1A_risk_factors_043",
+    "UNH_FY2025_1A_risk_factors_041",
+    "UNH_FY2025_1A_risk_factors_045",
+    "UNH_FY2025_7_mdna_004",
+    "UNH_FY2025_7_mdna_005",
+    "UNH_FY2025_7_mdna_014",
+    "UNH_FY2025_1A_risk_factors_013",
+    "UNH_FY2025_1A_risk_factors_062",
+    "UNH_FY2025_7_mdna_006"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_036",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_013",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

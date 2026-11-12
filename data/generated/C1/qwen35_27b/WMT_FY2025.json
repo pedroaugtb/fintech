@@ -1,0 +1,261 @@
+{
+  "ticker": "WMT",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Walmart reported FY2025 net sales of $674.5 billion, a 5.0% increase, with operating income rising to $29.3 billion. Gross profit margin improved to 24.1%, driven by pricing strategies and higher-margin business growth, though operating expenses increased to 20.7% of sales due to variable pay and marketing. Capital expenditures totaled $23.8 billion, up from $20.6 billion in FY2024, reflecting investments in supply chain and technology. Key risks include macroeconomic volatility, geopolitical tensions, cybersecurity threats, and potential disruptions from climate change or pandemics, which could materially impact financial performance and operations globally.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net sales for fiscal 2025 were $674,538 million, representing a 5.0% increase from fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Operating income for fiscal 2025 was $29,348 million, an increase from $27,012 million in fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Gross profit as a percentage of net sales increased to 24.1% in fiscal 2025, up 40 basis points from the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012",
+          "WMT_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Operating expenses as a percentage of net sales increased to 20.7% in fiscal 2025, up 36 basis points from fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_012",
+          "WMT_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The increase in operating expenses for fiscal 2025 was primarily due to higher variable pay, increased marketing, and higher depreciation expenses.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Total capital expenditures for fiscal 2025 were $23,783 million, compared to $20,606 million in fiscal 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Capital expenditures for supply chain, customer-facing initiatives, technology, and other areas increased to $14,603 million in fiscal 2025 from $11,828 million in fiscal 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Free cash flow is defined by management as net cash provided by operating activities minus payments for property and equipment.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Management notes that free cash flow does not deduct payments required for debt service or business acquisitions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "WMT_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "General economic conditions, including inflation, higher interest rates, and changes in consumer spending, may materially adversely affect financial performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_024",
+          "WMT_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Natural disasters, climate change, and geopolitical events could materially adversely affect operations and financial performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Failure to maintain the privacy or security of information due to cyberattacks could damage reputation and result in substantial costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Political uncertainty, trade disputes, and currency devaluations in international markets could adversely affect business and financial performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Future pandemics or epidemics could heighten risks related to supply chain disruptions, labor availability, and consumer behavior.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Regulatory changes regarding healthcare services, including pharmacy regulation and data privacy, may adversely affect business operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "WMT_FY2025_1A_risk_factors_083"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "WMT_FY2025_1A_risk_factors_024",
+    "WMT_FY2025_7_mdna_005",
+    "WMT_FY2025_1A_risk_factors_083",
+    "WMT_FY2025_7_mdna_018",
+    "WMT_FY2025_7_mdna_020",
+    "WMT_FY2025_7_mdna_014",
+    "WMT_FY2025_7_mdna_012",
+    "WMT_FY2025_7_mdna_024",
+    "WMT_FY2025_7_mdna_032",
+    "WMT_FY2025_1A_risk_factors_029",
+    "WMT_FY2025_1A_risk_factors_047",
+    "WMT_FY2025_1A_risk_factors_074"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_083",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "WMT_FY2025_1A_risk_factors_074",
+      "section": "1A_risk_factors",
+      "accession": "0000104169-25-000021",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

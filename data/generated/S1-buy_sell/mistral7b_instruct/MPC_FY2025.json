@@ -1,0 +1,222 @@
+{
+  "ticker": "MPC",
+  "fiscal_year": 2025,
+  "condition": "S1-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "MPC's FY2025 10-K report indicates several factors that may impact the company's performance. The company's leverage is moderately high due to significant commitments to MPLX and potential inventory valuation adjustments. Profitability is affected by changes in refining operating costs, including energy and maintenance costs, as well as minimum commitments to MPLX. Liquidity is not explicitly discussed, but the company's focus on optimizing capital allocation and sustainable structural changes suggests a focus on maintaining financial stability. Risk factors include potential negative effects from inventory valuation adjustments, changes in refining operating costs, and minimum commitments to MPLX. Additionally, industry, market, technological, and regulatory developments could decrease demand for liquid transportation fuels. Based on these factors, a clear investment recommendation cannot be made.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Refining & Marketing segment adjusted EBITDA is affected by changes in refining operating costs",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007",
+          "MPC_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Distribution costs primarily include long-term agreements with MPLX",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Certain of these agreements include commitments for minimum quarterly volumes",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Future inventory valuation adjustments could have a negative effect on earnings",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Depreciation and amortization, net interest and other financial costs, turnaround expenses, and other adjustments as deemed necessary are excluded from segment adjusted EBITDA",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Refining & Marketing segment adjusted EBITDA for 2025 is $6,138 million",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Refining & Marketing segment adjusted EBITDA for 2024 is $5,703 million",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Midstream segment adjusted EBITDA for 2025 is $6,750 million",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Midstream segment adjusted EBITDA for 2024 is $6,544 million",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Renewable Diesel segment adjusted EBITDA for 2025 is a loss of $110 million",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Renewable Diesel segment adjusted EBITDA for 2024 is a loss of $150 million",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Total reportable segments adjusted EBITDA for 2025 is $12,778 million",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Total reportable segments adjusted EBITDA for 2024 is $12,097 million",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The profitability of fuels distribution services primarily depends on sales volumes of certain refined products",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The profitability of refining logistics operations depends on the quantity and availability of refining logistics assets",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MPC_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MPC_FY2025_7_mdna_015",
+    "MPC_FY2025_7_mdna_007",
+    "MPC_FY2025_7_mdna_017",
+    "MPC_FY2025_7_mdna_003",
+    "MPC_FY2025_7_mdna_002",
+    "MPC_FY2025_1A_risk_factors_003",
+    "MPC_FY2025_7_mdna_021",
+    "MPC_FY2025_7_mdna_006",
+    "MPC_FY2025_1A_risk_factors_010",
+    "MPC_FY2025_1A_risk_factors_005",
+    "MPC_FY2025_1A_risk_factors_004"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MPC_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MPC_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "ticker": "EOG",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "EOG's leverage has increased from 14% in FY2024 to 21% in FY2025, due to an increase in long-term debt. The company's liquidity remains strong, with $3.4 billion in cash and cash equivalents and $3.0 billion of availability under its senior unsecured revolving credit facility. Profitability decreased in FY2025, primarily due to increased expenses and taxes. Risk factors include potential regulatory changes, cybersecurity threats, and geopolitical risks associated with international operations.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "EOG's debt-to-total capitalization ratio was 14% at December 31, 2024 (EOG_FY2025_7_mdna_032)",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "EOG's debt-to-total capitalization ratio was 21% at December 31, 2025 (EOG_FY2025_7_mdna_032)",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "EOG had outstanding $7,890 million and $4,640 million aggregate principal amount of senior notes at December 31, 2025 and 2024, respectively (EOG_FY2025_7_mdna_032)",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The estimated fair value of EOG's senior notes was $7,849 million and $4,441 million, respectively, at December 31, 2025 and 2024 (EOG_FY2025_7_mdna_032)",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "EOG maintained $3.4 billion of cash and cash equivalents on hand and $3.0 billion of availability under its senior unsecured revolving credit facility at December 31, 2025 (EOG_FY2025_7_mdna_032)",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Net cash provided by operating activities decreased $2,099 million from $12,143 million in 2024 to $10,044 million in 2025 (EOG_FY2025_7_mdna_032)",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Net cash used in investing activities increased $4,969 million from $5,967 million in 2024 to $10,936 million in 2025 (EOG_FY2025_7_mdna_032)",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Risks related to climate change-related regulations, policies and initiatives may result in increased compliance costs and other operating costs (EOG_FY2025_1A_risk_factors_005)",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Regulatory, legislative and policy changes may materially and adversely affect the oil and gas exploration and production industry (EOG_FY2025_1A_risk_factors_037)",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "EOG's international operations may be adversely affected by U.S. laws and policies affecting foreign trade and taxation, including tariffs and trade or other economic sanctions (EOG_FY2025_1A_risk_factors_054)",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Any terrorist attack or cyber attack that affects EOG, its customers, suppliers, or others with whom it does business and/or energy-related assets could have a material adverse effect on its business (EOG_FY2025_1A_risk_factors_061)",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "EOG's price sensitivity for each $1.00 per barrel increase or decrease in crude oil and condensate price is approximately $174 million for net income and $223 million for pretax cash flows from operating activities (EOG_FY2025_7_mdna_045)",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "EOG's price sensitivity for each $0.10 per Mcf increase or decrease in natural gas price is approximately $64 million for net income and $83 million for pretax cash flows from operating activities (EOG_FY2025_7_mdna_045)",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "EOG plans to continue to focus a substantial portion of its exploration and development expenditures in its major properties, plant, and equipment expenditures (EOG_FY2025_7_mdna_033)",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Net cash provided by operating activities decreased primarily due to an increase in net cash paid for income taxes and tax credit purchases, an increase in cash operating expenses, net cash paid for settlements of financial commodity derivative contracts, an increase in net cash used in working capital and other assets and liabilities, partially offset by an increase in revenues from sales of crude oil and condensate, NGLs and natural gas (EOG_FY2025_7_mdna_032)",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "EOG_FY2025_7_mdna_034",
+    "EOG_FY2025_7_mdna_009",
+    "EOG_FY2025_7_mdna_042",
+    "EOG_FY2025_7_mdna_032",
+    "EOG_FY2025_1A_risk_factors_005",
+    "EOG_FY2025_7_mdna_043",
+    "EOG_FY2025_7_mdna_031",
+    "EOG_FY2025_7_mdna_045",
+    "EOG_FY2025_7_mdna_033",
+    "EOG_FY2025_1A_risk_factors_037",
+    "EOG_FY2025_1A_risk_factors_054",
+    "EOG_FY2025_1A_risk_factors_061"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_034",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_042",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_043",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_045",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_033",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "ticker": "UNP",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "UNP's FY2025 10-K highlights several risk factors that may impact the company's leverage, liquidity, profitability, and overall operations. The company's access to financing sources, including bank credit facilities and the issuance of long-term debt, could be restricted or significantly increased due to instability or disruptions in the capital markets, elevated interest rates, or deterioration of the company's financial condition. The company's reliance on capital markets for some of its capital requirements is also noted. The mergers are subject to conditions and covenants contained in financing agreements, and failure to comply with any of these covenants could result in a default under those agreements. The combined company's indebtedness may limit its flexibility and increase borrowing costs. The company's profitability is affected by general economic conditions, geopolitical tensions, and weather conditions, which can affect fuel prices and supplies. The mergers are expected to incur substantial expenses and the integration of the businesses may take time and resources. The company is subject to significant governmental regulation and is affected by climate change and market or regulatory responses to climate change.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company's access to financing sources, including bank credit facilities and the issuance of long-term debt, could be restricted or significantly increased due to instability or disruptions in the capital markets, elevated interest rates, or deterioration of the company's financial condition.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The company relies on capital markets to provide some of its capital requirements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Failure to comply with any of the covenants in the company's existing or future financing agreements could result in a default under those agreements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The combined company’s indebtedness may have the effect of increasing borrowing costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Prolonged, severe adverse domestic and global macroeconomic conditions or disruptions of financial and credit markets could affect the company's producers and consumers of the commodities it transports.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The mergers are subject to conditions, some or all of which may not be met.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The combined company’s consolidated indebtedness may have the effect of reducing dividend payments, share repurchases, and other activities and may create competitive disadvantages relative to other companies with lower debt levels.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company generated $9.3 billion of cash provided by operating activities in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company's operating income of $9.8 billion increased 1% from 2024, and its operating ratio improved 10 basis points to 59.8% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company's net income of $7.1 billion translated into earnings of $11.98 per diluted share, improving 8% from the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The company may be affected by climate change and market or regulatory responses to climate change, which could have a material adverse effect on its results of operations, financial condition, and liquidity on both a long-term and near-term basis.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The mergers are expected to incur substantial expenses related to the completion of the mergers and the integration of the Company and Norfolk Southern.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_18"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The company is subject to significant governmental regulation by a significant number of federal, state, and local authorities covering a variety of health, safety, labor, employment, environmental, economic, tax, social, and other matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company may be affected by climate change and market or regulatory responses to climate change, which could significantly increase its operating costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The company may be subject to litigation related to any failure to complete the mergers or related to any enforcement proceeding commenced against it to perform its obligations under the merger agreement.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "UNP_FY2025_1A_risk_factors_030",
+    "UNP_FY2025_1A_risk_factors_055",
+    "UNP_FY2025_1A_risk_factors_029",
+    "UNP_FY2025_1A_risk_factors_052",
+    "UNP_FY2025_7_mdna_004",
+    "UNP_FY2025_1A_risk_factors_015",
+    "UNP_FY2025_1A_risk_factors_050",
+    "UNP_FY2025_1A_risk_factors_014",
+    "UNP_FY2025_1A_risk_factors_022",
+    "UNP_FY2025_1A_risk_factors_033"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UNP_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_050",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNP_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0000100885-26-000037",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

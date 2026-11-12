@@ -1,0 +1,206 @@
+{
+  "ticker": "UPS",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "UPS's FY2025 10-K report indicates a high level of debt and significant future cash outflows due to purchase commitments, capital expenditures, and debt repayments. The company's leverage is high, with total purchase commitments of $1,056 million in 2026, $1,076 million in 2027, and $367 million in 2028, among others. The company also has outstanding letters of credit, surety bonds, and senior notes that mature in 2026, which will require repayment or refinancing. UPS's liquidity is also a concern, as the company's commercial paper program fluctuates based on daily liquidity needs, and the company has a significant amount of commercial paper outstanding. The company's profitability is affected by pension and postretirement benefit plans, as well as income taxes. The company makes estimates and judgments in determining income tax expense, and changes in these estimates may result in an increase or decrease to tax expense in a subsequent period. The company's profitability is also affected by the rapid evolution of the industry, significant competition, and potential increased regulation relating to GHG emissions.",
+    "claims": [
+      {
+        "claim_id": "UPS_FY2025_7_mdna_005",
+        "text": "Issuances of debt during 2025 consisted of fixed-rate and floating-rate senior notes of varying maturities totaling $4.2 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UPS_FY2025_7_mdna_009",
+        "text": "We expect contributions to the UPS 401(k) Savings Plan to be approximately $574 million in 2026.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UPS_FY2025_7_mdna_010",
+        "text": "Future annual principal payments on our long-term debt are set out in note 9 to the audited, consolidated financial statements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UPS_FY2025_7_mdna_017",
+        "text": "The income approach uses a discounted cash flow (“DCF”) model, which requires us to make a number of significant assumptions to produce an estimate of future cash flows.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UPS_FY2025_7_mdna_026",
+        "text": "We make certain estimates and judgments in determining income tax expense within our financial statements.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UPS_FY2025_7_mdna_030",
+        "text": "Our reserves and expenses as of, and for the year ended, December 31, 2025, are affected by pension and postretirement benefit plans.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UPS_FY2025_7_mdna_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UPS_FY2025_1A_risk_factors_002",
+        "text": "Changes or uncertainty in general economic conditions, or our inability to accurately forecast these changes or mitigate the impact of these conditions on our business, could materially adversely affect us.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UPS_FY2025_1A_risk_factors_016",
+        "text": "While we maintain cyber insurance, we cannot be certain that our coverage will be adequate for any liabilities actually incurred, that insurance will continue to be available to us on economically reasonable terms, or at all, or that any insurer will not deny coverage as to any claim.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UPS_FY2025_1A_risk_factors_033",
+        "text": "Our reserves and expenses as of, and for the year ended, December 31, 2025, are affected by pension and postretirement benefit plans.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UPS_FY2025_1A_risk_factors_038",
+        "text": "Increased regulation relating to GHG emissions in the U.S. or abroad, especially aircraft, gasoline or diesel engine emissions, could, among other things, increase the cost of fuel and other energy we purchase and the costs associated with updating or replacing our aircraft or vehicles prematurely.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UPS_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "UPS_FY2025_7_mdna_010",
+    "UPS_FY2025_7_mdna_005",
+    "UPS_FY2025_7_mdna_009",
+    "UPS_FY2025_7_mdna_017",
+    "UPS_FY2025_7_mdna_000",
+    "UPS_FY2025_7_mdna_030",
+    "UPS_FY2025_7_mdna_026",
+    "UPS_FY2025_1A_risk_factors_033",
+    "UPS_FY2025_1A_risk_factors_002",
+    "UPS_FY2025_1A_risk_factors_038",
+    "UPS_FY2025_1A_risk_factors_016"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UPS_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UPS_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008432",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

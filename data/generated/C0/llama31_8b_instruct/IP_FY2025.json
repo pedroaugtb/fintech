@@ -1,0 +1,252 @@
+{
+  "ticker": "IP",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "International Paper's FY2025 financial performance is marked by significant leverage, liquidity concerns, and profitability challenges. The company's variable rate debt of $2.1 billion exposes it to interest rate risk, while its $4.0 billion debt with interest rate increases in case of credit rating downgrades poses additional risks. The company's liquidity is further threatened by its desire to maintain an investment-grade credit rating, which may lead to asset sales, dividend suspensions, and capital reductions. Profitability is also at risk due to fluctuations in pension costs, healthcare expenses, and potential losses in legal proceedings. The company faces various risks, including industry cyclicality, competition, and government regulations, which may negatively impact its financial results.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "International Paper has $2.1 billion in variable rate debt as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_080",
+          "IP_FY2025_1A_risk_factors_107"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "International Paper's $4.0 billion debt has interest rate increases in case of credit rating downgrades.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_076",
+          "IP_FY2025_1A_risk_factors_103"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "International Paper's liquidity is threatened by its desire to maintain an investment-grade credit rating.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_075",
+          "IP_FY2025_1A_risk_factors_107"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "International Paper's pension costs are dependent on numerous factors, including actual plan experience and assumptions of future experience.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_125"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "International Paper's healthcare expenses are driven by unit cost changes, healthcare utilization by participants, and potential changes in legal requirements and government oversight.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_125"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "International Paper's operations are subject to regulation under a wide variety of domestic and international laws, regulations, and other government requirements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "International Paper's failure to maintain effective internal controls and procedures for financial reporting could cause it to fail to meet its reporting obligations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "International Paper's operations are subject to forestry reserve requirements, other environmental regulations, and occupational health and safety laws.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "International Paper's failure to comply with applicable laws, regulations, or other government requirements could have an adverse effect on its business and the trading price of its common stock.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "International Paper's profitability is negatively impacted by fluctuations in the prices of and the demand for its products.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "International Paper's profitability is negatively impacted by competition and downward pricing pressure in the global packaging industry.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "International Paper's profitability is negatively impacted by changes in the cost and availability of raw materials, energy, and transportation.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "International Paper's liquidity is negatively impacted by its desire to maintain two exchange listings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "International Paper's profitability is negatively impacted by potential losses in legal proceedings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_109"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "IP_FY2025_7_mdna_080",
+    "IP_FY2025_1A_risk_factors_107",
+    "IP_FY2025_7_mdna_006",
+    "IP_FY2025_7_mdna_075",
+    "IP_FY2025_7_mdna_076",
+    "IP_FY2025_1A_risk_factors_103",
+    "IP_FY2025_1A_risk_factors_125",
+    "IP_FY2025_1A_risk_factors_109",
+    "IP_FY2025_1A_risk_factors_095",
+    "IP_FY2025_1A_risk_factors_038",
+    "IP_FY2025_1A_risk_factors_008",
+    "IP_FY2025_7_mdna_037"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "IP_FY2025_7_mdna_080",
+      "section": "7_mdna",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_107",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "IP_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "IP_FY2025_7_mdna_075",
+      "section": "7_mdna",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "IP_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_103",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_125",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_109",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_095",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "IP_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

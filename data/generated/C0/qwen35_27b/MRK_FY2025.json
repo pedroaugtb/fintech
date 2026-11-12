@@ -1,0 +1,260 @@
+{
+  "ticker": "MRK",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Merck reported FY2025 sales of $65.0 billion and GAAP net income of $18.3 billion, reflecting 7% growth. Non-GAAP earnings rose 16% to $22.5 billion. While liquidity remains robust, the company faces significant leverage risks from currency fluctuations, particularly in hyperinflationary markets like Argentina. Profitability is heavily dependent on key products like Keytruda, which faces biosimilar competition starting in late 2028. Major risk factors include potential patent litigation, pricing pressures from the Inflation Reduction Act, and supply chain disruptions from ESG compliance costs. Continued R&D success is critical to offsetting patent cliffs and maintaining financial stability.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "FY2025 sales totaled $65,011 million, representing a 1% increase year-over-year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "GAAP Net Income attributable to Merck reached $18,254 million in FY2025, a 7% increase from the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Non-GAAP Net Income for FY2025 was $22,513 million, an 18% increase excluding foreign exchange effects.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "The company faces market risk from currency exchange rate fluctuations, with specific exposure to hyperinflation in Argentina.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Failure to develop new products to replace those losing market exclusivity could materially adversely affect financial condition.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_016",
+          "MRK_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Keytruda faces potential biosimilar competition in the U.S. as early as December 2028 following patent expiration.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Keytruda market exclusivity in Europe is expected to end in 2031, with data exclusivity expiring in July 2026.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "The Inflation Reduction Act (IRA) introduces financial penalties for drugs with price increases exceeding inflation rates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Global economic conditions and cost-reduction measures by governments may reduce prices paid for Merck's products.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Evolving ESG regulations, including the EU's CSRD, could increase compliance costs and disrupt supply chains.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_030",
+          "MRK_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Failure to meet ESG expectations could result in negative shareholder reaction and reputational damage.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Litigation risks include product safety disputes, such as those involving Gardasil, and anti-bribery regulations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Changes in tax laws or the potential loss of tax-free treatment for the Organon spin-off could create significant tax liabilities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Biologics and vaccines require long manufacturing lead times, increasing the risk of inventory write-downs if demand fails to materialize.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The company's profitability depends largely on the continued success of key products like Keytruda, Gardasil, and Lynparza.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MRK_FY2025_1A_risk_factors_040",
+    "MRK_FY2025_1A_risk_factors_017",
+    "MRK_FY2025_1A_risk_factors_016",
+    "MRK_FY2025_1A_risk_factors_032",
+    "MRK_FY2025_1A_risk_factors_031",
+    "MRK_FY2025_1A_risk_factors_030",
+    "MRK_FY2025_7_mdna_002",
+    "MRK_FY2025_1A_risk_factors_061",
+    "MRK_FY2025_1A_risk_factors_060",
+    "MRK_FY2025_1A_risk_factors_022",
+    "MRK_FY2025_1A_risk_factors_047",
+    "MRK_FY2025_1A_risk_factors_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MRK_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

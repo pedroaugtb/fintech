@@ -1,0 +1,215 @@
+{
+  "ticker": "RTX",
+  "fiscal_year": 2025,
+  "condition": "S0-attractive",
+  "stress_template": "attractive",
+  "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "RTX's strong profitability and potential growth opportunities from the Golden Dome for America project may make it an attractive investment, but concerns over supply chain disruptions, cybersecurity risks, and regulatory compliance could pose challenges.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "RTX's total net sales for FY2025 were $88,603 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "RTX's operating profit margin for FY2025 was 10.5%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Global supply chain disruptions have impacted RTX's ability to procure raw materials and components.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Inflation, labor market shortages, geopolitical conditions, and trade restrictions have contributed to supply chain disruptions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Increased material and component prices, labor rates, and supplier costs have negatively impacted RTX's costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Credit market conditions have impacted some of RTX's suppliers and subcontractors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "RTX's commercial aerospace businesses constitute a substantial portion of its financial results.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The performance of RTX's commercial aerospace businesses is directly tied to economic conditions in the commercial aerospace industry.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "RTX faces risks related to compliance with environmental laws and regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Compliance with environmental laws and regulations can lead to substantial fines and criminal sanctions for violations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The Act provides for several corporate tax changes, including restoring full expensing of domestic research and development costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The Act provides a supplementary $156.2 billion to the DoW for obligations through 2029, which includes $24.4 billion for the Golden Dome for America project.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "RTX's portfolio is well-positioned to play a role in delivering reliable solutions for the Golden Dome for America initiative.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "RTX expects to experience prolonged delays for certain critical component parts and sub-systems.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "RTX faces increased level of risk from more frequent and increasingly advanced cyber-attacks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "RTX_FY2025_7_mdna_017",
+    "RTX_FY2025_1A_risk_factors_039",
+    "RTX_FY2025_1A_risk_factors_009",
+    "RTX_FY2025_1A_risk_factors_019",
+    "RTX_FY2025_1A_risk_factors_068",
+    "RTX_FY2025_7_mdna_011",
+    "RTX_FY2025_1A_risk_factors_041",
+    "RTX_FY2025_1A_risk_factors_035",
+    "RTX_FY2025_1A_risk_factors_032",
+    "RTX_FY2025_1A_risk_factors_056"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "RTX_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "RTX_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

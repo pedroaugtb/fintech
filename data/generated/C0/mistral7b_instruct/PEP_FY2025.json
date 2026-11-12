@@ -1,0 +1,188 @@
+{
+  "ticker": "PEP",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "PEP's FY2025 10-K report indicates a decrease in operating profit by 11% primarily due to certain operating cost increases, impairment charges related to the Rockstar brand, a decline in organic volume, a 5-percentage-point impact of higher commodity costs, and higher acquisition and divestiture-related charges. These impacts were partially offset by productivity savings and effective net pricing. The company's leverage, as of December 28, 2024, was $2.9 billion. Subsequent to December 27, 2025, PEP designated $4.5 billion of existing euro denominated debt as net investment hedges to partially offset the effects of foreign currency on its investments in certain foreign subsidiaries. The company's liquidity is affected by potential downgrades of its credit ratings, which could increase borrowing costs, impair its ability to access capital and credit markets, and impact financial performance. PEP's risk factors include changes in consumer preferences, tax uncertainties, intellectual property risks, and cybersecurity risks.",
+    "claims": [
+      {
+        "claim_id": "PEP_FY2025_7_mdna_029",
+        "text": "PEP's leverage as of December 28, 2024 was $2.9 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PEP_FY2025_7_mdna_032",
+        "text": "Operating profit decreased 11% primarily driven by certain operating cost increases, impairment charges related to the Rockstar brand, a decline in organic volume, a 5-percentage-point impact of higher commodity costs and higher acquisition and divestiture-related charges.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PEP_FY2025_1A_risk_factors_043",
+        "text": "Impairment charges on investments can adversely affect PEP's results of operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PEP_FY2025_1A_risk_factors_045",
+        "text": "Geopolitical conditions, macroeconomic conditions, including the interest rate environment, or other factors can have an adverse impact on PEP's financial performance.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PEP_FY2025_1A_risk_factors_046",
+        "text": "Downgrades or potential downgrades of PEP's credit ratings can increase borrowing costs, impair its ability to access capital and credit markets, and impact financial performance.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PEP_FY2025_7_mdna_000",
+        "text": "PEP's management's discussion and analysis of financial condition and results of operations is intended to help the reader understand the results of operations and financial condition and is provided as an addition to, and should be read in connection with, the consolidated financial statements and the accompanying notes.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PEP_FY2025_1A_risk_factors_000",
+        "text": "The following risks, some of which have occurred and any of which may occur in the future, can have a material adverse effect on PEP's business or financial performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "PEP_FY2025_1A_risk_factors_055",
+        "text": "The increasing complexity of the global tax environment has in the past increased and could continue to increase tax uncertainty, resulting in higher compliance costs and adverse effects on PEP's financial performance.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PEP_FY2025_7_mdna_029",
+    "PEP_FY2025_7_mdna_028",
+    "PEP_FY2025_1A_risk_factors_043",
+    "PEP_FY2025_1A_risk_factors_045",
+    "PEP_FY2025_7_mdna_000",
+    "PEP_FY2025_1A_risk_factors_046",
+    "PEP_FY2025_7_mdna_032",
+    "PEP_FY2025_7_mdna_001",
+    "PEP_FY2025_1A_risk_factors_000",
+    "PEP_FY2025_1A_risk_factors_055",
+    "PEP_FY2025_1A_risk_factors_031"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

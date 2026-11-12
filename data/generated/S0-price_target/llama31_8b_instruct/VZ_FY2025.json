@@ -1,0 +1,190 @@
+{
+  "ticker": "VZ",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Verizon's FY2025 financial performance shows a slight increase in interest expense due to a decrease in capitalized interest and a lower interest rate, offset by a decrease in average debt balances. The company's leverage ratio is a concern, with $131.1 billion in outstanding unsecured debt and $27.1 billion in secured debt. Liquidity remains a challenge, with $12.0 billion in unused borrowing capacity. Profitability decreased due to a net pension and postretirement benefits remeasurement loss and a decrease in other income. The company faces significant competition, cybersecurity risks, and reputational risks that could impact its future performance. Based on the provided data, we estimate a 12-month price target of $45.50, indicating that the shares are undervalued.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Verizon's interest expense increased by $45 million in FY2025 compared to FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Verizon's average debt outstanding decreased by $3,955 million in FY2025 compared to FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Verizon's effective interest rate decreased from 5.1% in FY2024 to 5.0% in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Verizon had $131.1 billion in outstanding unsecured debt as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Verizon had $12.0 billion in unused borrowing capacity under its existing revolving credit facility as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Verizon had $27.1 billion in outstanding secured debt as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Verizon's other income (expense), net decreased by $888 million in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Verizon's other income (expense), net decreased by 89.2% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Verizon's net pension and postretirement benefits remeasurement loss was $453 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Verizon faces significant competition in its industries.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Verizon faces cybersecurity risks due to the rapid evolution and increased adoption of artificial intelligence technologies.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Verizon's shares are undervalued with a 12-month price target of $45.50.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014",
+          "VZ_FY2025_1A_risk_factors_000",
+          "VZ_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "VZ_FY2025_7_mdna_014",
+    "VZ_FY2025_1A_risk_factors_028",
+    "VZ_FY2025_1A_risk_factors_029",
+    "VZ_FY2025_7_mdna_005",
+    "VZ_FY2025_7_mdna_012",
+    "VZ_FY2025_7_mdna_028",
+    "VZ_FY2025_7_mdna_013",
+    "VZ_FY2025_1A_risk_factors_000",
+    "VZ_FY2025_1A_risk_factors_018",
+    "VZ_FY2025_1A_risk_factors_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

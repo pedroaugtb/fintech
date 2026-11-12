@@ -1,0 +1,233 @@
+{
+  "ticker": "SO",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "SO's FY2025 10-K indicates potential leverage risks due to credit rating downgrades, which could trigger collateral requirements, issuance of secured indebtedness, and restrictive covenants. Additionally, uncertainty in energy demand could impact earnings and costs. Liquidity risks are highlighted due to the company's reliance on capital markets for funding, with potential negative effects on business implementation if access is limited. Profitability risks include cost overruns and construction difficulties in pipeline projects, changes in energy prices and fuel costs, and potential financial losses from derivative contracts. Risk factors include utility regulatory, legislative, and litigation risks, as well as cybersecurity risks.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Credit rating downgrades could trigger collateral requirements",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_064",
+          "SO_FY2025_7_mdna_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Credit rating downgrades could require issuance of secured indebtedness",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_064",
+          "SO_FY2025_7_mdna_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Credit rating downgrades could bind the company with additional restrictive covenants",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_064",
+          "SO_FY2025_7_mdna_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Uncertainty in energy demand can result in lower earnings or higher costs",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_064",
+          "SO_FY2025_7_mdna_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company relies on capital markets for liquidity",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_070",
+          "SO_FY2025_1A_risk_factors_070"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Access to capital markets may be critical to finance unexpected material expenditures",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_070",
+          "SO_FY2025_1A_risk_factors_070"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Cost overruns and construction difficulties in pipeline projects may impact earnings",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_048",
+          "SO_FY2025_7_mdna_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Changes in energy prices and fuel costs can impact profitability",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SO_FY2025_7_mdna_048",
+          "SO_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Financial losses from derivative contracts could negatively impact net income",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_000",
+          "SO_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Utility regulatory, legislative, and litigation risks could adversely affect results of operations, financial condition, liquidity, and cash flow",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SO_FY2025_1A_risk_factors_000",
+          "SO_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Cybersecurity risks could impact the ability to fulfill critical business functions",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SO_FY2025_1C_cybersecurity",
+          "SO_FY2025_1C_cybersecurity_000"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SO_FY2025_1A_risk_factors_064",
+    "SO_FY2025_7_mdna_064",
+    "SO_FY2025_7_mdna_062",
+    "SO_FY2025_7_mdna_070",
+    "SO_FY2025_1A_risk_factors_070",
+    "SO_FY2025_1A_risk_factors_063",
+    "SO_FY2025_1A_risk_factors_048",
+    "SO_FY2025_7_mdna_048",
+    "SO_FY2025_7_mdna_076",
+    "SO_FY2025_1A_risk_factors_000",
+    "SO_FY2025_7_mdna_000",
+    "SO_FY2025_7_mdna_079"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SO_FY2025_1A_risk_factors_064",
+      "section": "1A_risk_factors",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_064",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_062",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_070",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SO_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SO_FY2025_1A_risk_factors_063",
+      "section": "1A_risk_factors",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SO_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_048",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SO_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SO_FY2025_7_mdna_079",
+      "section": "7_mdna",
+      "accession": "0000092122-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

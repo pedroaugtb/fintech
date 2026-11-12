@@ -1,0 +1,251 @@
+{
+  "ticker": "DUK",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Duke Energy's FY2025 10-K indicates a focus on leverage through strategic transactions and operational excellence. The company plans to replace certain long-term debt and common equity issuances with proceeds from two transactions, scheduled from March 2026 to mid-2028. The transactions are expected to support Duke Energy's expanded capital plan. The company also emphasizes operational excellence in the reliable and safe operation of its power generating facilities, electric transmission and distribution systems, and natural gas infrastructure. Duke Energy has measures in place to track and recover storm costs under approved regulatory frameworks, including storm recovery charges in Florida and the securitization of storm costs in the Carolinas.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Duke Energy plans to replace certain long-term debt and common equity issuances with proceeds from two transactions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The transactions are scheduled from March 2026 to mid-2028.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The transactions are expected to support Duke Energy's expanded capital plan.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Duke Energy emphasizes operational excellence in the reliable and safe operation of its power generating facilities, electric transmission and distribution systems, and natural gas infrastructure.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Duke Energy has measures in place to track and recover storm costs under approved regulatory frameworks.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Storm recovery charges are in place in Florida.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Storm costs are fully recovered across all jurisdictions by early 2026 through securitization in the Carolinas.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Duke Energy's generation fleet and electric transmission and distribution systems delivered strong performance throughout FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Duke Energy achieved a new record for combined peak usage in January 2025 and again in January 2026.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Duke Energy effectively prepared for extreme weather through the identification of measures.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The transaction with Piedmont Tennessee Disposal Group is expected to impact the operating revenues and profitability of Piedmont.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Duke Energy management evaluates financial performance in part based on non-GAAP financial measures, including adjusted earnings and adjusted EPS.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Growth and retention of customer accounts and growth of customer usage directly influence demand for electricity and natural gas.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Federal legislation may not be successful in recovering capital and operating costs incurred to comply with new environmental regulations through existing regulatory rate structures and their contracts with customers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The Duke Energy Registrants' results of operations, financial position, and cash flows may be negatively affected by a lack of growth or slower growth in the number of customers, or decline in customer demand or number of customers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DUK_FY2025_7_mdna_006",
+    "DUK_FY2025_7_mdna_009",
+    "DUK_FY2025_7_mdna_033",
+    "DUK_FY2025_1A_risk_factors_027",
+    "DUK_FY2025_1A_risk_factors_016",
+    "DUK_FY2025_1A_risk_factors_007",
+    "DUK_FY2025_7_mdna_039",
+    "DUK_FY2025_7_mdna_037",
+    "DUK_FY2025_1A_risk_factors_009",
+    "DUK_FY2025_1A_risk_factors_031",
+    "DUK_FY2025_1A_risk_factors_024"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_033",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

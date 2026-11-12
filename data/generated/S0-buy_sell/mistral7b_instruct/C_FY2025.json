@@ -1,0 +1,139 @@
+{
+  "ticker": "C",
+  "fiscal_year": 2025,
+  "condition": "S0-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Citi's FY2025 results show a 6% increase in revenue, driven by growth in net interest income and average deposit balances. However, the company's Common Equity Tier 1 (CET1) Capital ratio decreased from 13.6% to 13.2%. The company faces various risks, including cybersecurity threats, changes in trade policies, geopolitical challenges, and changes in interest rates. Given the decrease in CET1 Capital ratio and the aforementioned risks, we recommend a 'Hold' on Citi's stock.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Citi's FY2025 revenues increased 6% on a reported basis",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Net interest income increased 12%",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Average deposits increased 7%",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Citi's Common Equity Tier 1 (CET1) Capital ratio decreased from 13.6% to 13.2%",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Citi faces various risks, including cybersecurity threats, changes in trade policies, geopolitical challenges, and changes in interest rates",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_180",
+          "C_FY2025_1A_risk_factors_195",
+          "C_FY2025_1A_risk_factors_147"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "C_FY2025_1A_risk_factors_039",
+    "C_FY2025_1A_risk_factors_037",
+    "C_FY2025_1A_risk_factors_038",
+    "C_FY2025_1A_risk_factors_043",
+    "C_FY2025_1A_risk_factors_207",
+    "C_FY2025_1A_risk_factors_042",
+    "C_FY2025_1A_risk_factors_049",
+    "C_FY2025_1A_risk_factors_018",
+    "C_FY2025_1A_risk_factors_021",
+    "C_FY2025_1A_risk_factors_180",
+    "C_FY2025_1A_risk_factors_195",
+    "C_FY2025_1A_risk_factors_147"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_207",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_180",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_195",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_147",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

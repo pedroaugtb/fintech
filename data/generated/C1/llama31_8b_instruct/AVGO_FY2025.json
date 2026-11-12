@@ -1,0 +1,254 @@
+{
+  "ticker": "AVGO",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "AVGO's FY2025 financial performance was marked by increased leverage, improved liquidity, and profitability. The company's leverage increased due to significant debt issuance, while liquidity improved with the sale of VMware's EUC business. Profitability increased due to higher software revenue and strong product demand. However, the company faces risks related to global economic conditions, governmental regulations, and tax laws. The company's reliance on a small number of customers also poses a risk to its business and financial condition.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "AVGO's leverage increased in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_005",
+          "AVGO_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "AVGO's liquidity improved in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_006",
+          "AVGO_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "AVGO's profitability increased in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_032",
+          "AVGO_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "AVGO's gross margin was 68% of net revenue in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "AVGO's research and development expense increased by 18% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "AVGO's operating income was $25,484 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "AVGO's tax incentives are scheduled to expire through November 2030.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "AVGO is subject to risks related to global economic conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "AVGO is subject to risks related to governmental regulations and trade restrictions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "AVGO is subject to risks related to tax laws.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "AVGO has a significant customer concentration risk.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "AVGO's top five end customers accounted for approximately 40% of its net revenue in FY2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "AVGO's loss of a significant customer could have a material adverse effect on its business and financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "AVGO's quarterly net revenue is subject to fluctuations due to large orders or delayed orders from key customers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "AVGO's tax incentives may be adversely affected if its assumptions about tax and other laws are incorrect.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AVGO_FY2025_7_mdna_013",
+    "AVGO_FY2025_7_mdna_012",
+    "AVGO_FY2025_7_mdna_005",
+    "AVGO_FY2025_7_mdna_022",
+    "AVGO_FY2025_7_mdna_006",
+    "AVGO_FY2025_7_mdna_032",
+    "AVGO_FY2025_7_mdna_028",
+    "AVGO_FY2025_7_mdna_025",
+    "AVGO_FY2025_1A_risk_factors_000",
+    "AVGO_FY2025_7_mdna_015",
+    "AVGO_FY2025_7_mdna_029"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_022",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "ticker": "MRK",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "MRK's FY2025 10-K highlights several risk factors that could impact the company's business, cash flows, results of operations, financial condition, and prospects. Key areas of concern include leverage, liquidity, profitability, and risk factors. The company operates in multiple jurisdictions and is exposed to market risk from fluctuations in currency exchange rates and interest rates. The company's success is dependent on the successful development and marketing of new products, which are subject to substantial risks. The company faces continued pricing pressures and uncertainty in global economic and geopolitical conditions may result in a slowdown to the global economy that could affect the company’s business. The company also faces risks related to government regulation and legal proceedings, including potential changes to the existing U.S. tax law and the implementation of the OECD’s two-pillar solution to reform the international tax landscape.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company operates in multiple jurisdictions",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The company is exposed to market risk from fluctuations in currency exchange rates",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company is exposed to market risk from fluctuations in interest rates",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company has entered and will enter into business development transactions, borrowings or other financial transactions that may give rise to currency and interest rate exposure",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company faces continued pricing pressures",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Unfavorable or uncertain economic conditions could negatively affect the company’s operating results",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company’s business may be adversely affected by local and global economic conditions",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company’s business may be adversely affected by inflation",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company’s business may be adversely affected by costs of raw materials and packaging",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company may be negatively affected by changes in global economic and geopolitical conditions",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The health care industry will continue to be subject to increasing regulation as well as political and legal action",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The company believes that the health care industry will continue to be subject to increasing regulation",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The company faces risks related to government regulation and legal proceedings",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company expects pricing pressures to continue in the future",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The company may be negatively affected by changes in tax laws",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MRK_FY2025_1A_risk_factors_040",
+    "MRK_FY2025_1A_risk_factors_017",
+    "MRK_FY2025_1A_risk_factors_016",
+    "MRK_FY2025_1A_risk_factors_032",
+    "MRK_FY2025_1A_risk_factors_031",
+    "MRK_FY2025_1A_risk_factors_030",
+    "MRK_FY2025_7_mdna_002",
+    "MRK_FY2025_1A_risk_factors_061",
+    "MRK_FY2025_1A_risk_factors_060",
+    "MRK_FY2025_1A_risk_factors_022",
+    "MRK_FY2025_1A_risk_factors_047",
+    "MRK_FY2025_1A_risk_factors_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MRK_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

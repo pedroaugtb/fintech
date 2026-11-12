@@ -1,0 +1,244 @@
+{
+  "ticker": "O",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "O's FY2025 10-K indicates high leverage with approximately $1.7 billion in multicurrency borrowings and $25.3 billion of outstanding unsecured senior debt. The company intends to incur additional indebtedness and may face risks associated with debt financing, including insufficient cash flow to make required payments and variable interest rate risk. Liquidity is also a concern as the company relies on revolving credit facilities and commercial paper programs as a liquidity backstop.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "O has borrowed an aggregate of approximately $1.7 billion in multicurrency borrowings under term loans.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "O had a total of $25.3 billion of outstanding unsecured senior debt as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "O intends to incur additional indebtedness in the future.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "O faces risks associated with debt financing, including the risk that cash flow could be insufficient to make required payments.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "O faces variable interest rate risk as the interest rates on its revolving credit facility, term loan facilities, and commercial paper programs are variable.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_057"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "O's liquidity is a concern as it relies on revolving credit facilities and commercial paper programs as a liquidity backstop.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "O may face difficulties in refinancing or repaying its debt as it comes due.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "O has incurred and may continue to incur indebtedness that is denominated in local currencies to fund international investments.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "O's debt securities limit its ability to obtain additional financing, require the use of cash flow for debt repayment, limit flexibility in planning for changes, and put it at a disadvantage compared to competitors with less indebtedness.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "O may be subject to penalty taxes or fail to qualify as a REIT if it fails to satisfy certain requirements.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "O is subject to tax at regular corporate rates to the extent that it distributes less than 100% of its taxable income each year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "O is subject to a 4% nondeductible excise tax to the extent that it fails to distribute at least 85% of its ordinary income for a calendar year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "O may be subject to increased costs and difficulties in obtaining financing during downturns in the equity and credit markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "O may be subject to increased costs and difficulties in obtaining financing due to uncertainty in the equity and credit markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "O may be subject to increased costs and difficulties in obtaining financing due to disruptions in the financial markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "O_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "O_FY2025_1A_risk_factors_055",
+    "O_FY2025_1A_risk_factors_056",
+    "O_FY2025_1A_risk_factors_057",
+    "O_FY2025_1A_risk_factors_060",
+    "O_FY2025_1A_risk_factors_040",
+    "O_FY2025_1A_risk_factors_043",
+    "O_FY2025_1A_risk_factors_044",
+    "O_FY2025_1A_risk_factors_075",
+    "O_FY2025_1A_risk_factors_064",
+    "O_FY2025_1A_risk_factors_061"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_057",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_064",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "O_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0000726728-26-000011",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

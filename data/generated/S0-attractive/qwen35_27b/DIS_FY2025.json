@@ -1,0 +1,226 @@
+{
+  "ticker": "DIS",
+  "fiscal_year": 2025,
+  "condition": "S0-attractive",
+  "stress_template": "attractive",
+  "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Disney reported a significant FY2025 net income surge to $12.4 billion, driven by a non-cash tax benefit and lower impairments, though elevated leverage and competitive DTC pricing pressures remain key risks. While liquidity appears stable with improved interest expense, the company faces ongoing litigation and market volatility that could impact future flexibility. Given the strong bottom-line recovery but persistent structural challenges in streaming profitability and debt levels, the investment case remains mixed, requiring careful monitoring of free cash flow generation against debt reduction targets.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net income attributable to Disney increased to $12.4 billion in FY2025 from $5.0 billion in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Diluted EPS from continuing operations rose to $6.85 in FY2025 compared to $2.72 in the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "The effective income tax rate was negative 11.9% in FY2025, compared to 23.7% in FY2024, largely due to a non-cash tax benefit from Hulu's classification change.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_008",
+          "DIS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Total revenues increased 3% to $94.4 billion in FY2025, with service revenues reaching $84.6 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_003",
+          "DIS_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Net interest expense decreased to $1,305 million in FY2025 from $1,260 million in FY2024 due to lower average rates and debt balances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "As of September 27, 2025, Moody's assigned Disney long-term and short-term debt ratings of A2 and P-1 (Stable), respectively.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "S&P Global Ratings assigned Disney long-term and short-term debt ratings of A and A-1 (Stable) as of September 27, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Elevated indebtedness and leverage ratios previously led to debt rating downgrades, and future downgrades could increase borrowing costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_032",
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Impairment charges dropped significantly to $819 million in FY2025 from $3,595 million in FY2024, excluding large Star India and goodwill charges from the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "The Star India Transaction completed on November 14, 2024, resulted in a 3 percentage point decrease in service revenues for FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_004",
+          "DIS_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Equity in the income of investees decreased $280 million to $295 million in FY2025 due to losses from the India joint venture.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Competitive pressures in the DTC streaming environment may force price reductions or lead to higher churn rates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "The company faces risks from various litigation matters, including a private securities class action lawsuit seeking unspecified damages.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_046",
+          "DIS_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Technological changes and extensive patent coverage increase the risk of patent infringement claims against Disney's streaming services.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Competition for talent and resources increases labor costs and limits growth in prices for products and services.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DIS_FY2025_1A_risk_factors_032",
+    "DIS_FY2025_1A_risk_factors_033",
+    "DIS_FY2025_7_mdna_006",
+    "DIS_FY2025_7_mdna_002",
+    "DIS_FY2025_7_mdna_007",
+    "DIS_FY2025_7_mdna_008",
+    "DIS_FY2025_7_mdna_004",
+    "DIS_FY2025_7_mdna_003",
+    "DIS_FY2025_1A_risk_factors_046",
+    "DIS_FY2025_1A_risk_factors_045",
+    "DIS_FY2025_1A_risk_factors_022"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

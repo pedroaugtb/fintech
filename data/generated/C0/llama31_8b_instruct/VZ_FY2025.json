@@ -1,0 +1,244 @@
+{
+  "ticker": "VZ",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Verizon's FY2025 financial performance shows a slight increase in interest expense due to a decrease in capitalized interest, partially offset by lower average debt balances and a lower interest rate. The company's leverage ratio is a concern, with $131.1 billion in outstanding unsecured indebtedness and $27.1 billion in secured indebtedness. Liquidity remains a challenge, with $17.0 billion invested in capital expenditures. Profitability decreased due to a net pension and postretirement benefits remeasurement loss. Risks include increased competition, unionization, reputation damage, and cybersecurity threats.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "Verizon's interest expense increased by $45 million in FY2025 compared to FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "Verizon's average debt outstanding decreased by $3,955 million in FY2025 compared to FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "Verizon's effective interest rate decreased to 5.0% in FY2025 compared to 5.1% in FY2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "Verizon had $131.1 billion in outstanding unsecured indebtedness as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "Verizon had $27.1 billion in outstanding secured indebtedness as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "Verizon invested $17.0 billion in capital expenditures in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "Verizon's other income (expense), net decreased by $888 million in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "Verizon's other income (expense), net decreased by 89.2% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "Verizon's net pension and postretirement benefits remeasurement loss was $453 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "Verizon faces significant competition in its industries.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "Verizon's reputation and brands could be negatively affected by a number of factors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "Verizon's reputation and brands could be damaged by actual or alleged quality or reliability issues related to its network services and products.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "Verizon's reputation and brands could be damaged by cybersecurity incidents and data breaches.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "Verizon's reputation and brands could be damaged by allegations of legal noncompliance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "Verizon's reputation and brands could be damaged by incidents involving unethical behavior or misconduct.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "VZ_FY2025_7_mdna_014",
+    "VZ_FY2025_1A_risk_factors_028",
+    "VZ_FY2025_1A_risk_factors_029",
+    "VZ_FY2025_7_mdna_005",
+    "VZ_FY2025_7_mdna_012",
+    "VZ_FY2025_7_mdna_028",
+    "VZ_FY2025_7_mdna_013",
+    "VZ_FY2025_1A_risk_factors_000",
+    "VZ_FY2025_1A_risk_factors_018",
+    "VZ_FY2025_1A_risk_factors_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

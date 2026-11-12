@@ -1,0 +1,181 @@
+{
+  "ticker": "SLB",
+  "fiscal_year": 2025,
+  "condition": "S0-buy_sell",
+  "stress_template": "buy_sell",
+  "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "SLB's strong cash flow generation and commitment to returning $4 billion to shareholders in 2026 indicate a solid financial position. The company's focus on production and recovery, AI solutions, and Data Center Solutions presents growth opportunities. However, the stock recommendation depends on the investor's risk tolerance and investment horizon. Given the industry challenges and geopolitical uncertainties, a 'hold' recommendation is suggested for short-term investors. Long-term investors may consider 'buying' SLB stock due to its potential for growth in production and recovery, Data Center Solutions, and Digital businesses.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "SLB anticipates strong cash flows in 2026",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "SLB is committed to returning $4 billion to shareholders in 2026",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "SLB's fourth quarter 2025 revenue increased sequentially across each geography",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "SLB generated $6.5 billion of cash flow from operations and $4.1 billion of free cash flow in 2025",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "SLB's revenue declined 6% year on year excluding the ChampionX acquisition",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "SLB expects rig activity in the Middle East to increase in 2026",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Production and recovery activity is becoming a strategic priority for SLB's customers",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Data Center Solutions will be SLB's fastest growing business for years to come",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Digital will continue to grow at highly accretive margins",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "SLB has proven unique strengths that enable it to create differentiated value",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "SLB's stock recommendation depends on the investor's risk tolerance and investment horizon",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "12",
+        "text": "Short-term investors should consider 'holding' SLB stock",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "13",
+        "text": "Long-term investors may consider 'buying' SLB stock",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "14",
+        "text": "SLB's stock recommendation is based on its potential for growth in production and recovery, Data Center Solutions, and Digital businesses",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "15",
+        "text": "SLB's stock recommendation is a 'hold' for short-term investors",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SLB_FY2025_7_mdna_006",
+    "SLB_FY2025_7_mdna_003",
+    "SLB_FY2025_7_mdna_000",
+    "SLB_FY2025_7_mdna_002",
+    "SLB_FY2025_7_mdna_001",
+    "SLB_FY2025_7_mdna_005"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    }
+  ]
+}

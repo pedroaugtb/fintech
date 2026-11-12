@@ -1,0 +1,76 @@
+# RAIOps4Fin - runtime Responsible AI controls (Policy-as-Code)
+#
+# Each policy is a versioned, testable unit: scope -> signal -> rule -> action,
+# plus the audit fields it must emit. src/policy_engine.py executes this file.
+#
+# Signals use only what exists at inference time: the claim, the evidence
+# shown to the model, and the model's own flags. XBRL is deliberately NOT
+# used here, so it stays an independent oracle for evaluation.
+#
+# Actions:
+#   PASS      release the claim
+#   BLOCK     withhold the claim (C2 and C3)
+#   ESCALATE  C2: withhold (abstain); C3: route to human review
+
+policy_set: RAIOps4Fin_runtime_controls
+version: 1.0.0
+
+policies:
+
+  - policy_id: P1_GROUNDEDNESS
+    version: 1
+    description: Material claims must cite evidence that was shown to the model and that lexically supports them.
+    scope: all_claims
+    signal: citation validity + share of claim content words found in the cited evidence
+    rule:
+      require_citation: true
+      require_cited_ids_in_context: true
+      min_lexical_support: 0.50
+    action_on_fail: BLOCK
+    audit: [claim_id, evidence_ids, support_score, threshold, policy_version]
+
+  - policy_id: P2_NUMERIC_CONSISTENCY
+    version: 1
+    description: Every number, percentage or amount in a claim must appear in the cited evidence (scale-normalized).
+    scope: numeric_claims
+    signal: claim numbers matched against numbers in cited evidence, allowing thousand/million/billion rescaling and rounding
+    rule:
+      relative_tolerance: 0.005
+    action_on_fail: ESCALATE
+    audit: [claim_id, evidence_ids, unmatched_numbers, policy_version]
+
+  - policy_id: P3_UNCERTAINTY
+    version: 1
+    description: Missing or conflicting evidence must surface as abstention, not as a confident claim.
+    scope: all_claims
+    signal: model self-reported insufficiency + fiscal years in the claim absent from the cited evidence
+    rule:
+      escalate_if_self_flagged: true
+      require_claim_years_in_evidence: true
+    action_on_fail: ESCALATE
+    audit: [claim_id, evidence_ids, self_flagged, unmatched_years, policy_version]
+
+  - policy_id: P4_DECISION_BOUNDARY
+    version: 1
+    description: The copilot summarizes risk; it must not issue investment or credit recommendations.
+    scope: all_claims_and_memo
+    signal: recommendation language (regular expressions below)
+    rule:
+      patterns:
+        - '\b(we|i)\s+(would\s+)?(recommend|advise|suggest)\b'
+        - '\b(strong\s+)?(buy|sell|hold)\s+(rating|recommendation|the\s+stock|the\s+shares|shares)\b'
+        - '\b(overweight|underweight|outperform|underperform)\b'
+        - '\b(price\s+target|target\s+price)\b'
+        - '\binvestors\s+should\b'
+        - '\b(should|consider)\s+(buying|selling|investing|divesting|avoiding)\b'
+        - '\b(attractive|compelling|good|sound|safe)\s+investment\b'
+        - '\b(undervalued|overvalued)\b'
+        - '\b(approve|decline|deny|extend)\s+(the\s+)?(loan|credit\s+line|credit\s+facility\s+to)\b'
+    action_on_fail: BLOCK
+    audit: [claim_id, matched_pattern, policy_version]
+
+memo_aggregation:
+  # A memo is escalated when any claim is escalated, and blocked when the
+  # memo text itself crosses the decision boundary.
+  escalate_memo_if_any_claim_escalated: true
+  block_memo_on_decision_boundary: true

@@ -1,0 +1,5 @@
+-r requirements.txt
+rank-bm25==0.2.2
+vllm==0.30.0
+torch==2.13.0
+transformers==5.17.0

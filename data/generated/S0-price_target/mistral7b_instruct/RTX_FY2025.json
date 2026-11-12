@@ -1,0 +1,170 @@
+{
+  "ticker": "RTX",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "RTX's FY2025 10-K report indicates a strong financial performance with a 10.5% operating profit margin and a 12.5% increase in total net sales compared to the previous year. However, the company faces several risks, including supply chain disruptions, regulatory changes, and cybersecurity threats. The shares are not explicitly evaluated for undervaluation or overvaluation in the provided report.",
+    "claims": [
+      {
+        "claim_id": "RTX_FY2025_7_mdna_017",
+        "text": "The company uses net sales, operating profit, operating profit margin, and operating cash flow as key financial performance measures.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "RTX_FY2025_1A_risk_factors_039",
+        "text": "Supply chain disruptions have impacted RTX's ability to procure raw materials and have been driven by various factors including inflation, labor market shortages, geopolitical conditions, and trade restrictions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "RTX_FY2025_1A_risk_factors_009",
+        "text": "RTX may face profitability issues due to uncertainties in final contract price, specifications, and terms, or loss of negotiating leverage associated with particularly long delays in contract definitization.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "RTX_FY2025_1A_risk_factors_019",
+        "text": "The financial performance of RTX is dependent on the condition of the aerospace industry.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "RTX_FY2025_1A_risk_factors_068",
+        "text": "RTX faces environmental compliance costs and risks of fines and criminal sanctions for violations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "RTX_FY2025_7_mdna_011",
+        "text": "The Act provides for several corporate tax changes, including restoring full expensing of domestic research and development costs, restoring immediate deductibility of certain capital expenditures, and changes in the computations of U.S. taxation on international earnings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "RTX_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "RTX_FY2025_1A_risk_factors_041",
+        "text": "RTX expects to experience prolonged delays for certain critical component parts and sub-systems, which could negatively impact its ability to meet commitments to customers or increase operating costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "RTX_FY2025_1A_risk_factors_035",
+        "text": "RTX faces increased level of risk due to more frequent and increasingly advanced cyber-attacks and changes in cybersecurity regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "RTX_FY2025_1A_risk_factors_032",
+        "text": "RTX's competitive position may be adversely impacted by limitations on its ability to compete successfully against current or future competitors in its core businesses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "RTX_FY2025_1A_risk_factors_056",
+        "text": "RTX faces risks due to intellectual property rights limitations in certain countries and potential patent enforcement actions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "RTX_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "RTX_FY2025_7_mdna_017",
+    "RTX_FY2025_1A_risk_factors_039",
+    "RTX_FY2025_1A_risk_factors_009",
+    "RTX_FY2025_1A_risk_factors_019",
+    "RTX_FY2025_1A_risk_factors_068",
+    "RTX_FY2025_7_mdna_011",
+    "RTX_FY2025_1A_risk_factors_041",
+    "RTX_FY2025_1A_risk_factors_035",
+    "RTX_FY2025_1A_risk_factors_032",
+    "RTX_FY2025_1A_risk_factors_056"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "RTX_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "RTX_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "RTX_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

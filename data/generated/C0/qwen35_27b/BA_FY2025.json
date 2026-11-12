@@ -1,0 +1,244 @@
+{
+  "ticker": "BA",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Boeing reported a significant turnaround in FY2025, achieving $2.2 billion in net earnings compared to an $11.8 billion loss in 2024, driven by a $15 billion increase in core operating earnings. However, leverage remains elevated with $54.1 billion in total debt and $15.5 billion due within three years. Liquidity risks persist due to potential credit rating downgrades and substantial pension obligations. Key risks include unpredictable litigation outcomes, defense budget uncertainties, and intense global competition that could pressure margins and access to capital.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net earnings attributable to Boeing shareholders were $2,235 million in 2025, recovering from a loss of $11,817 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Core operating earnings increased by $15,047 million in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Interest and debt expense increased by $46 million in 2025 primarily due to higher average interest rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Total debt as of December 31, 2025, was $54.1 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Approximately $15.5 billion of principal debt payments are scheduled to become due over the next three years.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "The company expects to require up to $345 million annually for dividends on Mandatory Convertible Preferred Stock through 2027.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Airplane financing commitments totaled $15.2 billion as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Credit rating downgrades could increase borrowing costs and jeopardize the ability to incur debt on acceptable terms.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Substantial pension and postretirement benefit obligations materially impact earnings, equity, and cash flows.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Non-operating pension income decreased to $176 million in 2025 from $476 million in 2024 due to lower expected returns on plan assets.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Adverse outcomes in ongoing litigation could materially affect financial position, results of operations, and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Uncertainty regarding U.S. defense spending and budget priorities could lead to contract reductions, cancellations, or delays.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Intense global competition in commercial and defense sectors may result in reduced market share and pricing pressure.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Inability to access capital markets at competitive rates could force unfavorable refinancing or dilutive equity issuance.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Earnings from operations improved to $4,281 million in 2025 from a loss of $10,707 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "BA_FY2025_7_mdna_017",
+    "BA_FY2025_7_mdna_016",
+    "BA_FY2025_1A_risk_factors_047",
+    "BA_FY2025_1A_risk_factors_048",
+    "BA_FY2025_1A_risk_factors_049",
+    "BA_FY2025_1A_risk_factors_046",
+    "BA_FY2025_7_mdna_013",
+    "BA_FY2025_1A_risk_factors_041",
+    "BA_FY2025_1A_risk_factors_012",
+    "BA_FY2025_1A_risk_factors_018"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "BA_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BA_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BA_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

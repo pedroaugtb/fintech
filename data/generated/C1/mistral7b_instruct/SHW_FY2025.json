@@ -1,0 +1,206 @@
+{
+  "ticker": "SHW",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "SHW's FY2025 financial report shows a significant increase in leverage, with the leverage ratio rising to 4.25 to 1.00. The company's total debt outstanding increased by $982.9 million to $10.871 billion. SHW targets Net debt to be 2.0 to 2.5 times EBITDA, and at December 31, 2025, Net debt was $10.664 billion and was 2.4 times the company's EBITDA in 2025. The company's liquidity appears sufficient, with unused capacity under its various credit agreements of $3.649 billion. However, the company's notes, debentures and revolving credit agreements contain default and cross-default provisions, and in the event of default, acceleration of the maturity of any one or more of these borrowings may result. SHW's profitability decreased slightly, with diluted net income per share decreasing 2.7% to $10.26 per share in the year compared to $10.55 per share in the full year 2024. The company's profitability was affected by increased costs, including costs related to the Valspar acquisition. SHW faces several risk factors, including regulatory compliance costs, cybersecurity risks, and the loss of large customers or increased competition.",
+    "claims": [
+      {
+        "claim_id": "SHW_FY2025_7_mdna_039",
+        "text": "The leverage ratio increased to 4.25 to 1.00 for a period of four consecutive fiscal quarters immediately following a qualifying acquisition.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_7_mdna_024",
+        "text": "Total debt outstanding, including Short-term borrowings, increased by $982.9 million to $10.871 billion in 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_7_mdna_031",
+        "text": "Management does not expect capital expenditures, depreciation and other expenses to be material to the company’s financial condition, liquidity, cash flow or results of operations in 2026.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_1A_risk_factors_035",
+        "text": "Inability to meet contractual and other obligations and commercial commitments could adversely impact the company’s cash flow, liquidity or financial condition.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_1A_risk_factors_034",
+        "text": "The company’s cost of borrowing and ability to access the capital markets are affected by market conditions, debt and credit ratings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_7_mdna_001",
+        "text": "Consolidated Net sales increased 2.1% in the year to $23.574 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_7_mdna_008",
+        "text": "The Performance Coatings Group opened 6 new branches and closed 13 branches for a net decrease of 7 branches, decreasing the total at December 31, 2025 to 317 branches.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_1A_risk_factors_045",
+        "text": "Compliance with privacy regulations can result in additional costs, regulatory investigations, fines, litigation and reputational harm.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_1A_risk_factors_016",
+        "text": "Cybersecurity risks could result in unauthorized access to information and systems, disrupt operations and have a material adverse effect on the business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_1A_risk_factors_021",
+        "text": "Loss of large customers or increased competition could have an adverse effect on sales, earnings or cash flow.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SHW_FY2025_7_mdna_039",
+    "SHW_FY2025_7_mdna_024",
+    "SHW_FY2025_7_mdna_031",
+    "SHW_FY2025_1A_risk_factors_035",
+    "SHW_FY2025_1A_risk_factors_034",
+    "SHW_FY2025_7_mdna_001",
+    "SHW_FY2025_7_mdna_008",
+    "SHW_FY2025_7_mdna_044",
+    "SHW_FY2025_1A_risk_factors_045",
+    "SHW_FY2025_1A_risk_factors_016",
+    "SHW_FY2025_1A_risk_factors_021"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_044",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

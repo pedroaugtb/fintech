@@ -1,0 +1,185 @@
+{
+  "ticker": "NUE",
+  "fiscal_year": 2025,
+  "condition": "S0-credit",
+  "stress_template": "credit",
+  "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Nucor's financial position has improved in FY2025, with a decrease in debt repayments and an increase in the revolving credit facility. However, the company's capital expenditures are substantial and may require additional financing. The company's liquidity is strong, with a current ratio of 2.9, but changes in the availability and cost of electricity and natural gas are a risk factor. The company's profitability has been affected by impairment charges and losses at certain joint ventures, but the effective tax rate has decreased. Overall, the decision to approve or decline the USD 500 million unsecured credit facility should consider the company's capital expenditure needs, liquidity, and profitability, as well as the potential risks associated with the company's operations.",
+    "claims": [
+      {
+        "claim_id": "NUE_FY2025_7_mdna_039",
+        "text": "Nucor amended and restated its revolving credit facility to increase the borrowing capacity from $1.75 billion to $2.25 billion and to extend its maturity date to March 11, 2030.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NUE_FY2025_7_mdna_038",
+        "text": "Nucor repurchased $700 million in stock in 2025, a decrease of $1.52 billion compared to 2024; cash dividends to stockholders were $512 million in 2025, a decrease of $11 million compared to 2024; and repayments of long-term debt were $1.02 billion in 2025, an increase of $1.01 billion compared to 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NUE_FY2025_1A_risk_factors_008",
+        "text": "Nucor's business requires substantial capital investment and maintenance expenditures, and its capital resources may not be adequate to provide for all of its cash requirements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NUE_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NUE_FY2025_7_mdna_031",
+        "text": "Nucor's cash and cash equivalents decreased from $3.558 billion in 2024 to $2.260 billion in 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NUE_FY2025_7_mdna_032",
+        "text": "Nucor's current ratio was 2.9 at year-end 2025 compared with 2.5 at year-end 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NUE_FY2025_7_mdna_025",
+        "text": "Noncontrolling interests represent the income attributable to the noncontrolling partners of Nucor’s joint ventures, Nucor-Yamato, CSI and NJSM.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NUE_FY2025_7_mdna_026",
+        "text": "The 2015 through 2021 Canadian income tax returns for Nucor Rebar Fabrication Group Inc. are currently under examination by the Canada Revenue Agency.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NUE_FY2025_7_mdna_023",
+        "text": "Nucor recorded an $83 million impairment charge in 2024 for a long-term note receivable in the raw materials segment.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NUE_FY2025_7_mdna_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NUE_FY2025_1A_risk_factors_020",
+        "text": "Nucor faces competition from other steel producers, imports, or alternative materials that may negatively affect its business, results of operations, financial condition, and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NUE_FY2025_1A_risk_factors_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NUE_FY2025_1A_risk_factors_006",
+        "text": "Nucor's operations are subject to business interruptions and casualty losses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NUE_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NUE_FY2025_1A_risk_factors_021",
+        "text": "Nucor's operations are subject to cybersecurity threats which could have an adverse effect on its business and results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NUE_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NUE_FY2025_7_mdna_039",
+    "NUE_FY2025_7_mdna_038",
+    "NUE_FY2025_1A_risk_factors_008",
+    "NUE_FY2025_7_mdna_031",
+    "NUE_FY2025_7_mdna_032",
+    "NUE_FY2025_7_mdna_025",
+    "NUE_FY2025_7_mdna_026",
+    "NUE_FY2025_7_mdna_023",
+    "NUE_FY2025_1A_risk_factors_020",
+    "NUE_FY2025_1A_risk_factors_006",
+    "NUE_FY2025_1A_risk_factors_021"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_038",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NUE_FY2025_7_mdna_023",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_020",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NUE_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "ticker": "META",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Meta reported FY2025 revenue of $200.97 billion, up 22%, driven by ad volume and price increases, yielding $83.28 billion in operating income. However, Reality Labs investments reduced operating profit by approximately $19.19 billion, with similar losses expected in 2026. Liquidity faces pressure from potential debt incurrence for acquisitions, share repurchases, and dividends, alongside global regulatory constraints on cash repatriation. Profitability risks include volatile tax rates and ongoing litigation. Key risks involve cybersecurity incidents, evolving global regulations (GDPR, DMA), and the uncertainty of long-term AI and metaverse investment returns.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total revenue for FY2025 was $200.97 billion, representing a 22% increase compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Income from operations for FY2025 was $83.28 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Reality Labs investments reduced overall operating profit by approximately $19.19 billion in 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Reality Labs operating losses are expected to remain similar to 2025 levels in 2026.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The company may incur debt to support business operations or strategic initiatives, increasing fixed obligations and interest expense.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068",
+          "META_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Share repurchases and dividend payments will diminish cash reserves.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_117"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Foreign exchange controls and regulations may prevent the repatriation of cash earned outside the United States.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Acquisitions may require substantial cash or debt, potentially adversely affecting liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Future income tax rates could be volatile due to changes in jurisdictional profit splits and tax laws.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_106"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Adverse outcomes from tax audits or litigation could materially increase the worldwide effective tax rate.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_105"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Changes to user data practices have adversely affected the ability to effectively target ads.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The company faces risks from complex and evolving global regulations including GDPR, DMA, and the EU AI Act.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Cybersecurity incidents could result in significant expense, liability, and a decline in active user base.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_165"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "There is no assurance that strategic investments in AI and Reality Labs will produce expected long-term benefits.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037",
+          "META_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The company cannot guarantee that its share repurchase program will be fully consummated or enhance long-term stockholder value.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_117"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "META_FY2025_1A_risk_factors_068",
+    "META_FY2025_1A_risk_factors_101",
+    "META_FY2025_1A_risk_factors_037",
+    "META_FY2025_7_mdna_001",
+    "META_FY2025_1A_risk_factors_090",
+    "META_FY2025_1A_risk_factors_117",
+    "META_FY2025_1A_risk_factors_106",
+    "META_FY2025_7_mdna_002",
+    "META_FY2025_1A_risk_factors_105",
+    "META_FY2025_1A_risk_factors_000",
+    "META_FY2025_1A_risk_factors_002",
+    "META_FY2025_1A_risk_factors_165"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_101",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_090",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_117",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_106",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_105",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_165",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

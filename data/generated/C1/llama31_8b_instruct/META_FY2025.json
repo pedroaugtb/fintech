@@ -1,0 +1,258 @@
+{
+  "ticker": "META",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Meta's FY2025 financial performance was impacted by investments in Reality Labs, which reduced overall operating profit by $19.19 billion. The company's ability to support these investments is dependent on generating sufficient profits from other areas of the business. Meta's leverage and liquidity are affected by its ability to raise capital through debt, equity, or other financing arrangements. The company's profitability is impacted by its tax provision, which is determined by its business operations and subject to changes in laws and regulations. Meta's risk factors include disruptions in its service, government restrictions, and cybersecurity incidents.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "Meta's investments in Reality Labs reduced overall operating profit by $19.19 billion in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "Meta's ability to support its investments is dependent on generating sufficient profits from other areas of the business.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "Meta may seek to raise additional capital through debt, equity, or other financing arrangements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "Meta's ability to finance its business operations and initiatives could be adversely affected if it is unable to obtain adequate financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "Meta's ability to maintain and scale its technical infrastructure is critical to its business.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "Meta's revenue on a constant currency basis increased by 22% in FY2025 compared to FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "Meta's free cash flow is a non-GAAP financial measure.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "Meta's ability to repatriate cash earned in countries outside the US may be limited by foreign exchange controls and tax regulations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "Meta's ability to invest cash efficiently may be impeded by foreign exchange controls and tax regulations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "Meta's income from operations was $83.28 billion in FY2025, an increase of 22% compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "Meta's tax provision is determined by its business operations and is subject to changes in laws and regulations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_105"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "Meta's tax provision may be affected by changes in jurisdictional profit split, deferred tax assets and liabilities, or tax laws.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_105"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "Meta's business is subject to a number of risks, including disruptions in its service, government restrictions, and cybersecurity incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "Meta regularly experiences cyber-attacks and other security incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_165"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "Meta may incur significant expense and liability due to cybersecurity incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_165"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "META_FY2025_1A_risk_factors_068",
+    "META_FY2025_1A_risk_factors_101",
+    "META_FY2025_1A_risk_factors_037",
+    "META_FY2025_7_mdna_001",
+    "META_FY2025_1A_risk_factors_090",
+    "META_FY2025_1A_risk_factors_117",
+    "META_FY2025_1A_risk_factors_106",
+    "META_FY2025_7_mdna_002",
+    "META_FY2025_1A_risk_factors_105",
+    "META_FY2025_1A_risk_factors_000",
+    "META_FY2025_1A_risk_factors_002",
+    "META_FY2025_1A_risk_factors_165"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_101",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_090",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_117",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_106",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_105",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_165",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

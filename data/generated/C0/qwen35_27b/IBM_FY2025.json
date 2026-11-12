@@ -1,0 +1,246 @@
+{
+  "ticker": "IBM",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "IBM's FY2025 risk profile highlights significant exposure to macroeconomic downturns and client spending reductions, which could impair revenue and profitability. The company faces leverage risks from potential higher debt levels associated with acquisitions and divestitures, alongside liquidity challenges if capital market disruptions hinder financing. Profitability is threatened by potential goodwill impairments, supply chain failures, and the high cost of maintaining AI and hybrid cloud leadership. Furthermore, global regulatory shifts, trade sanctions, and reputation damage from cybersecurity or product defects pose material threats to long-term operational stability and market share.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Acquisitions and alliances may result in higher debt levels and assumption of liabilities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Disruptions in capital markets could adversely affect IBM's ability to access financing at favorable terms.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "A downturn in the economic environment or client spending budgets could negatively impact revenue and profit.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Failure to commercialize AI and hybrid cloud innovations could harm profit margins and market share.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_000",
+          "IBM_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Goodwill or amortizable intangible assets may become impaired, requiring charges to the income statement.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "IBM derives approximately 60% of its revenues from sales outside the United States.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "International trade disputes, tariffs, and export controls could impose added costs and disrupt supply chains.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_008",
+          "IBM_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Damage to IBM's reputation from cybersecurity incidents or product defects could impact customer retention.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Financial results are difficult to predict due to seasonal revenue fluctuations and high end-of-quarter order volumes.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Shortages of critical skilled employees could impact the company's ability to bring products to market.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Supplier failures to deliver components or materials could reduce product reliability and harm operating results.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Global health issues, natural disasters, or political hostilities could adversely affect operations and supply chains.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Regulatory changes regarding data privacy, AI, and cloud services could impact business operations globally.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Divestitures carry risks related to retained liabilities and delays in obtaining regulatory approvals.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Failure to maintain AI leadership or governance could lead to legal or regulatory action.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "IBM_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "IBM_FY2025_1A_risk_factors_004",
+    "IBM_FY2025_1A_risk_factors_000",
+    "IBM_FY2025_1A_risk_factors_015",
+    "IBM_FY2025_1A_risk_factors_005",
+    "IBM_FY2025_1A_risk_factors_008",
+    "IBM_FY2025_1A_risk_factors_009",
+    "IBM_FY2025_1A_risk_factors_012",
+    "IBM_FY2025_1A_risk_factors_014",
+    "IBM_FY2025_1A_risk_factors_007",
+    "IBM_FY2025_1A_risk_factors_001"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "IBM_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0000051143-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "IBM_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000051143-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "IBM_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0000051143-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "IBM_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000051143-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "IBM_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000051143-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "IBM_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000051143-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "IBM_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "accession": "0000051143-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "IBM_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0000051143-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "IBM_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "accession": "0000051143-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "IBM_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0000051143-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

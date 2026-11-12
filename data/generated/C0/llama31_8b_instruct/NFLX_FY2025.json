@@ -1,0 +1,245 @@
+{
+  "ticker": "NFLX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "The financial health of NFLX in FY2025 is a concern due to its substantial indebtedness, which may limit its operating and financial flexibility. The company's ability to service its debt and other obligations is uncertain, and it may need to refinance or restructure its debt. Additionally, the company's liquidity may be impacted by its content commitments and accelerated payment requirements. The company's profitability has improved, with a 16% increase in total revenues and a 28% increase in operating income compared to FY2024. However, the company's stock price is volatile, and it may be subject to securities litigation following periods of market volatility. The company also faces risks related to data privacy, competition, and the WBD transaction.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "NFLX has a substantial amount of indebtedness, which may limit its operating and financial flexibility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_064",
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "NFLX may need to refinance or restructure its debt if it is unable to service its debt and other obligations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061",
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "NFLX's liquidity may be impacted by its content commitments and accelerated payment requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "NFLX's profitability has improved, with a 16% increase in total revenues and a 28% increase in operating income compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "NFLX's stock price is volatile.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "NFLX may be subject to securities litigation following periods of market volatility.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "NFLX faces risks related to data privacy, competition, and the WBD transaction.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_054",
+          "NFLX_FY2025_1A_risk_factors_079"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "NFLX's ability to service its debt and other obligations is uncertain.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "NFLX may experience a decline in the trading price of its common stock due to discrepancies between forecasts and actual results.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "NFLX's consolidated financial statements require management to make estimates and assumptions that may differ from actual results.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "NFLX's WBD transaction may not be completed on the currently contemplated timeline or terms, or at all.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_079"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "NFLX's WBD transaction may result in a material adverse effect on WBD's streaming and studios businesses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_079"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "NFLX's revenue growth may not meet its expectations, which could impact its liquidity and results of operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "NFLX's operating results may be impacted by the introduction of new competitors, their pricing strategies, and services.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_076"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NFLX_FY2025_1A_risk_factors_064",
+    "NFLX_FY2025_1A_risk_factors_061",
+    "NFLX_FY2025_1A_risk_factors_062",
+    "NFLX_FY2025_1A_risk_factors_060",
+    "NFLX_FY2025_1A_risk_factors_059",
+    "NFLX_FY2025_7_mdna_000",
+    "NFLX_FY2025_1A_risk_factors_075",
+    "NFLX_FY2025_1A_risk_factors_077",
+    "NFLX_FY2025_1A_risk_factors_076",
+    "NFLX_FY2025_1A_risk_factors_054",
+    "NFLX_FY2025_1A_risk_factors_079"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_064",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_077",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_079",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

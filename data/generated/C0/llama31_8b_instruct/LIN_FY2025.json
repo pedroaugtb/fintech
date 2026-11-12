@@ -1,0 +1,237 @@
+{
+  "ticker": "LIN",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Linde's FY2025 financial performance was marked by a 3% increase in sales and a 3% increase in reported operating profit, driven by higher pricing and productivity initiatives. However, the company faces risks related to leverage, liquidity, profitability, and various risk factors, including economic uncertainty, operational risks, and cybersecurity threats. Management believes that these risks may significantly impact the company's future operations and financial performance. The company's ability to manage these risks will be crucial to its continued success.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Linde's leverage can be affected by short- and long-term debt ratings assigned by independent rating agencies.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Linde's borrowing costs can be affected by short- and long-term debt ratings assigned by independent rating agencies.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Linde's goodwill and intangible assets were approximately $28 billion and $2 billion, respectively, as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Linde's sales increased by 3% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Linde's reported operating profit increased by 3% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Linde's adjusted operating profit increased by 4% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Linde's net income increased by 4% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Linde's diluted earnings per share increased by 6% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Linde's cash flow from operations increased by $927 million in FY2025 compared to FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Linde's capital expenditures were $5,261 million in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Linde's debt borrowings, net were $2,911 million in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Linde's financial results and/or cash flows may be adversely impacted by volatility and disruption in the U.S., European and global credit and equity markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Linde's business may be subject to loss of revenue, potential litigation and loss of business reputation due to failure to complete new construction projects on time, on budget and in accordance with performance requirements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Linde's business may be subject to material operating failures at production, storage facilities or pipelines, including fire, toxic release and explosions, or the occurrence of vehicle transportation accidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Linde's business may be subject to information technology system failures, network disruptions and cybersecurity breaches or other related incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "LIN_FY2025_1A_risk_factors_005",
+    "LIN_FY2025_7_mdna_004",
+    "LIN_FY2025_1A_risk_factors_014",
+    "LIN_FY2025_7_mdna_000",
+    "LIN_FY2025_7_mdna_005",
+    "LIN_FY2025_7_mdna_003",
+    "LIN_FY2025_1A_risk_factors_000",
+    "LIN_FY2025_1A_risk_factors_011",
+    "LIN_FY2025_1A_risk_factors_018"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "LIN_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LIN_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LIN_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LIN_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LIN_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LIN_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LIN_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LIN_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LIN_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

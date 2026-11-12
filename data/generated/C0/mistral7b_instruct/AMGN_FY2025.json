@@ -1,0 +1,226 @@
+{
+  "ticker": "AMGN",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "AMGN's FY2025 10-K highlights several risk factors that may impact the company's financial performance. The company's leverage is a concern due to potential acquisition activities, which could result in unanticipated costs, delays, or operational problems. The company may pay substantial amounts of cash, incur debt, or issue equity securities to fund these activities, which could adversely affect liquidity or result in dilution to stockholders. Additionally, the company may not be able to access the capital and credit markets on favorable terms or at all, which could affect liquidity. The company's profitability is also at risk due to changes in tax laws, regulations, or administrative interpretations, as well as complex tax matters that are not likely to be resolved within the next 12 months. The company's stock price is volatile and its revenues and operating results may fluctuate for various reasons. Lastly, the company faces regulatory risks, particularly in the United States, due to the complex and evolving nature of regulatory requirements for the production, research, development, testing, manufacture, quality control, labeling, storage, record keeping, and clinical trial activities.",
+    "claims": [
+      {
+        "claim_id": "AMGN_FY2025_1A_risk_factors_094",
+        "text": "Acquisition activities are complex, time consuming and expensive and may result in unanticipated costs, delays, or other operational or financial problems related to integrating the acquired company and business with our company, which may divert our management’s attention from other business issues and opportunities may prevent us from realizing the anticipated benefits of such transactions within the expected timeframe or at all.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_1A_risk_factors_120",
+        "text": "We may not be able to access the capital and credit markets on terms that are favorable to us, or at all.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_120"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_7_mdna_033",
+        "text": "We may not be able to access the capital and credit markets on terms that are favorable to us, or at all.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMGN_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_7_mdna_115",
+        "text": "Market conditions can adversely affect the viability of these institutions. In the event of failure of any of the financial institutions where we maintain our cash and cash equivalents, there can be no assurance that we would be able to access uninsured funds in a timely manner or at all. Inability to access, or a delay in accessing these funds, could adversely affect our business and financial position.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMGN_FY2025_7_mdna_115"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_7_mdna_000",
+        "text": "Our provision for income taxes and results of operations in the future could be adversely affected by changes to our operating structure, changes in the mix of income and expenses in countries with differing tax rates, changes in the valuation of deferred tax assets and liabilities and changes in applicable tax laws, regulations or administrative interpretations thereof.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMGN_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_1A_risk_factors_087",
+        "text": "As previously reported, the OECD reached an agreement to align countries on a minimum corporate tax rate and an expansion of the taxing rights of market countries. Select individual countries, including the United Kingdom, EU member countries, and Singapore, have enacted the global minimum tax agreement that took effect starting in 2024. On January 5, 2026, the OECD issued additional administrative guidance related to the global minimum tax agreement that exempts U.S. companies from extra taxes.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_1A_risk_factors_086",
+        "text": "Final resolution of these complex tax matters is not likely within the next 12 months. We continue to believe our accrual for income tax liabilities is appropriate based on past experience, interpretations of tax law, application of the tax law to our facts and judgments about potential actions by tax authorities; however, due to the complexity of the provision for income taxes and uncertain resolution of these matters, the ultimate outcome of any tax matters may result in payments substantially greater than amounts accrued and could have a material adverse effect on the results of our operations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_086"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_1A_risk_factors_000",
+        "text": "Item 1A. Risk Factors for a discussion of the factors that could adversely impact our manufacturing operations and the global supply of our products.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_1A_risk_factors_021",
+        "text": "With regard to our clinical trial activities, we are continuously monitoring the possible impacts from health-related events, geopolitical conflicts and natural disasters. We are working to mitigate effects on future study enrollment in our clinical trials; and we are evaluating the impact in all relevant countries.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_7_mdna_122",
+        "text": "ks or incidents would not result in a material adverse effect <0x0A>on our business strategy, results of operations or financial condition. For examples of such matters and a discussion of the risks that we face, see Item 1A. Risk Factors—<0x0A>A breakdown of our information technology systems, cyberattack or information security breach could significantly compromise the confidentiality, integrity and availability of our information technology systems, network-connected control systems and/or our data, interrupt the operation of our business and/or affect our reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMGN_FY2025_7_mdna_122"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_1A_risk_factors_020",
+        "text": "Regulation by government authorities in the United States and other countries is a significant factor in the production and marketing of our products and our ongoing R&D activities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_1A_risk_factors_019",
+        "text": "To clinically test, manufacture and market products for therapeutic use, we must satisfy mandatory procedures and safety and effectiveness standards established by various regulatory bodies. Compliance with these standards is complex, and failure to comply with any of these standards can result in significant implications.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AMGN_FY2025_1A_risk_factors_018",
+        "text": "In the United States, the Public Health Service Act; the FDCA; and the regulations promulgated thereunder as well as other federal and state statutes and regulations govern, among other things, the production, research, development, testing, manufacture, quality control, labeling, storage, record keeping, and clinical trial activities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AMGN_FY2025_1A_risk_factors_094",
+    "AMGN_FY2025_1A_risk_factors_120",
+    "AMGN_FY2025_7_mdna_033",
+    "AMGN_FY2025_7_mdna_115",
+    "AMGN_FY2025_7_mdna_000",
+    "AMGN_FY2025_1A_risk_factors_087",
+    "AMGN_FY2025_1A_risk_factors_086",
+    "AMGN_FY2025_1A_risk_factors_000",
+    "AMGN_FY2025_1A_risk_factors_021",
+    "AMGN_FY2025_7_mdna_122"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_094",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_120",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_7_mdna_033",
+      "section": "7_mdna",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_7_mdna_115",
+      "section": "7_mdna",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_087",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_086",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_7_mdna_122",
+      "section": "7_mdna",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

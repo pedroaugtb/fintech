@@ -1,0 +1,262 @@
+{
+  "ticker": "EOG",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "EOG's FY2025 leverage increased as the debt-to-total capitalization ratio rose to 21% from 14% in 2024, driven by senior notes outstanding reaching $7.89 billion. Liquidity remains robust with $3.4 billion in cash and $3.0 billion in undrawn credit facility availability. Profitability metrics show net cash from operations declined $2.1 billion to $10.0 billion, while income taxes fell to $1.38 billion. Key risks include commodity price volatility, where a $1 oil price change impacts net income by ~$174 million, alongside regulatory, cybersecurity, and international operational threats.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "EOG's debt-to-total capitalization ratio increased to 21% at December 31, 2025, from 14% at December 31, 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_009",
+          "EOG_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Aggregate principal amount of senior notes outstanding was $7,890 million at December 31, 2025, compared to $4,640 million in 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Net cash used in financing activities was $2,804 million in 2025, including $2,516 million in debt repayments and $4,471 million in new borrowings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "EOG held $3.4 billion in cash and cash equivalents and had $3.0 billion available under its senior unsecured revolving credit facility at December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_009",
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "There were no borrowings outstanding under the New Facility or commercial paper program at any time during 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Primary sources of cash in 2025 were funds from operations and net proceeds from long-term debt issuance.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Net cash provided by operating activities decreased $2,099 million to $10,044 million in 2025 from $12,143 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Income taxes paid were $1,382 million in 2025, a decrease from $1,815 million in 2024, with an effective tax rate of 22%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_031",
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Taxes other than income decreased to $1,234 million in 2025, representing 7.0% of revenues from sales.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "A $1.00 per barrel change in crude oil price impacts 2026 net income by approximately $174 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "A $0.10 per Mcf change in natural gas price impacts 2026 net income by approximately $64 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Climate change-related regulations and policies may increase compliance costs and lead to shareholder activism or litigation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "International operations face risks including sovereign immunity, currency restrictions, and potential contract renegotiation by governmental entities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Cybersecurity threats and attacks could materially disrupt operations, damage reputation, and result in significant legal liability.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_1A_risk_factors_054",
+          "EOG_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Lower commodity prices could reduce cash flows and impair the ability to obtain financing on satisfactory terms.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "EOG_FY2025_7_mdna_034",
+    "EOG_FY2025_7_mdna_009",
+    "EOG_FY2025_7_mdna_042",
+    "EOG_FY2025_7_mdna_032",
+    "EOG_FY2025_1A_risk_factors_005",
+    "EOG_FY2025_7_mdna_043",
+    "EOG_FY2025_7_mdna_031",
+    "EOG_FY2025_7_mdna_045",
+    "EOG_FY2025_7_mdna_033",
+    "EOG_FY2025_1A_risk_factors_037",
+    "EOG_FY2025_1A_risk_factors_054",
+    "EOG_FY2025_1A_risk_factors_061"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_034",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_042",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_043",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_045",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_033",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

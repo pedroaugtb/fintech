@@ -1,0 +1,248 @@
+{
+  "ticker": "TSLA",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Tesla's FY2025 results show a revenue decline to $94.83B and net income drop to $3.79B, though operating cash flow remained robust at $14.75B. Liquidity strengthened with cash and investments rising to $44.06B, supported by reduced capital expenditures. However, leverage risks persist due to debt covenants restricting operational flexibility and potential refinancing challenges if cash flows weaken. Significant risk factors include exposure to product liability claims, uninsured losses, and evolving global data privacy regulations that could increase costs and impact reputation.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total revenues for FY2025 were $94.83 billion, a decrease of $2.86 billion compared to the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TSLA_FY2025_7_mdna_003",
+          "TSLA_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Net income attributable to common stockholders in FY2025 was $3.79 billion, a decrease of $3.30 billion compared to the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TSLA_FY2025_7_mdna_003",
+          "TSLA_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Cash and cash equivalents and investments totaled $44.06 billion at the end of FY2025, an increase of $7.50 billion from the end of 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TSLA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Cash flows provided by operating activities were $14.75 billion in FY2025, a decrease of $176 million from FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TSLA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Capital expenditures decreased to $8.53 billion in FY2025 from $11.34 billion in FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TSLA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "The company's business has generally been consistently generating cash flow from operations in excess of its level of capital spend.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TSLA_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Consolidated indebtedness may increase vulnerability to adverse economic and industry conditions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Debt agreements contain covenants that may restrict the ability to incur additional debt or create liens.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_049",
+          "TSLA_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Failure to comply with debt covenants could result in a default, permitting holders to accelerate the obligation to repay debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "The company may not have sufficient funds available to repay debt if it is accelerated.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The company does not maintain as much insurance coverage as many other companies, and in some cases maintains none at all.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Uninsured losses or losses exceeding policy limits may require substantial payments, harming financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "The company faces significant product liability claims risks, particularly regarding vehicle collisions and autonomous driving features.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Compliance with evolving global data privacy laws, such as GDPR and CCPA, may incur substantial costs and result in penalties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_067",
+          "TSLA_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The company deployed 46.7 GWh of energy storage products in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TSLA_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "TSLA_FY2025_1A_risk_factors_052",
+    "TSLA_FY2025_1A_risk_factors_049",
+    "TSLA_FY2025_1A_risk_factors_048",
+    "TSLA_FY2025_7_mdna_013",
+    "TSLA_FY2025_7_mdna_003",
+    "TSLA_FY2025_7_mdna_028",
+    "TSLA_FY2025_7_mdna_002",
+    "TSLA_FY2025_1A_risk_factors_067",
+    "TSLA_FY2025_1A_risk_factors_068",
+    "TSLA_FY2025_1A_risk_factors_027"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_067",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

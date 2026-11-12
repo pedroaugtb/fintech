@@ -1,0 +1,214 @@
+{
+  "ticker": "C",
+  "fiscal_year": 2025,
+  "condition": "S1-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Citi's FY2025 results show a 6% increase in revenue, driven by growth in net interest income and average deposit balances. However, the company's leverage has increased due to a 10% rise in long-term debt, primarily from issuances of senior bank and non-bank benchmark debt and non-bank customer-related debt. The company's liquidity has also been impacted, with cash and deposits with banks increasing by 26%, but this is partially offset by growth in net trading assets and liabilities. Profitability has increased due to a 12% rise in net interest income, but this is partially offset by a decrease in non-interest revenue. The company's risk factors include cybersecurity threats, changes in accounting assumptions, and geopolitical challenges such as the Russia-Ukraine war and tensions with China.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Citi's FY2025 revenue increased 6%",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Net interest income increased 12%",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Average deposits increased 7%",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Long-term debt increased 10%",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Cash and deposits with banks increased 26%",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Net trading assets and liabilities increased",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Non-interest revenue decreased 4%",
+        "topic": "profitability",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Loans increased 5%",
+        "topic": "leverage",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Cybersecurity threats are a risk factor",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_180"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Changes in accounting assumptions are a risk factor",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_195"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Geopolitical challenges are a risk factor",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_147"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Changes to interest rates are a risk factor",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "C_FY2025_1A_risk_factors_147"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "12-month price target not provided",
+        "topic": "profitability",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "14",
+        "text": "Shares are not undervalued or overvalued based on the provided evidence",
+        "topic": "profitability",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "C_FY2025_1A_risk_factors_039",
+    "C_FY2025_1A_risk_factors_037",
+    "C_FY2025_1A_risk_factors_038",
+    "C_FY2025_1A_risk_factors_043",
+    "C_FY2025_1A_risk_factors_207",
+    "C_FY2025_1A_risk_factors_042",
+    "C_FY2025_1A_risk_factors_049",
+    "C_FY2025_1A_risk_factors_018",
+    "C_FY2025_1A_risk_factors_021",
+    "C_FY2025_1A_risk_factors_180",
+    "C_FY2025_1A_risk_factors_195",
+    "C_FY2025_1A_risk_factors_147"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_207",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_180",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_195",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "C_FY2025_1A_risk_factors_147",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

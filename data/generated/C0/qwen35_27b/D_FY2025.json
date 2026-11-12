@@ -1,0 +1,245 @@
+{
+  "ticker": "D",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Dominion Energy reported a 47% net income increase to $2.998 billion in FY2025, driven by pension market impacts, rate settlements, and renewable tax credits, excluding prior-year impairments. Liquidity remains sensitive to capital market conditions, commodity price fluctuations, and regulatory approvals for new facilities. Leverage management involves complex actuarial assumptions for pension plans and significant goodwill impairment risks from divestitures. Key risks include nuclear operational hazards, cybersecurity threats, construction cost overruns, and potential adverse outcomes in litigation or regulatory proceedings affecting future cash flows and asset valuations.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net income attributable to Dominion Energy increased 47% to $2,998 million in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Diluted EPS for FY2025 was $3.45, an increase of $1.12 from the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "FY2025 profitability was boosted by the absence of impairments associated with the Questar Gas Transaction.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Higher market-related impacts on pension and other postretirement plans contributed to the FY2025 net income increase.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Liquidity is exposed to fluctuations in energy-related commodity prices and their effect on earnings and asset values.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Changes in credit ratings and global capital market conditions could materially affect the availability and cost of capital.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_003",
+          "D_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Liquidity risks include the ability to obtain regulatory approvals and permits for new facility construction in a timely manner.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "The long-term strategic target asset allocation for pension funds is 30% public equity, 27% fixed income, and 43% alternative investments.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Actuarial losses for rate-regulated operations are deferred to regulatory assets if recovery from customers is probable.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Goodwill impairments totaling $238 million and $78 million were recognized for Questar Gas and East Ohio transactions in prior periods.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Long-lived asset impairment testing requires significant judgment regarding undiscounted future cash flows and fair value estimates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Risks associated with nuclear facility operations include costs for spent fuel disposal, decommissioning, and regulatory changes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Cybersecurity threats and domestic terrorism pose risks to the company's physical and intangible assets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Construction cost overruns exceeding the 7% contingency could materially impact future financial condition and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Uncertainty in income tax law interpretation may result in material adjustments to tax-related assets and liabilities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "D_FY2025_7_mdna_030",
+    "D_FY2025_7_mdna_029",
+    "D_FY2025_7_mdna_026",
+    "D_FY2025_7_mdna_003",
+    "D_FY2025_7_mdna_004",
+    "D_FY2025_7_mdna_036",
+    "D_FY2025_7_mdna_037",
+    "D_FY2025_7_mdna_018",
+    "D_FY2025_7_mdna_001",
+    "D_FY2025_7_mdna_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "D_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_036",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

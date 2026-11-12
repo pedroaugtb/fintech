@@ -1,0 +1,252 @@
+{
+  "ticker": "NFLX",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Netflix reported FY2025 streaming revenues of $45.2 billion, a 16% increase, with operating income rising 28% to $13.3 billion and operating margin expanding to 29.5%. However, the company faces significant leverage risks due to a planned WBD transaction, which could involve up to $42.2 billion in new debt facilities and the assumption of WBD's existing debt. As of December 31, 2025, Netflix held $14.5 billion in senior notes and $5.7 billion in content liabilities. Liquidity is constrained by substantial fixed content commitments and potential refinancing challenges in rising interest rate environments. Key risks include regulatory hurdles for the WBD deal, potential $5.8 billion termination fees, and volatility in stock price driven by operational forecasts and market conditions.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "FY2025 streaming revenues were $45,183,036 thousand, representing a 16% increase from FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Operating income for FY2025 was $13,326,603 thousand, a 28% increase from FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Operating margin expanded to 29.5% in FY2025 from 26.7% in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NFLX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "As of December 31, 2025, the company had $14.5 billion in aggregate principal amount of senior notes outstanding.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "The company has obtained commitments for up to a $42.2 billion senior unsecured bridge term loan facility for the WBD transaction.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Upon completion of the WBD transaction, Netflix expects to assume additional outstanding debt of WBD.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_064"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "As of December 31, 2025, total content liabilities were approximately $5.7 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "The company has a $3 billion unsecured revolving credit facility, with no amounts borrowed as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Rising interest rates or capital market disruptions could make it more difficult and expensive to raise additional capital or refinance indebtedness.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Long-term and largely fixed cost nature of content commitments may limit flexibility in reacting to business changes.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Failure to satisfy conditions for the WBD transaction could result in a $5.8 billion termination fee.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_079"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Regulatory agencies may impose requirements, limitations, or divestitures that could jeopardize the WBD transaction.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_079"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Privacy regulations and data utilization practices could lead to investigations, claims, and significant costs or penalties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Stock price volatility may result from variations in operating results, competition, and market conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_075",
+          "NFLX_FY2025_1A_risk_factors_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Forecasting financial results involves judgments that may differ materially from actual results, potentially impacting stock price.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NFLX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NFLX_FY2025_1A_risk_factors_064",
+    "NFLX_FY2025_1A_risk_factors_061",
+    "NFLX_FY2025_1A_risk_factors_062",
+    "NFLX_FY2025_1A_risk_factors_060",
+    "NFLX_FY2025_1A_risk_factors_059",
+    "NFLX_FY2025_7_mdna_000",
+    "NFLX_FY2025_1A_risk_factors_075",
+    "NFLX_FY2025_1A_risk_factors_077",
+    "NFLX_FY2025_1A_risk_factors_076",
+    "NFLX_FY2025_1A_risk_factors_054",
+    "NFLX_FY2025_1A_risk_factors_079"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_064",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_077",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NFLX_FY2025_1A_risk_factors_079",
+      "section": "1A_risk_factors",
+      "accession": "0001065280-26-000034",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

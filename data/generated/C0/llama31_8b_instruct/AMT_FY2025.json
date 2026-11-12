@@ -1,0 +1,242 @@
+{
+  "ticker": "AMT",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "AMT's FY2025 financial performance is impacted by significant leverage, liquidity, and profitability concerns. The company's substantial debt and potential for increased borrowing costs may limit its ability to access credit markets or refinance maturing liabilities. Additionally, restrictive covenants in debt agreements and potential tax liabilities may further constrain the company's financial flexibility. AMT's profitability is also threatened by the risk of goodwill impairment, tax law changes, and potential disputes with customers. The company's data center segment is subject to various environmental and health and safety laws and regulations, and its revenue concentration from a small number of customers in the telecommunications industry may pose a credit risk. AMT's ability to manage these risks will be crucial to its future financial performance and stability.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "AMT has a substantial amount of indebtedness, with approximately $37.2 billion of consolidated debt as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "AMT has the ability to borrow an additional $9.6 billion under its credit facilities, net of outstanding undrawn letters of credit.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "AMT's leverage and debt service obligations could have significant negative consequences to its business, results of operations or financial condition.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "AMT's ability to raise additional capital through debt and equity financing activities may be impacted by elevated federal fund rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "AMT may be prohibited from paying dividends due to restrictive covenants in its debt agreements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "AMT's liquidity may be impacted by its ability to provide financial and operating information within certain time periods.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "AMT may incur significant foreign taxes to repatriate excess cash from foreign locations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "AMT's ability to fund distributions to its stockholders may be limited by its ability to receive distributions from its TRSs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "AMT's goodwill impairment charge in 2023 was $80.0 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMT_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "AMT's tax laws and regulations may be subject to change, which could impact its profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "AMT is currently engaged in a legal dispute with one of its customers in Mexico, AT&T Mexico.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "AMT's data center segment is subject to various federal, state and local environmental and health and safety laws and regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "AMT derives the largest portion of its revenues from a small number of customers in the telecommunications industry.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMT_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "AMT has concentrations of credit risk in certain geographic areas.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMT_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AMT_FY2025_1A_risk_factors_019",
+    "AMT_FY2025_1A_risk_factors_021",
+    "AMT_FY2025_1A_risk_factors_025",
+    "AMT_FY2025_1A_risk_factors_028",
+    "AMT_FY2025_1A_risk_factors_020",
+    "AMT_FY2025_1A_risk_factors_042",
+    "AMT_FY2025_1A_risk_factors_039",
+    "AMT_FY2025_7_mdna_004",
+    "AMT_FY2025_1A_risk_factors_002",
+    "AMT_FY2025_1A_risk_factors_034",
+    "AMT_FY2025_7_mdna_008"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_020",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMT_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

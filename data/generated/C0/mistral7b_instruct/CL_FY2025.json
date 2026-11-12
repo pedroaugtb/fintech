@@ -1,0 +1,188 @@
+{
+  "ticker": "CL",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "CL's FY2025 10-K highlights several key risk factors that could impact the company's financial performance. The company's leverage is a concern due to potential disruptions in the credit markets, changes to credit ratings, and the risk of bankruptcy or insolvency of financial institutions that hold CL's cash or other investments. Liquidity is also a concern due to the potential impact of credit market disruptions, interest rate increases, and changes to credit ratings on the availability and cost of funding. Profitability is affected by tax matters, acquisitions, and global trade relations. The company's profitability is also at risk due to the potential impact of climate change on the company's business and results of operations.",
+    "claims": [
+      {
+        "claim_id": "CL_FY2025_1A_risk_factors_052",
+        "text": "Disruptions in the credit markets or changes to our credit ratings may adversely affect our business.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "CL_FY2025_1A_risk_factors_022",
+        "text": "Acquisitions have resulted in and could in the future result in substantial additional debt, the assumption of contingent liabilities, such as litigation or earn-out obligations, or transaction costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "CL_FY2025_1A_risk_factors_053",
+        "text": "Reduced access to credit or increased costs could adversely affect our liquidity and capital resources or significantly increase our cost of capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "CL_FY2025_7_mdna_008",
+        "text": "We seek to become even more effective and efficient throughout our businesses through continuous, company-wide initiatives to lower costs and increase effective asset utilization.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "CL_FY2025_7_mdna_003",
+        "text": "We review market share, household penetration and other data to assess how our brands are performing within their categories on a global and regional basis.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "CL_FY2025_7_mdna_053",
+        "text": "Major developments in trade relations, including the imposition of new or increased tariffs by the United States and/or other countries, such as China, including those threatened or imposed following the United States’ 2025 executive orders, retaliatory tariffs imposed by the United States’ trading partners or through the renegotiation of trade agreements, such as the United States-Mexico-Canada Agreement, could negatively impact our business.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "CL_FY2025_7_mdna_027",
+        "text": "Operating profit margin was 16.2% in 2025, a decrease of 500 bps compared to 21.2% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CL_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "CL_FY2025_1A_risk_factors_025",
+        "text": "Climate change and other sustainability matters could have an adverse impact on our business and results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CL_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CL_FY2025_1A_risk_factors_052",
+    "CL_FY2025_1A_risk_factors_022",
+    "CL_FY2025_1A_risk_factors_053",
+    "CL_FY2025_7_mdna_008",
+    "CL_FY2025_7_mdna_003",
+    "CL_FY2025_7_mdna_053",
+    "CL_FY2025_7_mdna_027",
+    "CL_FY2025_7_mdna_021",
+    "CL_FY2025_1A_risk_factors_025",
+    "CL_FY2025_1A_risk_factors_000",
+    "CL_FY2025_1A_risk_factors_038"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_053",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_053",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CL_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CL_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0000021665-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

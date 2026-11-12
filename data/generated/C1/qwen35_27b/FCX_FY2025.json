@@ -1,0 +1,251 @@
+{
+  "ticker": "FCX",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "FCX reported $9.4 billion in total consolidated debt and $3.8 billion in cash as of December 31, 2025, with $1.3 billion due in 2027. The company holds investment-grade credit ratings (Baa2/BBB/BBB-) with stable outlooks, though downgrades could increase borrowing costs. High leverage limits financial flexibility and necessitates dedicating substantial cash flows to debt service. Profitability faces uncertainty from evolving tax laws, including the U.S. Corporate Alternative Minimum Tax and OECD Pillar Two rules, alongside significant net operating loss limitations. Operational risks include mine closure obligations totaling $2.2 billion, geopolitical tensions affecting copper demand, and potential force majeure events impacting cash flows and capital access.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total consolidated debt was $9.4 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Total consolidated cash and cash equivalents were $3.8 billion as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "$1.3 billion of debt is coming due in 2027.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Senior unsecured debt was rated Baa2 by Moody's, BBB by Fitch, and BBB- by S&P as of January 31, 2026, all with stable outlooks.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Failure to comply with debt covenants could trigger an event of default, allowing creditors to accelerate debt maturities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "High indebtedness may limit flexibility to fund future working capital, capital expenditures, or business opportunities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Financial assurance obligations for closure and reclamation costs of U.S. mining sites totaled $2.2 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "The U.S. Corporate Alternative Minimum Tax (CAMT) of 15% did not impact financial results for the three years ended December 31, 2025, based on current guidance.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "H.R.1 (One Big Beautiful Bill Act) did not have a material impact on consolidated financial results for the year 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Changes in tax laws could limit the ability to benefit from significant U.S. net operating losses (NOLs).",
+        "topic": "profitability",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "OECD Pillar Two rules aim to ensure a 15% global minimum income tax, with implementation status varying by jurisdiction.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Geopolitical uncertainty and protectionism could inhibit international trade and increase price volatility for commodities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Copper prices and demand are significantly affected by demand from China and U.S.-China geopolitical tensions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Operational risks include safety events, regulatory fines, and loss of operating licenses, which are largely not covered by insurance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Force majeure declarations due to operational incidents could negatively impact contractual obligations and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "FCX_FY2025_1A_risk_factors_018",
+    "FCX_FY2025_1A_risk_factors_016",
+    "FCX_FY2025_1A_risk_factors_019",
+    "FCX_FY2025_1A_risk_factors_017",
+    "FCX_FY2025_1A_risk_factors_048",
+    "FCX_FY2025_1A_risk_factors_027",
+    "FCX_FY2025_1A_risk_factors_028",
+    "FCX_FY2025_1A_risk_factors_026",
+    "FCX_FY2025_1A_risk_factors_002",
+    "FCX_FY2025_1A_risk_factors_034",
+    "FCX_FY2025_1A_risk_factors_009"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

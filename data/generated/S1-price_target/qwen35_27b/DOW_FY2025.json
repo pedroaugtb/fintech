@@ -1,0 +1,212 @@
+{
+  "ticker": "DOW",
+  "fiscal_year": 2025,
+  "condition": "S1-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Dow Inc. reported a net loss of $2,623 million for FY2025, a significant decline from $1,116 million income in 2024, driven by joint venture margin compression and pension charges. Interest expense rose to $865 million due to new debt issuances. Sundry income decreased to $140 million. Key risks include credit market contractions, global trade policy shifts, and significant litigation exposure, including asbestos-related liabilities. The company faces potential liquidity constraints if credit ratings decline or market conditions worsen.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Net income available for Dow Inc. common stockholders was a loss of $2,623 million in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Net income available for Dow Inc. common stockholders was $1,116 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Earnings per share for Dow Inc. was a loss of $3.70 in 2025, compared to $1.57 in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "Interest expense and amortization of debt discount was $865 million in 2025, up from $811 million in 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "The increase in interest expense is primarily due to $1.4 billion of senior unsecured notes issued in Q3 2025 and increased commercial paper issuances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Sundry income (expense) - net for Dow Inc. was $140 million in 2025, down from $415 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_024",
+          "DOW_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "The decrease in sundry income was primarily due to non-cash pension settlement charges and lower non-operating pension credits.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Equity in losses of nonconsolidated affiliates was $240 million in 2025, compared to $6 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "The increase in equity losses was driven by continued integrated margin compression at principal joint ventures.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Adverse economic conditions or a contraction in credit availability could increase borrowing costs and reduce liquidity sources.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_004",
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Failure to maintain an investment grade rating could restrict the company's flexibility to fund capital projects and working capital.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Changes in trade policies and tariffs could negatively impact sales volume, prices, and production costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "The company faces litigation risks including product liability, patent infringement, and asbestos-related suits involving Union Carbide.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Net income attributable to noncontrolling interests increased to $179 million in 2025 from $85 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_010",
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "The increase in noncontrolling interests was driven by the sale of 49% of Diamond Infrastructure Solutions membership interests.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DOW_FY2025_7_mdna_026",
+    "DOW_FY2025_7_mdna_025",
+    "DOW_FY2025_7_mdna_024",
+    "DOW_FY2025_1A_risk_factors_004",
+    "DOW_FY2025_1A_risk_factors_005",
+    "DOW_FY2025_7_mdna_010",
+    "DOW_FY2025_7_mdna_029",
+    "DOW_FY2025_1A_risk_factors_018",
+    "DOW_FY2025_1A_risk_factors_008"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

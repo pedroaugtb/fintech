@@ -1,0 +1,206 @@
+{
+  "ticker": "SHW",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "SHW's FY2025 results show a 2.1% increase in consolidated net sales to $23.574 billion, with a 1.7% increase in store sales. However, diluted net income per share decreased 2.7% to $10.26. The company increased its leverage ratio to 4.25 to 1.00 for four consecutive quarters following a qualifying acquisition, with total debt outstanding increasing by $982.9 million to $10.871 billion. The company's Net debt was 2.4 times EBITDA in 2025. Liquidity risks include compliance with various regulations, potential non-compliance leading to fines, litigation, and reputational harm. Profitability was impacted by Valspar acquisition-related amortization expense and certain other adjustments. Risk factors include increased competition, loss of large customers, and cybersecurity threats.",
+    "claims": [
+      {
+        "claim_id": "SHW_FY2025_7_mdna_039",
+        "text": "The company increased its leverage ratio to 4.25 to 1.00 for four consecutive quarters following a qualifying acquisition.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_7_mdna_024",
+        "text": "Total debt outstanding, including Short-term borrowings, increased by $982.9 million to $10.871 billion in 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_7_mdna_031",
+        "text": "Management does not expect that capital expenditures, depreciation and other expenses will be material to the Company’s financial condition, liquidity, cash flow or results of operations in 2026.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_1A_risk_factors_035",
+        "text": "Non-compliance with regulations could adversely impact the company's cash flow, liquidity or financial condition.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_1A_risk_factors_034",
+        "text": "The company's access to capital and investments could adversely impact its results of operations, cash flow, liquidity or financial condition.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_7_mdna_001",
+        "text": "Consolidated Net sales increased 2.1% in the year to $23.574 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_7_mdna_008",
+        "text": "The Performance Coatings Group opened 6 new branches and closed 13 branches for a net decrease of 7 branches, decreasing the total at December 31, 2025 to 317 branches.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_1A_risk_factors_045",
+        "text": "Non-compliance with privacy regulations could result in fines, litigation, and reputational harm.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_1A_risk_factors_016",
+        "text": "Increased competition or failure to keep pace with developments in key competitive areas of the business may reduce sales, earnings or cash flow.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SHW_FY2025_1A_risk_factors_021",
+        "text": "The loss of a significant amount of sales to any one customer could have an adverse effect on sales, earnings or cash flow.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SHW_FY2025_7_mdna_039",
+    "SHW_FY2025_7_mdna_024",
+    "SHW_FY2025_7_mdna_031",
+    "SHW_FY2025_1A_risk_factors_035",
+    "SHW_FY2025_1A_risk_factors_034",
+    "SHW_FY2025_7_mdna_001",
+    "SHW_FY2025_7_mdna_008",
+    "SHW_FY2025_7_mdna_044",
+    "SHW_FY2025_1A_risk_factors_045",
+    "SHW_FY2025_1A_risk_factors_016",
+    "SHW_FY2025_1A_risk_factors_021"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_044",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

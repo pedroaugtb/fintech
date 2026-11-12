@@ -1,0 +1,235 @@
+{
+  "ticker": "MS",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "The company's leverage, liquidity, and profitability are impacted by various factors, including regulatory requirements, interest rate changes, and market risks. The company has implemented risk management functions to monitor and control these risks. However, severe market events and interest rate changes could still impact the company's results of operations. The company's risk management processes seek to quantify and mitigate risk, but extreme market events have historically been difficult to predict. The company's control functions help ensure that risks are measured and closely monitored, but the company could still realize significant losses if extreme market events were to occur.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "The company is subject to a G-SIB capital surcharge.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "The company must maintain minimum external TLAC equal to the greater of 18% of total RWA or 7.5% of total leverage exposure.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "The company evaluates consumer borrowers based on factors such as debt-to-income ratio, net worth, liquidity, collateral, LTV ratio, and industry standard credit-scoring models.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "The company evaluates commercial real estate loans based on factors such as property type, LTV ratio, occupancy levels, debt service ratio, prevailing capitalization rates, and market dynamics.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "The company's liquidity is sensitive to changes in interest rates, which can impact net interest income.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "The company holds large and concentrated positions, which may expose it to losses.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "The company has implemented risk management functions to monitor and control liquidity risk.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "The company's net interest income is sensitive to changes in interest rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "The company's results of operations may be impacted by severe market events and interest rate changes.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "The company's risk management processes seek to quantify and mitigate risk, but extreme market events have historically been difficult to predict.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "The company's control functions help ensure that risks are measured and closely monitored.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "The company's risk management processes are designed to ensure that risks are transparent to senior management.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "The company's risk management processes are designed to ensure that risks are measured and closely monitored, but the company could still realize significant losses if extreme market events were to occur.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "The company's risk management processes are designed to ensure that risks are measured and closely monitored, but the company could still realize significant losses if extreme market events were to occur.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MS_FY2025_7_mdna_002",
+    "MS_FY2025_7_mdna_003",
+    "MS_FY2025_7_mdna_060",
+    "MS_FY2025_7_mdna_059",
+    "MS_FY2025_1A_risk_factors_006",
+    "MS_FY2025_7_mdna_028",
+    "MS_FY2025_7_mdna_050",
+    "MS_FY2025_1A_risk_factors_005",
+    "MS_FY2025_7_mdna_037",
+    "MS_FY2025_7_mdna_027"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MS_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_060",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_059",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_050",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MS_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

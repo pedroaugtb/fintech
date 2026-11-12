@@ -1,0 +1,188 @@
+{
+  "ticker": "AMZN",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "AMZN's FY2025 financials show a mixed picture of leverage, liquidity, profitability, and risk factors. Leverage indicators suggest a decrease in net interest income and an increase in long-term debt. Liquidity appears strong, with positive operating cash flow and substantial cash reserves. Profitability improved, with operating income increasing year-over-year. However, risk factors include potential tax controversies, data security risks, and intense competition across various industries.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Net interest income decreased in FY2025",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Long-term debt increased in FY2025",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Operating cash flow was positive in FY2025",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Cash reserves were substantial in FY2025",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Operating income increased year-over-year in FY2025",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Potential tax controversies could materially affect AMZN's financials",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMZN_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Data security risks could adversely affect AMZN's operating results",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMZN_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Intense competition exists across various industries",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMZN_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AMZN_FY2025_7_mdna_037",
+    "AMZN_FY2025_7_mdna_019",
+    "AMZN_FY2025_7_mdna_018",
+    "AMZN_FY2025_7_mdna_015",
+    "AMZN_FY2025_7_mdna_017",
+    "AMZN_FY2025_7_mdna_035",
+    "AMZN_FY2025_7_mdna_027",
+    "AMZN_FY2025_7_mdna_002",
+    "AMZN_FY2025_1A_risk_factors_000",
+    "AMZN_FY2025_1A_risk_factors_027",
+    "AMZN_FY2025_1A_risk_factors_001"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_035",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMZN_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0001018724-26-000004",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

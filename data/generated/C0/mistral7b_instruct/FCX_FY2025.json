@@ -1,0 +1,144 @@
+{
+  "ticker": "FCX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "FCX's high debt levels and financial commitments may limit its financial and operating flexibility, potentially impacting its ability to fund future working capital, capital expenditures, and pursue business opportunities. The company's debt ratings are currently acceptable, but downgrades could occur if business prospects deteriorate or indebtedness levels increase. Additionally, FCX has significant financial assurance obligations for mine closure and reclamation, totaling $2.2 billion for U.S. mining sites.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "FCX's high debt levels may limit its financial and operating flexibility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_018",
+          "FCX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "FCX's debt ratings are currently acceptable, but could be downgraded if business prospects deteriorate or indebtedness levels increase.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "FCX has significant financial assurance obligations for mine closure and reclamation, totaling $2.2 billion for U.S. mining sites.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "FCX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "FCX_FY2025_1A_risk_factors_018",
+    "FCX_FY2025_1A_risk_factors_016",
+    "FCX_FY2025_1A_risk_factors_019",
+    "FCX_FY2025_1A_risk_factors_017",
+    "FCX_FY2025_1A_risk_factors_048",
+    "FCX_FY2025_1A_risk_factors_027",
+    "FCX_FY2025_1A_risk_factors_028",
+    "FCX_FY2025_1A_risk_factors_026",
+    "FCX_FY2025_1A_risk_factors_002",
+    "FCX_FY2025_1A_risk_factors_034",
+    "FCX_FY2025_1A_risk_factors_009"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "FCX_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000831259-26-000012",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

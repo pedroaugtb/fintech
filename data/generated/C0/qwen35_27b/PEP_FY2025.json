@@ -1,0 +1,252 @@
+{
+  "ticker": "PEP",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "PepsiCo's FY2025 operating profit declined 11% to $11.5 billion, driven by commodity costs, Rockstar impairment charges, and volume declines, reducing operating margin to 12.2%. Leverage management remains active with $4.4 billion in debt designated as net investment hedges, up from $2.9 billion in 2024. Liquidity risks persist regarding credit rating downgrades, which could impair commercial paper access and increase borrowing costs. Key risks include evolving consumer trends, global tax complexity, and potential cyber incidents affecting operations.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Operating profit decreased 11% year-over-year to $11,498 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Operating margin declined 1.8 percentage points to 12.2% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Profit decline was driven by commodity costs, Rockstar brand impairment, and volume declines.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Total notional amount of debt designated as net investment hedges increased to $4.4 billion as of December 27, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Debt designated as net investment hedges was $2.9 billion as of December 28, 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Subsequent to year-end, $4.5 billion of existing euro-denominated debt was designated as net investment hedges.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Interest rate swap contracts held a total notional value of $2.0 billion as of December 27, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "A credit rating downgrade could impair access to commercial paper markets and increase borrowing costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_045",
+          "PEP_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "The company expects to maintain Tier 1 commercial paper access to ensure financial flexibility.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Geopolitical instability and currency controls could adversely impact financial performance and liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Impairment charges on goodwill and intangible assets pose a risk to future operating results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Shifting consumer trends, including weight-loss drug usage, may reduce future product demand.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Global minimum tax implementation by 2026 is expected to increase tax provisions and compliance costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Cyber incidents involving third-party vendors could materially adversely affect business operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "New or increased taxes on beverage ingredients in certain jurisdictions could adversely affect financial performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PEP_FY2025_7_mdna_029",
+    "PEP_FY2025_7_mdna_028",
+    "PEP_FY2025_1A_risk_factors_043",
+    "PEP_FY2025_1A_risk_factors_045",
+    "PEP_FY2025_7_mdna_000",
+    "PEP_FY2025_1A_risk_factors_046",
+    "PEP_FY2025_7_mdna_032",
+    "PEP_FY2025_7_mdna_001",
+    "PEP_FY2025_1A_risk_factors_000",
+    "PEP_FY2025_1A_risk_factors_055",
+    "PEP_FY2025_1A_risk_factors_031"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

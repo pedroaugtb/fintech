@@ -1,0 +1,244 @@
+{
+  "ticker": "PM",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "PM's leverage increased in FY2025 due to higher debt levels, while liquidity remains adequate. Profitability was impacted by higher capital expenditures and excise tax payments. The company faces risks from foreign currency fluctuations, inflation, and regulatory actions. Cybersecurity and AI-related risks also pose a threat to the company's operations and financials. The company's ability to adapt to these risks and challenges will be crucial to its future success.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "PM's total debt increased to $48.8 billion at December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "PM's cash and cash equivalents decreased to $4.9 billion at December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "PM's net cash used in financing activities decreased to $8.1 billion in 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "PM's capital expenditures increased to $1.6 billion in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "PM's cash and cash equivalents decreased by $0.7 billion from 2024 to 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "PM's net cash provided by operating activities is expected to be around $13.5 billion in 2026.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "PM's net cash used in investing activities increased to $4.0 billion in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "PM's cash and cash equivalents are mostly held with institutions that have investment-grade long-term credit rating.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "PM's credit ratings and outlook by major credit rating agencies were as follows: Moody’s P-1, A2, Stable; Standard & Poor’s A-2, A-, Positive; Fitch F1, A, Stable.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "PM's ability to access the capital and credit markets may impact borrowing costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "PM's foreign currency denominated debt and derivative financial instruments are subject to foreign currency exchange rates fluctuation.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "PM's capital expenditures were primarily related to investments in smoke-free product manufacturing capacity.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "PM's dividend payments increased to $8.6 billion in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "PM's net cash provided by operating activities includes dividend income from deconsolidated Canadian affiliate of $0.5 billion received in the third quarter of 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_072"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "PM's business faces significant governmental actions aimed at increasing regulatory requirements with the goal of reducing or preventing the use of tobacco or nicotine-containing products.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PM_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PM_FY2025_7_mdna_078",
+    "PM_FY2025_7_mdna_077",
+    "PM_FY2025_7_mdna_074",
+    "PM_FY2025_7_mdna_076",
+    "PM_FY2025_1A_risk_factors_046",
+    "PM_FY2025_7_mdna_072",
+    "PM_FY2025_7_mdna_073",
+    "PM_FY2025_1A_risk_factors_011",
+    "PM_FY2025_1A_risk_factors_056",
+    "PM_FY2025_1A_risk_factors_060"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PM_FY2025_7_mdna_078",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_077",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_074",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_072",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_073",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

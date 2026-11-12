@@ -1,0 +1,244 @@
+{
+  "ticker": "T",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "The company's FY2025 financial performance is marked by increased operating revenues and operating income, driven by higher Mobility and Consumer Wireline revenues. However, the company faces risks related to leverage, liquidity, and profitability, including potential credit rating downgrades, increased borrowing costs, and disruptions to supply chains. The company also faces industry-wide risks, including changes in regulations and competition from lower-cost alternatives. The company's ability to manage growth, fund wireless spectrum and network development, and respond to emerging technologies and competition will be crucial to its future success.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "The company has contracts with large financial institutions to support its treasury operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "The company's ability to access credit markets may be affected by changes in financial markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "The company's debt levels may affect its ability to finance future debt at attractive rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "The company's credit rating downgrades may increase its borrowing costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "The company's capital allocation plan may not be successful.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "The company's business may be impacted by changes in tax laws and regulations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "The company's liquidity may be affected by its ability to access credit markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "The company's liquidity may be affected by public health crises.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "The company's operating revenues increased in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "T_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "The company's operating income increased in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "T_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "The company's Communications segment operating income margin was 23.1% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "T_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "The company's Communications segment EBITDA margin was 39.6% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "T_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "The company's business may be impacted by changes in regulations and competition from lower-cost alternatives.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "The company's supply chain may be disrupted, affecting its ability to acquire needed goods and services.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "The company's ability to manage growth, fund wireless spectrum and network development, and respond to emerging technologies and competition will be crucial to its future success.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "T_FY2025_1A_risk_factors_005",
+    "T_FY2025_1A_risk_factors_033",
+    "T_FY2025_1A_risk_factors_034",
+    "T_FY2025_7_mdna_006",
+    "T_FY2025_1A_risk_factors_018",
+    "T_FY2025_7_mdna_009",
+    "T_FY2025_7_mdna_004",
+    "T_FY2025_1A_risk_factors_007",
+    "T_FY2025_1A_risk_factors_038",
+    "T_FY2025_1A_risk_factors_039"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "T_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "T_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "T_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

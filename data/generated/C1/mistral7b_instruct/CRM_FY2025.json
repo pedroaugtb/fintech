@@ -1,0 +1,251 @@
+{
+  "ticker": "CRM",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "CRM's FY2025 10-K indicates several risk factors that may impact the company's financial condition, results of operations, and cash flows. The company has a substantial level of outstanding debt, including Senior Notes and a $5.0 billion Credit Facility, with no outstanding borrowings as of January 31, 2025. Refinancing of this debt could be affected by downgrades in the company's credit ratings, which could also affect future financing. Compliance with covenants under the debt instruments could be affected by events beyond the company's control, potentially leading to events of default. Lease accounting guidance requires the recording of liabilities for operating lease activity, which may impact the company's ability to obtain financing. The company's liquidity could be impacted by maintenance of indebtedness and contractual commitments, potential additional issuances of indebtedness, and the need to obtain additional financing for working capital, capital expenditures, acquisitions, or other purposes. Profitability for FY2025 increased, with a margin of approximately 19% compared to 14% in the prior year, and net income per share of $6.36 compared to $4.20. However, the company continues to evaluate and operationalize future programs to drive operational efficiencies and cost optimization efforts.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "CRM has a substantial level of outstanding debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_093"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "CRM is party to the Revolving Loan Credit Agreement, which provides for a $5.0 billion Credit Facility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_093"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "As of January 31, 2025, there were no outstanding borrowings under the Credit Facility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_093"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Refinancing of CRM's debt could be affected by downgrades in the company's credit ratings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_096"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Compliance with covenants under the debt instruments could be affected by events beyond the company's control.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_096"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "A failure to comply with covenants could result in events of default.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_096"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Lease accounting guidance requires the recording of liabilities for operating lease activity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company's liquidity could be impacted by maintenance of indebtedness and contractual commitments.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Additional issuances of indebtedness could impact the company's ability to obtain additional financing.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company's ability to meet expenses and debt obligations will depend on future performance.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Profitability for FY2025 increased, with a margin of approximately 19% compared to 14% in the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CRM_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Net income per share for FY2025 was $6.36 compared to $4.20 from a year ago.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CRM_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The company continues to evaluate and operationalize future programs to drive operational efficiencies and cost optimization efforts.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CRM_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Risk factors include privacy concerns and laws, evolving regulation of cloud computing, AI services, cross-border data transfer restrictions, and other domestic or foreign regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Regulation related to the provision of services over the Internet is evolving, as federal, state, and foreign governments continue to adopt new, or modify existing, laws and regulations addressing data privacy, cybersecurity, data protection, data sovereignty, and the collection, processing, storage, hosting, transfer, and use of data, generally.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_073"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CRM_FY2025_1A_risk_factors_093",
+    "CRM_FY2025_1A_risk_factors_096",
+    "CRM_FY2025_1A_risk_factors_095",
+    "CRM_FY2025_1A_risk_factors_094",
+    "CRM_FY2025_1A_risk_factors_107",
+    "CRM_FY2025_7_mdna_005",
+    "CRM_FY2025_7_mdna_004",
+    "CRM_FY2025_7_mdna_023",
+    "CRM_FY2025_1A_risk_factors_060",
+    "CRM_FY2025_1A_risk_factors_073",
+    "CRM_FY2025_1A_risk_factors_105"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_093",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_096",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_095",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_094",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_107",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CRM_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CRM_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CRM_FY2025_7_mdna_023",
+      "section": "7_mdna",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_073",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_105",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "ticker": "MS",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Morgan Stanley faces significant regulatory leverage constraints as a U.S. G-SIB, requiring minimum external Total Loss-Absorbing Capacity (TLAC) of 18% of risk-weighted assets or 7.5% of leverage exposure. Liquidity management is sensitive to interest rate fluctuations, which impact net interest income and deposit mix. Profitability in the Wealth Management segment relies heavily on net interest income from non-trading assets. Key risks include potential losses from concentrated market positions, severe market events rendering hedging ineffective, and operational risks managed through independent risk functions reporting to the Chief Risk Officer.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "As a U.S. G-SIB, the company is subject to a G-SIB capital surcharge calculated based on size, interconnectedness, and other factors.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Covered BHCs must maintain minimum external TLAC equal to the greater of 18% of total RWA or 7.5% of total leverage exposure.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Eligible long-term debt must be unsecured, issued by the covered BHC, and have a maturity of one year or more.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "Credit evaluations for borrowers include assessments of leverage, liquidity, and capital strength.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Net interest income is sensitive to interest rate changes, generally resulting in higher income in higher rate scenarios.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Interest rate changes and competitive dynamics can impact client deposit preferences and the pace of reallocation of client balances.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Liquidity Risk is an independent function within Financial Risk Management reporting to the Chief Risk Officer.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Wealth Management net interest income primarily consists of interest income on non-trading assets and margin lending.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Significant changes to interest rates could adversely affect the company's results of operations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Holding large and concentrated positions may expose the company to losses in market-making and lending businesses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Severe market events may render hedging and risk management strategies less effective at mitigating trading losses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "The Market Risk Department monitors risk against limits and performs routine stress testing.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "The Head of Non-Financial Risk independently reviews compliance, financial crimes, and operational risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MS_FY2025_7_mdna_002",
+    "MS_FY2025_7_mdna_003",
+    "MS_FY2025_7_mdna_060",
+    "MS_FY2025_7_mdna_059",
+    "MS_FY2025_1A_risk_factors_006",
+    "MS_FY2025_7_mdna_028",
+    "MS_FY2025_7_mdna_050",
+    "MS_FY2025_1A_risk_factors_005",
+    "MS_FY2025_7_mdna_037",
+    "MS_FY2025_7_mdna_027"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MS_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_060",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_059",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_050",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MS_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

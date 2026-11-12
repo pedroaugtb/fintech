@@ -1,0 +1,244 @@
+{
+  "ticker": "VZ",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Verizon's FY2025 financial results show a slight increase in total interest expense, primarily due to a decrease in capitalized interest and an increase in asset and business rationalization charges. The effective interest rate also increased slightly. The company's leverage remains high, with approximately $131.1 billion of outstanding unsecured indebtedness, $12.0 billion of unused borrowing capacity, and $27.1 billion of outstanding secured indebtedness. Profitability was impacted by workforce reductions and an increase in depreciation and amortization expense, partially offset by higher sales volumes. Risk factors include competition, labor disputes, damage to reputation, and cybersecurity threats.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Total interest expense increased during 2025 compared to 2024 primarily as a result of a decrease in capitalized interest due to additional C-Band spectrum licenses being placed into service, partially offset by a decrease in interest costs due to lower average debt balances and a lower interest rate.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The effective interest rate is the rate of actual interest incurred on debt. It is calculated by dividing the annualized total interest costs on debt balances by the average debt outstanding.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "As of December 31, 2025, Verizon had approximately $131.1 billion of outstanding unsecured indebtedness, $12.0 billion of unused borrowing capacity under our existing revolving credit facility and $27.1 billion of outstanding secured indebtedness.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Profitability was impacted by workforce reductions and an increase in depreciation and amortization expense, partially offset by higher sales volumes.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Risk factors include competition, labor disputes, damage to reputation, and cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "We face significant competition in our industries. The rapid development of new technologies, services and products has eliminated many of the traditional distinctions among wireless, cable, internet and other communication services and brought new competitors to our markets, including other telecommunications companies, cable companies, wireless service providers, and internet service providers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Labor disputes could adversely affect our business operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Damage to our reputation or brands could adversely affect our business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Cybersecurity threats pose a significant risk to our business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The rapid evolution and increased adoption of artificial intelligence technologies may intensify our cybersecurity risks by increasing the frequency and severity of cyberattacks against us or other companies and by making cyberattacks more difficult to detect, contain or mitigate.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The development and maintenance of systems to prevent and detect cyberattacks is costly and requires ongoing monitoring and updating to address the increasing prevalence and sophistication of cyberattacks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Incidents involving unethical behavior or misconduct could damage our reputation and adversely impact customer and investor confidence.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Material weaknesses in our internal controls over financial reporting could negatively impact our reputation and financial performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Safety, human rights, workplace or labor issues could damage our reputation and adversely impact our business operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Potential costs and expenses and reputational harm in the event of cyberattacks impacting our products or services could damage our reputation, adversely impact customer and investor confidence and result in a material adverse effect on Verizon’s results of operation or financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "VZ_FY2025_7_mdna_014",
+    "VZ_FY2025_1A_risk_factors_028",
+    "VZ_FY2025_1A_risk_factors_029",
+    "VZ_FY2025_7_mdna_005",
+    "VZ_FY2025_7_mdna_012",
+    "VZ_FY2025_7_mdna_028",
+    "VZ_FY2025_7_mdna_013",
+    "VZ_FY2025_1A_risk_factors_000",
+    "VZ_FY2025_1A_risk_factors_018",
+    "VZ_FY2025_1A_risk_factors_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000732712-26-000007",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

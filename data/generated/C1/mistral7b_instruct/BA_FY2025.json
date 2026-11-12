@@ -1,0 +1,244 @@
+{
+  "ticker": "BA",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Boeing's FY2025 financial results show a significant improvement in profitability compared to FY2024 and FY2023. The company's earnings from operations increased by $15,047 million in 2025 compared with 2024 and core operating loss decreased by $9,982 million in 2024 compared with 2023. However, the company's leverage remains a concern due to high debt levels and upcoming principal payments. The company's liquidity is also a risk factor, as it depends on accessing the capital and financial markets to fund operations and contractual commitments. The company has substantial pension and other postretirement benefit obligations that could have significant adverse impacts in future periods.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Boeing's earnings from operations increased by $15,047 million in 2025 compared with 2024",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Boeing's core operating loss decreased by $9,982 million in 2024 compared with 2023",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BA_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Boeing's debt totaled $54.1 billion as of December 31, 2025",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Approximately $15.5 billion of principal payments on outstanding debt are scheduled to become due over the next three years as of December 31, 2025",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Boeing expects to require up to $345 million of cash per year for the payment of dividends on the outstanding shares of its Mandatory convertible preferred stock through the mandatory conversion date of October 15, 2027",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Boeing has substantial pension and other postretirement benefit obligations",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Boeing's pension contributions depend heavily on market factors such as the discount rate and the actual return on plan assets",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Changes to Boeing's assumptions regarding pension contributions could have a significant effect on future contributions",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Boeing's access to the capital and financial markets is a risk factor for its liquidity",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Boeing's borrowing costs could increase if it is unable to access the capital or financial markets at competitive rates",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Boeing's credit ratings could impact its access to the capital and financial markets",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Boeing's pension obligations have a material impact on its earnings, shareholders’ equity and cash flows from operations",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Boeing's litigation matters divert financial and management resources",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "An adverse resolution of any of Boeing's lawsuits could have a material impact on its financial position, results of operations and cash flows",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Boeing is subject to extensive regulation under the laws of the United States and its various states, as well as other jurisdictions in which it operates and/or markets its products",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BA_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "BA_FY2025_7_mdna_017",
+    "BA_FY2025_7_mdna_016",
+    "BA_FY2025_1A_risk_factors_047",
+    "BA_FY2025_1A_risk_factors_048",
+    "BA_FY2025_1A_risk_factors_049",
+    "BA_FY2025_1A_risk_factors_046",
+    "BA_FY2025_7_mdna_013",
+    "BA_FY2025_1A_risk_factors_041",
+    "BA_FY2025_1A_risk_factors_012",
+    "BA_FY2025_1A_risk_factors_018"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "BA_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BA_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BA_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BA_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004357",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

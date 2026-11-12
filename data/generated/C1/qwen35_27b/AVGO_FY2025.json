@@ -1,0 +1,253 @@
+{
+  "ticker": "AVGO",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Broadcom reported FY2025 net revenue of $63.9 billion, up from $51.6 billion in FY2024, driven by AI semiconductor demand and infrastructure software growth. Gross margin improved to 68% ($43.3 billion) from 63% ($32.5 billion). Operating income rose to $25.5 billion (40% margin) from $13.5 billion (26% margin). The company funded the VMware merger via term loans and assumed $8.25 billion in notes, while selling the EUC business for $3.5 billion. Key risks include significant customer concentration, with one distributor accounting for 32% of revenue, and potential material impacts from global minimum tax laws effective in FY2026.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net revenue increased to $63,887 million in FY2025 from $51,574 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Gross margin was $43,294 million in FY2025, compared to $32,509 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_032",
+          "AVGO_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Gross margin as a percentage of net revenue increased to 68% in FY2025 from 63% in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_032",
+          "AVGO_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Operating income was $25,484 million in FY2025, compared to $13,463 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Operating margin improved to 40% in FY2025 from 26% in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Research and development expense increased by $1,667 million (18%) in FY2025 compared to the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "The cash portion of the VMware Merger was funded with net proceeds from 2023 Term Loans and cash on hand.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Broadcom assumed $8,250 million of VMware's outstanding senior unsecured notes.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Broadcom sold VMware's end-user computing business to KKR & Co. Inc. for $3.5 billion in cash.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Broadcom acquired Seagate's System-on-Chip operations for $600 million.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Direct sales to one semiconductor solutions distributor accounted for 32% of net revenue in FY2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Aggregate sales to the top five end customers accounted for approximately 40% of net revenue in FY2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Global minimum tax laws enacted in Singapore are expected to have a material impact on consolidated results and cash flows in FY2026.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Singapore tax incentives providing reduced rates are scheduled to expire through November 2030.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Adverse global economic conditions and governmental regulations are identified as material risks to the business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AVGO_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AVGO_FY2025_7_mdna_013",
+    "AVGO_FY2025_7_mdna_012",
+    "AVGO_FY2025_7_mdna_005",
+    "AVGO_FY2025_7_mdna_022",
+    "AVGO_FY2025_7_mdna_006",
+    "AVGO_FY2025_7_mdna_032",
+    "AVGO_FY2025_7_mdna_028",
+    "AVGO_FY2025_7_mdna_025",
+    "AVGO_FY2025_1A_risk_factors_000",
+    "AVGO_FY2025_7_mdna_015",
+    "AVGO_FY2025_7_mdna_029"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_022",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AVGO_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "accession": "0001730168-25-000121",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

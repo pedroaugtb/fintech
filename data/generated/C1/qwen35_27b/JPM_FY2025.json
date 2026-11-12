@@ -1,0 +1,258 @@
+{
+  "ticker": "JPM",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "JPMorgan Chase reported Standardized Total capital of $343.8 billion and Advanced Total capital of $329.0 billion as of December 31, 2025. The firm maintained significant surpluses in Total Loss-Absorbing Capacity (TLAC) and eligible Long-Term Debt (LTD) against regulatory requirements, with TLAC at 27.6% of RWA versus a 23.0% requirement. Liquidity risks remain tied to potential deposit outflows, market illiquidity, and funding cost increases. Profitability faces threats from adverse economic conditions, including high unemployment, inflation, and interest rate volatility affecting consumer and commercial credit performance. Key risk factors include legal/regulatory changes, intense competition from non-depository institutions, and operational challenges related to asset disposal or business exits.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Standardized Total capital was $343,843 million as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Advanced Total capital was $328,962 million as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "External TLAC represented 27.6% of Risk-Weighted Assets (RWA) as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "The regulatory requirement for External TLAC as a percentage of RWA is 23.0%.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "The firm held a TLAC surplus of $93.3 billion against regulatory requirements as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Eligible Long-Term Debt (LTD) represented 12.0% of RWA as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "The firm issued $4.0 billion of subordinated notes due 2036 included in Tier 2 capital changes.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JPM_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Liquidity risks include the potential for unexpected loss of deposits due to pricing or migration to other investment products.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Funding costs could increase and access to traditional liquidity sources could be limited during periods of market stress.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "High unemployment levels could reduce personal income and degrade consumer credit performance, reducing earnings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Adverse economic conditions could lead to increased delinquencies, higher allowance for credit losses, and higher net charge-offs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Higher interest rates could result in fewer loan originations and increased financing costs for clients.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Governmental policies regarding taxation, housing, and employment could reduce consumer disposable income and decrease earnings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Competition from non-depository institutions offering electronic financial solutions poses a strategic risk.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Legal and regulatory risks include the impact of extensive supervision and changes in the application or enforcement of applicable law.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JPM_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "JPM_FY2025_7_mdna_042",
+    "JPM_FY2025_7_mdna_053",
+    "JPM_FY2025_7_mdna_024",
+    "JPM_FY2025_1A_risk_factors_048",
+    "JPM_FY2025_7_mdna_039",
+    "JPM_FY2025_7_mdna_038",
+    "JPM_FY2025_1A_risk_factors_030",
+    "JPM_FY2025_1A_risk_factors_035",
+    "JPM_FY2025_1A_risk_factors_031",
+    "JPM_FY2025_1A_risk_factors_000",
+    "JPM_FY2025_1A_risk_factors_090",
+    "JPM_FY2025_1A_risk_factors_004"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_042",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_053",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JPM_FY2025_7_mdna_038",
+      "section": "7_mdna",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_090",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "JPM_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-008131",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

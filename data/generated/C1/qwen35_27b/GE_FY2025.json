@@ -1,0 +1,262 @@
+{
+  "ticker": "GE",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "GE reported strong FY2025 performance with total revenue rising 18% to $45.9 billion and net income increasing to $8.6 billion. Profitability improved significantly, with profit margin expanding to 21.8% and operating profit margin to 21.4%. Liquidity remains robust, supported by $7.7 billion in free cash flow and a $3.0 billion unused revolving credit facility. Leverage increased slightly as total borrowings rose to $20.5 billion, driven by $2.0 billion in new debt issuance. Credit ratings were upgraded by both Moody's and S&P to A3 and A- respectively. Key risks include regulatory compliance, cybersecurity threats, and foreign exchange fluctuations, though the latter had an insignificant impact on income.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total revenue increased by $7.2 billion (18%) to $45.855 billion in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Net income from continuing operations attributable to common shareholders was $8.601 billion in FY2025, an increase of $1.9 billion from FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_037",
+          "GE_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Profit margin increased by 210 basis points to 21.8% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Operating profit margin increased by 70 basis points to 21.4% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Free cash flow increased to $7.7 billion in FY2025 from $6.2 billion in FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_065"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "The company holds a five-year unsecured revolving credit facility with a $3.0 billion committed amount and zero outstanding balance as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_058"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Consolidated total borrowings increased by $1.2 billion to $20.5 billion at December 31, 2025, compared to $19.3 billion in 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_057",
+          "GE_FY2025_1A_risk_factors_058"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "In July 2025, GE Aerospace issued $2.0 billion in senior unsecured debt, consisting of $1.0 billion due 2030 and $1.0 billion due 2036.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_058"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Moody's upgraded the company's long-term credit rating from Baa1 to A3 with a positive outlook on February 14, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_058",
+          "GE_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "S&P upgraded the company's long-term credit rating from BBB+ to A- with a stable outlook on March 25, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The company satisfied the net debt-to-EBITDA financial covenant in its revolving credit facility as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The company repurchased 29.6 million shares for $7.4 billion in 2025 under a $15.0 billion authorization.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_057"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Foreign currency fluctuations had an insignificant effect on income for the period.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "The company faces risks related to cybersecurity, data security breaches, and regulatory compliance across global jurisdictions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_006",
+          "GE_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Commercial aircraft engine design and production are regulated by the FAA and EASA, requiring stringent certification maintenance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GE_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GE_FY2025_1A_risk_factors_058",
+    "GE_FY2025_1A_risk_factors_059",
+    "GE_FY2025_1A_risk_factors_057",
+    "GE_FY2025_1A_risk_factors_055",
+    "GE_FY2025_1A_risk_factors_065",
+    "GE_FY2025_1A_risk_factors_054",
+    "GE_FY2025_1A_risk_factors_038",
+    "GE_FY2025_1A_risk_factors_037",
+    "GE_FY2025_1A_risk_factors_062",
+    "GE_FY2025_1A_risk_factors_006",
+    "GE_FY2025_1A_risk_factors_024",
+    "GE_FY2025_7_mdna_018"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_058",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_057",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_065",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GE_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GE_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000040545-26-000008",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "ticker": "TJX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "TJX's FY2025 10-K highlights several financial risks. The company's profitability is affected by asset loss and theft, severe weather, and tariffs. Leverage risks include potential impacts from global financial markets, interest rate increases, geopolitical conflict, and disruptions in traditional banking. Liquidity risks are associated with sources of liquidity, costs of capital, and access to financing. Risk factors include cybersecurity threats, regulatory changes, and geopolitical instability.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "TJX's financial performance has been adversely affected by asset loss and theft in the past.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "TJX depends on strong cash flows from operations to fund its growth, stock repurchases, dividends, and debt repayment.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "TJX's business is impacted by severe or unseasonable adverse weather, serious disruptions, catastrophic events, or public health crises.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Tariffs may adversely affect TJX's merchandise sourcing model and financial performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Global financial markets can experience volatility, disruption, and credit contraction, which could adversely affect TJX's sources of liquidity and costs of capital.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_037",
+          "TJX_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Interest rate increases following a period of low interest rates could have a negative impact on TJX's ability to access capital markets and other funding sources.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Geopolitical conflict could impede TJX's ability to comply with debt covenants.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Changes in economic conditions could adversely affect plan asset values and investment performance and increase TJX's pension liabilities, expenses, and funding requirements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "TJX relies on banks and other financial institutions to safeguard and allow ready access to assets such as cash and cash equivalents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "TJX's strategies for managing financial risks and exposures may not be effective or sufficient.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "TJX's cost of sales ratio decreased by 0.6 percentage points in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TJX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "TJX's SG&A expenses ratio increased by 0.1 percentage points in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TJX_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "TJX's pre-tax profit margin increased by 0.5 percentage points in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TJX_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "TJX maintains policies, procedures, and controls designed to reduce the risks of cybersecurity compromises and IT failures or disruptions, but these controls vary in maturity across the business and may fail to operate as intended or be circumvented by bad actors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "TJX's logging policies, procedures, and controls may be insufficient to fully investigate all potential cybersecurity events.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TJX_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "TJX_FY2025_1A_risk_factors_036",
+    "TJX_FY2025_1A_risk_factors_047",
+    "TJX_FY2025_7_mdna_017",
+    "TJX_FY2025_1A_risk_factors_046",
+    "TJX_FY2025_1A_risk_factors_037",
+    "TJX_FY2025_7_mdna_014",
+    "TJX_FY2025_7_mdna_003",
+    "TJX_FY2025_1A_risk_factors_019",
+    "TJX_FY2025_1A_risk_factors_043",
+    "TJX_FY2025_1A_risk_factors_020"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "TJX_FY2025_1A_risk_factors_036",
+      "section": "1A_risk_factors",
+      "accession": "0000109198-25-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TJX_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0000109198-25-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TJX_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0000109198-25-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TJX_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000109198-25-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TJX_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0000109198-25-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TJX_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000109198-25-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TJX_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000109198-25-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TJX_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0000109198-25-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TJX_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000109198-25-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TJX_FY2025_1A_risk_factors_020",
+      "section": "1A_risk_factors",
+      "accession": "0000109198-25-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

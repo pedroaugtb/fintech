@@ -1,0 +1,251 @@
+{
+  "ticker": "CMCSA",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "CMCSA faces leverage risks from high interest rates potentially increasing borrowing costs and refinancing difficulties. Liquidity is pressured by intense competition for content rights, which may significantly increase costs, and potential adverse litigation outcomes. Profitability metrics show Adjusted EBITDA margins declining in both Residential Connectivity (38.2% to 37.7%) and Business Services (56.7% to 55.9%). Key risks include weak economic conditions reducing discretionary spending, cybersecurity incidents, and regulatory changes. Additionally, the company faces operational risks from acquisitions, including potential goodwill impairments and failure to realize synergies.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "High interest rates may impact the ability to obtain financing or refinance debt on acceptable terms.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Weak economic conditions may increase the cost of borrowings over time.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Acquisitions and strategic initiatives may result in incurring significant debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Acquisitions may lead to the impairment of goodwill and long-lived assets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Competition for content rights, particularly sports, may result in significantly increased costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "There is no assurance that revenue from content contracts will exceed the costs of rights and distribution.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Adverse litigation outcomes could result in significant monetary damages affecting financial condition.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Residential Connectivity & Platforms Adjusted EBITDA margin decreased from 38.2% to 37.7%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Business Services Connectivity Adjusted EBITDA margin decreased from 56.7% to 55.9%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Residential Connectivity & Platforms revenue decreased due to declines in video, other, and advertising revenue.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CMCSA_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Weak economic conditions could adversely affect demand for products and services.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Cybersecurity incidents may result in legal proceedings, regulatory fines, or adverse effects on reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Failure to comply with laws and regulations could result in fines and civil or criminal liability.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "The company operates in intensely competitive environments with no assurance of effective competition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Loss of key management personnel could have a negative impact on businesses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CMCSA_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CMCSA_FY2025_1A_risk_factors_030",
+    "CMCSA_FY2025_1A_risk_factors_031",
+    "CMCSA_FY2025_1A_risk_factors_035",
+    "CMCSA_FY2025_7_mdna_003",
+    "CMCSA_FY2025_1A_risk_factors_010",
+    "CMCSA_FY2025_1A_risk_factors_042",
+    "CMCSA_FY2025_7_mdna_001",
+    "CMCSA_FY2025_7_mdna_002",
+    "CMCSA_FY2025_1A_risk_factors_041",
+    "CMCSA_FY2025_1A_risk_factors_000",
+    "CMCSA_FY2025_1A_risk_factors_028"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CMCSA_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004994",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

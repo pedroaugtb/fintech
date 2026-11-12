@@ -1,0 +1,253 @@
+{
+  "ticker": "EXC",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Exelon's FY2025 10-K highlights several key areas of concern. The company's leverage and liquidity are vulnerable to disruptions in the capital and credit markets, while its profitability is impacted by various factors including higher contracting costs, lower energy demand, and regulatory changes. Additionally, Exelon faces risks related to market and financial factors, including emerging technologies, cybersecurity threats, and regulatory challenges. The company's risk factors also include legal proceedings, reputational risks, and the difficulty of estimating potential tax effects of ongoing business decisions. Overall, Exelon's financial health and performance are subject to various risks and uncertainties that could impact its future prospects.",
+    "claims": [
+      {
+        "claim_id": "E1",
+        "text": "Exelon's leverage is vulnerable to disruptions in the capital and credit markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_031",
+          "EXC_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E2",
+        "text": "Exelon's liquidity is impacted by its reliance on the capital markets and banking and commercial paper markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_031",
+          "EXC_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E3",
+        "text": "Exelon's profitability is impacted by higher contracting costs at PECO and PHI, lower transmission peak load at ComEd, and absence of the Maryland multi-year plan reconciliations at PHI.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EXC_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E4",
+        "text": "Exelon's adjusted operating earnings increased by 308 million in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EXC_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E5",
+        "text": "Exelon's GAAP consolidated Net income attributable to common shareholders increased by 308 million in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EXC_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E6",
+        "text": "Exelon's credit ratings could be negatively impacted by a reduction in the credit rating of Exelon.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E7",
+        "text": "Exelon is vulnerable to cybersecurity threats that could result in material financial and reputational consequences.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E8",
+        "text": "Exelon faces risks related to emerging technologies that could transform the energy industry.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E9",
+        "text": "Exelon is subject to legal proceedings, claims, and litigation arising out of its business operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E10",
+        "text": "Exelon's financial condition and business reputation could be negatively impacted by adverse publicity and reputational risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E11",
+        "text": "Exelon's ability to estimate potential tax effects of ongoing business decisions is uncertain.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E12",
+        "text": "Exelon's credit facilities are concentrated in European, Canadian, and Asian banks, with approximately 17%, 11%, and 17% of available credit facilities with these banks, respectively.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E13",
+        "text": "Exelon's adjusted operating earnings per diluted share increased by 23 cents in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EXC_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E14",
+        "text": "Exelon's GAAP consolidated Net income attributable to common shareholders per diluted share increased by 23 cents in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EXC_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E15",
+        "text": "Exelon's credit ratings could be negatively impacted by a reduction in the credit rating of Exelon, which could result in a reduction of the credit rating of some or all of the Utility Registrants.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "EXC_FY2025_1A_risk_factors_032",
+    "EXC_FY2025_1A_risk_factors_039",
+    "EXC_FY2025_1A_risk_factors_031",
+    "EXC_FY2025_1A_risk_factors_035",
+    "EXC_FY2025_1A_risk_factors_033",
+    "EXC_FY2025_7_mdna_003",
+    "EXC_FY2025_7_mdna_004",
+    "EXC_FY2025_7_mdna_001",
+    "EXC_FY2025_1A_risk_factors_010",
+    "EXC_FY2025_1A_risk_factors_029",
+    "EXC_FY2025_1A_risk_factors_015"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EXC_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EXC_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EXC_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

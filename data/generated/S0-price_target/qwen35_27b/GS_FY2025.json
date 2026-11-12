@@ -1,0 +1,226 @@
+{
+  "ticker": "GS",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Goldman Sachs maintains strong credit ratings (A+/A1) across key subsidiaries with stable outlooks, indicating robust leverage management. Liquidity remains solid, though cash and cash equivalents declined $17.8B to $164.3B in FY2025, driven by operating and investing outflows. Profitability faces headwinds from potential inflation-driven expense increases and interest rate volatility, impacting net interest margins. Key risks include geopolitical instability, regulatory changes, and market liquidity constraints. The provided 10-K evidence does not contain share price data, valuation metrics, or forward-looking price targets; therefore, a 12-month price target and valuation assessment (undervalued/overvalued) cannot be derived from the supplied text.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Goldman Sachs subsidiaries maintain long-term debt ratings of A+ (Fitch/S&P) and A1 (Moody's) as of December 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Credit rating outlooks for GS Bank USA, GSIB, GSBE, GS&Co., and GSI are stable across major rating agencies.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Cash and cash equivalents decreased by $17.83 billion to $164.26 billion at the end of FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "The decline in cash and cash equivalents was primarily due to net cash used for operating and investing activities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_049",
+          "GS_FY2025_7_mdna_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "77% of credit exposure from unrestricted cash and cash equivalents was held in AAA-rated instruments as of December 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_083"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Inflationary pressures could increase expenses and reduce net interest income if interest expense rises faster than interest income.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "The firm manages interest rate risk using the Earnings-at-Risk (EaR) metric to estimate impacts on net revenues.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_058"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Liquidity impairment could result from an inability to access secured or unsecured debt markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Geopolitical instability, including tensions, terrorism, and cybersecurity threats, poses a risk to global operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Regulatory strategies for the orderly resolution of large financial institutions could create greater loss risk for security holders.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "The financial services industry is highly competitive, which may adversely affect results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "The firm utilizes an Intraday Liquidity Model to measure liquidity needs under constrained access scenarios.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Credit exposure to non-investment-grade counterparties increased slightly compared to December 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_083"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "The firm performs daily backtesting of its Value-at-Risk (VaR) model at the firmwide level.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_058"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "The provided 10-K evidence does not contain share price data or valuation metrics required to establish a 12-month price target or determine if shares are undervalued/overvalued.",
+        "topic": "profitability",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GS_FY2025_7_mdna_047",
+    "GS_FY2025_7_mdna_036",
+    "GS_FY2025_7_mdna_029",
+    "GS_FY2025_7_mdna_083",
+    "GS_FY2025_7_mdna_049",
+    "GS_FY2025_7_mdna_050",
+    "GS_FY2025_1A_risk_factors_025",
+    "GS_FY2025_7_mdna_051",
+    "GS_FY2025_7_mdna_058",
+    "GS_FY2025_1A_risk_factors_004",
+    "GS_FY2025_1A_risk_factors_009",
+    "GS_FY2025_7_mdna_003"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GS_FY2025_7_mdna_047",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_036",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_083",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_049",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_050",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_051",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_058",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

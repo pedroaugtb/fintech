@@ -1,0 +1,261 @@
+{
+  "ticker": "VICI",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "VICI maintains a robust liquidity position with over $3.2 billion in available resources as of December 31, 2025, including cash, short-term investments, and undrawn revolver capacity. The company recently secured a $2.5 billion revolving credit facility maturing in 2029, featuring extension options and accordion capacity. Profitability improved with 2025 net income attributable to common stockholders rising to $2.78 billion, driven by higher leasing and loan income. Key risks include dependence on the gaming industry, tenant credit quality, REIT distribution requirements, and macroeconomic volatility affecting capital costs and tenant operations.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "On February 3, 2025, VICI entered into a new Credit Agreement providing a $2.5 billion Revolving Credit Facility maturing on February 3, 2029.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VICI_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "The Revolving Credit Facility includes options to extend maturity by up to twelve months and increase commitments by up to $1.0 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VICI_FY2025_7_mdna_015",
+          "VICI_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Interest rates on the Revolving Credit Facility are based on SOFR or a base rate plus a margin ranging from 0.70% to 1.40% or 0.00% to 0.40%, respectively.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VICI_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Total debt contractual obligations, including principal and scheduled interest, amount to $22.4 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VICI_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "As of December 31, 2025, total available liquidity, including cash, short-term investments, revolver capacity, and forward sale proceeds, was $3.21 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "VICI_FY2025_7_mdna_041",
+          "VICI_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Cash and cash equivalents totaled $563.5 million and short-term investments were $44.5 million as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "VICI_FY2025_7_mdna_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "The company believes it has sufficient liquidity to meet material cash requirements through existing resources and future proceeds.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "VICI_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Net income attributable to common stockholders increased to $2.78 billion in 2025 from $2.68 billion in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VICI_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Total revenues rose to $4.01 billion in 2025, an increase of $156.9 million from 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VICI_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Leasing revenue increased by $73.6 million and income from loans increased by $83.9 million in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VICI_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "REIT qualification requirements may limit the company's ability to hedge effectively and could result in tax liabilities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VICI_FY2025_1A_risk_factors_107",
+          "VICI_FY2025_1A_risk_factors_108"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Cash available for distribution may not be sufficient to pay dividends at expected levels, and the company may use borrowed funds for distributions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VICI_FY2025_1A_risk_factors_108"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "The company faces risks related to the creditworthiness of tenants and borrowers, particularly regarding development and construction loans.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VICI_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Dependence on the gaming industry exposes the company to competition, regulation, and sensitivity to consumer spending changes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VICI_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Macroeconomic factors such as interest rate changes, inflation, and geopolitical uncertainty pose risks to the company and its tenants.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VICI_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "VICI_FY2025_7_mdna_015",
+    "VICI_FY2025_7_mdna_016",
+    "VICI_FY2025_7_mdna_047",
+    "VICI_FY2025_7_mdna_041",
+    "VICI_FY2025_1A_risk_factors_001",
+    "VICI_FY2025_7_mdna_042",
+    "VICI_FY2025_1A_risk_factors_107",
+    "VICI_FY2025_1A_risk_factors_108",
+    "VICI_FY2025_7_mdna_028",
+    "VICI_FY2025_1A_risk_factors_081",
+    "VICI_FY2025_1A_risk_factors_009",
+    "VICI_FY2025_7_mdna_024"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "VICI_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VICI_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VICI_FY2025_7_mdna_047",
+      "section": "7_mdna",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VICI_FY2025_7_mdna_041",
+      "section": "7_mdna",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "VICI_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "VICI_FY2025_7_mdna_042",
+      "section": "7_mdna",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "VICI_FY2025_1A_risk_factors_107",
+      "section": "1A_risk_factors",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VICI_FY2025_1A_risk_factors_108",
+      "section": "1A_risk_factors",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VICI_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VICI_FY2025_1A_risk_factors_081",
+      "section": "1A_risk_factors",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VICI_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VICI_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0001705696-26-000034",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

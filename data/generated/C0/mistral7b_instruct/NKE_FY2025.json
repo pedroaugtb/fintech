@@ -1,0 +1,192 @@
+{
+  "ticker": "NKE",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Nike's FY2025 10-K indicates potential risks to the company's leverage, liquidity, profitability, and operations. The company's long-term debt is currently Investment Grade, but was downgraded by Standard & Poor's in July 2025. This downgrade may increase borrowing costs for existing facilities and future long-term debt or short-term credit facilities, and may limit financing options. The company's EBIT margin decreased in FY2025 compared to the previous two years. Retailer financial difficulties, supply chain disruptions, geopolitical risks, and global economic conditions pose risks to the company's liquidity, profitability, and operations. The company is also subject to tax audits and disputes, which could materially impact financial statements. Investors should exercise caution when interpreting forward-looking statements due to these risks and uncertainties.",
+    "claims": [
+      {
+        "claim_id": "NKE_FY2025_1A_risk_factors_087",
+        "text": "Nike's long-term debt is currently Investment Grade by Standard & Poor's and Moody's Investors Service.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NKE_FY2025_1A_risk_factors_087",
+        "text": "Nike's long-term debt was downgraded by Standard & Poor's in July 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NKE_FY2025_7_mdna_006",
+        "text": "Nike's EBIT Margin calculation for FY2025, 2024 and 2023 are as follows:",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NKE_FY2025_7_mdna_006",
+        "text": "Nike's EBIT Margin for FY2025 is lower than that of FY2024 and FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NKE_FY2025_1A_risk_factors_008",
+        "text": "Retailer financial difficulties, pandemics, and commodity shortages could impact the availability, pricing, and timing of obtaining commodities and raw materials.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NKE_FY2025_1A_risk_factors_051",
+        "text": "Consolidation of retailers will concentrate Nike's credit risk with a smaller set of retailers, any of whom may experience declining sales or a shortage of liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NKE_FY2025_1A_risk_factors_082",
+        "text": "Nike is subject to tax audits and disputes, which could have a material impact on financial statements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_082"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NKE_FY2025_7_mdna_002",
+        "text": "Nike's results for FY2025 reflected a decrease in traffic across NIKE Direct and actions to reduce supply of certain footwear products in the marketplace, which negatively impacted Revenues and gross margin.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NKE_FY2025_1A_risk_factors_006",
+        "text": "Investors should exercise caution when interpreting forward-looking statements due to these risks and uncertainties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "NKE_FY2025_1A_risk_factors_049",
+        "text": "Nike is subject to the risk its licensees may not generate expected sales or maintain the value of its brands.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NKE_FY2025_1A_risk_factors_087",
+    "NKE_FY2025_7_mdna_006",
+    "NKE_FY2025_7_mdna_005",
+    "NKE_FY2025_1A_risk_factors_008",
+    "NKE_FY2025_1A_risk_factors_051",
+    "NKE_FY2025_1A_risk_factors_082",
+    "NKE_FY2025_7_mdna_002",
+    "NKE_FY2025_1A_risk_factors_006",
+    "NKE_FY2025_1A_risk_factors_049"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_087",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NKE_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NKE_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_051",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_082",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NKE_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

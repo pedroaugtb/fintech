@@ -1,0 +1,248 @@
+{
+  "ticker": "ADBE",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Adobe's FY2025 financial performance was marked by strong demand for its Digital Media and Digital Experience offerings, driven by transformative and customer-focused product innovation. However, the company faces risks related to leverage, liquidity, profitability, and risk factors, including increased global scrutiny and evolving regulatory requirements. Adobe's ability to adapt to these challenges will be crucial to its continued success.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Adobe's leverage increased in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_015",
+          "ADBE_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Adobe's liquidity improved in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_021",
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Adobe's profitability increased in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014",
+          "ADBE_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Adobe's revenue increased by 11% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_012",
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Adobe's cash flows from operations increased by 25% in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Adobe's subscription revenue increased by 12% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Adobe's cost of revenue increased by 8% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Adobe's net income increased by 28% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Adobe's remaining performance obligations increased by 13% in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Adobe's ability to acquire other businesses or technologies may be impaired by adverse economic and political events.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Adobe's ability to integrate acquired businesses effectively may be impaired by adverse economic and political events.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Adobe's use of third-party AI models in its solutions may result in scrutiny and legal liability.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Adobe's failure to anticipate or identify technological, creative, productivity or marketing trends may harm its business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Adobe's failure to devote appropriate resources to adapt to technological trends may harm its business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Adobe's failure to provide solutions that compete effectively may result in reduced sales and harm its business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "ADBE_FY2025_1A_risk_factors_015",
+    "ADBE_FY2025_1A_risk_factors_014",
+    "ADBE_FY2025_7_mdna_012",
+    "ADBE_FY2025_7_mdna_021",
+    "ADBE_FY2025_7_mdna_014",
+    "ADBE_FY2025_1A_risk_factors_001",
+    "ADBE_FY2025_7_mdna_004",
+    "ADBE_FY2025_7_mdna_003",
+    "ADBE_FY2025_1A_risk_factors_008",
+    "ADBE_FY2025_1A_risk_factors_005"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

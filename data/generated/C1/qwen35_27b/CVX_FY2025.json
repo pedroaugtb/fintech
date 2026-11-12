@@ -1,0 +1,253 @@
+{
+  "ticker": "CVX",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Chevron's FY2025 leverage increased significantly, with total debt rising to $40.76 billion and capital employed growing to $232.9 billion. Profitability metrics declined, with Return on Average Capital Employed (ROCE) dropping to 6.6% and Return on Stockholders' Equity (ROSE) falling to 7.3%, driven by a net income decrease to $12.3 billion. Liquidity risks persist due to potential commodity price declines, self-insured operational exposures, and regulatory costs related to GHG emissions. Key risk factors include cybersecurity threats, AI integration uncertainties, and the material impact of management estimates on financial reporting.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Total debt (short-term plus long-term) increased to $40.758 billion in 2025 from $24.541 billion in 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Capital Employed rose to $232.934 billion at December 31, 2025, compared to $177.698 billion in 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Net income attributable to Chevron decreased to $12.299 billion in 2025 from $17.661 billion in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_000",
+          "CVX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "Return on Average Capital Employed (ROCE) declined to 6.6% in 2025 from 10.1% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Return on Average Stockholders' Equity (ROSE) fell to 7.3% in 2025 from 11.3% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Interest and debt expense increased to $1,217 million in 2025 from $594 million in 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "A significant or sustained decline in liquidity could adversely affect credit ratings and increase financing costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "The company is substantially self-insured for catastrophic operational losses, relying on existing liquidity and borrowing capacity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Government actions and shifting consumer preferences regarding GHG emissions could increase costs and reduce demand for hydrocarbon products.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Cyberattacks on operational technology networks could have a material adverse impact on business and results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_006",
+          "CVX_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "The use of artificial intelligence technologies introduces risks including dependency on biased outputs, regulatory requirements, and reputational harm.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Changes in management's estimates and assumptions may materially impact consolidated financial statements and operational performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Failure to meet announced ESG ambitions or reporting standards could negatively impact reputation, stock price, and cost of capital.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Transferred liabilities for decommissioning of divested assets may return to the company if acquirers default.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CVX_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Total pension expense for 2025 was $677 million, with sensitivity to long-term rate of return assumptions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CVX_FY2025_7_mdna_023"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CVX_FY2025_7_mdna_000",
+    "CVX_FY2025_7_mdna_049",
+    "CVX_FY2025_7_mdna_023",
+    "CVX_FY2025_1A_risk_factors_003",
+    "CVX_FY2025_1A_risk_factors_022",
+    "CVX_FY2025_1A_risk_factors_011",
+    "CVX_FY2025_7_mdna_030",
+    "CVX_FY2025_7_mdna_001",
+    "CVX_FY2025_1A_risk_factors_006",
+    "CVX_FY2025_1A_risk_factors_032",
+    "CVX_FY2025_1A_risk_factors_009"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_049",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_023",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CVX_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CVX_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000093410-26-000078",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

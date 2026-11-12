@@ -1,0 +1,150 @@
+{
+  "ticker": "LOW",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "LOW's FY2025 10-K indicates potential risks to the company's financial results, including exposure to tariffs, supply chain disruptions, and cybersecurity threats. The company is also transforming and expanding its supply chain network, which could disrupt operations in the near term and might not provide the anticipated benefits. The company's liquidity is strong, with net cash provided by operating activities of $9,625 million in FY2024.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company is exposed to tariffs, which could have an adverse impact on financial results.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Supply chain disruptions could disrupt operations and impact financial results.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_021",
+          "LOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company is investing in supply chain transformation and expansion, which could disrupt operations and might not provide the anticipated benefits.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company's liquidity is strong, with net cash provided by operating activities of $9,625 million in FY2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LOW_FY2025_7_mdna_001",
+          "LOW_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Cybersecurity threats and incidents could have a material adverse impact on the company's business strategy, reputation, results of operations, or financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LOW_FY2025_1A_risk_factors_030",
+          "LOW_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "LOW_FY2025_1A_risk_factors_019",
+    "LOW_FY2025_1A_risk_factors_021",
+    "LOW_FY2025_1A_risk_factors_018",
+    "LOW_FY2025_7_mdna_001",
+    "LOW_FY2025_7_mdna_000",
+    "LOW_FY2025_1A_risk_factors_022",
+    "LOW_FY2025_1A_risk_factors_032",
+    "LOW_FY2025_1A_risk_factors_030",
+    "LOW_FY2025_1A_risk_factors_000"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LOW_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LOW_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LOW_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000060667-25-000049",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

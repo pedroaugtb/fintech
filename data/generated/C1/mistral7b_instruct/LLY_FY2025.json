@@ -1,0 +1,253 @@
+{
+  "ticker": "LLY",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "LLY's FY2025 10-K highlights several risk factors that could impact the company's financial performance. The company faces leverage risks due to potential drug price reductions, customer inability to pay, and financial difficulties of customers, suppliers, or partners. Liquidity risks include foreign currency fluctuations, interest rate risks, and inflation or deflation. Profitability risks include government price controls, regulatory focus on business combinations, and the impact of the 340B program on revenue. Additionally, the company faces risks related to clinical trials, foreign currency exchange rates, and other factors.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company faces leverage risks due to potential drug price reductions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_057"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The company faces leverage risks due to customer inability to pay.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_057"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company faces leverage risks due to financial difficulties of customers, suppliers, or partners.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_057"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "LLY faces liquidity risks due to foreign currency fluctuations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_061",
+          "LLY_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "LLY faces liquidity risks due to interest rate risks.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_061",
+          "LLY_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "LLY faces liquidity risks due to existing and expected rates of inflation or deflation.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Profitability risks include government price controls.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Regulatory focus on business combinations could impact profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The 340B program could impact revenue on an increasing percentage of sales.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Restrictive or unfavorable pricing, coverage, or reimbursement determinations could impact profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Clinical trials could impact profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Foreign currency exchange rates could have a material impact on profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Other factors could impact profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company faces risks related to competition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The company faces risks related to regulation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LLY_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "LLY_FY2025_1A_risk_factors_057",
+    "LLY_FY2025_1A_risk_factors_061",
+    "LLY_FY2025_1A_risk_factors_005",
+    "LLY_FY2025_1A_risk_factors_000",
+    "LLY_FY2025_7_mdna_017",
+    "LLY_FY2025_7_mdna_001",
+    "LLY_FY2025_7_mdna_020",
+    "LLY_FY2025_1A_risk_factors_017",
+    "LLY_FY2025_7_mdna_018",
+    "LLY_FY2025_1A_risk_factors_010",
+    "LLY_FY2025_1A_risk_factors_055"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_057",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LLY_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LLY_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000059478-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

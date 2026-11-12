@@ -1,0 +1,254 @@
+{
+  "ticker": "AMT",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "American Tower (AMT) reported $37.2 billion in consolidated debt as of December 31, 2025, with $9.6 billion in available borrowing capacity. High leverage constrains cash flow for distributions and capital expenditures, while restrictive covenants and potential credit rating downgrades pose liquidity risks. Profitability faces pressure from REIT distribution requirements, foreign tax repatriation costs, and a prior $80 million goodwill impairment in Spain. Key operational risks include customer concentration (59% from four clients), ongoing litigation with AT&T Mexico involving $300 million in revenue, and regulatory uncertainties affecting data center and tower operations.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "As of December 31, 2025, AMT had approximately $37.2 billion of consolidated debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "AMT has the ability to borrow an additional $9.6 billion under its senior unsecured revolving credit facilities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "High leverage requires dedicating a substantial portion of cash flow to debt service, reducing funds for capital expenditures and REIT distributions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_019",
+          "AMT_FY2025_1A_risk_factors_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "An increase in total leverage could lead to a credit rating downgrade below investment grade, restricting access to credit markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Elevated interest rates may increase borrowing costs and adversely impact the ability to refinance maturing liabilities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Default on debt agreements could trigger cross-defaults, acceleration of debt, and loss of towers securing such debt.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_020",
+          "AMT_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Restrictive covenants in debt agreements limit flexibility in planning and reacting to market changes.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_025",
+          "AMT_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "AMT may need to raise additional capital through debt, asset sales, or equity even under unfavorable market conditions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "REIT status limits the ability to retain earnings, as distributions are required to maintain tax-advantaged status.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Repatriating funds from international operations may incur significant foreign taxes, reducing net amounts available for distributions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "AMT recorded an $80.0 million goodwill impairment charge for its Spain reporting unit in 2023 due to increased weighted average cost of capital.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMT_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "State and local tax regimes may limit REIT dividend deductions, potentially increasing income tax expense.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "AMT is engaged in a legal dispute with AT&T Mexico, which represented approximately $300 million of tenant revenue in 2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Customer concentration risk is high, with 59% of revenues derived from just four customers in the telecommunications industry.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMT_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Government regulations and license renewals pose risks of revenue loss, penalties, or early termination for government customers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMT_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AMT_FY2025_1A_risk_factors_019",
+    "AMT_FY2025_1A_risk_factors_021",
+    "AMT_FY2025_1A_risk_factors_025",
+    "AMT_FY2025_1A_risk_factors_028",
+    "AMT_FY2025_1A_risk_factors_020",
+    "AMT_FY2025_1A_risk_factors_042",
+    "AMT_FY2025_1A_risk_factors_039",
+    "AMT_FY2025_7_mdna_004",
+    "AMT_FY2025_1A_risk_factors_002",
+    "AMT_FY2025_1A_risk_factors_034",
+    "AMT_FY2025_7_mdna_008"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_020",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMT_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMT_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0001053507-26-000035",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

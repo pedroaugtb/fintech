@@ -1,0 +1,99 @@
+company_id,company,ticker,sector,market,document_type,target_fiscal_period,primary_document,secondary_document,source_repository,status
+C001,Exxon Mobil,XOM,Energy,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C002,Chevron,CVX,Energy,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C003,ConocoPhillips,COP,Energy,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C004,EOG Resources,EOG,Energy,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C005,Schlumberger,SLB,Energy,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C006,Marathon Petroleum,MPC,Energy,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C007,Phillips 66,PSX,Energy,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C008,Valero Energy,VLO,Energy,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C009,Halliburton,HAL,Energy,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C010,Linde,LIN,Materials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C011,Sherwin-Williams,SHW,Materials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C012,Air Products and Chemicals,APD,Materials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C013,Freeport-McMoRan,FCX,Materials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C014,Newmont,NEM,Materials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C015,Nucor,NUE,Materials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C016,Dow,DOW,Materials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C017,DuPont,DD,Materials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C018,International Paper,IP,Materials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C019,GE Aerospace,GE,Industrials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C020,Caterpillar,CAT,Industrials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C021,Honeywell International,HON,Industrials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C022,RTX,RTX,Industrials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C023,Boeing,BA,Industrials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C024,Deere,DE,Industrials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C025,Union Pacific,UNP,Industrials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C026,United Parcel Service,UPS,Industrials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C027,Lockheed Martin,LMT,Industrials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C028,Amazon,AMZN,Consumer Discretionary,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C029,Tesla,TSLA,Consumer Discretionary,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C030,Home Depot,HD,Consumer Discretionary,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C031,McDonald's,MCD,Consumer Discretionary,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C032,Nike,NKE,Consumer Discretionary,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C033,Booking Holdings,BKNG,Consumer Discretionary,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C034,TJX Companies,TJX,Consumer Discretionary,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C035,Lowe's,LOW,Consumer Discretionary,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C036,Starbucks,SBUX,Consumer Discretionary,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C037,Walmart,WMT,Consumer Staples,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C038,Costco Wholesale,COST,Consumer Staples,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C039,Procter & Gamble,PG,Consumer Staples,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C040,Coca-Cola,KO,Consumer Staples,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C041,PepsiCo,PEP,Consumer Staples,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C042,Philip Morris International,PM,Consumer Staples,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C043,Mondelez International,MDLZ,Consumer Staples,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C044,Colgate-Palmolive,CL,Consumer Staples,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C045,Target,TGT,Consumer Staples,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C046,Eli Lilly,LLY,Health Care,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C047,Johnson & Johnson,JNJ,Health Care,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C048,Merck,MRK,Health Care,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C049,AbbVie,ABBV,Health Care,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C050,Pfizer,PFE,Health Care,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C051,Amgen,AMGN,Health Care,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C052,Gilead Sciences,GILD,Health Care,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C053,UnitedHealth Group,UNH,Health Care,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C054,Abbott Laboratories,ABT,Health Care,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C055,JPMorgan Chase,JPM,Financials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C056,Bank of America,BAC,Financials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C058,Goldman Sachs,GS,Financials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C059,Morgan Stanley,MS,Financials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C060,Citigroup,C,Financials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C061,BlackRock,BLK,Financials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C062,American Express,AXP,Financials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C063,Charles Schwab,SCHW,Financials,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C064,Apple,AAPL,Information Technology,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C065,Microsoft,MSFT,Information Technology,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C066,NVIDIA,NVDA,Information Technology,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C067,Broadcom,AVGO,Information Technology,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C068,Oracle,ORCL,Information Technology,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C069,Salesforce,CRM,Information Technology,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C070,Adobe,ADBE,Information Technology,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C071,Cisco,CSCO,Information Technology,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C072,IBM,IBM,Information Technology,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C073,Alphabet,GOOGL,Communication Services,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C074,Meta Platforms,META,Communication Services,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C075,Netflix,NFLX,Communication Services,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C076,Walt Disney,DIS,Communication Services,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C077,Comcast,CMCSA,Communication Services,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C078,Verizon Communications,VZ,Communication Services,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C079,AT&T,T,Communication Services,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C080,T-Mobile US,TMUS,Communication Services,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C081,Charter Communications,CHTR,Communication Services,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C082,NextEra Energy,NEE,Utilities,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C083,Duke Energy,DUK,Utilities,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C084,Southern Company,SO,Utilities,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C085,Dominion Energy,D,Utilities,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C086,Exelon,EXC,Utilities,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C087,American Electric Power,AEP,Utilities,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C088,Sempra,SRE,Utilities,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C089,Xcel Energy,XEL,Utilities,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C090,Consolidated Edison,ED,Utilities,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C091,Prologis,PLD,Real Estate,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C092,American Tower,AMT,Real Estate,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C093,Equinix,EQIX,Real Estate,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C094,Welltower,WELL,Real Estate,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C095,Simon Property Group,SPG,Real Estate,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C096,Public Storage,PSA,Real Estate,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C097,Realty Income,O,Real Estate,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C098,Digital Realty Trust,DLR,Real Estate,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate
+C099,VICI Properties,VICI,Real Estate,US public company,SEC Form 10-K,FY2025,2025 annual report / 10-K,Next-period quarterly earnings release or 10-Q,SEC EDGAR,candidate

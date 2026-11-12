@@ -1,0 +1,245 @@
+{
+  "ticker": "TGT",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "TGT's FY2025 10-K indicates a strong financial position with manageable leverage, adequate liquidity, and good profitability. The company has a diverse funding strategy, including short-term financing through commercial paper program and credit facilities, and long-term debt. The company is in compliance with debt leverage covenants and expects to remain so. The company's credit ratings are A2 (Moody's), A (Standard and Poor's), and A (Fitch) for long-term debt, and P-1 (Moody's), A-1 (Standard and Poor's), and F1 (Fitch) for commercial paper. The company believes its sources of liquidity will be sufficient to meet its contractual obligations, working capital and capital expenditure requirements, finance anticipated expansion and strategic initiatives, fund debt maturities, pay dividends, and execute purchases under its share repurchase program for the foreseeable future. The company's after-tax ROIC for the trailing twelve months was $4,534 million as of February 1, 2025, compared to $4,624 million as of February 3, 2024.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "TGT has a diverse funding strategy, including short-term financing through commercial paper program and credit facilities, and long-term debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "TGT is in compliance with debt leverage covenants and expects to remain so.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_007",
+          "TGT_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "TGT's credit ratings are A2 (Moody's), A (Standard and Poor's), and A (Fitch) for long-term debt, and P-1 (Moody's), A-1 (Standard and Poor's), and F1 (Fitch) for commercial paper.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "TGT believes its sources of liquidity will be sufficient to meet its contractual obligations, working capital and capital expenditure requirements, finance anticipated expansion and strategic initiatives, fund debt maturities, pay dividends, and execute purchases under its share repurchase program for the foreseeable future.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "TGT's after-tax ROIC for the trailing twelve months was $4,534 million as of February 1, 2025, compared to $4,624 million as of February 3, 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "TGT faces risks related to litigation, investigations, and regulatory proceedings due to its operations, product and service offerings, and environmental, social, and governance matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "TGT faces risks related to changes in effective income tax rate, which could adversely affect its net earnings.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "TGT faces risks related to macroeconomic conditions in the U.S., which could adversely affect its business in many ways.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "TGT faces risks related to uncharacteristic or significant weather conditions or natural disasters, the impacts of a changing climate, and other catastrophic events, which could adversely affect its results of operations and financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "TGT faces risks related to information security, cybersecurity, and data privacy incidents, which could adversely affect its reputation, results of operations, and financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "TGT faces risks related to governmental entities and officials and non-governmental organizations regarding various aspects of its business, which could negatively impact its reputation, results of operations, and financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "TGT faces risks related to its establishment and continuation of goals or initiatives regarding environmental, social, and governance matters, which could negatively impact its reputation, results of operations, and financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "TGT faces risks related to compliance with current or contemplated information security, cybersecurity, data privacy, data protection, and data processing laws and regulations, or any failure to comply, which could cause it to incur substantial costs, require changes to its business practices, and expose it to litigation and regulatory risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "TGT faces risks related to adverse perceptions of its business, consumer boycotts, litigation, investigations, and regulatory proceedings due to its establishment and continuation of goals or initiatives regarding environmental, social, and governance matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "TGT faces risks related to significant information security, cybersecurity, or data privacy incidents or failure to detect and appropriately respond to significant incidents, which could severely disrupt its business operations and expose it to costly government enforcement actions and private litigation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "TGT_FY2025_7_mdna_007",
+    "TGT_FY2025_7_mdna_008",
+    "TGT_FY2025_7_mdna_006",
+    "TGT_FY2025_7_mdna_009",
+    "TGT_FY2025_7_mdna_000",
+    "TGT_FY2025_1A_risk_factors_043",
+    "TGT_FY2025_1A_risk_factors_031",
+    "TGT_FY2025_1A_risk_factors_022",
+    "TGT_FY2025_1A_risk_factors_008",
+    "TGT_FY2025_1A_risk_factors_023"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_023",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

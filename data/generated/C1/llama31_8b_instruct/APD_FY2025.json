@@ -1,0 +1,251 @@
+{
+  "ticker": "APD",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "APD's FY2025 financial performance was impacted by increased costs, lower operating income, and a decrease in operating margin. The company's leverage increased due to higher interest incurred on principal borrowings. APD's liquidity was affected by changes in foreign currency exchange rates and volatility in the credit, capital, and money markets. The company faces various risks, including catastrophic events, competition, and compliance with environmental regulations. APD's profitability was impacted by higher costs, lower volumes, and unfavorable currency. The company's risk factors include foreign currency exchange rates, translational currency risk, and the impact of catastrophic events on operations and financial results.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "APD's leverage increased in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "APD's interest expense decreased by 2% in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "APD's liquidity was affected by changes in foreign currency exchange rates.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "APD's liquidity was affected by volatility in the credit, capital, and money markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "APD's profitability was impacted by higher costs and lower volumes in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "APD's operating margin decreased by 150bp in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "APD_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "APD faces risks related to catastrophic events.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "APD faces risks related to competition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "APD faces risks related to compliance with environmental regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "APD's clean hydrogen projects are being built before finalization of offtake agreements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "APD's facilities, pipelines, and delivery systems entail hazards that require continuous oversight and control.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "APD's operations could be impacted by severe weather conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "APD's operations could be impacted by acts of war and terrorism.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "APD's operations could be impacted by epidemics and pandemics.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "APD's operations could be impacted by cyber incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "APD_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "APD_FY2025_1A_risk_factors_022",
+    "APD_FY2025_7_mdna_022",
+    "APD_FY2025_7_mdna_005",
+    "APD_FY2025_1A_risk_factors_021",
+    "APD_FY2025_7_mdna_000",
+    "APD_FY2025_1A_risk_factors_007",
+    "APD_FY2025_7_mdna_020",
+    "APD_FY2025_7_mdna_032",
+    "APD_FY2025_1A_risk_factors_054",
+    "APD_FY2025_1A_risk_factors_051",
+    "APD_FY2025_1A_risk_factors_025"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_022",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "APD_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_051",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "APD_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0000002969-25-000055",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

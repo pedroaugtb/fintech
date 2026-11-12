@@ -1,0 +1,224 @@
+{
+  "ticker": "UNH",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "UnitedHealth Group's FY2025 10-K highlights several key areas of concern. Leverage: The company's credit ratings are subject to periodic review and downgrades, which could increase borrowing and operating costs. Liquidity: Regulatory approvals are required for many of the company's products and services, and delays in obtaining these approvals could impact cash flows. Profitability: Elevated medical cost trend, restructuring, and other actions have impacted earnings. Risk factors: Cybersecurity threats, regulatory changes, and reliance on new technologies pose significant risks to the company's operations and financial position.",
+    "claims": [
+      {
+        "claim_id": "UNH_FY2025_1A_risk_factors_040",
+        "text": "Credit ratings impact both the cost and availability of future borrowings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UNH_FY2025_1A_risk_factors_036",
+        "text": "Market fluctuations could impair the value of our investment and loan portfolio and our profitability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UNH_FY2025_1A_risk_factors_043",
+        "text": "Certain laws and regulations restrict or prohibit companies from performing work for government agencies that might be viewed to involve an actual or potential conflict of interest.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UNH_FY2025_1A_risk_factors_041",
+        "text": "Any downgrades in our credit ratings could materially increase our costs of or ability to access funds in the debt capital markets and otherwise materially increase our operating costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UNH_FY2025_1A_risk_factors_045",
+        "text": "The broad latitude given to the agencies administering, interpreting and enforcing current and future regulations governing our businesses could compel us to change how we do business, renegotiate existing contracts and other arrangements, restrict revenue and enrollment growth, increase our health care and administrative costs and capital requirements, or expose us to increased liability in courts for coverage determinations, resolution of commercial disputes and other actions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UNH_FY2025_1A_risk_factors_041",
+        "text": "Any downgrades in our credit ratings could materially increase our costs of or ability to access funds in the debt capital markets and otherwise materially increase our operating costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UNH_FY2025_7_mdna_004",
+        "text": "The $2.5 billion impact of the restructuring and other actions was a reduction to premium revenue of $122 million and investment and other income of $397 million, and increased medical costs $623 million and operating costs $1.4 billion on the Consolidated Statements of Operations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UNH_FY2025_7_mdna_005",
+        "text": "In the fourth quarter of 2025, the Company increased its reserves for net collection expectations associated with provider loans and other customer balances of $799 million, which were recorded within operating costs on the Consolidated Statements of Operations and related to Optum Insight.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UNH_FY2025_7_mdna_014",
+        "text": "For 2025, our pricing trends and patient and member health status assumptions were well-short of the medical cost trends incurred, significantly impacting our earnings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UNH_FY2025_1A_risk_factors_013",
+        "text": "The costs to eliminate or address these threats and vulnerabilities before or after a cybersecurity incident could be material.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UNH_FY2025_1A_risk_factors_062",
+        "text": "Any of these consequences could have a material and adverse effect on our results of operations, financial position and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "UNH_FY2025_7_mdna_006",
+        "text": "The commercial risk market remains highly competitive in the small group, large group and individual segments. We expect broad-based competition to continue as the industry adapts to individual and employer needs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "UNH_FY2025_1A_risk_factors_040",
+    "UNH_FY2025_1A_risk_factors_036",
+    "UNH_FY2025_1A_risk_factors_043",
+    "UNH_FY2025_1A_risk_factors_041",
+    "UNH_FY2025_1A_risk_factors_045",
+    "UNH_FY2025_7_mdna_004",
+    "UNH_FY2025_7_mdna_005",
+    "UNH_FY2025_7_mdna_014",
+    "UNH_FY2025_1A_risk_factors_013",
+    "UNH_FY2025_1A_risk_factors_062",
+    "UNH_FY2025_7_mdna_006"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_036",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_013",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

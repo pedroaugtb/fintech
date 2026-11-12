@@ -1,0 +1,238 @@
+{
+  "ticker": "COP",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "ConocoPhillips (COP) maintained strong liquidity in FY2025 with $8.5 billion in cash and investments, supporting a $9.0 billion capital return program representing 46% of operating cash flow. Production increased to 1,145 MBD of crude oil, while organic reserve replacement reached 99%. However, profitability faces headwinds from reserve estimate uncertainties and competitive pressures. Key risks include potential credit rating downgrades due to ESG factors, counterparty defaults affecting liquidity, and rising compliance costs from evolving climate regulations which could impact future capital expenditures and operational margins.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "COP ended FY2025 with $6.9 billion in cash and cash equivalents, $0.5 billion in short-term investments, and $1.1 billion in long-term debt securities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "The company returned $9.0 billion to shareholders in FY2025 via dividends and share repurchases.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Shareholder returns in FY2025 represented 46% of net cash provided by operating activities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Total consolidated crude oil production averaged 1,145 MBD in FY2025, an increase from 982 MBD in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Organic reserve replacement was 99% in FY2025, excluding net decreases from asset dispositions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Capital expenditure guidance for 2026 is approximately $12 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Credit rating downgrades or reviews could increase the cost of additional indebtedness.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COP_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Counterparty defaults due to liquidity issues or bankruptcy could adversely affect COP's business and results of operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COP_FY2025_1A_risk_factors_032",
+          "COP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "The ability to execute the capital return program depends on cash availability and future operational results.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Material changes in reserve estimate assumptions could result in impairment expenses or reduced reported reserve volumes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COP_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The oil and gas industry is highly competitive, posing risks to financial condition if COP fails to compete effectively for resources and personnel.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COP_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Climate change regulations and initiatives may increase capital and operating expenses, impose taxes, or require emission credit purchases.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COP_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Regulatory policy swings create uncertainty for long-term operational planning and emissions data access.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COP_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "ESG attributes are increasingly considered by rating agencies, potentially pressuring credit ratings over time.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COP_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "COP aims to return greater than 30% of net cash from operating activities to shareholders through its capital return framework.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "COP_FY2025_7_mdna_009",
+    "COP_FY2025_7_mdna_019",
+    "COP_FY2025_7_mdna_018",
+    "COP_FY2025_1A_risk_factors_032",
+    "COP_FY2025_1A_risk_factors_033",
+    "COP_FY2025_7_mdna_013",
+    "COP_FY2025_1A_risk_factors_008",
+    "COP_FY2025_1A_risk_factors_004",
+    "COP_FY2025_1A_risk_factors_021"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "COP_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COP_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COP_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COP_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COP_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COP_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "COP_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "COP_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "COP_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

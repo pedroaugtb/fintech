@@ -1,0 +1,260 @@
+{
+  "ticker": "EOG",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "EOG Resources' FY2025 financial performance was marked by a decrease in net cash provided by operating activities and an increase in net cash used in investing activities. The company maintained a strong financial and liquidity position, with $3.4 billion of cash and cash equivalents on hand and $3.0 billion of availability under its senior unsecured revolving credit facility. However, EOG faces risks related to climate change regulations, cybersecurity threats, and geopolitical events that could impact its operations and financial condition. The company's debt-to-total capitalization ratio was 21% at December 31, 2025, and it plans to continue to focus on exploration and development expenditures in its major plays. EOG's price sensitivity for crude oil and condensate price is approximately $174 million for net income and $223 million for pretax cash flows from operating activities for each $1.00 per barrel increase or decrease in price.",
+    "claims": [
+      {
+        "claim_id": "E1",
+        "text": "EOG's debt-to-total capitalization ratio was 21% at December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_009",
+          "EOG_FY2025_7_mdna_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E2",
+        "text": "EOG maintained a strong financial and liquidity position, with $3.4 billion of cash and cash equivalents on hand and $3.0 billion of availability under its senior unsecured revolving credit facility.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_009",
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E3",
+        "text": "Net cash provided by operating activities of $10,044 million in 2025 decreased $2,099 million from $12,143 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E4",
+        "text": "Net cash used in investing activities of $10,936 million in 2025 increased by $4,969 million from $5,967 million in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E5",
+        "text": "EOG's price sensitivity for crude oil and condensate price is approximately $174 million for net income and $223 million for pretax cash flows from operating activities for each $1.00 per barrel increase or decrease in price.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E6",
+        "text": "EOG faces risks related to climate change regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E7",
+        "text": "EOG faces risks related to cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E8",
+        "text": "EOG faces risks related to geopolitical events.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EOG_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E9",
+        "text": "EOG's capital expenditures for 2025 were $15,507 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E10",
+        "text": "EOG's exploration and development expenditures for 2025 were $4,885 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E11",
+        "text": "EOG's facilities expenditures for 2025 were $622 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E12",
+        "text": "EOG's net cash provided by operating activities for 2025 was $10,044 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E13",
+        "text": "EOG's net cash used in investing activities for 2025 was $10,936 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E14",
+        "text": "EOG's cash and cash equivalents at December 31, 2025 were $3.4 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "E15",
+        "text": "EOG's senior unsecured revolving credit facility had $3.0 billion of availability at December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EOG_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "EOG_FY2025_7_mdna_034",
+    "EOG_FY2025_7_mdna_009",
+    "EOG_FY2025_7_mdna_042",
+    "EOG_FY2025_7_mdna_032",
+    "EOG_FY2025_1A_risk_factors_005",
+    "EOG_FY2025_7_mdna_043",
+    "EOG_FY2025_7_mdna_031",
+    "EOG_FY2025_7_mdna_045",
+    "EOG_FY2025_7_mdna_033",
+    "EOG_FY2025_1A_risk_factors_037",
+    "EOG_FY2025_1A_risk_factors_054",
+    "EOG_FY2025_1A_risk_factors_061"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_034",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_042",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_043",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_045",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EOG_FY2025_7_mdna_033",
+      "section": "7_mdna",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EOG_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0000821189-26-000054",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

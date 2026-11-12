@@ -1,0 +1,252 @@
+{
+  "ticker": "PEP",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "PepsiCo's FY2025 financial performance was impacted by a 11% decrease in operating profit, driven by operating cost increases, impairment charges, and higher commodity costs. The company's leverage increased, with a total notional value of $4.4 billion in debt instruments designated as net investment hedges as of December 27, 2025. Liquidity remains a concern, with potential risks from inflation, central bank monetary policies, and geopolitical instability. The company faces various risks, including a reduction in demand for its products, tax uncertainty, and cyber threats. The company's profitability was also impacted by a decline in organic volume and a 5-percentage-point impact of higher commodity costs.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "PepsiCo's leverage increased in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_029",
+          "PEP_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "PepsiCo's total notional value of debt instruments designated as net investment hedges was $4.4 billion as of December 27, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "PepsiCo's operating profit decreased by 11% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "PepsiCo's operating margin decreased by 1.8% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "PepsiCo's liquidity is at risk due to inflation, central bank monetary policies, and geopolitical instability.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "PepsiCo's borrowing costs and access to capital and credit markets can be adversely affected by a downgrade or potential downgrade of its credit ratings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "PepsiCo's business is at risk due to a reduction in demand for its products.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "PepsiCo's tax provision will increase due to the implementation of a global minimum tax rate of 15%.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_055"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "PepsiCo's business is at risk due to cyber threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PEP_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "PepsiCo's operating profit was impacted by impairment charges related to the Rockstar brand.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "PepsiCo's operating profit was impacted by a decline in organic volume.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "PepsiCo's operating profit was impacted by a 5-percentage-point impact of higher commodity costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "PepsiCo's operating profit was impacted by higher acquisition and divestiture-related charges.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "PepsiCo's operating profit was partially offset by productivity savings and effective net pricing.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "PepsiCo's operating profit was partially offset by a favorable impact of prior-year impairment and other charges associated with its TBG investment and receivables related to its TBG investment.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PEP_FY2025_7_mdna_029",
+    "PEP_FY2025_7_mdna_028",
+    "PEP_FY2025_1A_risk_factors_043",
+    "PEP_FY2025_1A_risk_factors_045",
+    "PEP_FY2025_7_mdna_000",
+    "PEP_FY2025_1A_risk_factors_046",
+    "PEP_FY2025_7_mdna_032",
+    "PEP_FY2025_7_mdna_001",
+    "PEP_FY2025_1A_risk_factors_000",
+    "PEP_FY2025_1A_risk_factors_055",
+    "PEP_FY2025_1A_risk_factors_031"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

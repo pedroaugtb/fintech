@@ -1,0 +1,251 @@
+{
+  "ticker": "SHW",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Sherwin-Williams (SHW) reported record FY2025 net sales of $23.6B, up 2.1%, though GAAP diluted EPS declined 2.7% to $10.26 due to acquisition amortization and impairments. Adjusted EPS rose 0.9% to $11.43. Total debt increased to $10.9B, with a net debt-to-EBITDA ratio of 2.4x, within the company's 2.0–2.5x target. The firm maintains $3.65B in unused credit capacity and remains compliant with covenants. Key risks include potential credit rating downgrades affecting borrowing costs, cybersecurity threats, data privacy compliance costs, and competitive pressures impacting margins.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Consolidated net sales increased 2.1% to $23.574 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Diluted net income per share decreased 2.7% to $10.26 in FY2025 compared to $10.55 in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Adjusted diluted net income per share increased 0.9% to $11.43 in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Gross profit margin expanded to 48.8% of net sales in FY2025 from 48.5% in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Total debt outstanding increased by $982.9 million to $10.871 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Net debt was $10.664 billion, representing 2.4 times EBITDA at December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "The company targets a net debt-to-EBITDA ratio between 2.0 and 2.5 times.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "The company was in compliance with its leverage covenant at December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Unused capacity under committed credit agreements was $3.649 billion as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Net operating cash flow generated was $3.452 billion, or 14.6% of net sales in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Credit rating downgrades could increase borrowing costs and adversely affect access to capital markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Tight credit markets may limit customers' ability to obtain financing, potentially affecting accounts receivable collection.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Cybersecurity incidents could result in unauthorized data access, operational disruption, and significant remediation costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Compliance with evolving global data privacy regulations entails significant costs and potential penalties for non-compliance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Substantial competition from international and local rivals may reduce sales and earnings through aggressive pricing or innovation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SHW_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SHW_FY2025_7_mdna_039",
+    "SHW_FY2025_7_mdna_024",
+    "SHW_FY2025_7_mdna_031",
+    "SHW_FY2025_1A_risk_factors_035",
+    "SHW_FY2025_1A_risk_factors_034",
+    "SHW_FY2025_7_mdna_001",
+    "SHW_FY2025_7_mdna_008",
+    "SHW_FY2025_7_mdna_044",
+    "SHW_FY2025_1A_risk_factors_045",
+    "SHW_FY2025_1A_risk_factors_016",
+    "SHW_FY2025_1A_risk_factors_021"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_7_mdna_044",
+      "section": "7_mdna",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SHW_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000089800-26-000008",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

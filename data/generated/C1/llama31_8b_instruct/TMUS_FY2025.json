@@ -1,0 +1,268 @@
+{
+  "ticker": "TMUS",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "T-Mobile's FY2025 financial performance is driven by higher expected unit sales from a growing customer base and higher costs. The company's leverage is affected by its debt obligations, which may be impacted by macroeconomic trends and credit market conditions. T-Mobile's liquidity is dependent on its ability to access the capital markets and manage its cash flow. The company's profitability is influenced by its ability to attract and retain customers, manage costs, and navigate regulatory and tax changes. Risks include macroeconomic trends, credit market conditions, and regulatory compliance obligations.",
+    "claims": [
+      {
+        "claim_id": "a",
+        "text": "T-Mobile's leverage is affected by its debt obligations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_037",
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "b",
+        "text": "T-Mobile's liquidity is dependent on its ability to access the capital markets and manage its cash flow.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038",
+          "TMUS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "c",
+        "text": "T-Mobile's profitability is influenced by its ability to attract and retain customers.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_000",
+          "TMUS_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "d",
+        "text": "T-Mobile's revenue increased by 11% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "e",
+        "text": "T-Mobile's revenue increased by 7% in FY2024 compared to FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "f",
+        "text": "T-Mobile's revenue from prepaid services increased by 1% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "g",
+        "text": "T-Mobile's revenue from wholesale and other service revenues decreased by 16% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "h",
+        "text": "T-Mobile's revenue from wholesale and other service revenues decreased by 28% in FY2024 compared to FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "i",
+        "text": "T-Mobile's ability to access the capital markets may be impacted by macroeconomic trends and credit market conditions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038",
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "j",
+        "text": "T-Mobile's ability to access the capital markets may be impacted by macroeconomic trends and credit market conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038",
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "k",
+        "text": "T-Mobile's ability to access the capital markets may be impacted by macroeconomic trends and credit market conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038",
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "l",
+        "text": "T-Mobile's ability to access the capital markets may be impacted by macroeconomic trends and credit market conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038",
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "m",
+        "text": "T-Mobile's ability to access the capital markets may be impacted by macroeconomic trends and credit market conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038",
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "n",
+        "text": "T-Mobile's ability to access the capital markets may be impacted by macroeconomic trends and credit market conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038",
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "o",
+        "text": "T-Mobile's ability to access the capital markets may be impacted by macroeconomic trends and credit market conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038",
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "TMUS_FY2025_7_mdna_021",
+    "TMUS_FY2025_1A_risk_factors_037",
+    "TMUS_FY2025_7_mdna_022",
+    "TMUS_FY2025_1A_risk_factors_027",
+    "TMUS_FY2025_1A_risk_factors_038",
+    "TMUS_FY2025_7_mdna_006",
+    "TMUS_FY2025_7_mdna_015",
+    "TMUS_FY2025_7_mdna_019",
+    "TMUS_FY2025_7_mdna_010",
+    "TMUS_FY2025_1A_risk_factors_000",
+    "TMUS_FY2025_1A_risk_factors_053",
+    "TMUS_FY2025_1A_risk_factors_049"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_022",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_053",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

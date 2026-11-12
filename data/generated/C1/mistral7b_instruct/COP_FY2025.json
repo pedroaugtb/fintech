@@ -1,0 +1,174 @@
+{
+  "ticker": "COP",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "ConocoPhillips' FY2025 results show a strong balance sheet with a cash and cash equivalents balance of $6.9 billion, short-term investments of $0.5 billion, and long-term investments in debt securities of $1.1 billion. The company returned $9.0 billion to shareholders through dividends and share repurchases, representing 46% of net cash provided by operating activities. The company's leverage is manageable, with a focus on capital discipline, cost control, and production optimization. However, the company's liquidity could be affected by potential credit rating downgrades due to negative commodity price outlooks and ESG considerations, as well as defaults by counterparties. The company's profitability is supported by a reserve replacement ratio of 80% in 2025, with a focus on environmental, social, and governance performance. The company faces risks from regulatory changes, policy swings, and international climate initiatives that could increase costs, impact demand, and require the purchase of emission credits or reduction of emissions from operations.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "ConocoPhillips ended FY2025 with a cash and cash equivalents balance of $6.9 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "ConocoPhillips returned $9.0 billion to shareholders through dividends and share repurchases in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company's leverage is manageable, with a focus on capital discipline, cost control, and production optimization.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "4",
+        "text": "ConocoPhillips' liquidity could be affected by potential credit rating downgrades due to negative commodity price outlooks and ESG considerations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COP_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "ConocoPhillips' liquidity could be affected by defaults by counterparties.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "ConocoPhillips' profitability is supported by a reserve replacement ratio of 80% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "ConocoPhillips has a focus on environmental, social, and governance performance.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COP_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "8",
+        "text": "ConocoPhillips faces risks from regulatory changes, policy swings, and international climate initiatives that could increase costs, impact demand, and require the purchase of emission credits or reduction of emissions from operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COP_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "COP_FY2025_7_mdna_009",
+    "COP_FY2025_7_mdna_019",
+    "COP_FY2025_7_mdna_018",
+    "COP_FY2025_1A_risk_factors_032",
+    "COP_FY2025_1A_risk_factors_033",
+    "COP_FY2025_7_mdna_013",
+    "COP_FY2025_1A_risk_factors_008",
+    "COP_FY2025_1A_risk_factors_004",
+    "COP_FY2025_1A_risk_factors_021"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "COP_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COP_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COP_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COP_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COP_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COP_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "COP_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "COP_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "COP_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0001163165-26-000009",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "ticker": "T",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "T's FY2025 10-K indicates potential risks to the company's leverage, liquidity, profitability, and operations. The company's reliance on large financial institutions for treasury operations, including hedging interest rates and foreign exchange, may be affected by stricter regulations, ongoing legal and financial issues, and potential credit or funding issues. The company's debt levels, strategic decisions, and capital allocation plan may also impact its cost of funds, liquidity, competitive position, and access to capital markets. The company's liquidity may be affected by expenses related to network modernization, increases in debt levels, and changes in tax laws and regulations. The company's profitability is affected by changes in operating revenues, operating expenses, and interest expense. Public health crises, supply chain issues, competition, regulatory changes, and cybersecurity risks are also identified as potential risks.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company relies on large financial institutions for treasury operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "These financial institutions face stricter regulations in the US and Europe.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "These financial institutions also have ongoing legal and financial issues concerning their loan portfolios.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Adverse changes in the financial markets could affect the company's ability to access credit markets or increase interest costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Downgrades of the company's credit rating could increase borrowing costs and impact collateral requirements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Increases in the company's debt levels could affect its ability to finance future debt at attractive rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_033",
+          "T_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company has incurred debt to fund significant acquisitions and spectrum purchases.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company experienced credit rating downgrades as a result of these strategic decisions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Banks and potential purchasers of the company's debt may demand higher interest rates, impose restrictive covenants, or limit borrowing capacity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company's capital allocation plan is focused on managing debt levels.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Changes in tax laws and regulations, judicial interpretations, and administrative actions by taxing authorities could impact the company's financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Public health crises could negatively impact the company's operating results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Customer adoption of new software-based technologies may require higher-quality services from the company, creating supply chain issues and increasing capital costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The communications industry has experienced rapid changes, which could impact the company's competitive position.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Disruptions in the company's supply chain could impact its ability to acquire needed goods and services.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "T_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "T_FY2025_1A_risk_factors_005",
+    "T_FY2025_1A_risk_factors_033",
+    "T_FY2025_1A_risk_factors_034",
+    "T_FY2025_7_mdna_006",
+    "T_FY2025_1A_risk_factors_018",
+    "T_FY2025_7_mdna_009",
+    "T_FY2025_7_mdna_004",
+    "T_FY2025_1A_risk_factors_007",
+    "T_FY2025_1A_risk_factors_038",
+    "T_FY2025_1A_risk_factors_039"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_034",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "T_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "T_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "T_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "T_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0000732717-26-000120",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

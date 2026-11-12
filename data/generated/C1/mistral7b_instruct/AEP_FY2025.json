@@ -1,0 +1,251 @@
+{
+  "ticker": "AEP",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "AEP's FY2025 10-K reveals several key risk factors. The company relies heavily on access to capital markets for funding capital requirements, and volatility, increased interest rates, and reduced liquidity in the financial markets could affect its ability to raise capital. AEP also has exposure to international banks, particularly in Europe, Canada, and Asia, and disruptions in these markets could impact its ability to secure sufficient liquidity. Shareholder activism could cause significant costs and divert management's attention, potentially impacting AEP's stock price. Meeting the significant increase in electricity demand from new data centers and other large-load customers will require substantial investment in new generation and transmission facilities, and the ability to secure financing for these projects is uncertain. Downgrades in AEP's credit ratings could negatively affect its ability to access capital. The NRC has broad authority to impose licensing and safety-related requirements for nuclear generation facilities, and any non-compliance could result in fines, shutdowns, or material contributory payments. Costs associated with the operation, maintenance, and retirement of nuclear plants are more significant and less predictable than costs associated with other sources of generation. AEP's earnings attributable to common shareholders increased from $3.0 billion in 2024 to $3.6 billion in 2025 primarily due to investment in transmission assets, the favorable impact from the receipt of the June 2025 FERC order related to the treatment of NOLCs in transmission formula rates, a revenue refund provision recorded in 2024, a decrease in operating expense due to the Federal EPA’s revised CCR rule, a decrease in operating expenses due to the voluntary severance program, an increase in sales volumes driven by favorable weather, and favorable rate proceedings in AEP’s various proceedings at the FERC.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "AEP relies on access to capital markets as a significant source of liquidity for capital requirements not satisfied by operating cash flows.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Volatility, increased interest rates and reduced liquidity in the financial markets could affect AEP’s ability to raise capital on reasonable terms to fund capital needs, including construction costs and refinancing maturing indebtedness.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "AEP has exposure to international banks, including those in Europe, Canada, and Asia. Disruptions in these markets could reduce or restrict AEP’s ability to secure sufficient liquidity or secure liquidity at reasonable terms.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "In the past, certain sources of insurance and debt and equity capital have expressed unwillingness to provide insurance for AEP or increased borrowing costs or insurance premiums could reduce future net income and cash flows and negatively impact financial condition.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "If AEP is not able to access debt or equity at competitive rates or at all, the ability to finance its operations and implement its strategy and business plan as scheduled could be adversely affected.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Shareholder activism could cause AEP to incur significant expense, hinder execution of AEP’s business strategy and impact AEP’s stock price.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Meeting the significant increase in electricity demand from new data centers and other large-load customers will require substantial investment in new generation and transmission facilities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "These projects may require levels of capital that exceed historical utility financing needs, and the ability of the capital markets to supply sufficient funding for large-scale infrastructure expansion is uncertain.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "AEP’s ability to undertake these capital-intensive projects depends in part on continued access to debt and equity markets.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "If capital markets experience reduced liquidity, constrained capacity for utility issuances, or diminished investor appetite for long-duration infrastructure investments, AEP may be unable to obtain the financing required to support these projects.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Even if capital is available, it may only be obtainable at significantly higher cost due to market conditions or competition for capital among utilities and other sectors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Any inability to secure adequate financing could delay or prevent the construction of required facilities, impair AEP’s ability to implement its strategy and business plan as scheduled.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Downgrades in AEP’s credit ratings could negatively affect its ability to access capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The credit ratings agencies periodically review AEP’s capital structure and the quality and stability of earnings and cash flows. From time to time, AEP’s financial metrics have approached, and may in the future approach, thresholds designated by the credit rating agencies for potential ratings downgrades.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Any negative ratings actions could constrain the capital available to AEP and could limit access to funding for operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_034"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AEP_FY2025_1A_risk_factors_029",
+    "AEP_FY2025_1A_risk_factors_031",
+    "AEP_FY2025_1A_risk_factors_003",
+    "AEP_FY2025_1A_risk_factors_032",
+    "AEP_FY2025_1A_risk_factors_016",
+    "AEP_FY2025_7_mdna_004",
+    "AEP_FY2025_1A_risk_factors_011",
+    "AEP_FY2025_1A_risk_factors_042",
+    "AEP_FY2025_1A_risk_factors_046",
+    "AEP_FY2025_1A_risk_factors_045",
+    "AEP_FY2025_1A_risk_factors_051"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AEP_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_051",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

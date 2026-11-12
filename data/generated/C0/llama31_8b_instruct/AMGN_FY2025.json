@@ -1,0 +1,251 @@
+{
+  "ticker": "AMGN",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Amgen's FY2025 financial performance is impacted by various risks and challenges. The company faces significant leverage, liquidity, and profitability risks due to its acquisition activities, capital market volatility, and tax complexities. Additionally, regulatory risks and cybersecurity threats pose a significant threat to the company's operations and reputation. Amgen's management is working to mitigate these risks through a comprehensive risk management approach and strategic planning.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "Amgen may be unable to complete planned acquisition activities due to regulatory or other approvals.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "Amgen's acquisition activities may result in unanticipated costs, delays, or other operational or financial problems.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "Amgen may pay substantial amounts of cash, incur debt, or issue equity securities to fund acquisition activities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "Amgen may not be able to access the capital and credit markets on favorable terms or at all.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_120",
+          "AMGN_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "Amgen's capital and credit markets may experience extreme volatility and disruption.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_120",
+          "AMGN_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "Amgen's stock price is volatile.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMGN_FY2025_7_mdna_115"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "Amgen's revenues and operating results may fluctuate from period to period.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AMGN_FY2025_7_mdna_115"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "Amgen's provision for income taxes and results of operations may be adversely affected by changes to its operating structure.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMGN_FY2025_7_mdna_000",
+          "AMGN_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "Amgen's provision for income taxes and results of operations may be adversely affected by changes in the mix of income and expenses in countries with differing tax rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMGN_FY2025_7_mdna_000",
+          "AMGN_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "Amgen's provision for income taxes and results of operations may be adversely affected by changes in the valuation of deferred tax assets and liabilities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMGN_FY2025_7_mdna_000",
+          "AMGN_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "Amgen's provision for income taxes and results of operations may be adversely affected by changes in applicable tax laws, regulations, or administrative interpretations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMGN_FY2025_7_mdna_000",
+          "AMGN_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "Amgen may face audit challenges to its application of the 2017 Tax Act.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMGN_FY2025_7_mdna_000",
+          "AMGN_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "Amgen's tax matters may result in payments substantially greater than amounts accrued.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_086"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "Amgen's tax matters may have a material adverse effect on the results of its operations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_086"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "Amgen's manufacturing operations and global supply of products may be impacted by government regulation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AMGN_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AMGN_FY2025_1A_risk_factors_094",
+    "AMGN_FY2025_1A_risk_factors_120",
+    "AMGN_FY2025_7_mdna_033",
+    "AMGN_FY2025_7_mdna_115",
+    "AMGN_FY2025_7_mdna_000",
+    "AMGN_FY2025_1A_risk_factors_087",
+    "AMGN_FY2025_1A_risk_factors_086",
+    "AMGN_FY2025_1A_risk_factors_000",
+    "AMGN_FY2025_1A_risk_factors_021",
+    "AMGN_FY2025_7_mdna_122"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_094",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_120",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_7_mdna_033",
+      "section": "7_mdna",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_7_mdna_115",
+      "section": "7_mdna",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_087",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_086",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AMGN_FY2025_7_mdna_122",
+      "section": "7_mdna",
+      "accession": "0000318154-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "ticker": "NKE",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Nike's FY2025 results show significant profitability pressure, with net income dropping 43% to $3.2B and EBIT margin contracting due to increased markdowns and supply reductions. A July 2025 S&P credit downgrade elevates leverage risks, potentially increasing borrowing costs and restricting financial flexibility. Liquidity faces threats from retailer insolvency, supply chain financing gaps, and counterparty defaults. Key risks include new tariffs increasing cost of sales, volatile global economic conditions dampening discretionary spending, and cybersecurity threats amplified by AI integration.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net income decreased to $3,219 million in FY2025 from $5,700 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "EBIT declined to $3,778 million in FY2025 from $6,539 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "FY2025 revenues were negatively impacted by increased markdowns and higher sales returns.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Standard & Poor's downgraded Nike's credit rating in July 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "A negative credit rating change may increase borrowing costs and limit financing options.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Credit rating downgrades could subject the company to restrictive covenants limiting financial flexibility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_087"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Retailer insolvency or financing difficulties could lead to reduced orders and increased bad debt expense.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Supply chain participants facing financing difficulties may cause shipment delays or non-delivery.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Default or failure of counterparty financial institutions could result in significant losses.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "New tariffs are expected to cause a material gross incremental increase to cost of sales.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NKE_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Global economic volatility and potential recession risks could reduce consumer discretionary spending.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Integration of AI into operations increases cybersecurity and privacy risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Tax authority audits could result in material adjustments to income tax provisions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_082"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Licensee failure to generate expected sales could adversely affect revenues and brand value.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Retailer consolidation increases credit risk concentration and reliance on fewer sales outlets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NKE_FY2025_1A_risk_factors_051"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NKE_FY2025_1A_risk_factors_087",
+    "NKE_FY2025_7_mdna_006",
+    "NKE_FY2025_7_mdna_005",
+    "NKE_FY2025_1A_risk_factors_008",
+    "NKE_FY2025_1A_risk_factors_051",
+    "NKE_FY2025_1A_risk_factors_082",
+    "NKE_FY2025_7_mdna_002",
+    "NKE_FY2025_1A_risk_factors_006",
+    "NKE_FY2025_1A_risk_factors_049"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_087",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NKE_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NKE_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_051",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_082",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NKE_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NKE_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0000320187-25-000047",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

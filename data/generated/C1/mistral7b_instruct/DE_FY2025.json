@@ -1,0 +1,217 @@
+{
+  "ticker": "DE",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "DE's FY2025 10-K indicates a strong liquidity position with various sources of liquidity, including cash, cash equivalents, marketable securities, funds from operations, commercial paper, term debt, securitization of retail notes, bank lines of credit, and unused credit lines. The company expects to meet its funding needs in the short and long term, despite forecasting lower operating cash flows from equipment operations in 2026. However, profitability is expected to decrease due to lower net sales driven by declining market conditions.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "DE has various sources of liquidity",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "DE expects to meet funding needs in the short term",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "DE expects to meet funding needs in the long term",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "DE forecasts lower operating cash flows from equipment operations in 2026",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "DE's profitability is expected to decrease",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "DE's net sales decreased in 2025 primarily due to lower sales volumes",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "DE's net income and diluted EPS decreased in 2025 driven by lower sales",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "DE's cash, cash equivalents, and marketable securities increased in 2025",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "DE's receivables are generated from the sales of goods and services to customers",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "DE's receivables decreased in 2025 primarily due to lower retail sales",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "DE's financing receivables and equipment on operating leases decreased in 2025 primarily due to lower retail sales",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "DE's trade accounts and notes receivable decreased in 2025",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "DE's trade accounts and notes receivable decreased in 2025 primarily due to limited change driven by flat sales in the second half of the year compared to prior period",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "3% of DE's receivables were outstanding for periods exceeding 12 months in 2025, reflecting a decrease from the prior year",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "DE's liquidity position is strong",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DE_FY2025_7_mdna_019",
+          "DE_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DE_FY2025_7_mdna_019",
+    "DE_FY2025_7_mdna_021",
+    "DE_FY2025_7_mdna_017",
+    "DE_FY2025_7_mdna_018",
+    "DE_FY2025_7_mdna_020",
+    "DE_FY2025_7_mdna_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DE_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0001104659-25-122321",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DE_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001104659-25-122321",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DE_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001104659-25-122321",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DE_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0001104659-25-122321",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DE_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0001104659-25-122321",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DE_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0001104659-25-122321",
+      "retrieval_topic": "profitability"
+    }
+  ]
+}

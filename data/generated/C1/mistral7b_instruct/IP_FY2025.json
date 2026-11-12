@@ -1,0 +1,258 @@
+{
+  "ticker": "IP",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "IP's FY2025 10-K indicates significant interest rate risk due to variable rate debt of approximately $2.1 billion. The company is exposed to interest rate risk in relation to short-term cash investments, supply chain financing, short-term debt, installment notes and loans in the Temple Inland timber monetization special purpose entities. Interest rates could remain volatile in 2026. Maintaining an investment-grade credit rating is crucial for the company, as a downgrade could limit access to the capital markets, increase borrowing costs, and require posting collateral for derivatives in a net liability position. The level of indebtedness could adversely affect the company's financial condition and operational flexibility. Other risks include pension costs, health care costs, legal proceedings, compliance costs, industry conditions, market and economic factors, and governmental regulation.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company has variable rate debt in the aggregate amount of approximately $2.1 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The company is exposed to interest rate risk in relation to short-term cash investments, supply chain financing, short-term debt, installment notes and loans in the Temple Inland timber monetization special purpose entities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_080"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Interest rates could remain volatile in 2026.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_080"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Maintaining an investment-grade credit rating is crucial for the company.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "A downgrade of ratings below investment grade will likely eliminate the company's ability to access the commercial paper market, may limit access to the capital markets, have an adverse effect on the market price of the company's securities, increase borrowing costs and require the company to post collateral for derivatives in a net liability position.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The desire to maintain an investment-grade rating may cause the company to take certain actions designed to improve its respective cash flow, including the sale of assets, suspension or reduction of dividends and reductions in capital expenditures and working capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Certain of the company's debt agreements provide for an interest rate increase in case of a credit rating downgrade.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "A downgrade in credit rating may lead to an increase in interest expenses.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "There can be no assurance that the company's credit ratings will remain in effect for any given period of time or that such ratings will not be lowered, suspended or withdrawn entirely by the rating agencies if, in each rating agency’s judgment, circumstances so warrant.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Any such downgrade, suspension or withdrawal of credit ratings could adversely affect the company's cost of borrowing, limit access to the capital markets or result in more restrictive covenants in agreements governing the terms of any future indebtedness that the company may incur.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_7_mdna_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The level of the company's indebtedness could adversely affect its financial condition and impair its ability to operate its business.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_103"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Pension costs are dependent upon numerous factors resulting from actual plan experience and assumptions of future experience.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_125"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Pension plan assets are primarily made up of equity and fixed income investments.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_125"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Fluctuations in actual market returns on plan assets, changes in general interest rates and in the number of retirees may impact pension costs in future periods.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_125"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Drivers for fluctuating health costs include unit cost changes, health care utilization by participants, and potential changes in legal requirements and government oversight.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "IP_FY2025_1A_risk_factors_125"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "IP_FY2025_7_mdna_080",
+    "IP_FY2025_1A_risk_factors_107",
+    "IP_FY2025_7_mdna_006",
+    "IP_FY2025_7_mdna_075",
+    "IP_FY2025_7_mdna_076",
+    "IP_FY2025_1A_risk_factors_103",
+    "IP_FY2025_1A_risk_factors_125",
+    "IP_FY2025_1A_risk_factors_109",
+    "IP_FY2025_1A_risk_factors_095",
+    "IP_FY2025_1A_risk_factors_038",
+    "IP_FY2025_1A_risk_factors_008",
+    "IP_FY2025_7_mdna_037"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "IP_FY2025_7_mdna_080",
+      "section": "7_mdna",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_107",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "IP_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "IP_FY2025_7_mdna_075",
+      "section": "7_mdna",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "IP_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_103",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_125",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_109",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_095",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "IP_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "IP_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0000051434-26-000055",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

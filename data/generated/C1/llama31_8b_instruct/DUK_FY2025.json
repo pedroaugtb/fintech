@@ -1,0 +1,207 @@
+{
+  "ticker": "DUK",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Duke Energy's FY2025 performance was marked by strong operational results, with a 4.5% increase in operating revenues and a 22% increase in GAAP Reported EPS. The company's leverage is expected to decrease through a series of closings starting in March 2026, and operational excellence remains a key focus. However, the company faces risks related to liquidity, profitability, and regulatory factors, including potential negative decisions from state utility commissions and increased competition.",
+    "claims": [
+      {
+        "claim_id": "DUK_leverage_1",
+        "text": "Duke Energy will reduce leverage through a series of closings starting in March 2026.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_006",
+          "DUK_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "DUK_leverage_2",
+        "text": "Termination of the purchase agreement could result in Duke Energy seeking alternative funding sources.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "DUK_liquidity_1",
+        "text": "The Duke Energy Registrants may not be able to recover capital and operating costs incurred to comply with new environmental regulations through existing regulatory rate structures.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "DUK_liquidity_2",
+        "text": "Customer growth and customer usage are affected by several factors outside the control of the Duke Energy Registrants.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "DUK_profitability_1",
+        "text": "Duke Energy's GAAP Reported EPS increased by 22% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "DUK_profitability_2",
+        "text": "Duke Energy's operating revenues increased by 4.5% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DUK_FY2025_7_mdna_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "DUK_risk_1",
+        "text": "Negative decisions made by state utility commissions could have a material adverse effect on Duke Energy's results of operations, financial position, or cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "DUK_risk_2",
+        "text": "Increased competition could adversely affect Duke Energy's results of operations, financial position, or cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "DUK_risk_3",
+        "text": "Environmental, social, and governance concerns may accelerate and increase the potential scope of negative publicity and impact on Duke Energy's reputation, business, results of operations, or financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "DUK_risk_4",
+        "text": "The Duke Energy Registrants' operating results may fluctuate on a seasonal and quarterly basis and can be negatively affected by changes in weather conditions and severe events.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DUK_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DUK_FY2025_7_mdna_006",
+    "DUK_FY2025_7_mdna_009",
+    "DUK_FY2025_7_mdna_033",
+    "DUK_FY2025_1A_risk_factors_027",
+    "DUK_FY2025_1A_risk_factors_016",
+    "DUK_FY2025_1A_risk_factors_007",
+    "DUK_FY2025_7_mdna_039",
+    "DUK_FY2025_7_mdna_037",
+    "DUK_FY2025_1A_risk_factors_009",
+    "DUK_FY2025_1A_risk_factors_031",
+    "DUK_FY2025_1A_risk_factors_024"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_033",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_039",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DUK_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DUK_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0001326160-26-000014",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

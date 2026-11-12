@@ -1,0 +1,251 @@
+{
+  "ticker": "ABT",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Abbott's FY2025 financial performance is impacted by leverage, liquidity, and profitability concerns. The company's acquisition of Exact Sciences and increased indebtedness may reduce its flexibility to respond to changing business conditions. Abbott's profitability is also affected by product liability claims, geopolitical and macroeconomic risks, and changes in laws and regulations. The company's risk factors include cybersecurity incidents, data protection laws, and sovereign debt deterioration. Abbott's ability to manage these risks is crucial to its future financial performance.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "Abbott's consolidated indebtedness was approximately $12.9 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ABT_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "Abbott plans to fund the Exact Sciences acquisition with approximately $20 billion of borrowings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ABT_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "Abbott's ability to arrange additional financing or refinancing will depend on its financial position and performance, as well as prevailing market conditions and other factors beyond its control.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ABT_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "Abbott's acquisition of Exact Sciences may reduce its business flexibility.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ABT_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "Abbott's profitability is affected by product liability claims and lawsuits.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ABT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "Product liability losses are self-insured and could have a material adverse effect on Abbott’s profitability, cash flows, and financial condition.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ABT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "Abbott's business is subject to geopolitical and macroeconomic risks that are beyond its control.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ABT_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "A significant cybersecurity incident or other disruption could result in adverse consequences, including regulatory inquiries or litigation, increased costs and expenses, manufacturing challenges or disruption, problems with product availability, functionality or safety, damage to customer relations, reputational damage, lost revenue, and fines or penalties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ABT_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "Abbott is subject to numerous data privacy and data protection laws and regulations globally.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ABT_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "Deterioration in the quality of sovereign debt, including credit downgrades, could increase Abbott’s collection risk where a significant amount of Abbott’s receivables in these countries are with governmental healthcare systems or where Abbott’s customers depend on payment by government healthcare systems.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ABT_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "Many other factors can affect Abbott’s profitability and its financial condition, including changes in or interpretations of laws and regulations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ABT_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "Abbott's sales growth in 2025 was primarily attributable to the performance of the Medical Devices and Established Pharmaceutical Products segments.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ABT_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "Results in the Nutritional Products segment were flat, reflecting price increases.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ABT_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "Abbott's consolidated net sales in 2025 were approximately $22.5 billion, $23.5 billion, and $22.7 billion, respectively, subject to rebate.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ABT_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "A one-percentage point increase in the percentage of rebates to related gross sales would decrease net sales by approximately $225 million in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ABT_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "ABT_FY2025_1A_risk_factors_011",
+    "ABT_FY2025_1A_risk_factors_002",
+    "ABT_FY2025_7_mdna_001",
+    "ABT_FY2025_1A_risk_factors_010",
+    "ABT_FY2025_7_mdna_016",
+    "ABT_FY2025_7_mdna_011",
+    "ABT_FY2025_1A_risk_factors_019",
+    "ABT_FY2025_7_mdna_012",
+    "ABT_FY2025_1A_risk_factors_004",
+    "ABT_FY2025_1A_risk_factors_027",
+    "ABT_FY2025_1A_risk_factors_003"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "ABT_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010185",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ABT_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010185",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ABT_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010185",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ABT_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010185",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ABT_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010185",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ABT_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010185",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ABT_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010185",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ABT_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010185",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ABT_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010185",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ABT_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010185",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ABT_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010185",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

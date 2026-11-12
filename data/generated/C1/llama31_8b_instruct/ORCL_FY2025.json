@@ -1,0 +1,239 @@
+{
+  "ticker": "ORCL",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Oracle's FY2025 financial performance is characterized by a strong cloud and license business, with 86% of total revenues in FY2025. The company has sufficient liquidity to fund future acquisitions, but faces risks related to uncertain tax positions and potential impairments of non-marketable investments. The company's leverage is primarily driven by its investments in Ampere, which may be impacted by the pending acquisition by SoftBank Group Corp. The company's profitability is affected by the segment margin of its three businesses, including cloud and license, hardware and services. The company's risk factors include the potential for future losses due to impairments and the uncertainty of tax positions.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Oracle has sufficient liquidity to fund future acquisitions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Oracle's cloud and license business represented 86% of total revenues in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Oracle's leverage is primarily driven by its investments in Ampere.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_018",
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Oracle's investments in Ampere may be impacted by the pending acquisition by SoftBank Group Corp.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Oracle's profitability is affected by the segment margin of its three businesses.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Oracle may incur future losses due to impairments of non-marketable investments.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Oracle's provisions for income taxes include the impact of reserve provisions and changes to reserves.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Oracle's uncertain tax positions may impact its provision for income taxes.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Oracle's investments in Ampere were $1.6 billion as of May 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Oracle's ownership interest in Ampere was approximately 29% as of May 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_018",
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Oracle invested $341 million in convertible debt instruments issued by Ampere during FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Oracle is a counterparty to certain put and call options to acquire additional equity interests in Ampere.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Oracle's cloud and license business represented 84% of total revenues in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Oracle's segment margin is calculated using revenues, direct costs, and sales and marketing expenses.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Oracle's critical accounting estimates include the fair value of non-marketable investments.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "ORCL_FY2025_7_mdna_018",
+    "ORCL_FY2025_7_mdna_027",
+    "ORCL_FY2025_7_mdna_019",
+    "ORCL_FY2025_7_mdna_002",
+    "ORCL_FY2025_7_mdna_031",
+    "ORCL_FY2025_7_mdna_028",
+    "ORCL_FY2025_7_mdna_030",
+    "ORCL_FY2025_7_mdna_020",
+    "ORCL_FY2025_7_mdna_026"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

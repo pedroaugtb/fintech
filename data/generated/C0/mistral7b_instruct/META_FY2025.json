@@ -1,0 +1,261 @@
+{
+  "ticker": "META",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "META's FY2025 financial performance shows a 22% increase in total revenue to $200.97 billion, driven by an increase in advertising revenue. However, the company faces significant risks, including those related to leverage, liquidity, profitability, and regulatory factors. The company's investments in Reality Labs reduced overall operating profit by $19.19 billion in FY2025, and the company expects similar losses in FY2026. The company's ability to support these investments is dependent on generating sufficient profits from other areas of the business, and it may seek additional financing through debt, equity, or other means. The incurrence of additional debt could increase fixed obligations and interest expense, and the issuance of additional equity securities could result in dilution. The company's business is also dependent on maintaining and scaling its technical infrastructure, and any significant disruption could harm the business. The company may pay substantial amounts of cash or incur debt to pay for acquisitions or other strategic transactions, which could adversely affect liquidity. The company's future income tax rates could be volatile and difficult to predict due to changes in jurisdictional profit split, changes in the amount and recognition of deferred tax assets and liabilities, or by changes in tax laws, regulations, or accounting principles. The company is subject to a number of risks, including risks associated with disruptions in service, catastrophic events, and crises; operating the business in multiple countries around the world; litigation, including class action lawsuits; acquisitions and the ability to successfully integrate acquisitions; government restrictions on access to Facebook or other products; complex and evolving privacy, data use, data combination, data protection, content and content moderation, competition, youth, safety, consumer protection, advertising, and other laws and regulations; the impact of government investigations, enforcement actions, and settlements; and cybersecurity and data protection issues.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Total revenue for FY2025 was $200.97 billion, an increase of 22% compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Ad impressions delivered across META's Family of Apps in 2025 increased 12% year-over-year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company's investments in Reality Labs reduced overall operating profit by approximately $19.19 billion in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company expects its Reality Labs operating losses to remain similar to 2025 in FY2026.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company's ability to support its investments is dependent on generating sufficient profits from other areas of the business.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The company may seek additional financing through debt, equity, or other means.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The incurrence of additional debt could increase fixed obligations and interest expense.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The issuance of additional equity securities could result in dilution.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company's business is dependent on maintaining and scaling its technical infrastructure.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Any significant disruption in the company's products and services could harm the business.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The company may pay substantial amounts of cash or incur debt to pay for acquisitions or other strategic transactions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_101",
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The incurrence of indebtedness also results in increased fixed obligations and increased interest expense.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The company regularly grants restricted stock units to retain the employees of acquired companies.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company's future income tax rates could be volatile and difficult to predict.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_105",
+          "META_FY2025_1A_risk_factors_106"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The company is subject to a number of risks, including risks associated with disruptions in service, catastrophic events, and crises; operating the business in multiple countries around the world; litigation, including class action lawsuits; acquisitions and the ability to successfully integrate acquisitions; government restrictions on access to Facebook or other products; complex and evolving privacy, data use, data combination, data protection, content and content moderation, competition, youth, safety, consumer protection, advertising, and other laws and regulations; the impact of government investigations, enforcement actions, and settlements; and cybersecurity and data protection issues.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_000",
+          "META_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "META_FY2025_1A_risk_factors_068",
+    "META_FY2025_1A_risk_factors_101",
+    "META_FY2025_1A_risk_factors_037",
+    "META_FY2025_7_mdna_001",
+    "META_FY2025_1A_risk_factors_090",
+    "META_FY2025_1A_risk_factors_117",
+    "META_FY2025_1A_risk_factors_106",
+    "META_FY2025_7_mdna_002",
+    "META_FY2025_1A_risk_factors_105",
+    "META_FY2025_1A_risk_factors_000",
+    "META_FY2025_1A_risk_factors_002",
+    "META_FY2025_1A_risk_factors_165"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_101",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_090",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_117",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_106",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_105",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_165",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

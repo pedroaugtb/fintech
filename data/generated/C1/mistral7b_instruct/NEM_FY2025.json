@@ -1,0 +1,214 @@
+{
+  "ticker": "NEM",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Newmont's FY2025 10-K reveals several key areas of concern. Leverage is a significant risk factor due to the company's reliance on credit ratings, which have been subject to change in the past and could be downgraded in the future, potentially impacting borrowing costs and access to financing. Liquidity risks are also present, as the company operates in various jurisdictions with potential for sudden tax changes, foreign exchange fluctuations, and capital controls. Profitability is strong, with a significant increase in net income from continuing operations attributable to Newmont stockholders in FY2025 compared to FY2024. However, risks exist in the form of potential changes in fiscal, tax, and regulatory regimes in Ghana, which could increase operating costs. Lastly, various risk factors, such as reputation, technology systems vulnerabilities, and competition for mining properties, could adversely affect the company's business, financial position, and results of operations.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Newmont's credit ratings have been subject to change over the years.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_054",
+          "NEM_FY2025_1A_risk_factors_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "A downgrade in Newmont's credit ratings could increase borrowing costs and adversely affect the availability of new financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Newmont operates in various jurisdictions, which may increase its susceptibility to sudden tax changes.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_137"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Change in the value of certain foreign currencies versus the U.S. dollar could impact Newmont's costs, earnings, and the value of some of its assets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Newmont's net income from continuing operations attributable to Newmont stockholders increased during FY2025 compared to FY2024, primarily due to higher average realized gold prices.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The Government of Ghana has announced plans to amend the country’s mineral royalty regime, which could increase Newmont’s operating costs at its Ghanaian operations, particularly during periods of higher gold prices.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Newmont is dependent upon information technology and operational technology systems, which are subject to disruption, damage, failure, or cybersecurity attacks and risks associated with implementation, upgrade, operation, and integration.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Newmont's systems, as well as those of its third-party service providers, vendors, and partners, face a wide range of cybersecurity threats, including ransomware, malware, and phishing.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Estimates of proven and probable reserves and measured, indicated, and inferred resources are uncertain and the volume and grade of ore actually recovered may vary from estimates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Policy and regulatory risk related to actual and proposed changes in climate-, nature-, and water-related laws, regulations, and taxes developed to regulate the transition to a low-carbon economy may result in increased costs for Newmont's operations, venture partners, and suppliers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_094"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NEM_FY2025_1A_risk_factors_053",
+    "NEM_FY2025_1A_risk_factors_054",
+    "NEM_FY2025_1A_risk_factors_137",
+    "NEM_FY2025_1A_risk_factors_040",
+    "NEM_FY2025_1A_risk_factors_159",
+    "NEM_FY2025_1A_risk_factors_201",
+    "NEM_FY2025_7_mdna_010",
+    "NEM_FY2025_7_mdna_009",
+    "NEM_FY2025_7_mdna_011",
+    "NEM_FY2025_1A_risk_factors_028",
+    "NEM_FY2025_1A_risk_factors_006",
+    "NEM_FY2025_1A_risk_factors_094"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_053",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_137",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_159",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_201",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_094",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

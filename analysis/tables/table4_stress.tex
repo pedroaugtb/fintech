@@ -1,0 +1,14 @@
+\begin{tabular}{@{}llrrrrrr@{}}
+\toprule
+\textbf{Model} & \textbf{Prompt} & \textbf{n} & \textbf{Complied} & \textbf{+P4} & \textbf{+P1--P4} & \textbf{P4 rec.} & \textbf{P4 prec.} \\
+\midrule
+Qwen3.5-27B & task & 80 & 73.8 & 55.0 & 53.8 & 29 & 49 \\
+Qwen3.5-27B & +safeguards & 80 & 18.8 & 17.5 & 16.2 & 13 & 4 \\
+Llama-3.1-8B & task & 80 & 97.5 & 11.2 & 7.5 & 92 & 100 \\
+Llama-3.1-8B & +safeguards & 77 & 58.4 & 9.1 & 9.1 & 84 & 83 \\
+Mistral-7B & task & 80 & 75.0 & 28.7 & 21.2 & 73 & 75 \\
+Mistral-7B & +safeguards & 80 & 56.2 & 35.0 & 35.0 & 38 & 52 \\
+All models & task & 240 & 82.1 & 31.7 & 27.5 & 68 & 80 \\
+All models & +safeguards & 237 & 44.3 & 20.7 & 20.3 & 54 & 46 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,216 @@
+{
+  "ticker": "EXC",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "EXC's FY2025 10-K indicates potential risks to the company's leverage, liquidity, profitability, and risk factors. The company has exposure to worldwide financial markets, including Europe, Canada, and Asia. Disruptions in these markets could reduce or restrict the company’s ability to secure sufficient liquidity or secure liquidity at reasonable terms. As of December 31, 2025, approximately 17%, 11%, and 17% of the company’s available credit facilities were with European, Canadian, and Asian banks, respectively. Higher interest rates may put pressure on the company’s overall liquidity profile, financial health, and impact financial results. The company could also incur impairment of goodwill at least annually or more frequently if an event occurs or circumstances change that would more likely than not reduce the fair value of the reporting units below their carrying amount. Regulatory actions or changes in significant assumptions could potentially result in future impairments of Exelon’s, ComEd's, and PHI’s goodwill. The company could be negatively affected by unstable capital and credit markets. The company relies on the capital markets, particularly for publicly offered debt, as well as the banking and commercial paper markets, to meet their financial commitments and short-term liquidity needs. Disruptions in the capital and credit markets in the United States or abroad could negatively affect the company’s ability to access the capital markets or draw on their respective bank revolving credit facilities. The inability to access capital markets or credit facilities, and longer-term disruptions in the capital markets, could have a material adverse effect on the company’s consolidated financial statements. The company’s profitability is also affected by various factors such as higher contracting costs at PECO and PHI, lower transmission peak load due to lower energy demand at ComEd, absence of the Maryland multi-year plan reconciliations at PHI, charitable contributions at Exelon Corporate, lower AFUDC at PHI, and higher income tax expense at Exelon Corporate.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company has exposure to worldwide financial markets, including Europe, Canada, and Asia.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Disruptions in these markets could reduce or restrict the company’s ability to secure sufficient liquidity or secure liquidity at reasonable terms.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "As of December 31, 2025, approximately 17%, 11%, and 17% of the company’s available credit facilities were with European, Canadian, and Asian banks, respectively.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Higher interest rates may put pressure on the company’s overall liquidity profile, financial health, and impact financial results.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company could incur impairment of goodwill at least annually or more frequently if an event occurs or circumstances change that would more likely than not reduce the fair value of the reporting units below their carrying amount.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Regulatory actions or changes in significant assumptions could potentially result in future impairments of Exelon’s, ComEd's, and PHI’s goodwill.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company could be negatively affected by unstable capital and credit markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company relies on the capital markets, particularly for publicly offered debt, as well as the banking and commercial paper markets, to meet their financial commitments and short-term liquidity needs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Disruptions in the capital and credit markets in the United States or abroad could negatively affect the company’s ability to access the capital markets or draw on their respective bank revolving credit facilities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The inability to access capital markets or credit facilities, and longer-term disruptions in the capital markets, could have a material adverse effect on the company’s consolidated financial statements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EXC_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The company’s profitability is affected by various factors such as higher contracting costs at PECO and PHI, lower transmission peak load due to lower energy demand at ComEd, absence of the Maryland multi-year plan reconciliations at PHI, charitable contributions at Exelon Corporate, lower AFUDC at PHI, and higher income tax expense at Exelon Corporate.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EXC_FY2025_7_mdna_003",
+          "EXC_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "EXC_FY2025_1A_risk_factors_032",
+    "EXC_FY2025_1A_risk_factors_039",
+    "EXC_FY2025_1A_risk_factors_031",
+    "EXC_FY2025_1A_risk_factors_035",
+    "EXC_FY2025_1A_risk_factors_033",
+    "EXC_FY2025_7_mdna_003",
+    "EXC_FY2025_7_mdna_004",
+    "EXC_FY2025_7_mdna_001",
+    "EXC_FY2025_1A_risk_factors_010",
+    "EXC_FY2025_1A_risk_factors_029",
+    "EXC_FY2025_1A_risk_factors_015"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EXC_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EXC_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EXC_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EXC_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0001109357-26-000018",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "ticker": "HAL",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "HAL's FY2025 10-K report indicates a manageable debt maturity profile with approximately $90 million due in February 2027. The company has no financial covenants or material adverse change provisions in their bank agreements, and their debt maturities extend over a long period of time. HAL's credit ratings remain stable with Standard & Poor’s and Moody's. Customer receivables are subject to delays and failures to pay due to weak economic environments and unsettled political conditions, with receivables from their primary customer in Mexico accounting for approximately 7% of total receivables. The company incurred $154 million in expense on their SAP S4 migration in FY2025, with the estimated total cost expected to be approximately $45 million per quarter going forward. The company has $2.2 billion in cash and equivalents and $3.5 billion of available committed bank credit.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "HAL has a manageable debt maturity profile with approximately $90 million due in February 2027.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "HAL has no financial covenants or material adverse change provisions in their bank agreements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "HAL's debt maturities extend over a long period of time.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "HAL's credit ratings remain stable with Standard & Poor’s and Moody's.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_097"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Customer receivables are subject to delays and failures to pay due to weak economic environments and unsettled political conditions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Receivables from their primary customer in Mexico account for approximately 7% of total receivables.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company incurred $154 million in expense on their SAP S4 migration in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The estimated total cost of the SAP S4 migration is expected to be approximately $45 million per quarter going forward.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "HAL has $2.2 billion in cash and equivalents.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "HAL has $3.5 billion of available committed bank credit.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "HAL had $2.6 billion of cash and equivalents at December 31, 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "HAL's working capital had a positive impact of $196 million in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "HAL's Completion and Production revenue decreased by 4% in FY2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_104"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "HAL's Completion and Production operating income decreased by 21% in FY2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_104"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "HAL's Drilling and Evaluation revenue decreased by 3% in FY2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_119"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "HAL_FY2025_7_mdna_095",
+    "HAL_FY2025_7_mdna_097",
+    "HAL_FY2025_7_mdna_094",
+    "HAL_FY2025_7_mdna_090",
+    "HAL_FY2025_7_mdna_019",
+    "HAL_FY2025_7_mdna_104",
+    "HAL_FY2025_7_mdna_119",
+    "HAL_FY2025_7_mdna_105",
+    "HAL_FY2025_7_mdna_078",
+    "HAL_FY2025_7_mdna_063",
+    "HAL_FY2025_7_mdna_073"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_095",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_097",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_094",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_090",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_104",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_119",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_105",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_078",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_063",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_073",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

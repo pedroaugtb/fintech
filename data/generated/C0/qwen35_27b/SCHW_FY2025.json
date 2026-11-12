@@ -1,0 +1,246 @@
+{
+  "ticker": "SCHW",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Schwab faces elevated leverage risks from proposed regulatory capital rules requiring AOCI inclusion and minimum long-term debt, alongside increased FDIC costs post-2023 bank failures. Liquidity remains diversified but vulnerable to rapid rate hikes driving client cash outflows, potentially forcing reliance on higher-cost funding. Profitability is sensitive to interest rate volatility; rising rates compress net interest margins as clients shift to off-balance-sheet alternatives, while declining rates reduce asset yields. Key risks include extensive regulatory scrutiny, potential litigation costs, and aggressive price competition in a saturated market, all of which could materially impact future operating results and cash flows.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Proposed federal banking rules may require Schwab to include AOCI in regulatory capital and maintain minimum levels of eligible long-term debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "The company revised its long-term operating objective to increase capital in response to heightened regulatory focus.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Increased FDIC premiums and special assessments resulting from 2023 bank failures have negatively impacted profitability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Schwab maintains multiple external financing sources including repurchase agreements, secured lines of credit, and a commercial paper program.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Rapid increases in short-term interest rates drive client cash outflows from sweep features into higher-yielding alternatives, straining liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_012",
+          "SCHW_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "A significant decrease in liquidity could reduce client confidence, leading to asset transfers and potential failure to meet regulatory requirements like the LCR.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Utilization of higher-cost funding sources during periods of liquidity stress reduces net interest margin and revenue.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_7_mdna_028",
+          "SCHW_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Rapidly rising interest rates constrain net interest revenue as clients reallocate cash to off-balance-sheet fixed income investments.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "A decline in interest rates may negatively impact net interest revenue if asset yields fall faster than liability costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Schwab uses net interest revenue simulation modeling to evaluate the impact of changing interest rates on earnings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SCHW_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Extensive regulatory supervision subjects the company to significant penalties, capital requirements, and limitations on business activities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Litigation and regulatory proceedings could result in material judgments, settlements, or fines, particularly during market downturns.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Aggressive price competition from integrated banks and fintech firms may force reductions in fees or increases in deposit rates, impacting results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Stock price volatility is influenced by financial results, client cash metrics, and failure to meet analyst projections.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SCHW_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Substantially all securities in Schwab's investment portfolios were rated investment grade as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SCHW_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SCHW_FY2025_1A_risk_factors_008",
+    "SCHW_FY2025_7_mdna_020",
+    "SCHW_FY2025_1A_risk_factors_003",
+    "SCHW_FY2025_1A_risk_factors_012",
+    "SCHW_FY2025_1A_risk_factors_009",
+    "SCHW_FY2025_7_mdna_026",
+    "SCHW_FY2025_7_mdna_028",
+    "SCHW_FY2025_1A_risk_factors_032",
+    "SCHW_FY2025_1A_risk_factors_041",
+    "SCHW_FY2025_1A_risk_factors_047"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SCHW_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0000316709-26-000009",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

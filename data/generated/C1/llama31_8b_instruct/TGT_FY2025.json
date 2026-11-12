@@ -1,0 +1,219 @@
+{
+  "ticker": "TGT",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Target Corporation's FY2025 financial performance is characterized by a balanced spectrum of debt maturities, access to capital markets, and a strong credit rating. The company's leverage is managed through a debt leverage covenant and secured debt level covenant. Liquidity is maintained through operating cash flows, credit facility capacity, and access to capital markets. Profitability is measured by after-tax return on invested capital (ROIC), which was 4.534% as of February 1, 2025. However, the company faces various risks, including changes in credit ratings, effective income tax rate, macroeconomic conditions, and information security incidents.",
+    "claims": [
+      {
+        "claim_id": "a",
+        "text": "Target Corporation's leverage is managed through a debt leverage covenant and secured debt level covenant.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_007",
+          "TGT_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "b",
+        "text": "Target Corporation's liquidity is maintained through operating cash flows, credit facility capacity, and access to capital markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "c",
+        "text": "Target Corporation's after-tax return on invested capital (ROIC) was 4.534% as of February 1, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "d",
+        "text": "Target Corporation's credit ratings were A2, A, and A as of February 1, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "e",
+        "text": "Target Corporation's credit facilities contain a debt leverage covenant.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "f",
+        "text": "Target Corporation's credit ratings may be lowered, which could impact its ability to access the debt markets and increase its cost of funds.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "g",
+        "text": "Target Corporation's effective income tax rate could be affected by changes in domestic and international tax laws and regulations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "h",
+        "text": "Target Corporation's business could be affected by macroeconomic conditions, including changes in consumer demand and spending.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "i",
+        "text": "Target Corporation's business could be affected by uncharacteristic or significant weather conditions or natural disasters.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "j",
+        "text": "Target Corporation's business could be severely disrupted by significant information security, cybersecurity, or data privacy incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_022",
+          "TGT_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "k",
+        "text": "Target Corporation may experience adverse perceptions of its business, consumer boycotts, litigation, investigations, and regulatory proceedings due to its environmental, social, and governance matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "l",
+        "text": "Target Corporation may incur substantial costs and expose itself to litigation and regulatory risks due to its information security, cybersecurity, and data privacy practices.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "TGT_FY2025_7_mdna_007",
+    "TGT_FY2025_7_mdna_008",
+    "TGT_FY2025_7_mdna_006",
+    "TGT_FY2025_7_mdna_009",
+    "TGT_FY2025_7_mdna_000",
+    "TGT_FY2025_1A_risk_factors_043",
+    "TGT_FY2025_1A_risk_factors_031",
+    "TGT_FY2025_1A_risk_factors_022",
+    "TGT_FY2025_1A_risk_factors_008",
+    "TGT_FY2025_1A_risk_factors_023"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_023",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

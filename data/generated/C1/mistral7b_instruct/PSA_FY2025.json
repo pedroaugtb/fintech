@@ -1,0 +1,244 @@
+{
+  "ticker": "PSA",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "PSA's FY2025 financial report indicates potential risks to the company's leverage, liquidity, profitability, and operations. The company faces risks related to illness or death of employees or tenants, negative impacts on economic conditions, out-migration of population, government restrictions, and changes in move-out patterns of long-term tenants. Elevated interest rates could adversely impact the company and its tenants, increasing the cost of capital and impacting growth prospects. The company could incur losses from lending decisions, particularly if economic predictions prove incorrect or borrowers fail to perform as expected. Liquidity of the company's ownership stake in Shurgard may be limited by the level of Shurgard's public 'float' relative to any ownership stake sought to be sold. FFO and FFO per share decreased in 2025 compared to 2024, primarily due to increased foreign currency exchange losses, depreciation and amortization expense, interest expense, and general and administrative expense. Net income allocable to common shareholders also decreased in 2025 compared to 2024, primarily due to increased foreign currency exchange losses, depreciation and amortization expense, interest expense, and decreased interest and other income. Compliance with various laws and regulations, including changes thereto, could impose significant costs and negatively affect the business and operations or reputation. The company's tenant reinsurance business is subject to governmental regulation, which could reduce profitability or limit growth. Cyberattacks and cybersecurity incidents could exceed any available insurance that the company has procured.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company faces risks related to illness or death of employees or tenants.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Negative impacts on economic conditions in our markets could reduce the demand for self-storage.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "There could be an out-migration of population from major markets where we operate.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Government restrictions could limit or prevent use of our facilities, limit our ability to increase rent, limit our ability to collect rent or evict delinquent tenants, or limit our ability to complete development and redevelopment projects.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Changes in move-out patterns of long-term tenants due to economic uncertainty and increases in unemployment could lead to lower occupancies and rent ‘roll down’ as long-term tenants are replaced with new tenants at lower rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Elevated interest rates could adversely impact us and our tenants.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "If we issued new debt or preferred shares or refinanced our indebtedness, our debt service costs or preferred share dividend yields would likely be significantly higher than current financing costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Increases in our cost of capital impact our assessment of the yields we consider appropriate to support pursuing property acquisition and development opportunities and thus can impact our external growth prospects.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Lending decisions involve subjective and complex judgments and forecasts of economic conditions and how these economic predictions might impair the ability of our borrowers to operate their business and/or make all required payments.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Impediments to capital repatriation could negatively impact the realization of our investment in Shurgard.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Risks of collective bargaining could negatively impact Shurgard’s labor costs or operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Potential operating and individual country risks could pose challenges or result in future reductions of Shurgard’s operating cash flows.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Liquidity of our ownership stake in Shurgard may be limited by the level of Shurgard’s public ‘float’ relative to any ownership stake we sought to sell.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSA_FY2025_1A_risk_factors_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "For the year ended December 31, 2025, FFO was $15.81 per diluted common share as compared to $17.19 and $16.60 per diluted common share for the years ended December 31, 2024 and 2023, respectively, representing a decrease in 2025 of 8.0%, or $1.38 per diluted common share, as compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Net income allocable to our common shareholders was $1.6 billion or $9.01 per diluted common share in 2025, compared to $1.9 billion or $10.64 per diluted common share in 2024, representing a decrease of $287.1 million or $1.63 per diluted common share.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSA_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PSA_FY2025_1A_risk_factors_014",
+    "PSA_FY2025_1A_risk_factors_009",
+    "PSA_FY2025_1A_risk_factors_029",
+    "PSA_FY2025_1A_risk_factors_012",
+    "PSA_FY2025_7_mdna_010",
+    "PSA_FY2025_7_mdna_006",
+    "PSA_FY2025_7_mdna_007",
+    "PSA_FY2025_7_mdna_008",
+    "PSA_FY2025_1A_risk_factors_044",
+    "PSA_FY2025_1A_risk_factors_026"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-007696",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-007696",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-007696",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_012",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-007696",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001628280-26-007696",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001628280-26-007696",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0001628280-26-007696",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0001628280-26-007696",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-007696",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PSA_FY2025_1A_risk_factors_026",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-007696",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

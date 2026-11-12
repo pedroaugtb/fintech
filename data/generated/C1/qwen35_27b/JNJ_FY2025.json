@@ -1,0 +1,238 @@
+{
+  "ticker": "JNJ",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "JNJ maintains investment-grade credit ratings, though downgrades could increase borrowing costs and restrict capital access. Liquidity risks include potential disruptions from credit rating changes and the planned separation of the Orthopaedics business, targeted for completion in 18-24 months. Profitability faces pressure from competitive markets, potential patent expirations leading to biosimilar competition, and uncertain tax liabilities, including a $0.6 billion estimated repatriation tax. Key risks involve global trade tariffs, regional conflicts, currency fluctuations, and significant legal proceedings regarding product liability and government investigations.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "JNJ currently maintains investment-grade credit ratings with Moody's and Standard & Poor's.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "A credit rating downgrade could increase borrowing costs, reduce commercial paper capacity, or require additional collateral.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_032",
+          "JNJ_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Weak financial performance or market disruptions could adversely affect JNJ's liquidity and capital position.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "JNJ announced the intention to separate its Orthopaedics business in October 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "The planned separation of the Orthopaedics business targets completion in 18 to 24 months.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Failure to defend patent claims could result in substantial market share and revenue losses from generic or biosimilar competition.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "JNJ estimates the tax effect of repatriating undistributed international earnings would be approximately $0.6 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "A 1% change in the U.S. Dollar value would impact net income by approximately $0.2 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "The financial impact of known existing regional conflicts in fiscal 2025 was not material.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "Future changes in tariffs or reciprocal trade measures could increase uncertainties for global operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Changes in tax laws, including global minimum taxes, could negatively impact the effective tax rate and operating results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Government investigations carry risks of significant civil and criminal penalties, including debarment from healthcare programs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "JNJ is involved in various lawsuits regarding product liability, intellectual property, and commercial matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "Estimates for legal contingencies rely heavily on assumptions about future events and uncertainties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Competitive pressures in highly competitive product markets could adversely affect earnings.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "JNJ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "JNJ_FY2025_1A_risk_factors_032",
+    "JNJ_FY2025_1A_risk_factors_000",
+    "JNJ_FY2025_7_mdna_015",
+    "JNJ_FY2025_1A_risk_factors_033",
+    "JNJ_FY2025_7_mdna_018",
+    "JNJ_FY2025_7_mdna_000",
+    "JNJ_FY2025_7_mdna_009",
+    "JNJ_FY2025_7_mdna_020",
+    "JNJ_FY2025_1A_risk_factors_016"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "JNJ_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000200406-26-000016",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

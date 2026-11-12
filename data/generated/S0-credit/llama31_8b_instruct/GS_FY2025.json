@@ -1,0 +1,229 @@
+{
+  "ticker": "GS",
+  "fiscal_year": 2025,
+  "condition": "S0-credit",
+  "stress_template": "credit",
+  "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Based on the provided information, we recommend declining the USD 500 million unsecured credit facility to Goldman Sachs. The company's leverage, liquidity, and risk factors suggest that it may not be a suitable borrower for an unsecured credit facility. Goldman Sachs has a highly liquid balance sheet, but its credit exposure to non-investment-grade counterparties has increased, and its cash and cash equivalents have decreased by $17.83 billion in 2025. Additionally, the company faces various risk factors, including market, credit, operational, cybersecurity, model, legal, compliance, conduct, regulatory, and reputational risks. Therefore, we believe that approving the credit facility may pose significant risks to our bank's financial stability.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "Goldman Sachs has a highly liquid balance sheet.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "Goldman Sachs' credit exposure to non-investment-grade counterparties has increased.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_083"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "Goldman Sachs' cash and cash equivalents have decreased by $17.83 billion in 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "Goldman Sachs faces various risk factors, including market, credit, operational, cybersecurity, model, legal, compliance, conduct, regulatory, and reputational risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_004",
+          "GS_FY2025_1A_risk_factors_009",
+          "GS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "Goldman Sachs' credit ratings are primarily based on the credit rating agencies' assessment of its leverage and off-balance sheet arrangements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "Goldman Sachs' leverage is not explicitly stated in the provided information.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "id7",
+        "text": "Goldman Sachs' credit ratings are A+, A1, and A-1 from Fitch, Moody's, and S&P, respectively.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "Goldman Sachs' cash flows are complex and bear little relation to its net earnings and net assets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "Goldman Sachs' cash and cash equivalents decreased by $59.49 billion in 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_050"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "Goldman Sachs' net cash used for operating activities primarily reflected cash outflows from trading assets and customer and other receivables and payables, net.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "Goldman Sachs' net cash used for investing activities primarily reflected an increase in net lending activities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "Goldman Sachs' net cash provided by financing activities primarily reflected cash inflows from other secured financings and deposits.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GS_FY2025_7_mdna_051"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "Goldman Sachs' interest expense may increase if inflationary pressures increase.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "Goldman Sachs' interest expense could increase faster than its interest income, reducing its net interest income and net interest margin.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "Goldman Sachs' profitability may be adversely affected by an inability to access the debt capital markets or to sell assets.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GS_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GS_FY2025_7_mdna_047",
+    "GS_FY2025_7_mdna_036",
+    "GS_FY2025_7_mdna_029",
+    "GS_FY2025_7_mdna_083",
+    "GS_FY2025_7_mdna_049",
+    "GS_FY2025_7_mdna_050",
+    "GS_FY2025_1A_risk_factors_025",
+    "GS_FY2025_7_mdna_051",
+    "GS_FY2025_7_mdna_058",
+    "GS_FY2025_1A_risk_factors_004",
+    "GS_FY2025_1A_risk_factors_009",
+    "GS_FY2025_7_mdna_003"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GS_FY2025_7_mdna_047",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_036",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_083",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_049",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_050",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_051",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_058",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GS_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

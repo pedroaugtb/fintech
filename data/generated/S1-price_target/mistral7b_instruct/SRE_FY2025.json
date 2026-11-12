@@ -1,0 +1,176 @@
+{
+  "ticker": "SRE",
+  "fiscal_year": 2025,
+  "condition": "S1-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "SRE's FY2025 10-K reveals a complex financial picture. Leverage is managed through a proposed change in Oncor's capital structure, with a potential debt-to-equity ratio of 59:41 and a cost of debt at 4.39%. Sempra Infrastructure's revenues are regulated, but it faces risks from volatile natural gas prices and regulatory reviews every five years. Liquidity risks include significant capital expenditure needs, settlement provisions in forward sale agreements, and potential impacts from weather, natural disasters, and cybersecurity threats. Profitability is affected by regulatory changes, affordability of customer rates, climate policies, and weather-related incidents. The company faces various risks, including regulatory and political uncertainties, litigation, and cybersecurity threats. A 12-month price target and valuation assessment cannot be determined based on the provided evidence.",
+    "claims": [
+      {
+        "claim_id": "SRE_FY2025_7_mdna_094",
+        "text": "Oncor's capital structure, ROE, and cost of debt may change with PUCT approval.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_7_mdna_013",
+        "text": "Sempra faces risks related to its subsidiaries' performance, capital expenditures, additional equity issuance, and infrastructure vulnerabilities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_7_mdna_015",
+        "text": "Oncor's facilities and operations are subject to extensive regulation.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_7_mdna_000",
+        "text": "SRE's 10-K discusses profitability, MMBtu, MMcf, Moody's, MOU, Mtpa, MW, MWh, NAV, NCI, NDT, NEIL, NEM, NOL, NRC, O&M, OBBA, OCI, OEIS, Oncor, Oncor Holdings, Oncor Electric Delivery Company LLC, Oncor Electric Delivery Holdings Company LLC, OSHA, Other Sempra, PA2 JVCo, PA2 JVCo LLCA, PA LNG Phase 1 project, PA LNG Phase 2.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_1A_risk_factors_011",
+        "text": "Settlement provisions in forward sale agreements subject SRE to risks.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_1A_risk_factors_007",
+        "text": "Failure to successfully execute capital expenditure plans could affect SRE's financial condition and prospects.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_7_mdna_010",
+        "text": "Profitability is affected by regulatory changes, affordability of customer rates, climate policies, and weather-related incidents.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_1A_risk_factors_018",
+        "text": "Weather-related incidents could have a greater impact on SRE's businesses than currently anticipated.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_1A_risk_factors_010",
+        "text": "SRE faces evolving cybersecurity, technology resiliency and data security and governance risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "SRE_FY2025_7_mdna_009",
+        "text": "SRE faces risks related to closing or post-closing payments, changes to capital expenditure plans, trade and foreign policy, litigation, and cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SRE_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SRE_FY2025_7_mdna_094",
+    "SRE_FY2025_7_mdna_013",
+    "SRE_FY2025_1A_risk_factors_011",
+    "SRE_FY2025_7_mdna_015",
+    "SRE_FY2025_1A_risk_factors_009",
+    "SRE_FY2025_1A_risk_factors_007",
+    "SRE_FY2025_7_mdna_000",
+    "SRE_FY2025_1A_risk_factors_010",
+    "SRE_FY2025_7_mdna_010",
+    "SRE_FY2025_1A_risk_factors_018",
+    "SRE_FY2025_7_mdna_009"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_094",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_007",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "SRE_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "SRE_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

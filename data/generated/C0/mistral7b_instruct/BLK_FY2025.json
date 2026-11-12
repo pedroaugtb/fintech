@@ -1,0 +1,277 @@
+{
+  "ticker": "BLK",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "BlackRock's FY2025 10-K highlights several risk factors that may impact the company's performance. The company's leverage and liquidity are key concerns, as failure to maintain adequate liquidity could lead to unanticipated costs and force BlackRock to revise existing or future strategic and business initiatives. BlackRock's access to equity and debt markets may be limited by adverse market conditions, a reduction in its long- or short-term credit, and regulatory requirements for certain subsidiaries. Profitability is also a concern, as changes in interest or foreign exchange rates and global markets may impact BlackRock's AUM, base fees, net income, and operating cash flows. Lastly, cybersecurity risks are a significant risk factor for BlackRock, as the company recognizes the importance of identifying, assessing, and managing material risks associated with cybersecurity threats.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "BlackRock's FY2025 10-K highlights several risk factors that may impact the company's performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Failure to maintain adequate corporate and contingent liquidity may cause BlackRock’s AUM, liquidity and earnings to decline, as well as harm its prospects for growth.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_039",
+          "BLK_FY2025_7_mdna_112"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "BlackRock’s ability to meet anticipated cash needs depends upon a number of factors, including its creditworthiness and ability to generate operating cash flows.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_039",
+          "BLK_FY2025_7_mdna_112",
+          "BLK_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "While BlackRock, Inc. is not subject to regulatory capital or liquidity requirements, certain of its subsidiaries are subject to regulatory capital and liquidity frameworks.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_039",
+          "BLK_FY2025_7_mdna_112"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Failure to maintain adequate liquidity could lead to unanticipated costs and force BlackRock to revise existing or future strategic and business initiatives.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_039",
+          "BLK_FY2025_7_mdna_112"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "BlackRock’s access to equity and debt markets and its ability to issue public or private debt, or obtain lines of credit or commercial paper back-up lines, on reasonable terms may be limited by adverse market conditions, a reduction in its long- or short-term credit.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_039",
+          "BLK_FY2025_7_mdna_112"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "BlackRock’s business is directly and indirectly affected by changes in global interest rates, as well as changes in global markets, which have experienced substantial volatility in recent years.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_002",
+          "BLK_FY2025_7_mdna_075",
+          "BLK_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Fluctuations in BlackRock’s AUM related to its exposure to foreign exchange rates relative to the US dollar and interest rates may introduce volatility to the Company’s base fees, net income and operating cash flows.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_002",
+          "BLK_FY2025_7_mdna_075",
+          "BLK_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The relative performance of different markets that impact the Company’s AUM and net inflows may lead to an increase in the proportion of AUM weighted towards lower (or higher) relative management fee rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_002",
+          "BLK_FY2025_7_mdna_075",
+          "BLK_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Cybersecurity represents an important component of the Company’s approach to enterprise risk management.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_000",
+          "BLK_FY2025_1A_risk_factors_002",
+          "BLK_FY2025_1A_risk_factors_051",
+          "BLK_FY2025_7_mdna_195",
+          "BLK_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "BlackRock recognizes the importance of identifying, assessing, and managing material risks associated with cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_000",
+          "BLK_FY2025_1A_risk_factors_002",
+          "BLK_FY2025_1A_risk_factors_051",
+          "BLK_FY2025_7_mdna_195",
+          "BLK_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "BlackRock’s cybersecurity program is fully integrated into its ERM framework and is aligned with recognized frameworks, such as NIST Cybersecurity Framework, Cyber Risk Institute Profile, ISO/IEC 27001/27002, and other leading frameworks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_000",
+          "BLK_FY2025_1A_risk_factors_002",
+          "BLK_FY2025_1A_risk_factors_051",
+          "BLK_FY2025_7_mdna_195",
+          "BLK_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "BlackRock seeks to address cybersecurity risks through a multi-layered defense model in which cybersecurity operational processes are executed by global information security and other firmwide teams, supported by dedicated internal audit and technology risk management teams that independently review technology risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_000",
+          "BLK_FY2025_1A_risk_factors_002",
+          "BLK_FY2025_1A_risk_factors_051",
+          "BLK_FY2025_7_mdna_195",
+          "BLK_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "BlackRock aims to inform and continuously improve its cybersecurity program through engagement with regulatory, client, insurer, vendor, partner, government and industry organizations and associations, as well as external audit, technology risk, information security and other assessments.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "BLK_FY2025_1A_risk_factors_000",
+          "BLK_FY2025_1A_risk_factors_002",
+          "BLK_FY2025_1A_risk_factors_051",
+          "BLK_FY2025_7_mdna_195",
+          "BLK_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "BlackRock’s investment management revenue is primarily comprised of fees based on a percentage of the value of AUM and, in some cases, performance fees which are normally expressed as a percentage of returns to the",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BLK_FY2025_7_mdna_005",
+          "BLK_FY2025_7_mdna_238"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "BLK_FY2025_1A_risk_factors_039",
+    "BLK_FY2025_7_mdna_112",
+    "BLK_FY2025_1A_risk_factors_051",
+    "BLK_FY2025_7_mdna_005",
+    "BLK_FY2025_7_mdna_238",
+    "BLK_FY2025_1A_risk_factors_002",
+    "BLK_FY2025_7_mdna_075",
+    "BLK_FY2025_7_mdna_195",
+    "BLK_FY2025_1A_risk_factors_000",
+    "BLK_FY2025_7_mdna_073"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "BLK_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_112",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BLK_FY2025_1A_risk_factors_051",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_238",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BLK_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_075",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_195",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BLK_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BLK_FY2025_7_mdna_073",
+      "section": "7_mdna",
+      "accession": "0001193125-26-071966",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

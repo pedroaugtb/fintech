@@ -1,0 +1,245 @@
+{
+  "ticker": "GILD",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Gilead reported FY2025 total revenues of $29.4 billion, a 2% increase over 2024. While the company maintains interest-bearing liabilities and significant R&D commitments, liquidity remains tied to successful product launches and manufacturing capacity. Profitability faces headwinds from volatile non-retail purchasing patterns, European cost containment, and reliance on three major U.S. wholesalers. Key risks include foreign currency exposure, interest rate fluctuations, cybersecurity threats, and potential regulatory changes to Medicaid and 340B programs that could materially impact net income and cash flows.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Total revenues for FY2025 were $29,443 million, representing a 2% increase from FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GILD_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "The company holds interest-bearing liabilities, including senior unsecured notes and credit facilities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_058"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Fluctuations in interest rates could expose the company to increased financial risk.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_058"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "The company faces exposure to foreign currency exchange rates, primarily the Euro, which may not be fully offset by hedging.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_058"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Liquidity and business growth depend on the successful commercial launch of new products to cover substantial R&D expenses.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "The company may be unable to sufficiently increase manufacturing network capacity to meet growing demand.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Non-retail sector purchasing patterns, including government institutions, often fluctuate and do not mirror actual patient demand.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_008",
+          "GILD_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "European cost containment measures have caused government agencies to reduce inventory, impacting sales patterns.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Approximately 90% of U.S. gross product sales are concentrated among three wholesalers: Cardinal Health, Cencora, and McKesson.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Changes in inventory levels held by major wholesalers can cause fluctuations in operating results.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Cybersecurity incidents or IT system failures could delay financial reporting and result in lost revenue and profits.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_070"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Regulatory changes to the Medicaid program or the 340B program could have a material adverse effect on the business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Potential reductions or pauses in funding for HIV treatment programs like PEPFAR could adversely impact the business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Failure to attract and retain highly qualified scientific and management personnel could adversely impact future success.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GILD_FY2025_1A_risk_factors_067"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The company has announced a planned $32 billion investment in the U.S. through 2030.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GILD_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GILD_FY2025_1A_risk_factors_058",
+    "GILD_FY2025_1A_risk_factors_008",
+    "GILD_FY2025_7_mdna_008",
+    "GILD_FY2025_7_mdna_000",
+    "GILD_FY2025_1A_risk_factors_000",
+    "GILD_FY2025_1A_risk_factors_005",
+    "GILD_FY2025_1A_risk_factors_070",
+    "GILD_FY2025_1A_risk_factors_009",
+    "GILD_FY2025_1A_risk_factors_021",
+    "GILD_FY2025_1A_risk_factors_067"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_058",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GILD_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GILD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_021",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GILD_FY2025_1A_risk_factors_067",
+      "section": "1A_risk_factors",
+      "accession": "0000882095-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

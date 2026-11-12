@@ -1,0 +1,246 @@
+{
+  "ticker": "DLR",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "DLR's FY2025 10-K indicates significant leverage risks due to high indebtedness and reliance on refinancing, interest rate risks, and potential counterparty defaults on interest rate hedges. Liquidity risks are present due to the company's reliance on revolving credit facilities and potential future increases in interest rates and credit spreads. Profitability risks include impairment charges due to illiquid real estate investments, reliance on third-party sources of capital, and potential adverse effects on revenue from changes in local, state, federal, and international laws and regulations. Risk factors include ongoing cyberattacks, geopolitical events, and operating in volatile regions.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "DLR has high indebtedness",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_081",
+          "DLR_FY2025_1A_risk_factors_086"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "DLR relies on refinancing",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_085"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "DLR faces interest rate risks",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_085",
+          "DLR_FY2025_1A_risk_factors_086"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "DLR has counterparty risks on interest rate hedges",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_085"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "DLR has liquidity risks",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_082"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "DLR faces potential future increases in interest rates and credit spreads",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_086"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "DLR has profitability risks",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "DLR faces impairment charges due to illiquid real estate investments",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "DLR relies on third-party sources of capital",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_091"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "DLR faces risks from changes in local, state, federal, and international laws and regulations",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_164"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "DLR is subject to ongoing cyberattacks",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "DLR operates in volatile regions",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Geopolitical events may impact DLR's operations and financial results",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "DLR faces risks from bribery and corruption",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "DLR's financial results may be affected by sovereign credit risk and rapid and unpredictable changes in economic policy and regulatory environments",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DLR_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DLR_FY2025_1A_risk_factors_085",
+    "DLR_FY2025_1A_risk_factors_081",
+    "DLR_FY2025_1A_risk_factors_086",
+    "DLR_FY2025_1A_risk_factors_082",
+    "DLR_FY2025_1A_risk_factors_095",
+    "DLR_FY2025_1A_risk_factors_091",
+    "DLR_FY2025_7_mdna_008",
+    "DLR_FY2025_1A_risk_factors_164",
+    "DLR_FY2025_1A_risk_factors_023",
+    "DLR_FY2025_1A_risk_factors_060"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_085",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_081",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_086",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_082",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_095",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_091",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DLR_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_164",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_023",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DLR_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001104659-26-015365",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

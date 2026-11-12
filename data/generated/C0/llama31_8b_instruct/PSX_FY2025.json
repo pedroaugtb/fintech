@@ -1,0 +1,244 @@
+{
+  "ticker": "PSX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Phillips 66's FY2025 financial performance was marked by increased impairments, higher interest and debt expense, and a 78% increase in income tax expense. The company generated $5 billion in cash from operating activities and funded capital expenditures and investments of $2.2 billion. Phillips 66 is targeting debt reductions and a debt-to-capital ratio reduction by the end of 2027. The company faces risks related to climate change, regulatory changes, and competition from renewable fuels. The company's financial strength and flexibility are maintained through a variety of funding sources, including cash from operations, debt, and proceeds from dispositions.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Phillips 66's impairments increased by $604 million in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Phillips 66's interest and debt expense increased by 15% in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Phillips 66's income tax expense increased by 78% in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Phillips 66 generated $5 billion in cash from operating activities in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Phillips 66 funded capital expenditures and investments of $2.2 billion in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Phillips 66 is targeting debt reductions and a debt-to-capital ratio reduction by the end of 2027.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Phillips 66's earnings were $4.4 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Phillips 66's income tax expense decreased by 78% in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Phillips 66's net income attributable to noncontrolling interests decreased by 74% in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Phillips 66's Midstream segment results were affected by before-tax impairments related to certain DCP LP gathering and processing assets in Texas.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Phillips 66's financial penalty or any restrictions or delays on our ability to undertake turnaround or other maintenance activities creates uncertainty.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSX_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Phillips 66's operations in California may be material to our results of operations, financial condition, profitability and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSX_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Phillips 66's financial performance of operations in the state of California or the useful lives of the assets related to such operations may result in the recognition of material asset impairment charges, accelerated depreciation and asset retirement obligations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSX_FY2025_1A_risk_factors_025"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Phillips 66's business, financial condition, results of operations and cash flows may be negatively impacted by climate change and other environmental and social (E&S) matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSX_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Phillips 66's business or financial condition may be adversely impacted by increased regulation of the fossil fuel industry.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PSX_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PSX_FY2025_7_mdna_016",
+    "PSX_FY2025_7_mdna_005",
+    "PSX_FY2025_7_mdna_001",
+    "PSX_FY2025_1A_risk_factors_022",
+    "PSX_FY2025_7_mdna_010",
+    "PSX_FY2025_7_mdna_000",
+    "PSX_FY2025_7_mdna_021",
+    "PSX_FY2025_1A_risk_factors_025",
+    "PSX_FY2025_1A_risk_factors_046",
+    "PSX_FY2025_1A_risk_factors_040"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

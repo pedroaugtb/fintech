@@ -1,0 +1,251 @@
+{
+  "ticker": "HON",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Honeywell International Inc. (HON) has maintained a stable financial position in FY2025, with a slight increase in leverage and liquidity. Profitability has improved, driven by increased revenue and efficient operations. However, the company faces various risk factors, including litigation, environmental liabilities, and cybersecurity threats. The company's ability to manage these risks will be crucial to its future success.",
+    "claims": [
+      {
+        "claim_id": "id1",
+        "text": "Honeywell International Inc. had a total long-term debt of $27,141 million as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id2",
+        "text": "The company's weighted average interest rate on long-term debt was 2.5% as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id3",
+        "text": "Honeywell International Inc. had a cash and cash equivalents balance of $12,487 million as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id4",
+        "text": "The company's net operating loss, capital loss, tax credit carryforwards, and other attributes were $4,575 million as of December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_091"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id5",
+        "text": "Honeywell International Inc. recognized revenue of $1,964 million from contract assets as of December 31, 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_072"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id6",
+        "text": "The company does not expect environmental matters to have a material adverse effect on its consolidated financial position.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_159"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id7",
+        "text": "Honeywell International Inc. has a response team of internal and external resources engaged and prepared to respond to cybersecurity threats.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id8",
+        "text": "The company has approximately 667 locations, of which 142 are manufacturing sites, as of December 31, 2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id9",
+        "text": "Honeywell International Inc. does not anticipate difficulty in renewing existing leases as they expire or in finding alternative facilities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id10",
+        "text": "The company does not expect the outcome of litigation and investigations to have a material adverse effect on its consolidated financial position.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_176"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id11",
+        "text": "Honeywell International Inc. has approximately $211 million in estimated environmental liabilities as of December 31, 2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_159"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id12",
+        "text": "The company does not currently possess sufficient information to reasonably estimate the amounts of environmental liabilities to be recorded upon future completion of studies, litigation, or settlements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_159"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id13",
+        "text": "Honeywell International Inc. has a total of 667 locations, with 142 manufacturing sites, as of December 31, 2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id14",
+        "text": "The company's weighted average interest rate on long-term debt was 2.5% as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "id15",
+        "text": "Honeywell International Inc. had a cash and cash equivalents balance of $12,487 million as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HON_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "HON_FY2025_1A_risk_factors_102",
+    "HON_FY2025_1A_risk_factors_062",
+    "HON_FY2025_1A_risk_factors_016",
+    "HON_FY2025_1A_risk_factors_129",
+    "HON_FY2025_1A_risk_factors_017",
+    "HON_FY2025_1A_risk_factors_091",
+    "HON_FY2025_1A_risk_factors_015",
+    "HON_FY2025_1A_risk_factors_072",
+    "HON_FY2025_1A_risk_factors_176",
+    "HON_FY2025_1A_risk_factors_000",
+    "HON_FY2025_1A_risk_factors_159"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_102",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_129",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_091",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_072",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_176",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HON_FY2025_1A_risk_factors_159",
+      "section": "1A_risk_factors",
+      "accession": "0000773840-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

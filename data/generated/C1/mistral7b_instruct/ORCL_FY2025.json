@@ -1,0 +1,238 @@
+{
+  "ticker": "ORCL",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "ORCL's FY2025 10-K indicates a potential for future acquisitions, funded by internally available cash, cash equivalents, marketable securities, cash generated from operations, additional borrowings, or issuance of additional securities. The company has made investments in Ampere Computing Holdings LLC, a related party entity, in the form of equity and convertible debt instruments, with a total carrying value of $1.6 billion as of May 31, 2025. The company's cloud and license business, which represents 86% of total revenues, markets, sells, and delivers a broad spectrum of enterprise applications and infrastructure technologies through cloud and license offerings. The company's results of operations discussion includes a GAAP-based overview of total consolidated revenues, total consolidated operating expenses, and total consolidated operating margin. Critical accounting estimates are made, which can affect the reported amounts of assets, liabilities, revenues, expenses, and related disclosures.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company may acquire companies, products, services, and technologies to further its corporate strategy.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The company estimates the financial impact of any potential acquisition before deciding to move forward.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company has investments in Ampere Computing Holdings LLC, a related party entity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019",
+          "ORCL_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The total carrying value of the company's investments in Ampere was $1.6 billion as of May 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company's equity investments in Ampere represent an ownership interest of approximately 29% as of May 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The company owns convertible debt investments in Ampere which will mature in June 2026.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company's cloud and license business represents 86% of total revenues.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company's results of operations discussion includes a GAAP-based overview of total consolidated revenues, total consolidated operating expenses, and total consolidated operating margin.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Critical accounting estimates are made, which can affect the reported amounts of assets, liabilities, revenues, expenses, and related disclosures.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company's consolidated financial statements are prepared in accordance with U.S. generally accepted accounting principles (GAAP).",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The company recognizes and measures uncertain tax positions taken or expected to be taken in a tax return.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The company adjusts reserves for its uncertain tax positions due to changing facts and circumstances.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The company's provisions for income taxes include the impact of reserve provisions and changes to reserves.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company's non-marketable investments are assessed for credit losses and impairment on a quarterly basis.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_020"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The company's results of operations discussion includes a discussion of each of its three businesses—cloud and license, hardware and services.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ORCL_FY2025_7_mdna_031"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "ORCL_FY2025_7_mdna_018",
+    "ORCL_FY2025_7_mdna_027",
+    "ORCL_FY2025_7_mdna_019",
+    "ORCL_FY2025_7_mdna_002",
+    "ORCL_FY2025_7_mdna_031",
+    "ORCL_FY2025_7_mdna_028",
+    "ORCL_FY2025_7_mdna_030",
+    "ORCL_FY2025_7_mdna_020",
+    "ORCL_FY2025_7_mdna_026"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_031",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_020",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ORCL_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0000950170-25-087926",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

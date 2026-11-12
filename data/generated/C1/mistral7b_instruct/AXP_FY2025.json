@@ -1,0 +1,245 @@
+{
+  "ticker": "AXP",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "AXP's FY2025 10-K highlights several risk factors that could impact the company's leverage, liquidity, profitability, and overall financial condition. The company's solidated Capital Resources and Liquidity is discussed under MD&A, with potential risks including reductions in credit ratings, increased credit risk, and adverse market conditions that could limit access to funding and increase the cost of capital. Profitability is primarily derived from interest income, net card fees, and service fees and other revenue. However, the company is subject to competition for cobrand partners, the loss of which could have a material adverse impact on the business. The company is also subject to regulatory scrutiny and potential litigation, which could result in significant fines, penalties, and reputational damage.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company's solidated Capital Resources and Liquidity is discussed under MD&A.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_103"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Any reduction in the company's credit ratings could increase the cost of funding and restrict access to the capital markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_103"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Increased credit risk could require the company to increase provisions for losses and have a material adverse effect on the results of operations and financial condition.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Interest rate changes could materially adversely affect the company's earnings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AXP_FY2025_34",
+          "AXP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company had net interest income of approximately $17.4 billion for the year ended December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AXP_FY2025_34"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The company's access to funding is required to operate and grow the business and satisfy cash needs, maturing liabilities, and regulatory capital requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Any reduction in the company's credit ratings could increase the cost of funding and restrict access to the capital markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company's liquidity and cost of funds would be adversely affected by the occurrence of events that could result in the early amortization of existing securitization transactions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AXP_FY2025_35"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company's business growth or funding needs may increase unexpectedly and/or the company may incur an unattractive cost to raise capital, which could decrease profitability and significantly reduce financial flexibility.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company's ability to obtain financing in the capital markets is dependent on financial market conditions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Disruptions, uncertainty or volatility across the financial markets could negatively impact market liquidity and limit the company's access to funding.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The company's business is subject to evolving and comprehensive government regulation and supervision, which could materially adversely affect the results of operations and financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The loss of exclusivity arrangements with business partners, the loss of the partner relationship altogether, or the renegotiation of existing partnerships with terms that are significantly worse for the company could have a material adverse impact on the business and results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Information, operational or cybersecurity incidents and other actual or perceived failures to maintain confidentiality, integrity, availability of services and data, privacy and/or security has led to regulatory investigations and increased regulatory scrutiny and may lead to regulatory intervention, increased litigation, response costs, fines, negative assessments of the company by banking regulators and rating agencies, reputational and financial damage to the brand, negative impacts to partner relationships, and reduced usage of the company's products and services, all of which could have a material adverse impact on the business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Successful execution of opportunities or affect the company's relationships with certain partners, service providers, and other third parties could have a material adverse impact on the business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_070"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AXP_FY2025_1A_risk_factors_103",
+    "AXP_FY2025_1A_risk_factors_095",
+    "AXP_FY2025_7_mdna_004",
+    "AXP_FY2025_1A_risk_factors_102",
+    "AXP_FY2025_1A_risk_factors_101",
+    "AXP_FY2025_1A_risk_factors_098",
+    "AXP_FY2025_7_mdna_002",
+    "AXP_FY2025_1A_risk_factors_019",
+    "AXP_FY2025_1A_risk_factors_056",
+    "AXP_FY2025_1A_risk_factors_070"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_103",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_095",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AXP_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_102",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_101",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_098",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AXP_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

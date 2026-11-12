@@ -1,0 +1,246 @@
+{
+  "ticker": "ADBE",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Adobe reported strong FY2025 profitability with net income rising 28% to $7.13 billion, driven by an 11% revenue increase to $23.77 billion. Operating cash flow grew 25% to $10.03 billion, excluding a prior-year termination fee impact. While leverage risks exist regarding potential debt incurrence for acquisitions, liquidity remains robust with remaining performance obligations increasing 13% to $22.52 billion. Key risks include macroeconomic volatility, foreign currency fluctuations, and significant exposure to AI-related legal, reputational, and competitive challenges.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net income for fiscal 2025 was $7.13 billion, a 28% increase compared to fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Total revenue for fiscal 2025 was $23.769 billion, representing an 11% increase from fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014",
+          "ADBE_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Cash flows from operations increased by 25% to $10.03 billion in fiscal 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Fiscal 2024 cash flows from operations were adversely impacted by a $1 billion Figma termination fee.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Remaining performance obligations increased 13% to $22.52 billion as of November 28, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Total Adobe Annual Recurring Revenue (ARR) grew to $25.20 billion exiting fiscal 2025, an 11.5% year-over-year increase.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Foreign currency impacts resulted in a net revenue decrease of approximately $18 million, partially offset by $22 million in hedging gains.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Acquisitions may require the incurrence of additional debt, which would increase interest expense and leverage.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Acquisitions may involve exposure to litigation or inheritance of claims from acquired entities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_015",
+          "ADBE_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "The company faces risks from macroeconomic conditions including inflation, interest rates, and geopolitical pressures.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Use of third-party AI models exposes the company to intellectual property infringement claims and legal liability.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Social, ethical, and operational issues related to AI use may result in reputational harm and additional costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Developing new solutions requires significant investment and may not be profitable or yield expected benefits.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "ADBE_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Operating expenses of $12.51 billion in fiscal 2025 remained relatively flat compared to fiscal 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Cost of revenue increased by 8% to $2.55 billion in fiscal 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "ADBE_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "ADBE_FY2025_1A_risk_factors_015",
+    "ADBE_FY2025_1A_risk_factors_014",
+    "ADBE_FY2025_7_mdna_012",
+    "ADBE_FY2025_7_mdna_021",
+    "ADBE_FY2025_7_mdna_014",
+    "ADBE_FY2025_1A_risk_factors_001",
+    "ADBE_FY2025_7_mdna_004",
+    "ADBE_FY2025_7_mdna_003",
+    "ADBE_FY2025_1A_risk_factors_008",
+    "ADBE_FY2025_1A_risk_factors_005"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "ADBE_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000796343-26-000003",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

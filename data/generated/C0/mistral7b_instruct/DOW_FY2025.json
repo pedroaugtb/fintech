@@ -1,0 +1,238 @@
+{
+  "ticker": "DOW",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "DOW's FY2025 results show a mixed performance. The company reported a net income of $1,444 million, a decrease from $2,231 million in FY2024. Leverage increased due to increased interest expense and amortization of debt discount, primarily due to $1.4 billion of senior unsecured notes issued in Q3 2025 and increased issuances of commercial paper. Liquidity was impacted by the Company's significant investments to meet commitments and adopt policies to enhance sustainability, which could negatively impact the Company’s financial condition, results of operations and cash flows. Profitability was affected by continued integrated margin compression at the Company's principal joint ventures and lower non-cash settlement charges related to the Company's pension derisking activities. Risk factors include potential negative impact on the Company’s reputation and customer relationships due to its commitments, increased borrowing costs and reduced sources of liquidity due to changes in credit ratings, increased competition, and potential negative impact on the Company’s results of operations and liquidity due to adverse economic conditions, a contraction in the availability of credit, changes in trade policies, and global financial market volatility.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "DOW reported a net income of $1,444 million in FY2025, a decrease from $2,231 million in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Leverage increased due to increased interest expense and amortization of debt discount, primarily due to $1.4 billion of senior unsecured notes issued in Q3 2025 and increased issuances of commercial paper.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_026"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Liquidity was impacted by the Company's significant investments to meet commitments and adopt policies to enhance sustainability, which could negatively impact the Company’s financial condition, results of operations and cash flows.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Profitability was affected by continued integrated margin compression at the Company's principal joint ventures and lower non-cash settlement charges related to the Company's pension derisking activities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DOW_FY2025_7_mdna_010",
+          "DOW_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Risk factors include potential negative impact on the Company’s reputation and customer relationships due to its commitments.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Risk factors include increased borrowing costs and reduced sources of liquidity due to changes in credit ratings.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Risk factors include increased competition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Risk factors include potential negative impact on the Company’s results of operations and liquidity due to adverse economic conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Risk factors include potential negative impact on the Company’s results of operations and liquidity due to a contraction in the availability of credit.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Risk factors include potential negative impact on the Company’s results of operations and liquidity due to changes in trade policies.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Risk factors include potential negative impact on the Company’s results of operations and liquidity due to global financial market volatility.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The Company operates in a global, competitive environment which gives rise to operating and market risk exposure.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Increased levels of competition have resulted in lower prices and lower sales volume, which have had a negative impact on the Company’s results of operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The Company utilizes cash from operations and its ability to access capital markets to meet the Company's cash requirements for working capital, capital projects, debt maturities and other needs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Adverse economic conditions, a contraction in the availability of credit in the marketplace, or changes in the Company's credit ratings, including failure to maintain an investment grade rating, could increase borrowing costs and reduce sources of liquidity, restricting the Company’s flexibility to respond to changing business and economic conditions or to fund capital projects and working capital needs, which could adversely impact the Company's results of operations and liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DOW_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DOW_FY2025_7_mdna_026",
+    "DOW_FY2025_7_mdna_025",
+    "DOW_FY2025_7_mdna_024",
+    "DOW_FY2025_1A_risk_factors_004",
+    "DOW_FY2025_1A_risk_factors_005",
+    "DOW_FY2025_7_mdna_010",
+    "DOW_FY2025_7_mdna_029",
+    "DOW_FY2025_1A_risk_factors_018",
+    "DOW_FY2025_1A_risk_factors_008"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0001751788-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "accession": "0001751788-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0001751788-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_004",
+      "section": "1A_risk_factors",
+      "accession": "0001751788-26-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0001751788-26-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001751788-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DOW_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "accession": "0001751788-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0001751788-26-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DOW_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0001751788-26-000018",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

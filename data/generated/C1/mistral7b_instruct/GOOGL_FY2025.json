@@ -1,0 +1,251 @@
+{
+  "ticker": "GOOGL",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Alphabet Inc.'s FY2025 10-K indicates the company raised capital through debt issuance and expects to continue to assess the use of debt and other forms of financing. The company also provides credit support to certain infrastructure-related counterparties and may continue to do so in the future. The company's financial statements incorporate inherently subjective valuation methodologies, and the fair value of its investments may be affected by various factors, including liquidity, credit deterioration, performance of underlying entities, foreign exchange rates, and changes in interest rates. The company's cash dividend program is subject to declaration by the Board of Directors and may affect stock trading prices. The company's international operations expose it to additional risks, including restrictions on foreign ownership and investments, sanctions, tariffs, and geopolitical tensions. The company faces risks related to data protection laws, cyber attacks, and data exfiltration or compromise by nation-states and state-sponsored actors.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "In FY2025, Alphabet Inc. raised capital through the issuance of debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GOOGL_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Alphabet Inc. expects to continue to assess the use of debt and other forms of financing in the future.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GOOGL_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "In FY2025, Alphabet Inc. provided credit support, such as through backstops and guarantees, to certain infrastructure-related counterparties.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GOOGL_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company's financial statements incorporate inherently subjective valuation methodologies.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The fair value of Alphabet Inc.'s investments may be affected by various factors, including liquidity, credit deterioration, performance of underlying entities, foreign exchange rates, and changes in interest rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The company's cash dividend program is subject to declaration by the Board of Directors.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_071"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company's international operations expose it to additional risks, including restrictions on foreign ownership and investments.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company's international operations expose it to additional risks, including sanctions, tariffs, and geopolitical tensions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company faces risks related to data protection laws.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company faces risks related to cyber attacks and data exfiltration or compromise by nation-states and state-sponsored actors.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The company may experience security and privacy issues due to employee or insider error or malfeasance, system errors, or vulnerabilities in its or other parties' systems.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The company may learn of security and privacy issues via third parties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Security and privacy issues may result in significant legal, financial, and reputational harm, including government inquiries, enforcement actions, litigation, and negative publicity.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "A series of related security and privacy issues may not be determined to be material at the time they occurred but may be determined to be material at a later date in the aggregate.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "GOOGL_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Alphabet Inc.'s international operations accounted for approximately 52% of consolidated revenues in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "GOOGL_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "GOOGL_FY2025_7_mdna_005",
+    "GOOGL_FY2025_1A_risk_factors_028",
+    "GOOGL_FY2025_1A_risk_factors_027",
+    "GOOGL_FY2025_1A_risk_factors_071",
+    "GOOGL_FY2025_1A_risk_factors_070",
+    "GOOGL_FY2025_7_mdna_017",
+    "GOOGL_FY2025_7_mdna_016",
+    "GOOGL_FY2025_1A_risk_factors_024",
+    "GOOGL_FY2025_1A_risk_factors_061",
+    "GOOGL_FY2025_1A_risk_factors_039",
+    "GOOGL_FY2025_1A_risk_factors_043"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "GOOGL_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_071",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_024",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "GOOGL_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0001652044-26-000018",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

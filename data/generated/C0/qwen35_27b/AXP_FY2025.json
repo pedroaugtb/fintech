@@ -1,0 +1,245 @@
+{
+  "ticker": "AXP",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "American Express reported FY2025 net income of $10.8 billion, a 7% increase from 2024, driven by revenue growth to $72.2 billion. However, leverage risks persist as 79% of loans are concentrated in the U.S., exposing the firm to domestic economic downturns. Liquidity remains contingent on stable credit ratings and access to securitization markets; any downgrade could materially increase funding costs. Profitability faces pressure from potential interest rate volatility affecting net interest income and rising provisions for credit losses. Key operational risks include cybersecurity incidents, regulatory scrutiny, and the potential loss of critical co-brand partnerships, which could materially impair future results.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net income increased to $10.833 billion in FY2025, up from $10.129 billion in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AXP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Total revenues net of interest expense reached $72.229 billion in FY2025, a 10% increase year-over-year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AXP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Provisions for credit losses rose to $5.256 billion in FY2025, up $71 million from the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AXP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "Approximately 79% of total Card Member loans and receivables were concentrated in the United States as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Net interest income for FY2025 was approximately $17.4 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Changes in interest rates could materially adversely affect net interest yield and overall earnings.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "A reduction in credit ratings could increase funding costs and restrict access to capital markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_103",
+          "AXP_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Liquidity and funding needs depend on the ability to securitize loans and receivables in the asset-backed securities market.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Adverse market conditions could limit access to funding required to meet maturing liabilities and regulatory capital requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "As a Category III firm, the company is subject to stringent capital and liquidity requirements that may increase if it grows to Category II.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_098"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Loss of exclusivity arrangements or key co-brand partners could have a material adverse impact on business results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Cybersecurity incidents could lead to regulatory fines, litigation, reputational damage, and reduced product usage.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_056"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Litigation and regulatory actions could result in significant fines, penalties, and increased legal expenses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_070"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Increased credit risk from deteriorating economic conditions could require higher provisions for losses.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The company's ability to raise funding through securitization depends on satisfying rating agency requirements for asset-backed securities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AXP_FY2025_1A_risk_factors_103"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AXP_FY2025_1A_risk_factors_103",
+    "AXP_FY2025_1A_risk_factors_095",
+    "AXP_FY2025_7_mdna_004",
+    "AXP_FY2025_1A_risk_factors_102",
+    "AXP_FY2025_1A_risk_factors_101",
+    "AXP_FY2025_1A_risk_factors_098",
+    "AXP_FY2025_7_mdna_002",
+    "AXP_FY2025_1A_risk_factors_019",
+    "AXP_FY2025_1A_risk_factors_056",
+    "AXP_FY2025_1A_risk_factors_070"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_103",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_095",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AXP_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_102",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_101",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_098",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AXP_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_019",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AXP_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0000004962-26-000080",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

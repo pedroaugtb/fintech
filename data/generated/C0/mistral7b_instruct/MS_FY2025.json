@@ -1,0 +1,246 @@
+{
+  "ticker": "MS",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "MS's FY2025 10-K indicates increased leverage due to an increase in litigation-related incidents and the implementation of G-SIB Capital Surcharge and various external TLAC, long-term debt, and clean holding company requirements. The company is also subject to liquidity risks due to sensitivity of interest income to changes in interest rates and the level and pace of interest rate changes impacting client preferences and the pace of reallocation of client balances. Profitability may be affected by significant changes to interest rates and severe market events. Risk factors include concentration of risk, severe market events, and changes to interest rates.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "MS is subject to an additional risk-based capital surcharge, the G-SIB capital surcharge.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "MS is subject to external TLAC, long-term debt, and clean holding company requirements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "MS's leverage is increased by litigation-related incidents.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "MS's liquidity is sensitive to changes in interest rates.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "MS's liquidity is affected by the level and pace of interest rate changes.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "MS's profitability may be affected by significant changes to interest rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "MS's profitability may be affected by severe market events.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "MS's risk profile includes concentration of risk.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "MS's risk profile includes severe market events.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "MS's risk profile includes changes to interest rates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_005",
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "MS's risk management functions are independent of business units.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_027",
+          "MS_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "MS's risk management processes seek to quantify and mitigate risk to more extreme market moves.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "MS could realize significant losses if extreme market events were to occur.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "MS's net interest income is sensitive to changes in interest rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MS_FY2025_1A_risk_factors_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "MS's Wealth Management business segment reflects a substantial portion of its non-trading interest rate risk.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MS_FY2025_7_mdna_050"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MS_FY2025_7_mdna_002",
+    "MS_FY2025_7_mdna_003",
+    "MS_FY2025_7_mdna_060",
+    "MS_FY2025_7_mdna_059",
+    "MS_FY2025_1A_risk_factors_006",
+    "MS_FY2025_7_mdna_028",
+    "MS_FY2025_7_mdna_050",
+    "MS_FY2025_1A_risk_factors_005",
+    "MS_FY2025_7_mdna_037",
+    "MS_FY2025_7_mdna_027"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MS_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_060",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_059",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_050",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MS_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MS_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000895421-26-000086",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

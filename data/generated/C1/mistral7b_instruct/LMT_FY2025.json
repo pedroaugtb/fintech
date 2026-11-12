@@ -1,0 +1,252 @@
+{
+  "ticker": "LMT",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "LMT's FY2025 10-K highlights several risks that could impact the company's leverage, liquidity, profitability, and overall business. The company's reliance on government contracts, particularly with the U.S. Department of War, poses a significant risk, as changes in government priorities or budgetary pressures could adversely affect the company's business. Economic conditions, higher interest rates, and public health crises are also identified as risks that could impact the company's financial position and results of operations. International sales present unique risks due to economic, regulatory, and competition factors, as well as the possibility of trade sanctions and other government actions. The company's ability to generate sufficient cash flows from operations and access financing sources will depend on many factors, including results of operations, capital requirements, and applicable laws. The company's profitability is also affected by pension expenses, tax laws and regulations, and pension transactions.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "LMT derived 72% of total consolidated sales from the U.S. Government in 2025, including 63% from the Department of War.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "LMT expects to continue to derive most of its sales from work performed under U.S. Government contracts.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Economic conditions could cause budgetary pressures for LMT's government customers, which could adversely impact the company's business.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_037",
+          "LMT_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Higher interest rates increase the borrowing costs on new debt and could affect the fair value of LMT's investments.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Public health crises, epidemics, pandemics or similar events could adversely impact LMT's business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "International sales present risks that are different and potentially greater than those encountered in LMT's U.S. business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "LMT's ability to generate sufficient cash flows from operations and access financing sources will depend on many factors, including results of operations, capital requirements, and applicable laws.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Macroeconomic conditions could cause budgetary pressures for LMT's government customers, which could adversely impact the company's business.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Heightened levels of inflation and the potential worsening of macroeconomic conditions present risks for LMT.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "LMT's suppliers and other partners may be adversely impacted to a more significant degree than LMT by an economic downturn.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "LMT's consolidated results of operations were $75,048 in sales, $67,429 in operating costs and expenses, and $7,619 in gross profit in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LMT_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "LMT's goodwill assets are subject to annual impairment testing and more frequent testing upon the occurrence of certain events or significant changes in circumstances that indicate goodwill may be impaired.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Changes in U.S. or foreign tax laws and regulations, or their interpretation and enforcement, could adversely affect LMT's financial results.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "LMT's business segments' results of operations include pension expense as calculated under CAS while its consolidated financial statements must present pension income or expense in accordance with U.S. GAAP Financial Accounting Standards (FAS); differences in these accounting rules may result in significant period adjustments referred to as LMT's FAS/CAS pension adjustments.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Union actions at suppliers could adversely affect LMT's ability to perform under its contracts, which could negatively impact its financial condition and results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "LMT_FY2025_1A_risk_factors_000",
+    "LMT_FY2025_1A_risk_factors_038",
+    "LMT_FY2025_7_mdna_005",
+    "LMT_FY2025_1A_risk_factors_075",
+    "LMT_FY2025_1A_risk_factors_037",
+    "LMT_FY2025_1A_risk_factors_074",
+    "LMT_FY2025_7_mdna_019",
+    "LMT_FY2025_1A_risk_factors_062",
+    "LMT_FY2025_1A_risk_factors_059",
+    "LMT_FY2025_1A_risk_factors_049",
+    "LMT_FY2025_1A_risk_factors_039"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LMT_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_074",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LMT_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

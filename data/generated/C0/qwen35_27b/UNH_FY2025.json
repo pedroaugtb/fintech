@@ -1,0 +1,252 @@
+{
+  "ticker": "UNH",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "UnitedHealth Group (UNH) reported FY2025 consolidated revenues of $352.2 billion, up 14%, but earnings from operations declined sharply to $19.0 billion from $32.3 billion in 2024. This $13.3 billion drop was driven by elevated medical cost trends, $2.5 billion in restructuring charges, and a $799 million increase in reserves related to the Change Healthcare cyberattack. While operating cash flows remained robust at $19.7 billion, the company faces significant leverage risks from potential credit rating downgrades that could increase borrowing costs. Liquidity is constrained by regulatory capital requirements and holding company structures. Key risks include cybersecurity vulnerabilities, evolving AI regulations, and the inability to accurately price medical costs against inflation.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Consolidated revenues grew 14% to $352.2 billion in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Earnings from operations decreased to $19.0 billion in FY2025 from $32.3 billion in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Restructuring and other actions in FY2025 resulted in a total negative impact of $2.5 billion on results.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "The company increased reserves by $799 million in Q4 2025 for net collection expectations related to the Change Healthcare cyberattack.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Cash flows from operations were $19.7 billion for the year ended December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "As a holding company, UNH is dependent on dividends and administrative expense reimbursements from regulated subsidiaries to fund obligations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Regulatory requirements mandate minimum capital or restricted cash reserve requirements for insurance and HMO subsidiaries.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Any downgrades in credit ratings could materially increase borrowing costs and reduce access to debt capital markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_040",
+          "UNH_FY2025_1A_risk_factors_041"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Credit ratings are critical factors in establishing the competitive position and claims-paying ability of the company.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Market fluctuations and interest rate volatility could impair the value of the investment and loan portfolio, affecting profitability.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Pricing trends and assumptions for 2025 were significantly short of actual medical cost trends incurred, impacting earnings.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Cybersecurity incidents could result in operational interruptions, litigation, regulatory penalties, and brand damage.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Evolving regulations regarding AI technologies may impose new compliance obligations and increase operating costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "UNH_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Diluted earnings per common share for FY2025 was $13.23.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "UnitedHealthcare served 415,000 more people domestically in FY2025, driven by growth in fee-based commercial offerings and Medicare Advantage.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "UNH_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "UNH_FY2025_1A_risk_factors_040",
+    "UNH_FY2025_1A_risk_factors_036",
+    "UNH_FY2025_1A_risk_factors_043",
+    "UNH_FY2025_1A_risk_factors_041",
+    "UNH_FY2025_1A_risk_factors_045",
+    "UNH_FY2025_7_mdna_004",
+    "UNH_FY2025_7_mdna_005",
+    "UNH_FY2025_7_mdna_014",
+    "UNH_FY2025_1A_risk_factors_013",
+    "UNH_FY2025_1A_risk_factors_062",
+    "UNH_FY2025_7_mdna_006"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_036",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_041",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_013",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNH_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "UNH_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000731766-26-000062",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

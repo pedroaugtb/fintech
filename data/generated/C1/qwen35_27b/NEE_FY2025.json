@@ -1,0 +1,246 @@
+{
+  "ticker": "NEE",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "NEE reported FY2025 net income of $6.84 billion, a decrease from $6.95 billion in 2024, driven by higher interest expense and unfavorable non-qualifying hedge activity at Corporate and Other. While NEER net income increased by $676 million due to new investments, overall profitability faced headwinds from higher average debt balances. Liquidity sources totaled $43.1 billion, primarily from operating cash flows and long-term debt issuances, funding $24.6 billion in capital expenditures. Key risks include extensive regulatory oversight, potential legislative changes affecting competition in Florida, and the possibility that hedging tools may fail to protect against significant losses if price movements deviate from historical patterns.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Net income attributable to NEE for 2025 was $6.84 billion, compared to $6.95 billion in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "The decrease in 2025 net income was primarily due to lower results at Corporate and Other, partly offset by higher results at FPL and NEER.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Corporate and Other results decreased in 2025 primarily due to higher interest expense from unfavorable non-qualifying hedge activity and higher average debt balances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "NEER's net income less net loss attributable to noncontrolling interests increased by $676 million in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_017",
+          "NEE_FY2025_7_mdna_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Total sources of cash for 2025 were $43,102 million, with cash flows from operating activities contributing $12,485 million.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Issuances of long-term debt in 2025 totaled $23,394 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Total uses of cash in 2025 were $41,503 million, including $24,606 million for capital expenditures and investments.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_027",
+          "NEE_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Retirements of long-term debt in 2025 amounted to $10,347 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Dividends on common stock paid in 2025 totaled $4,680 million.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "FPL's income taxes decreased by $251 million in 2025 primarily due to higher clean energy tax credits.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_017"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "NEE and FPL face risks from extensive federal, state, and other regulations affecting their business operations and cost structures.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEE_FY2025_1A_risk_factors_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Changes in Florida law or regulation could increase competition in the retail electricity market, potentially adversely affecting FPL.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEE_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "NEE's risk management tools for hedging and trading are based on historical price movements and may not protect against significant losses if prices deviate significantly.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "NEE_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "NEE anticipates satisfying capital requirements through cash flows from operations, borrowings, debt issuances, and equity securities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "NEE faces interest rate and foreign currency exchange rate risks associated with outstanding and expected future debt issuances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEE_FY2025_7_mdna_024"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NEE_FY2025_7_mdna_024",
+    "NEE_FY2025_7_mdna_027",
+    "NEE_FY2025_7_mdna_007",
+    "NEE_FY2025_7_mdna_028",
+    "NEE_FY2025_7_mdna_017",
+    "NEE_FY2025_7_mdna_018",
+    "NEE_FY2025_7_mdna_000",
+    "NEE_FY2025_1A_risk_factors_001",
+    "NEE_FY2025_1A_risk_factors_009",
+    "NEE_FY2025_1A_risk_factors_046"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_024",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_017",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEE_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEE_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEE_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEE_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000753308-26-000015",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

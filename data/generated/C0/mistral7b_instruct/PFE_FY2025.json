@@ -1,0 +1,245 @@
+{
+  "ticker": "PFE",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "PFE's FY2025 10-K highlights several risk factors that may impact the company's financial performance. The company's leverage is a significant concern due to substantial indebtedness incurred to fund acquisitions, which could reduce operating or financial flexibility, require interest payments, and limit future financing. The success of business development transactions is subject to numerous risks, including unsuccessful clinical trials, regulatory hurdles, and commercialization challenges. The company's liquidity position is also a concern, with potential impacts from product supply, environmental costs, and legal proceedings. Profitability may be affected by cost and revenue challenges from business development transactions, as well as competition from other companies.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "PFE incurred substantial indebtedness to fund certain acquisitions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_171",
+          "PFE_FY2025_7_mdna_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The success of PFE's business development activities depends on the availability and accurate evaluation of opportunities, competition, and the ability to execute transactions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_171"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Pursuing, executing, and consummating these transactions may require substantial investment, which may require additional equity or debt financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_171"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Increased leverage and/or a downgrade of PFE's credit ratings could limit the company's ability to obtain future financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_171"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "PFE's liquidity position is a concern, with potential impacts from product supply, environmental costs, and legal proceedings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PFE_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "PFE's profitability may be affected by cost and revenue challenges from business development transactions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_173"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "PFE may fail to generate expected revenue growth for existing products, product pipeline, or contribution from business development transactions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_173"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "PFE may fail to achieve anticipated cost savings, within expected time frames or at all.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_173"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "PFE may be exposed to risks and liabilities through due diligence.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_173"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "PFE operates on a global scale and could be affected by currency and interest rate fluctuations, global trade tensions, and political or civil unrest.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_181"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "PFE's products face competition from other companies.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_113"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "PFE recorded revenues of more than $1 billion for each of 12 products that collectively accounted for 65% of Total revenues in 2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_113"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Eliquis accounted for 13% of Total revenues in 2025.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_113"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "PFE's business, financial condition, or results of operations may be impacted by various factors, such as access challenges where the product may not receive appropriate coverage/reimbursement access or remains in a disadvantaged position relative to an innovator product.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_113"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "PFE's financial performance may be impacted by numerous risks, including unsuccessful clinical trials, regulatory hurdles, and commercialization challenges.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PFE_FY2025_1A_risk_factors_171"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PFE_FY2025_1A_risk_factors_171",
+    "PFE_FY2025_1A_risk_factors_172",
+    "PFE_FY2025_7_mdna_016",
+    "PFE_FY2025_7_mdna_011",
+    "PFE_FY2025_1A_risk_factors_119",
+    "PFE_FY2025_1A_risk_factors_181",
+    "PFE_FY2025_1A_risk_factors_173",
+    "PFE_FY2025_7_mdna_025",
+    "PFE_FY2025_1A_risk_factors_000",
+    "PFE_FY2025_1A_risk_factors_113"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_171",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_172",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PFE_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PFE_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_119",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_181",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_173",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PFE_FY2025_7_mdna_025",
+      "section": "7_mdna",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PFE_FY2025_1A_risk_factors_113",
+      "section": "1A_risk_factors",
+      "accession": "0000078003-26-000026",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

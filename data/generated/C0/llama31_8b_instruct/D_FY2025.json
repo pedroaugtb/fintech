@@ -1,0 +1,244 @@
+{
+  "ticker": "D",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Dominion Energy's FY2025 financial performance is marked by a 47% increase in net income attributable to Dominion Energy, driven by higher market-related impacts on pension and other postretirement plans, and higher electric utility sales. However, the company faces risks related to leverage, liquidity, profitability, and various risk factors, including regulatory and environmental uncertainties, competition, and cybersecurity threats. The company's long-term strategic target asset allocation for its pension funds is 30% public equity, 27% fixed income, and 43% other alternative investments. Dominion Energy's ability to recover actuarial losses and gains from customers in future rates is subject to regulatory approval. The company's liquidity position is affected by fluctuations in energy-related commodity prices, interest rates, and global capital market conditions. The company's profitability is influenced by various factors, including changes in operating, maintenance, and construction costs, and the availability of nuclear fuel, natural gas, and other materials. Dominion Energy faces various risk factors, including equipment loss, malfunction, or failure, operator error, and other catastrophic events, as well as cybersecurity threats and competition in industries in which the company operates.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Dominion Energy's long-term strategic target asset allocation for its pension funds is 30% public equity, 27% fixed income, and 43% other alternative investments.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Dominion Energy's ability to recover actuarial losses and gains from customers in future rates is subject to regulatory approval.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Dominion Energy's liquidity position is affected by fluctuations in energy-related commodity prices, interest rates, and global capital market conditions.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Dominion Energy's profitability is influenced by various factors, including changes in operating, maintenance, and construction costs, and the availability of nuclear fuel, natural gas, and other materials.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Dominion Energy's net income attributable to Dominion Energy increased 47% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Dominion Energy's net income attributable to Dominion Energy increased 4% in FY2024 compared to FY2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Dominion Energy faces various risk factors, including equipment loss, malfunction, or failure, operator error, and other catastrophic events.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Dominion Energy faces various risk factors, including cybersecurity threats and competition in industries in which the company operates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Dominion Energy's estimated total project cost for the VCEP project reflects a contingency of approximately 7% on remaining construction costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Dominion Energy's ability to recover costs associated with the VCEP project is subject to cost sharing mechanisms.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Dominion Energy's ability to recover costs associated with the VCEP project is subject to regulatory approvals and permits.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Dominion Energy's ability to recover costs associated with the VCEP project is subject to the availability of nuclear fuel, natural gas, and other materials.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Dominion Energy's ability to recover costs associated with the VCEP project is subject to the impact of applicable tariffs, including any potential impact of Section 232 investigations and litigation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Dominion Energy's ability to recover costs associated with the VCEP project is subject to the ability of key suppliers and contractors to timely satisfy their obligations under existing contracts.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Dominion Energy's ability to recover costs associated with the VCEP project is subject to marine wildlife and/or any severe weather events.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "D_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "D_FY2025_7_mdna_030",
+    "D_FY2025_7_mdna_029",
+    "D_FY2025_7_mdna_026",
+    "D_FY2025_7_mdna_003",
+    "D_FY2025_7_mdna_004",
+    "D_FY2025_7_mdna_036",
+    "D_FY2025_7_mdna_037",
+    "D_FY2025_7_mdna_018",
+    "D_FY2025_7_mdna_001",
+    "D_FY2025_7_mdna_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "D_FY2025_7_mdna_030",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_026",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_036",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_037",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "D_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0001193125-26-063120",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

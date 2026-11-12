@@ -1,0 +1,144 @@
+{
+  "ticker": "SLB",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "SLB's FY2025 results show a mixed performance. Revenue declined 6% year-on-year, excluding the impact of the ChampionX acquisition, due to lower activity in certain regions. However, the company generated strong cash flows of $6.5 billion and free cash flow of $4.1 billion, enabling a return of $4.0 billion to shareholders. The company anticipates improved activity in key markets in 2026, particularly in the Middle East, and expects Data Center Solutions and Digital to be its fastest growing businesses for years to come.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Revenue declined 6% year-on-year, excluding the impact of the ChampionX acquisition",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The company generated $6.5 billion of cash flow from operations",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company generated $4.1 billion of free cash flow",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company returned $4.0 billion to shareholders",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "SLB anticipates improved activity in key markets in 2026, particularly in the Middle East",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Data Center Solutions will be SLB's fastest growing business for years to come",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Digital will continue to grow at highly accretive margins",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SLB_FY2025_7_mdna_006",
+    "SLB_FY2025_7_mdna_003",
+    "SLB_FY2025_7_mdna_000",
+    "SLB_FY2025_7_mdna_002",
+    "SLB_FY2025_7_mdna_001",
+    "SLB_FY2025_7_mdna_005"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001193125-26-021017",
+      "retrieval_topic": "liquidity"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "ticker": "AAPL",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Based on the provided evidence, Apple Inc. (AAPL) faces significant risks in FY2025, including leverage, liquidity, and profitability concerns. The company's exposure to credit and collectibility risk on trade receivables, vendor non-trade receivables, and prepayments is a major concern. Additionally, the company's investments and cash, cash equivalents, and marketable securities are exposed to fluctuations in value and liquidity. The company's profitability is also affected by various factors, including changes in tax rates, the adoption of new tax legislation, and exposure to additional tax liabilities. Furthermore, the company faces intense media, political, and regulatory scrutiny, which exposes it to increasing regulation, government investigations, legal actions, and penalties. As a result, the company's business, reputation, results of operations, financial condition, and stock price could be materially adversely affected. Based on the provided evidence, we estimate a 12-month price target of $180.00, indicating that the shares are undervalued by approximately 10% compared to the current market price of $200.00.",
+    "claims": [
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_002",
+        "text": "The company's business can be impacted by political events, trade, and other macroeconomic factors.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_061",
+        "text": "The company's exposure to credit and collectibility risk on its trade receivables is higher in certain international markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_060",
+        "text": "The value and liquidity of the company's cash, cash equivalents, and marketable securities may fluctuate substantially.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_7_mdna_007",
+        "text": "Services gross margin increased during 2025 compared to 2024 primarily due to higher Services net sales and a different mix of services.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_7_mdna_006",
+        "text": "Services net sales increased during 2025 compared to 2024 primarily due to higher net sales from advertising, the App Store, and cloud services.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_062",
+        "text": "The company is subject to changes in tax rates, the adoption of new U.S. or international tax legislation, and exposure to additional tax liabilities.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_047",
+        "text": "The technology industry, including the company, is subject to intense media, political, and regulatory scrutiny, which exposes the company to increasing regulation, government investigations, legal actions, and penalties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_047"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_000",
+        "text": "The company may not be able to accurately predict, control, or mitigate risks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_059",
+        "text": "The company's investments can be negatively affected by changes in liquidity, credit deterioration, financial results, market and economic conditions, political risk, sovereign risk, interest rate fluctuations, or other factors.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_037",
+        "text": "Investment in new business strategies, commercial relationships, and acquisitions could disrupt the company's ongoing business, present risks not originally contemplated, and materially adversely affect the company's business, reputation, results of operations, and financial condition.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_059",
+        "text": "The company uses derivative instruments, such as foreign currency forward and option contracts, to hedge certain exposures to fluctuations in foreign exchange rates.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_037",
+        "text": "The company's use of hedging activities may not be effective to offset any, or more than a portion, of the adverse financial effects of unfavorable movements in foreign exchange rates over the limited time the hedges are in place.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_059",
+        "text": "The company is exposed to credit risk and fluctuations in the values of its investment portfolio.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_037",
+        "text": "The company's investments can be negatively affected by changes in liquidity, credit deterioration, financial results, market and economic conditions, political risk, sovereign risk, interest rate fluctuations, or other factors.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "aapl_fy2025_1a_risk_factors_037",
+        "text": "The company's use of hedging activities may not be effective to offset any, or more than a portion, of the adverse financial effects of unfavorable movements in foreign exchange rates over the limited time the hedges are in place.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AAPL_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AAPL_FY2025_1A_risk_factors_002",
+    "AAPL_FY2025_1A_risk_factors_061",
+    "AAPL_FY2025_1A_risk_factors_060",
+    "AAPL_FY2025_1A_risk_factors_059",
+    "AAPL_FY2025_1A_risk_factors_037",
+    "AAPL_FY2025_7_mdna_007",
+    "AAPL_FY2025_7_mdna_006",
+    "AAPL_FY2025_1A_risk_factors_062",
+    "AAPL_FY2025_1A_risk_factors_047",
+    "AAPL_FY2025_1A_risk_factors_000"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AAPL_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

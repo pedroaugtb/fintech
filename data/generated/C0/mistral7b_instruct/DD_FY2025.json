@@ -1,0 +1,242 @@
+{
+  "ticker": "DD",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "DuPont's FY2025 10-K indicates potential risks to the company's financial condition and results of operations. The company's leverage is high due to its reliance on debt capital markets and other short-term borrowings to finance operations. A decrease in its credit ratings could increase borrowing costs and restrict access to debt markets. The company's liquidity is sufficient, but reliance on debt markets could be a risk. Profitability is dependent on cost management, technology leveraging, and operational improvements. Tax uncertainty and changes could impact the effective tax rate. Risk factors include potential losses from mergers and acquisitions, cybersecurity threats, and PFAS-related litigation.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "DuPont relies on debt capital markets and other short-term borrowings to finance operations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "A decrease in DuPont's credit ratings could increase borrowing costs.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company's credit ratings are important to its cost of capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "DuPont's liquidity is sufficient, but reliance on debt markets could be a risk.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "DuPont's profitability is dependent on cost management, technology leveraging, and operational improvements.",
+        "topic": "profitability",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "6",
+        "text": "Tax uncertainty and changes could impact DuPont's effective tax rate.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_061"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "DuPont faces risks from potential losses from mergers and acquisitions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_035"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Cybersecurity threats could require significant resources and have a material adverse effect.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "PFAS-related litigation could adversely affect DuPont's results of operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The outcome of PFAS-related litigation depends on various factors and uncertainties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "DuPont faces risks from various unasserted and asserted litigation matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "An adverse outcome in any one or more litigation matters could negatively affect DuPont's business, financial condition, results of operations, and cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "DuPont has a cost sharing arrangement related to future PFAS costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The ultimate impact on DuPont from the cost sharing arrangement depends on various factors and uncertainties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "DuPont faces risks from potential changes in laws and regulations applicable to PFAS chemicals.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DD_FY2025_1A_risk_factors_015"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DD_FY2025_1A_risk_factors_048",
+    "DD_FY2025_7_mdna_018",
+    "DD_FY2025_1A_risk_factors_047",
+    "DD_FY2025_7_mdna_000",
+    "DD_FY2025_1A_risk_factors_061",
+    "DD_FY2025_1A_risk_factors_043",
+    "DD_FY2025_7_mdna_021",
+    "DD_FY2025_1A_risk_factors_035",
+    "DD_FY2025_1A_risk_factors_014",
+    "DD_FY2025_1A_risk_factors_015"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DD_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DD_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DD_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_035",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DD_FY2025_1A_risk_factors_015",
+      "section": "1A_risk_factors",
+      "accession": "0001666700-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

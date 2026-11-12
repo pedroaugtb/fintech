@@ -1,0 +1,215 @@
+{
+  "ticker": "AEP",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "AEP's FY2025 financial performance was positively impacted by increased transmission asset investments, favorable FERC orders, and decreased operating expenses. However, the company faces significant risks related to leverage, liquidity, profitability, and risk factors, including climate change, wildfires, and regulatory changes. AEP's ability to access capital markets and secure financing for its projects is uncertain due to market volatility and competition for capital among utilities and other sectors. The company's financial condition and credit ratings may be negatively impacted by these risks, which could limit its ability to pursue growth opportunities and maintain its financial discipline.",
+    "claims": [
+      {
+        "claim_id": "AEP_FY2025_1A_risk_factors_029",
+        "text": "AEP relies on access to capital markets for liquidity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AEP_FY2025_1A_risk_factors_031",
+        "text": "AEP's ability to access debt or equity may be limited, impacting its ability to pursue growth opportunities.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AEP_FY2025_1A_risk_factors_003",
+        "text": "AEP may be unable to secure adequate financing for its capital-intensive projects.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AEP_FY2025_1A_risk_factors_032",
+        "text": "AEP's credit ratings may be negatively impacted by shareholder activism.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AEP_FY2025_1A_risk_factors_016",
+        "text": "AEP's nuclear facilities are subject to significant regulatory risks.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AEP_FY2025_7_mdna_004",
+        "text": "AEP's profitability was positively impacted by investment in transmission assets and favorable FERC orders.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AEP_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AEP_FY2025_1A_risk_factors_011",
+        "text": "AEP's formula rates may be negatively impacted by FERC orders.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AEP_FY2025_1A_risk_factors_042",
+        "text": "AEP is subject to physical and financial risks associated with climate change.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_042"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AEP_FY2025_1A_risk_factors_046",
+        "text": "AEP's infrastructure poses risks to safety and system reliability due to wildfires.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AEP_FY2025_1A_risk_factors_045",
+        "text": "Climate change may impact the economy and AEP's sales and revenues.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_045"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "AEP_FY2025_1A_risk_factors_051",
+        "text": "AEP is subject to significant regulatory risks and penalties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "AEP_FY2025_1A_risk_factors_051"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "AEP_FY2025_1A_risk_factors_029",
+    "AEP_FY2025_1A_risk_factors_031",
+    "AEP_FY2025_1A_risk_factors_003",
+    "AEP_FY2025_1A_risk_factors_032",
+    "AEP_FY2025_1A_risk_factors_016",
+    "AEP_FY2025_7_mdna_004",
+    "AEP_FY2025_1A_risk_factors_011",
+    "AEP_FY2025_1A_risk_factors_042",
+    "AEP_FY2025_1A_risk_factors_046",
+    "AEP_FY2025_1A_risk_factors_045",
+    "AEP_FY2025_1A_risk_factors_051"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "AEP_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_042",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "AEP_FY2025_1A_risk_factors_051",
+      "section": "1A_risk_factors",
+      "accession": "0000004904-26-000013",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

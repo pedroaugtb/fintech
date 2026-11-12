@@ -1,0 +1,258 @@
+{
+  "ticker": "NEM",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Newmont's FY2025 financial performance is marked by increased net income from continuing operations attributable to Newmont stockholders, driven by higher average realized gold prices and a net gain on completed divestments. However, the company faces risks related to leverage, liquidity, profitability, and risk factors, including credit rating downgrades, foreign exchange fluctuations, and regulatory changes. The company's ability to maintain its credit ratings and access new financing on favorable terms is crucial to its financial position. Additionally, the company is exposed to various risks, including cybersecurity threats, changes in climate-related laws and regulations, and intense competition for mining properties. The company's exploration programs and acquisitions may not result in the expansion or replacement of its current production with new ore reserves or operations, which could have a material adverse effect on its business, prospects, results of operations, and financial position.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "Newmont's credit ratings have been subject to change over the years.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "Newmont's credit ratings could be downgraded by the rating agencies.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_054"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "Newmont's ability to pay dividends will be determined based on Newmont's financial results, balance sheet strength, cash and liquidity requirements, future prospects, gold and commodity prices and other factors deemed relevant by our Board of Directors.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "NEM_FY2025_1A_risk_factors_201"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "Newmont's net income from continuing operations attributable to Newmont stockholders increased during the year ended December 31, 2025, compared to the same period in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "Newmont's net income from continuing operations attributable to Newmont stockholders increased by $3,805 compared to the same period in 2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "Newmont's consolidated sales increased by $3,987 compared to the same period in 2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "Newmont's consolidated sales increased by $3,558 compared to the same period in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "Newmont's consolidated sales of gold increased by $3,558 compared to the same period in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "Newmont's consolidated sales of copper increased by 111 pounds compared to the same period in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "Newmont's consolidated sales of silver increased by 288 ounces compared to the same period in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "Newmont's consolidated sales of lead decreased by 12 pounds compared to the same period in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "Newmont's consolidated sales of zinc increased by 42 pounds compared to the same period in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "Newmont's consolidated sales of gold, copper, silver, lead, and zinc increased by $3,987 compared to the same period in 2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "Newmont's consolidated sales of gold, copper, silver, lead, and zinc increased by $22,669 compared to the same period in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "Newmont's consolidated sales of gold, copper, silver, lead, and zinc increased by $6,870 compared to the same period in 2023.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "NEM_FY2025_7_mdna_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "NEM_FY2025_1A_risk_factors_053",
+    "NEM_FY2025_1A_risk_factors_054",
+    "NEM_FY2025_1A_risk_factors_137",
+    "NEM_FY2025_1A_risk_factors_040",
+    "NEM_FY2025_1A_risk_factors_159",
+    "NEM_FY2025_1A_risk_factors_201",
+    "NEM_FY2025_7_mdna_010",
+    "NEM_FY2025_7_mdna_009",
+    "NEM_FY2025_7_mdna_011",
+    "NEM_FY2025_1A_risk_factors_028",
+    "NEM_FY2025_1A_risk_factors_006",
+    "NEM_FY2025_1A_risk_factors_094"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_053",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_054",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_137",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_159",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_201",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_7_mdna_011",
+      "section": "7_mdna",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_006",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "NEM_FY2025_1A_risk_factors_094",
+      "section": "1A_risk_factors",
+      "accession": "0001164727-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

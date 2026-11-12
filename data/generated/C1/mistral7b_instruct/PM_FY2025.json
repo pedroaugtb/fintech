@@ -1,0 +1,246 @@
+{
+  "ticker": "PM",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "PM's FY2025 financial report indicates a moderate leverage ratio, with total debt of $48.8 billion and cash and cash equivalents of $4.9 billion. The company's credit ratings are stable, with Moody's rating P-1, Standard & Poor's rating A-2, and Fitch rating F1. However, the company's debt is subject to foreign currency exchange rates fluctuations, primarily between the Euro and U.S. Dollar, which could impact debt levels and deleveraging pace. The company's liquidity is primarily sourced from cash generated from operations, long-term and short-term debt financing, and a commercial paper program. The company expects its liquidity requirements to be met through these sources. Profitability is affected by foreign currency fluctuations, capital expenditures, and working capital requirements. The company expects net cash provided by operating activities to be around $13.5 billion in 2026. Risk factors include regulatory changes, declining cigarette consumption, governmental actions, cyberattacks, data breaches, significant business disruption, litigation, regulatory action, and artificial intelligence system failures.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Total debt was $48.8 billion at December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Cash and cash equivalents were $4.9 billion at December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Moody's credit rating is P-1.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Standard & Poor's credit rating is A-2.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Fitch credit rating is F1.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Foreign currency denominated debt is subject to foreign currency exchange rates fluctuations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The weighted-average time to maturity of long-term debt was approximately 7 years at the end of 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company's principal source of liquidity is cash generated from operations.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company utilizes long-term and short-term debt financing, including a commercial paper program, as part of its overall cash management strategy.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company expects that the combination of long-term and short-term debt financing, the commercial paper program and the committed credit facilities, coupled with cash generated from operations, will be adequate to meet its liquidity requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Net cash provided by operating activities in 2025 was $8.1 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Net cash provided by operating activities in 2024 was $9.5 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Capital expenditures were $1.6 billion in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "The company expects total capital expenditures in 2026 to be $1.4 billion to $1.6 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PM_FY2025_7_mdna_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Risk factors include regulatory changes, declining cigarette consumption, governmental actions, cyberattacks, data breaches, significant business disruption, litigation, regulatory action, and artificial intelligence system failures.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "PM_FY2025_1A_risk_factors_011",
+          "PM_FY2025_1A_risk_factors_056",
+          "PM_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PM_FY2025_7_mdna_078",
+    "PM_FY2025_7_mdna_077",
+    "PM_FY2025_7_mdna_074",
+    "PM_FY2025_7_mdna_076",
+    "PM_FY2025_1A_risk_factors_046",
+    "PM_FY2025_7_mdna_072",
+    "PM_FY2025_7_mdna_073",
+    "PM_FY2025_1A_risk_factors_011",
+    "PM_FY2025_1A_risk_factors_056",
+    "PM_FY2025_1A_risk_factors_060"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PM_FY2025_7_mdna_078",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_077",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_074",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_076",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_072",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PM_FY2025_7_mdna_073",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_056",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PM_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005939",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

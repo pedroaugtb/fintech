@@ -1,0 +1,228 @@
+{
+  "ticker": "LIN",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Linde's FY2025 results show increased net income and diluted earnings per share, with sales slightly above the previous year. However, the company faces risks related to leverage, liquidity, profitability, and various risk factors. Leverage risks include potential difficulties in obtaining financing due to volatility in credit and equity markets, and increased borrowing costs due to changes in debt ratings. Liquidity risks include integration challenges and cultural differences associated with foreign acquisitions and joint ventures. Profitability risks include cost inflation and the need to achieve targeted synergies and cost reductions. Risk factors include weakening economic conditions, operational risks, information technology system failures, cybersecurity breaches, non-compliance with laws governing international operations, and adverse outcomes in litigation or governmental investigations.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Linde's net income for FY2025 was $6,898 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Linde's diluted earnings per share for FY2025 was $14.61.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Linde's sales for FY2025 were $33,986 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Linde faces risks related to leverage due to volatility in credit and equity markets.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Linde's borrowing costs can be affected by short- and long-term debt ratings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "A decrease in Linde's debt ratings could increase the cost of borrowing or make it more difficult to obtain financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Linde faces risks related to liquidity due to integration challenges and cultural differences associated with foreign acquisitions and joint ventures.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Profitability risks include cost inflation.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LIN_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company needs to achieve targeted synergies and cost reductions to maintain profitability.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Risk factors include weakening economic conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Operational risks include material operating failures at production, storage facilities or pipelines.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Linde may be subject to information technology system failures, network disruptions and cybersecurity breaches.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Non-compliance with laws governing international operations could result in criminal and civil penalties.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Adverse outcomes in litigation or governmental investigations may result in significant monetary damages or injunctive relief.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LIN_FY2025_1A_risk_factors_017"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "LIN_FY2025_1A_risk_factors_005",
+    "LIN_FY2025_7_mdna_004",
+    "LIN_FY2025_1A_risk_factors_014",
+    "LIN_FY2025_7_mdna_000",
+    "LIN_FY2025_7_mdna_005",
+    "LIN_FY2025_7_mdna_003",
+    "LIN_FY2025_1A_risk_factors_000",
+    "LIN_FY2025_1A_risk_factors_011",
+    "LIN_FY2025_1A_risk_factors_018"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "LIN_FY2025_1A_risk_factors_005",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LIN_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LIN_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LIN_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LIN_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LIN_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LIN_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LIN_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LIN_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-011430",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

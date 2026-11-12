@@ -1,0 +1,246 @@
+{
+  "ticker": "EQIX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "EQIX reported FY2025 total indebtedness of $21.4 billion against $14.2 billion in equity, with $3.2 billion in cash and $4.0 billion in available revolver liquidity. While Annualized Gross Bookings grew 27% to $1.6 billion, profitability faces constraints from REIT distribution requirements and TRS limitations. Significant risks include high leverage limiting operational flexibility, vulnerability to interest rate hikes, and geopolitical or regulatory disruptions affecting global data center operations and capital access.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "As of December 31, 2025, total indebtedness was approximately $21.4 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Stockholders' equity stood at $14.2 billion as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_076"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Cash, cash equivalents, and short-term investments totaled $3.2 billion as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_076",
+          "EQIX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "The company had approximately $4.0 billion of additional liquidity available from its revolving credit facility as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_076",
+          "EQIX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Operating lease liabilities recorded as of December 31, 2025, were $1.5 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_077"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "Total Annualized Gross Bookings for 2025 were $1.6 billion, representing a 27% increase from 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EQIX_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "REIT distribution requirements may hinder the ability to fund future capital needs from operating cash flow.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_107"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "At least 75% of gross income must be derived from real estate to maintain REIT qualification.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_108"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Substantial debt increases vulnerability to interest rate increases due to variable-rate borrowings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "High leverage limits flexibility in planning for or reacting to business and industry changes.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "Geopolitical events and political tensions could negatively affect global business operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "The company may incur additional costs for enhanced cybersecurity and physical security due to political unrest.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_120"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Changing regulations regarding data privacy, sustainability, and data security could impact operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_093"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "Debt covenants may limit the ability to borrow additional funds even when necessary to maintain liquidity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "Accumulation of earnings in TRSs could result in adverse tax treatment if securities value exceeds 25%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "EQIX_FY2025_1A_risk_factors_108"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "EQIX_FY2025_1A_risk_factors_078",
+    "EQIX_FY2025_1A_risk_factors_077",
+    "EQIX_FY2025_1A_risk_factors_076",
+    "EQIX_FY2025_7_mdna_001",
+    "EQIX_FY2025_7_mdna_006",
+    "EQIX_FY2025_1A_risk_factors_107",
+    "EQIX_FY2025_1A_risk_factors_108",
+    "EQIX_FY2025_1A_risk_factors_000",
+    "EQIX_FY2025_1A_risk_factors_120",
+    "EQIX_FY2025_1A_risk_factors_093"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_078",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_077",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_076",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_107",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_108",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_120",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "EQIX_FY2025_1A_risk_factors_093",
+      "section": "1A_risk_factors",
+      "accession": "0001101239-26-000032",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

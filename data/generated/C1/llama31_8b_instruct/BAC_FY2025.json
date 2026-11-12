@@ -1,0 +1,268 @@
+{
+  "ticker": "BAC",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Bank of America's FY2025 financial performance was marked by a significant increase in total assets, driven by higher loans and leases, trading account assets, and federal funds sold and securities borrowed or purchased under agreements to resell. The company's long-term debt increased by $34.5 billion to $317.8 billion, primarily due to the issuance of senior, senior structured, subordinated, and junior subordinated notes. The company's liquidity risk management objective is to meet expected or unexpected cash flow and collateral requirements, including payments under long-term debt agreements. The company's profitability was impacted by higher revenue, partially offset by higher noninterest expense, resulting in a return on average allocated capital of 24 percent. The company faces various risks, including credit risk, liquidity risk, market risk, operational risk, and reputational risk, among others.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "Bank of America's total long-term debt increased by $34.5 billion to $317.8 billion in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_144",
+          "BAC_FY2025_1A_risk_factors_143"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "Bank of America's total assets increased by $150.4 billion to $3.4 trillion in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_018",
+          "BAC_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "Bank of America's cash and cash equivalents decreased by $58.3 billion in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_018",
+          "BAC_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "Bank of America's noninterest income increased by $1.7 billion to $17.7 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_049",
+          "BAC_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "Bank of America's noninterest expense increased by $1.4 billion to $18.6 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_049",
+          "BAC_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "Bank of America's return on average allocated capital was 24 percent in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_049",
+          "BAC_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "Bank of America's long-term debt consists of senior, senior structured, subordinated, and junior subordinated notes.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_143",
+          "BAC_FY2025_1A_risk_factors_144"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "Bank of America's senior notes, senior structured notes, subordinated notes, and junior subordinated notes had par values of $201.5 billion, $23.5 billion, $25.2 billion, and $1.3 billion, respectively, as of December 31, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_144"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "Bank of America's senior structured notes include zero coupon notes, whose par value increases through maturity and have a current par of $10.0 billion, compared to $28.1 billion owed at maturity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_144"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "Bank of America's long-term debt is used by regulators and rating agencies to calculate certain resolution metrics.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_144"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "Bank of America's liquidity risk management objective is to meet expected or unexpected cash flow and collateral requirements, including payments under long-term debt agreements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_127"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "Bank of America's total assets were approximately $3.4 trillion as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_018",
+          "BAC_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "Bank of America's cash and cash equivalents were $231.8 billion as of December 31, 2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "BAC_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "Bank of America's noninterest income was $17.7 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_049",
+          "BAC_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "Bank of America's noninterest expense was $18.6 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "BAC_FY2025_1A_risk_factors_049",
+          "BAC_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "BAC_FY2025_1A_risk_factors_144",
+    "BAC_FY2025_1A_risk_factors_143",
+    "BAC_FY2025_1A_risk_factors_146",
+    "BAC_FY2025_1A_risk_factors_127",
+    "BAC_FY2025_1A_risk_factors_018",
+    "BAC_FY2025_7_mdna_019",
+    "BAC_FY2025_1A_risk_factors_049",
+    "BAC_FY2025_1A_risk_factors_002",
+    "BAC_FY2025_1A_risk_factors_059",
+    "BAC_FY2025_7_mdna_007",
+    "BAC_FY2025_1A_risk_factors_003",
+    "BAC_FY2025_1A_risk_factors_001"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_144",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_143",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_146",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_127",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BAC_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "BAC_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "BAC_FY2025_1A_risk_factors_001",
+      "section": "1A_risk_factors",
+      "accession": "0000070858-26-000157",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "ticker": "KO",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "KO's FY2025 10-K highlights several key areas of concern for financial risk analysts. The company's operations are exposed to various risks, including leverage, liquidity, profitability, and risk factors. Leverage risks are primarily due to the company's use of derivative financial instruments and its exposure to foreign currency exchange rate fluctuations and interest rate risks. Liquidity risks are associated with the company's cash flow management, foreign exchange, and the impact of inflation and changing prices. Profitability risks are related to the company's gross profit margin, operating income, and operating margin, which have been affected by factors such as pricing initiatives, commodity costs, and advertising expenses. Risk factors include potential regulatory changes, litigation claims, cybersecurity threats, data protection concerns, and environmental and social factors.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company uses derivative financial instruments to reduce its net exposure to foreign currency exchange rate fluctuations.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Fluctuations in foreign currency exchange rates, particularly the strengthening of the U.S. dollar against major currencies or the currencies of large developing countries, could materially affect the company's financial results.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "If interest rates increase, the company's net income could be negatively affected.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company maintains levels of debt that it considers prudent based on its cash flows, interest coverage ratio, and percentage of debt to capital.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company uses debt financing to lower its cost of capital, which increases its return on shareowners’ equity.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The company's liquidity is influenced by its cash flows, contractual obligations, foreign exchange, and the impact of inflation and changing prices.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company's liquidity is also affected by local restrictions on remittances in some countries.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_036"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "The company's gross profit margin increased to 61.6% in 2025 from 61.1% in 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The increase in gross profit margin was primarily due to the impact of favorable pricing initiatives and the impact of the prior year refranchising of the company's bottling operations in the Philippines, Bangladesh, and certain territories in India, partially offset by the unfavorable impact of foreign currency exchange rate fluctuations and higher commodity costs.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Selling, general, and administrative expenses were $14,521 million in 2025, compared to $14,582 million in 2024, a decrease of $61 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "KO_FY2025_7_mdna_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Litigation claims or legal proceedings could expose the company to significant liabilities and damage its reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_052",
+          "KO_FY2025_1A_risk_factors_070"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The company is party to various litigation claims and legal proceedings in the ordinary course of business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Cybersecurity attacks, phishing attacks, viruses, malware, ransomware, hacking, or similar breaches experienced by the company or its bottling partners could harm the company's reputation and result in loss of consumer confidence.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_070"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Unauthorized access to or improper disclosure of personal data in violation of privacy and data protection laws could harm the company's reputation, cause loss of consumer confidence, subject the company to regulatory enforcement actions, and result in private litigation against the company.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Increased regulation of data collection, use, disclosure, and retention practices could increase the company's cost of compliance and operation, limit its ability to grow its business, or otherwise harm its business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "KO_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "KO_FY2025_1A_risk_factors_060",
+    "KO_FY2025_7_mdna_027",
+    "KO_FY2025_1A_risk_factors_062",
+    "KO_FY2025_7_mdna_036",
+    "KO_FY2025_7_mdna_001",
+    "KO_FY2025_1A_risk_factors_061",
+    "KO_FY2025_7_mdna_055",
+    "KO_FY2025_7_mdna_060",
+    "KO_FY2025_7_mdna_056",
+    "KO_FY2025_1A_risk_factors_052",
+    "KO_FY2025_1A_risk_factors_070",
+    "KO_FY2025_1A_risk_factors_075"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_027",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_036",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_055",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_060",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "KO_FY2025_7_mdna_056",
+      "section": "7_mdna",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_070",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "KO_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-010047",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

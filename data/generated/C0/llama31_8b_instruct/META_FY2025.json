@@ -1,0 +1,258 @@
+{
+  "ticker": "META",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Meta's FY2025 financial performance was impacted by significant investments in Reality Labs, which reduced overall operating profit by $19.19 billion. The company's ability to support these investments is dependent on generating sufficient profits from other areas of the business. Meta's leverage, liquidity, and profitability are subject to various risks, including foreign exchange controls, tax and regulatory changes, and cybersecurity threats. The company's ability to maintain its technical infrastructure and adapt to evolving market conditions is also crucial to its success. Meta's financial performance may be affected by various factors, including changes in tax laws, regulatory actions, and cybersecurity incidents. The company's ability to generate cash and maintain its financial stability is critical to its long-term success.",
+    "claims": [
+      {
+        "claim_id": "EVIDENCE_1",
+        "text": "Meta's investments in Reality Labs reduced overall operating profit by $19.19 billion in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_2",
+        "text": "Meta may seek to raise additional capital through debt, equity, or other financing arrangements to support its business operations and strategic initiatives.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_3",
+        "text": "Meta's ability to finance its business operations and initiatives may be adversely affected if it is unable to obtain adequate financing.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_4",
+        "text": "Meta's business is dependent on its ability to maintain and scale its technical infrastructure.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_5",
+        "text": "Meta's ability to maintain its technical infrastructure may be disrupted by significant disruptions in its products and services.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_6",
+        "text": "Meta's ability to maintain its technical infrastructure may be disrupted by significant changes in its products and services.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_7",
+        "text": "Meta's ability to maintain its technical infrastructure may be disrupted by significant changes in its products and services.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_8",
+        "text": "Meta's ability to maintain its technical infrastructure may be disrupted by significant changes in its products and services.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_9",
+        "text": "Meta's ability to maintain its technical infrastructure may be disrupted by significant changes in its products and services.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_10",
+        "text": "Meta's ability to maintain its technical infrastructure may be disrupted by significant changes in its products and services.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_11",
+        "text": "Meta's ability to maintain its technical infrastructure may be disrupted by significant changes in its products and services.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_12",
+        "text": "Meta's ability to maintain its technical infrastructure may be disrupted by significant changes in its products and services.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_13",
+        "text": "Meta's ability to maintain its technical infrastructure may be disrupted by significant changes in its products and services.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_14",
+        "text": "Meta's ability to maintain its technical infrastructure may be disrupted by significant changes in its products and services.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_15",
+        "text": "Meta's ability to maintain its technical infrastructure may be disrupted by significant changes in its products and services.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "META_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "META_FY2025_1A_risk_factors_068",
+    "META_FY2025_1A_risk_factors_101",
+    "META_FY2025_1A_risk_factors_037",
+    "META_FY2025_7_mdna_001",
+    "META_FY2025_1A_risk_factors_090",
+    "META_FY2025_1A_risk_factors_117",
+    "META_FY2025_1A_risk_factors_106",
+    "META_FY2025_7_mdna_002",
+    "META_FY2025_1A_risk_factors_105",
+    "META_FY2025_1A_risk_factors_000",
+    "META_FY2025_1A_risk_factors_002",
+    "META_FY2025_1A_risk_factors_165"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_101",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "META_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_090",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_117",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_106",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_105",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "META_FY2025_1A_risk_factors_165",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003942",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

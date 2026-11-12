@@ -1,0 +1,244 @@
+{
+  "ticker": "CSCO",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Cisco Systems, Inc.'s FY2025 10-K indicates the company has a significant amount of debt, with senior unsecured notes outstanding in an aggregate principal amount of $24.8 billion and a commercial paper program up to $15.0 billion. The company also mentions potential difficulties in completing projects associated with in-process research and development intangibles, difficulties in entering markets where they have no or limited direct prior experience, initial dependence on unfamiliar supply chains or relatively small supply partners, insufficient revenue to offset increased expenses associated with acquisitions, and the potential loss of key employees, customers, distributors, vendors and other business partners of the companies they acquire following and continuing after announcement of acquisition plans. The company's credit rating can negatively impact the value and liquidity of both their debt and equity securities, as well as the terms upon which they may borrow under their commercial paper program or future debt issuances. The company's reputation and/or business could be negatively impacted by matters relating to environmental, social, and governance and/or their reporting of such matters.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "Cisco Systems, Inc. has senior unsecured notes outstanding in an aggregate principal amount of $24.8 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CSCO_FY2025_1A_risk_factors_065"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "Cisco Systems, Inc. has a commercial paper program up to $15.0 billion.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CSCO_FY2025_1A_risk_factors_065"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "Cisco Systems, Inc. has potential difficulties in completing projects associated with in-process research and development intangibles.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CSCO_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "Cisco Systems, Inc. has difficulties in entering markets where they have no or limited direct prior experience.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CSCO_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "Cisco Systems, Inc. has initial dependence on unfamiliar supply chains or relatively small supply partners.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CSCO_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "Cisco Systems, Inc. has insufficient revenue to offset increased expenses associated with acquisitions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CSCO_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "Cisco Systems, Inc. may experience the potential loss of key employees, customers, distributors, vendors and other business partners of the companies they acquire following and continuing after announcement of acquisition plans.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CSCO_FY2025_1A_risk_factors_044"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Cisco Systems, Inc.'s credit rating can negatively impact the value and liquidity of both their debt and equity securities, as well as the terms upon which they may borrow under their commercial paper program or future debt issuances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CSCO_FY2025_1A_risk_factors_066"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "Cisco Systems, Inc.'s reputation and/or business could be negatively impacted by matters relating to environmental, social, and governance and/or their reporting of such matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CSCO_FY2025_1A_risk_factors_066"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "Cisco Systems, Inc. is subject to evolving and sometimes conflicting, laws, regulations, policies, and investor and other stakeholder expectations concerning environmental, social, and governance matters.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CSCO_FY2025_1A_risk_factors_066"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "Cisco Systems, Inc.'s net zero emissions goal relies, in large part, on the accuracy of their estimates and assumptions around the enhanced power efficiency of their products, the adoption of renewable energy at customer and supplier sites, and the adoption of certain of their initiatives, goals, or commitments involving risks and uncertainties and could be difficult to achieve and costly to implement.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CSCO_FY2025_1A_risk_factors_066"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "Cisco Systems, Inc.'s cash and cash equivalents and investments decreased from $17,854 million in FY2024 to $16,110 million in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CSCO_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "Cisco Systems, Inc.'s cash provided by operating activities increased from $10,880 million in FY2024 to $14,193 million in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CSCO_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Cisco Systems, Inc.'s diluted earnings per share increased by 19% in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CSCO_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "Cisco Systems, Inc.'s total gross margin decreased by 1.2 percentage points in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CSCO_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CSCO_FY2025_1A_risk_factors_065",
+    "CSCO_FY2025_1A_risk_factors_044",
+    "CSCO_FY2025_1A_risk_factors_066",
+    "CSCO_FY2025_7_mdna_004",
+    "CSCO_FY2025_7_mdna_003",
+    "CSCO_FY2025_7_mdna_018",
+    "CSCO_FY2025_1A_risk_factors_062",
+    "CSCO_FY2025_1A_risk_factors_083",
+    "CSCO_FY2025_1A_risk_factors_057",
+    "CSCO_FY2025_1A_risk_factors_052"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CSCO_FY2025_1A_risk_factors_065",
+      "section": "1A_risk_factors",
+      "accession": "0000858877-25-000111",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CSCO_FY2025_1A_risk_factors_044",
+      "section": "1A_risk_factors",
+      "accession": "0000858877-25-000111",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CSCO_FY2025_1A_risk_factors_066",
+      "section": "1A_risk_factors",
+      "accession": "0000858877-25-000111",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CSCO_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0000858877-25-000111",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CSCO_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0000858877-25-000111",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CSCO_FY2025_7_mdna_018",
+      "section": "7_mdna",
+      "accession": "0000858877-25-000111",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CSCO_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0000858877-25-000111",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CSCO_FY2025_1A_risk_factors_083",
+      "section": "1A_risk_factors",
+      "accession": "0000858877-25-000111",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CSCO_FY2025_1A_risk_factors_057",
+      "section": "1A_risk_factors",
+      "accession": "0000858877-25-000111",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CSCO_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0000858877-25-000111",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

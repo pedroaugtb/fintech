@@ -1,0 +1,251 @@
+{
+  "ticker": "HAL",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "HAL's FY2025 10-K report indicates a manageable debt maturity profile with approximately $90 million due in February 2027. The company has no financial covenants or material adverse change provisions in their bank agreements, and their debt maturities extend over a long period of time. They have a credit rating of BBB+ for long-term debt and A-2 for short-term debt, both with a stable outlook. The company's liquidity is further supported by $2.2 billion of cash and equivalents and $3.5 billion of available committed bank credit. However, they have outstanding letters of credit, bank guarantees, or surety bonds of approximately $3.1 billion, some of which have triggering events that could require cash collateralization. The company's profitability was impacted by a $154 million expense on their SAP S4 migration, but they expect the new system to provide efficiency benefits, cost savings, enhanced visibility, and advanced analytics. The company operates in more than 70 countries and is subject to the jurisdiction of a significant number of taxing authorities.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "The company has a manageable debt maturity profile with approximately $90 million due in February 2027.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "The company has no financial covenants or material adverse change provisions in their bank agreements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "The company's debt maturities extend over a long period of time.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "The company has a credit rating of BBB+ for long-term debt and A-2 for short-term debt, both with a stable outlook.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_097"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "5",
+        "text": "The company's liquidity is supported by $2.2 billion of cash and equivalents.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "6",
+        "text": "The company's liquidity is further supported by $3.5 billion of available committed bank credit.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_090"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "7",
+        "text": "The company has outstanding letters of credit, bank guarantees, or surety bonds of approximately $3.1 billion.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "8",
+        "text": "Some of the outstanding letters of credit have triggering events that could require cash collateralization.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "9",
+        "text": "The company incurred a $154 million expense on their SAP S4 migration.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "10",
+        "text": "The company expects the new system to provide efficiency benefits, cost savings, enhanced visibility, and advanced analytics.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "11",
+        "text": "The company operates in more than 70 countries.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "12",
+        "text": "The company is subject to the jurisdiction of a significant number of taxing authorities.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "13",
+        "text": "The company faces risks of unknown impacts or new events, regulatory actions, or potential litigation, which could affect their business, reputation, or consolidated financial condition.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_078"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "14",
+        "text": "Even if the company successfully defends their own digital technologies and services, they also rely on their customers and suppliers to protect their digital technologies and services from cybersecurity incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "15",
+        "text": "The loss of key employees could result in a loss of institutional knowledge and have a material adverse effect on the company's business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "HAL_FY2025_7_mdna_073"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "HAL_FY2025_7_mdna_095",
+    "HAL_FY2025_7_mdna_097",
+    "HAL_FY2025_7_mdna_094",
+    "HAL_FY2025_7_mdna_090",
+    "HAL_FY2025_7_mdna_019",
+    "HAL_FY2025_7_mdna_104",
+    "HAL_FY2025_7_mdna_119",
+    "HAL_FY2025_7_mdna_105",
+    "HAL_FY2025_7_mdna_078",
+    "HAL_FY2025_7_mdna_063",
+    "HAL_FY2025_7_mdna_073"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_095",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_097",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_094",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_090",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_104",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_119",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_105",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_078",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_063",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "HAL_FY2025_7_mdna_073",
+      "section": "7_mdna",
+      "accession": "0000045012-26-000015",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

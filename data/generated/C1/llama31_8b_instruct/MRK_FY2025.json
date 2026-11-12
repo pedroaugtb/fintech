@@ -1,0 +1,258 @@
+{
+  "ticker": "MRK",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Merck & Co., Inc. (MRK) faces significant risks in FY2025, including market fluctuations, regulatory challenges, and competition. The company's leverage, liquidity, profitability, and risk factors are interconnected and may impact its financial performance. MRK's ability to maintain its presence in emerging markets, develop new products, and manage its supply chain are crucial to its success. The company is exposed to market risk from fluctuations in currency exchange rates and interest rates, and its success is dependent on the successful development and marketing of new products. MRK's ability to compete could be affected by changing customer preferences and requirements, such as growing demand for environmentally friendly products and packaging. The company's business may be adversely affected by local and global economic conditions, including inflation, interest rates, and costs of raw materials and packaging. MRK's key products, such as Keytruda, generate a significant amount of the company's profits and cash flows, and any events that adversely affect the markets for these products could have a material adverse effect on the company's results of operations, cash flows, financial condition, and prospects.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "MRK is exposed to market risk from fluctuations in currency exchange rates and interest rates.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "MRK's success is dependent on the successful development and marketing of new products.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_016"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "MRK's ability to compete could be affected by changing customer preferences and requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "MRK's business may be adversely affected by local and global economic conditions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "MRK's key products generate a significant amount of the company's profits and cash flows.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "MRK's ability to generate profits and operating cash flows depends largely upon the continued profitability of the company's key products.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "MRK's sales increased by 7% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "MRK's net income attributable to Merck & Co., Inc. was $18,254 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "MRK's non-GAAP net income was $22,513 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "MRK's earnings per common share assuming dilution attributable to Merck & Co., Inc. common shareholders was $7.28 in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "MRK's ability to maintain its presence in emerging markets is crucial to its success.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_040"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "MRK's supply chain may be subject to similar risks and may pass along any increased costs to the company.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "MRK's business may be adversely affected by local and global economic conditions, including inflation, interest rates, and costs of raw materials and packaging.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "MRK's key products, such as Keytruda, generate a significant amount of the company's profits and cash flows.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "MRK's ability to generate profits and operating cash flows depends largely upon the continued profitability of the company's key products.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MRK_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MRK_FY2025_1A_risk_factors_040",
+    "MRK_FY2025_1A_risk_factors_017",
+    "MRK_FY2025_1A_risk_factors_016",
+    "MRK_FY2025_1A_risk_factors_032",
+    "MRK_FY2025_1A_risk_factors_031",
+    "MRK_FY2025_1A_risk_factors_030",
+    "MRK_FY2025_7_mdna_002",
+    "MRK_FY2025_1A_risk_factors_061",
+    "MRK_FY2025_1A_risk_factors_060",
+    "MRK_FY2025_1A_risk_factors_022",
+    "MRK_FY2025_1A_risk_factors_047",
+    "MRK_FY2025_1A_risk_factors_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_017",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_016",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MRK_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_061",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_047",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MRK_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "accession": "0000310158-26-000063",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

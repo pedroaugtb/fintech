@@ -1,0 +1,199 @@
+{
+  "ticker": "COST",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Costco Wholesale's FY2025 financial performance was marked by an 8% increase in net sales to $269,912, driven by comparable sales growth and sales at new warehouses. Gross margin percentage increased 20 basis points, while SG&A expenses as a percentage of net sales increased 11 basis points. The company's effective tax rate was 25.1%, and net income increased 10% to $8,099. However, the company faces risks related to leverage, liquidity, and profitability, including the impact of foreign exchange rates, inflation, and cybersecurity threats.",
+    "claims": [
+      {
+        "claim_id": "COST_FY2025_7_mdna_002",
+        "text": "Costco's comparable sales growth is influenced by factors beyond its control, including currency exchange rates and inflation.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_1A_risk_factors_002",
+        "text": "Costco's growth is dependent on its ability to acquire property and build or lease new warehouses.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_7_mdna_005",
+        "text": "A higher penetration of gasoline sales will generally lower Costco's gross margin percentage.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_7_mdna_010",
+        "text": "Costco's net sales increased 8% to $269,912 in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_010"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_1A_risk_factors_009",
+        "text": "Costco's IT systems are critical to its business operations and failure or disruption of these systems could have an adverse impact on its ability to buy products and services from suppliers, produce goods in its manufacturing plants, move products in an efficient manner to its warehouses, and sell products to its members.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_1A_risk_factors_008",
+        "text": "Costco's IT systems are critical to its business operations and failure or disruption of these systems could have an adverse impact on its ability to buy products and services from suppliers, produce goods in its manufacturing plants, move products in an efficient manner to its warehouses, and sell products to its members.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_1A_risk_factors_000",
+        "text": "Costco's financial and operational performance is highly dependent on its U.S. and Canadian operations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_7_mdna_009",
+        "text": "Costco's net sales increased 8% to $269,912 in FY2025, driven by an increase in comparable sales and sales at new warehouses.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "COST_FY2025_7_mdna_009"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_1A_risk_factors_003",
+        "text": "Costco's ability to timely build or lease and operate new warehouses may be affected by local land use and other regulations, as well as local community actions opposed to the location of its warehouses or depots.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "COST_FY2025_1A_risk_factors_010",
+        "text": "Costco's IT systems and networks are vulnerable to cybersecurity threats, including unauthorized access, data breaches, and other cyber misconduct.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "COST_FY2025_1A_risk_factors_010"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "COST_FY2025_7_mdna_002",
+    "COST_FY2025_1A_risk_factors_002",
+    "COST_FY2025_7_mdna_005",
+    "COST_FY2025_7_mdna_010",
+    "COST_FY2025_1A_risk_factors_009",
+    "COST_FY2025_1A_risk_factors_008",
+    "COST_FY2025_1A_risk_factors_000",
+    "COST_FY2025_7_mdna_009",
+    "COST_FY2025_1A_risk_factors_003",
+    "COST_FY2025_1A_risk_factors_010"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "COST_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_002",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_009",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "COST_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "COST_FY2025_1A_risk_factors_010",
+      "section": "1A_risk_factors",
+      "accession": "0000909832-25-000101",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

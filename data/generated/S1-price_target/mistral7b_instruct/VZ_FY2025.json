@@ -1,0 +1,161 @@
+{
+  "ticker": "VZ",
+  "fiscal_year": 2025,
+  "condition": "S1-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Verizon's FY2025 financial report shows a slight increase in total interest expense, primarily due to a decrease in capitalized interest and an increase in asset and business rationalization charges. The effective interest rate remained relatively stable. The company's leverage is high, with a significant amount of outstanding unsecured indebtedness, unused borrowing capacity, and secured indebtedness. Profitability was impacted by workforce reductions and increased depreciation and amortization expenses. Risk factors include potential negative consequences of high debt levels, vulnerability in the event of a downturn, exposure to interest rate risk, and adverse changes in financial markets. The shares may be overvalued or undervalued, as a 12-month price target was not provided in the evidence.",
+    "claims": [
+      {
+        "claim_id": "VZ_FY2025_7_mdna_014",
+        "text": "Total interest expense increased during 2025 compared to 2024 primarily as a result of a decrease in capitalized interest due to additional C-Band spectrum licenses being placed into service, partially offset by a decrease in interest costs due to lower average debt balances and a lower interest rate.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_7_mdna_005",
+        "text": "Verizon requires a significant amount of capital to operate and grow its business. During the year ended December 31, 2025, these investments included $17.0 billion for capital expenditures.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_1A_risk_factors_028",
+        "text": "As of December 31, 2025, Verizon had approximately $131.1 billion of outstanding unsecured indebtedness, $12.0 billion of unused borrowing capacity under our existing revolving credit facility and $27.1 billion of outstanding secured indebtedness.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_1A_risk_factors_029",
+        "text": "Verizon's debt level and related debt service obligations could have negative consequences, including requiring us to dedicate significant cash flow from operations to the payment of principal, interest and other amounts payable on our debt, which would reduce the funds we have available for other purposes, such as working capital, capital expenditures, dividend payments, share repurchases and acquisitions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_7_mdna_012",
+        "text": "Operating income decreased during 2025 compared to 2024 primarily due to an increase in sales commission expense due to higher volumes; and an increase of $193 million related to an increase in asset and business rationalization charges in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_012"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_7_mdna_013",
+        "text": "Net income decreased during 2025 compared to 2024 primarily due to an increase in asset and business rationalization charges in 2025 compared to 2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "VZ_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_1A_risk_factors_000",
+        "text": "The following discussion of 'Risk Factors' identifies factors that may adversely affect Verizon's business, operations, financial condition or future performance.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_1A_risk_factors_018",
+        "text": "We face significant competition in our industries. The rapid development of new technologies, services and products has eliminated many of the traditional distinctions among wireless, cable, internet and other communication services and brought new competitors to our markets, including other telecommunications companies, cable companies, wireless service providers, and over-the-top providers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_018"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "VZ_FY2025_1A_risk_factors_011",
+        "text": "The rapid evolution and increased adoption of artificial intelligence technologies may intensify our cybersecurity risks by increasing the frequency and severity of cyberattacks against us or other companies and by making cyberattacks more difficult to detect, contain or mitigate.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "VZ_FY2025_1A_risk_factors_011"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "VZ_FY2025_7_mdna_014",
+    "VZ_FY2025_1A_risk_factors_028",
+    "VZ_FY2025_1A_risk_factors_029",
+    "VZ_FY2025_7_mdna_005",
+    "VZ_FY2025_7_mdna_012",
+    "VZ_FY2025_7_mdna_028",
+    "VZ_FY2025_7_mdna_013",
+    "VZ_FY2025_1A_risk_factors_000",
+    "VZ_FY2025_1A_risk_factors_018",
+    "VZ_FY2025_1A_risk_factors_011"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_014",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_028",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_029",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_012",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_018",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "VZ_FY2025_1A_risk_factors_011",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

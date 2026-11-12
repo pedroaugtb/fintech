@@ -1,0 +1,250 @@
+{
+  "ticker": "MDLZ",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Mondelēz International's FY2025 financial performance is impacted by various factors, including leverage, liquidity, and profitability concerns. The company's ability to access commercial paper markets and manage currency risks is crucial to its financial health. Additionally, the company faces risks related to cybersecurity, commodity prices, and geopolitical tensions. These factors may affect the company's ability to maintain its financial stability and achieve its business objectives.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "Mondelēz International regularly accesses the commercial paper markets in the United States and Europe for ongoing funding requirements.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "A downgrade in Mondelēz International's credit ratings by a credit rating agency could increase its borrowing costs and adversely affect its ability to issue commercial paper.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "Disruptions in the global commercial paper market or other effects of volatile economic conditions on the global credit markets could reduce the amount of commercial paper that Mondelēz International could issue and raise its borrowing costs for both short- and long-term debt offerings.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "Mondelēz International uses cash management programs, such as factoring and supply chain finance arrangements, to manage liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "If Mondelēz International is unable to secure alternative cash management programs, its cash and working capital may be negatively affected.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "Mondelēz International may have to utilize its various financing arrangements or increase its long-term borrowings for short- and long-term liquidity requirements.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MDLZ_FY2025_1A_risk_factors_105",
+          "MDLZ_FY2025_7_mdna_063"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "Mondelēz International's ability to hedge against currency-related economic losses is affected by local economies, monetary policies, and currency hedging availability.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "Mondelēz International may not be able to successfully mitigate its exposure to currency risks due to factors such as continued global and local market volatility, actions by foreign governments, trade disputes, economic sanctions, political uncertainty, inflation, interest rates, and limited hedging opportunities.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "Weak financial performance, downgrades in Mondelēz International's credit ratings, illiquid global capital markets, and volatile global economic conditions could limit its access to short-term financing, reduce its liquidity, and/or increase its borrowing costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x10",
+        "text": "Mondelēz International's developed markets include the entire North America region, the Europe region excluding the countries included in the emerging markets definition, and Australia, New Zealand, and Japan from the AMEA region.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x11",
+        "text": "Adjusted Operating Income is defined as operating income excluding, when they occur, the impacts of restructuring charges, gains or losses on goodwill and intangible assets, divestiture-related items, acquisition-related items, operating results from short-term distributor agreements related to the sale of a business, remeasurement of net monetary position of highly inflationary countries, mark-to-market impacts from commodity and foreign currency derivative contracts economically hedging forecasted transactions, resolution of tax matters, incremental costs due to the war in Ukraine, the European Commission legal matter, pension participation changes, and operating costs from the ERP System Implementation program.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "Mondelēz International presents Adjusted Operating Income margin, which is subject to the same adjustments as Adjusted Operating Income.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "Mondelēz International evaluates growth in its Adjusted Operating Income on a constant currency basis.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_101"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "Adjusted EPS is defined as diluted EPS attributable to Mondelēz International from continuing operations excluding, when they occur, the impacts of the items listed in the Adjusted Operating Income definition as well as gains or losses on debt extinguishment and related expenses, gains or losses on marketable securities transactions, initial impacts from enacted tax law changes, and gains or losses on equity method investment transactions.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_102"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "Mondelēz International evaluates growth in its Adjusted EPS on a constant currency basis.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "MDLZ_FY2025_7_mdna_102"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "MDLZ_FY2025_1A_risk_factors_105",
+    "MDLZ_FY2025_7_mdna_063",
+    "MDLZ_FY2025_7_mdna_105",
+    "MDLZ_FY2025_7_mdna_062",
+    "MDLZ_FY2025_7_mdna_101",
+    "MDLZ_FY2025_7_mdna_102",
+    "MDLZ_FY2025_7_mdna_103",
+    "MDLZ_FY2025_1A_risk_factors_031",
+    "MDLZ_FY2025_7_mdna_074",
+    "MDLZ_FY2025_7_mdna_085"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "MDLZ_FY2025_1A_risk_factors_105",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_063",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_105",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_062",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_101",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_102",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_103",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_074",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "MDLZ_FY2025_7_mdna_085",
+      "section": "7_mdna",
+      "accession": "0001628280-26-005345",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

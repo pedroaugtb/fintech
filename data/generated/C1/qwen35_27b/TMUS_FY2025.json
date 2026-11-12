@@ -1,0 +1,258 @@
+{
+  "ticker": "TMUS",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "qwen35_27b",
+  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "TMUS reported FY2025 total service revenues of $71.3 billion, an 11% increase in postpaid revenues driven by a growing customer base. The UScellular acquisition is expected to generate $1.2 billion in annual run-rate cost synergies by 2027. While inflation and interest rate exposure are currently limited due to fixed-rate contracts and debt, the company faces risks from credit market volatility and potential inability to refinance debt. Regulatory compliance, competitive saturation, and litigation regarding health effects remain material risks. The One Big Beautiful Bill Act is anticipated to defer tax payments without materially impacting the effective tax rate.",
+    "claims": [
+      {
+        "claim_id": "C1",
+        "text": "Total service revenues for FY2025 were $71,306 million.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C2",
+        "text": "Postpaid revenues increased by 11% in FY2025 compared to FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C3",
+        "text": "Revenue growth was driven by higher expected unit sales from a growing customer base.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C4",
+        "text": "The UScellular Acquisition is expected to achieve total annual run-rate cost synergies of $1.2 billion.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C5",
+        "text": "Expected cost synergies consist of $950 million in operating expenses and $250 million in capital expenditures.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C6",
+        "text": "Restructuring and integration activities for the UScellular Acquisition are expected to occur over the next two years.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C7",
+        "text": "Price inflation has not had a significant impact on operations due to fixed rates in long-term contracts.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C8",
+        "text": "Exposure to fluctuating interest rates is limited primarily to new debt issuances or draws on the Revolving Credit Facility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C9",
+        "text": "Interest is paid on Senior Notes at a fixed rate.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C10",
+        "text": "There is no guarantee the company will generate sufficient cash flow to service debt obligations when due.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C11",
+        "text": "Volatility in credit markets could limit access to capital markets and increase borrowing costs.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C12",
+        "text": "Deterioration in operating performance may lead to a decrease in credit ratings.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C13",
+        "text": "Weak economic conditions may cause suppliers or partners to file for bankruptcy or experience liquidity problems.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C14",
+        "text": "The telecommunications industry is highly competitive, which may pressure pricing and margins.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C15",
+        "text": "Failure to comply with regulations could result in fines, penalties, and enforcement actions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_053"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "TMUS_FY2025_7_mdna_021",
+    "TMUS_FY2025_1A_risk_factors_037",
+    "TMUS_FY2025_7_mdna_022",
+    "TMUS_FY2025_1A_risk_factors_027",
+    "TMUS_FY2025_1A_risk_factors_038",
+    "TMUS_FY2025_7_mdna_006",
+    "TMUS_FY2025_7_mdna_015",
+    "TMUS_FY2025_7_mdna_019",
+    "TMUS_FY2025_7_mdna_010",
+    "TMUS_FY2025_1A_risk_factors_000",
+    "TMUS_FY2025_1A_risk_factors_053",
+    "TMUS_FY2025_1A_risk_factors_049"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_022",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_053",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

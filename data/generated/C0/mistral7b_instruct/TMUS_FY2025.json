@@ -1,0 +1,186 @@
+{
+  "ticker": "TMUS",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "T-Mobile's FY2025 results show a growth in sales, driven by a larger customer base and higher costs from the UScellular acquisition. However, the company faces potential risks from macroeconomic trends, including a possible economic recession, changes in monetary policy, and geopolitical risks. The company's leverage is high, with debt obligations that may be difficult to service if cash flow is insufficient. Liquidity could be affected by weak economic and credit conditions, instability in global financial markets, and changes in trade policies. Profitability is affected by business, economic, market, and industry conditions, and there is no guarantee the company will be able to generate sufficient cash flow to meet its debt obligations. Risk factors include competition, regulatory compliance, tax laws, disputes, investigations, and potential health effects from wireless devices.",
+    "claims": [
+      {
+        "claim_id": "TMUS_FY2025_7_mdna_021",
+        "text": "Sales have grown due to a larger customer base and higher costs from the UScellular acquisition.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TMUS_FY2025_7_mdna_021"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TMUS_FY2025_1A_risk_factors_037",
+        "text": "The company may not be able to refinance its debt, sell assets, or make additional borrowings on commercially reasonable terms or at all, which could have a material adverse effect on its business, financial condition, and operating results.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_037"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TMUS_FY2025_1A_risk_factors_027",
+        "text": "Weak economic and credit conditions may adversely affect the company's suppliers, dealers, wholesale partners, and enterprise and government customers, potentially impacting the company's ability to distribute, market, or sell its products and services.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TMUS_FY2025_1A_risk_factors_038",
+        "text": "Changes to trade policies, including higher tariffs, restrictions, and other economic disincentives to trade, may lead to supply chain disruptions and higher prices, and lower demand for devices and services the company sells.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TMUS_FY2025_1A_risk_factors_000",
+        "text": "The company's business, financial condition, liquidity, or operating results, as well as the price of its common stock and other securities, could be materially and adversely affected by any of the risks listed in the risk factors section of the 10-K.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TMUS_FY2025_1A_risk_factors_053",
+        "text": "The company is subject to regulatory compliance obligations, and failure to comply could increase its risk exposure and have a material adverse effect on its business, financial condition, and operating results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_053"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TMUS_FY2025_1A_risk_factors_049",
+        "text": "The company is involved in various disputes, governmental and/or regulatory inspections, investigations, and litigation matters, which could have a material adverse effect on its business, financial condition, and operating results.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TMUS_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "TMUS_FY2025_7_mdna_021",
+    "TMUS_FY2025_1A_risk_factors_037",
+    "TMUS_FY2025_7_mdna_022",
+    "TMUS_FY2025_1A_risk_factors_027",
+    "TMUS_FY2025_1A_risk_factors_038",
+    "TMUS_FY2025_7_mdna_006",
+    "TMUS_FY2025_7_mdna_015",
+    "TMUS_FY2025_7_mdna_019",
+    "TMUS_FY2025_7_mdna_010",
+    "TMUS_FY2025_1A_risk_factors_000",
+    "TMUS_FY2025_1A_risk_factors_053",
+    "TMUS_FY2025_1A_risk_factors_049"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_022",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_015",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_053",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TMUS_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001283699-26-000010",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

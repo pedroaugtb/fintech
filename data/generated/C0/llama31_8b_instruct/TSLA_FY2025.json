@@ -1,0 +1,244 @@
+{
+  "ticker": "TSLA",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Tesla's FY2025 financial performance is marked by a decrease in net income and an increase in cash and cash equivalents. The company's leverage and liquidity are concerns due to its high level of indebtedness and reliance on cash flows from operations. Profitability is impacted by the decrease in net income, while risk factors include product liability claims, cybersecurity and data privacy risks, and regulatory compliance challenges. The company's ability to manage these risks and maintain its financial stability will be crucial for its future growth and success.",
+    "claims": [
+      {
+        "claim_id": "EVIDENCE_1",
+        "text": "Tesla's consolidated indebtedness may increase its vulnerability to adverse economic and industry conditions.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_2",
+        "text": "Tesla's ability to make scheduled payments on its indebtedness depends on its future performance, which is subject to economic, financial, competitive, and other factors beyond its control.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_052"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_3",
+        "text": "Tesla's debt agreements contain covenant restrictions that may limit its ability to operate its business.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_048"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_4",
+        "text": "Tesla's business has generally been generating cash flow from operations in excess of its capital spend.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TSLA_FY2025_7_mdna_013"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_5",
+        "text": "Tesla ended 2025 with $44.06 billion in cash and cash equivalents and investments, representing an increase of $7.50 billion from the end of 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TSLA_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_6",
+        "text": "Tesla recognized total revenues of $94.83 billion in 2025, representing a decrease of $2.86 billion compared to the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TSLA_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_7",
+        "text": "Tesla's net income attributable to common stockholders was $3.79 billion in 2025, representing a decrease of $3.30 billion compared to the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TSLA_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_8",
+        "text": "Tesla may be required to defend or insure against product liability claims.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_9",
+        "text": "Tesla may be subject to significant penalties or legal liability for noncompliance with emerging and changing privacy and cybersecurity laws.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_10",
+        "text": "Tesla's ability to comply with emerging and changing requirements may cause it to incur substantial costs and make enhancements to relevant data practices.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_11",
+        "text": "Tesla's business is subject to significant product liability claims, and an unfavorable outcome in some or all of these proceedings could have a material adverse impact on results of operations or cash flows for a particular period.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_12",
+        "text": "Tesla's ability to comply with emerging and changing requirements may cause it to incur substantial costs and make enhancements to relevant data practices.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_13",
+        "text": "Tesla's business is subject to significant product liability claims, and an unfavorable outcome in some or all of these proceedings could have a material adverse impact on results of operations or cash flows for a particular period.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_14",
+        "text": "Tesla's ability to comply with emerging and changing requirements may cause it to incur substantial costs and make enhancements to relevant data practices.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_068"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "EVIDENCE_15",
+        "text": "Tesla's business is subject to significant product liability claims, and an unfavorable outcome in some or all of these proceedings could have a material adverse impact on results of operations or cash flows for a particular period.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TSLA_FY2025_1A_risk_factors_027"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "TSLA_FY2025_1A_risk_factors_052",
+    "TSLA_FY2025_1A_risk_factors_049",
+    "TSLA_FY2025_1A_risk_factors_048",
+    "TSLA_FY2025_7_mdna_013",
+    "TSLA_FY2025_7_mdna_003",
+    "TSLA_FY2025_7_mdna_028",
+    "TSLA_FY2025_7_mdna_002",
+    "TSLA_FY2025_1A_risk_factors_067",
+    "TSLA_FY2025_1A_risk_factors_068",
+    "TSLA_FY2025_1A_risk_factors_027"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_052",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_048",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_7_mdna_013",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_067",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_068",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TSLA_FY2025_1A_risk_factors_027",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-003952",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

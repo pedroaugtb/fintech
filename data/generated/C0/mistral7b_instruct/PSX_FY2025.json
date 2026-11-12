@@ -1,0 +1,145 @@
+{
+  "ticker": "PSX",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "PSX's FY2025 results show a 15% increase in interest and debt expense, primarily driven by higher average debt balances. The company used available cash and proceeds from asset dispositions and debt offerings to fund capital expenditures and investments, repurchase shares of common stock, and pay dividends on common stock. The company is targeting reductions of total debt to $17 billion and reductions of the debt-to-capital ratio by the end of 2027. The company reported earnings of $4.4 billion and generated $5 billion in cash from operating activities. The company's financial targets through 2027 reflect plans to organically grow the Midstream and Chemicals businesses, maintain total annual capital expenditures and investments of approximately $2.5 billion, and enhance shareholder value through a secure, competitive, and growing dividend.",
+    "claims": [
+      {
+        "claim_id": "1",
+        "text": "PSX's interest and debt expense increased 15% in FY2025, primarily driven by higher average debt balances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "2",
+        "text": "PSX used available cash and proceeds from asset dispositions and debt offerings to fund capital expenditures and investments, repurchase shares of common stock, and pay dividends on common stock in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "3",
+        "text": "PSX reported earnings of $4.4 billion and generated $5 billion in cash from operating activities in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "4",
+        "text": "PSX is targeting reductions of total debt to $17 billion and reductions of the debt-to-capital ratio by the end of 2027.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PSX_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PSX_FY2025_7_mdna_016",
+    "PSX_FY2025_7_mdna_005",
+    "PSX_FY2025_7_mdna_001",
+    "PSX_FY2025_1A_risk_factors_022",
+    "PSX_FY2025_7_mdna_010",
+    "PSX_FY2025_7_mdna_000",
+    "PSX_FY2025_7_mdna_021",
+    "PSX_FY2025_1A_risk_factors_025",
+    "PSX_FY2025_1A_risk_factors_046",
+    "PSX_FY2025_1A_risk_factors_040"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_016",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_010",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSX_FY2025_7_mdna_021",
+      "section": "7_mdna",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_025",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PSX_FY2025_1A_risk_factors_040",
+      "section": "1A_risk_factors",
+      "accession": "0001534701-26-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

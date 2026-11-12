@@ -1,0 +1,199 @@
+{
+  "ticker": "TGT",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "mistral7b_instruct",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "TGT's FY2025 10-K indicates a strong financial position with manageable leverage, adequate liquidity, and good profitability. The company has a diverse funding strategy, including short-term financing through commercial paper and credit facilities, and long-term debt. The company is in compliance with debt leverage covenants and has no outstanding balances under its commercial paper program or credit facilities as of February 1, 2025. Profitability is supported by strong operating income and a return on invested capital (ROIC) of 4.534% for the trailing twelve months ending February 1, 2025. However, the company faces various risks, including potential credit rating downgrades, which could impact its access to debt markets and borrowing costs. Other risks include legal and regulatory issues, data breaches, and negative publicity, which could adversely affect the company's reputation and financial condition.",
+    "claims": [
+      {
+        "claim_id": "TGT_FY2025_7_mdna_007",
+        "text": "The company's credit ratings are subject to periodic review and there is no guarantee they will remain the same.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TGT_FY2025_7_mdna_008",
+        "text": "The company has a credit facility of $1.0 billion that will expire in October 2025 and a $3.0 billion unsecured revolving credit facility that will expire in October 2028.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TGT_FY2025_7_mdna_006",
+        "text": "The company has ample sources of liquidity, including operating cash flows, credit facility capacity, and access to capital markets.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TGT_FY2025_7_mdna_009",
+        "text": "The company's after-tax ROIC for the trailing twelve months ending February 1, 2025 is 4.534%.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "TGT_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TGT_FY2025_1A_risk_factors_043",
+        "text": "The company faces the risk of legal proceedings that could require significant resources and expenses.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_043"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TGT_FY2025_1A_risk_factors_031",
+        "text": "A deterioration in U.S. macroeconomic conditions or consumer confidence could adversely affect the company's business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_031"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TGT_FY2025_1A_risk_factors_022",
+        "text": "The company faces the risk of information security, cybersecurity, and data privacy incidents.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TGT_FY2025_1A_risk_factors_008",
+        "text": "The company faces the risk of negative perceptions, consumer boycotts, litigation, investigations, and regulatory proceedings.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TGT_FY2025_1A_risk_factors_023",
+        "text": "The company faces the risk of significant information security, cybersecurity, or data privacy incidents that could disrupt its business operations and expose it to costly government enforcement actions and private litigation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "TGT_FY2025_1A_risk_factors_024",
+        "text": "The legal and regulatory environment regarding information security, cybersecurity, and data privacy is dynamic and has strict requirements.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "TGT_FY2025_1A_risk_factors_024"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "TGT_FY2025_7_mdna_007",
+    "TGT_FY2025_7_mdna_008",
+    "TGT_FY2025_7_mdna_006",
+    "TGT_FY2025_7_mdna_009",
+    "TGT_FY2025_7_mdna_000",
+    "TGT_FY2025_1A_risk_factors_043",
+    "TGT_FY2025_1A_risk_factors_031",
+    "TGT_FY2025_1A_risk_factors_022",
+    "TGT_FY2025_1A_risk_factors_008",
+    "TGT_FY2025_1A_risk_factors_023"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_009",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "TGT_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_008",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "TGT_FY2025_1A_risk_factors_023",
+      "section": "1A_risk_factors",
+      "accession": "0000027419-25-000018",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

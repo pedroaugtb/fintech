@@ -1,0 +1,223 @@
+{
+  "ticker": "DIS",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "qwen35_27b",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "Disney's FY2025 results show significant profitability recovery, with net income surging to $12.4B and EPS reaching $6.85, driven by a negative effective tax rate and reduced impairments compared to FY2024. Revenue grew 3% to $94.4B. Leverage remains a focus, with Moody's and S&P maintaining stable ratings (A2/A) despite prior downgrades linked to elevated debt. Interest expense decreased 12% to $1.81B. Key risks include competitive pricing pressure on DTC services, potential litigation costs, and market volatility affecting financing costs. While financial metrics improved, the provided evidence lacks specific valuation data or forward-looking price targets required to determine if shares are undervalued or overvalued.",
+    "claims": [
+      {
+        "claim_id": "C001",
+        "text": "Net income attributable to Disney increased to $12.4 billion in FY2025 from $5.0 billion in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C002",
+        "text": "Diluted EPS from continuing operations rose to $6.85 in FY2025 compared to $2.72 in the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C003",
+        "text": "Total revenues increased 3% to $94.4 billion in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_003",
+          "DIS_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C004",
+        "text": "The effective income tax rate was negative 11.9% in FY2025, compared to 23.7% in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C005",
+        "text": "Interest expense decreased 12% to $1.812 billion in FY2025 due to lower average rates and debt balances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C006",
+        "text": "As of September 27, 2025, Moody's long-term debt rating was A2 and S&P's was A, both with Stable outlooks.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_032",
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C007",
+        "text": "Prior rating downgrades were attributed to elevated indebtedness and leverage ratios resulting from the financial impact of COVID-19.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C008",
+        "text": "Total impairments dropped significantly to $819 million in FY2025 from $3.595 billion in FY2024.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C009",
+        "text": "Equity in the income of investees decreased $280 million to $295 million due to losses from the India joint venture.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_007"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C010",
+        "text": "Competitive pressures may force price reductions on DTC offerings or lead to higher churn rates.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C011",
+        "text": "The company faces risks from litigation including securities class actions, patent infringement, and antitrust issues.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_045",
+          "DIS_FY2025_1A_risk_factors_046"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C012",
+        "text": "Volatility in financial markets or periods of elevated indebtedness could impede access to financing or increase borrowing costs.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "DIS_FY2025_1A_risk_factors_032",
+          "DIS_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C013",
+        "text": "Service revenues increased 3% to $84.6 billion, partially offset by a 3 percentage point decrease from the Star India Transaction.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C014",
+        "text": "The negative effective tax rate was driven by a non-cash tax benefit of approximately 26 percentage points from Hulu's tax classification change.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "DIS_FY2025_7_mdna_008"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "C015",
+        "text": "The provided evidence does not contain sufficient data to establish a 12-month price target or determine if shares are undervalued or overvalued.",
+        "topic": "risk_factors",
+        "evidence_ids": [],
+        "sufficient_evidence": false
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "DIS_FY2025_1A_risk_factors_032",
+    "DIS_FY2025_1A_risk_factors_033",
+    "DIS_FY2025_7_mdna_006",
+    "DIS_FY2025_7_mdna_002",
+    "DIS_FY2025_7_mdna_007",
+    "DIS_FY2025_7_mdna_008",
+    "DIS_FY2025_7_mdna_004",
+    "DIS_FY2025_7_mdna_003",
+    "DIS_FY2025_1A_risk_factors_046",
+    "DIS_FY2025_1A_risk_factors_045",
+    "DIS_FY2025_1A_risk_factors_022"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_032",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_007",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_008",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DIS_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "DIS_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

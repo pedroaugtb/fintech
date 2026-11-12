@@ -1,0 +1,10 @@
+\begin{tabular}{@{}llp{0.42\linewidth}l@{}}
+\toprule
+\textbf{Policy} & \textbf{Scope} & \textbf{Rule} & \textbf{Action on fail} \\
+\midrule
+P1 Groundedness (v1) & all claims & cites evidence shown to the model; lexical support $\geq$ 0.5 & \texttt{BLOCK} \\
+P2 Numeric Consistency (v1) & numeric claims & every number matches cited evidence (rel. tol. 0.005) & \texttt{ESCALATE} \\
+P3 Uncertainty (v1) & all claims & self-flagged insufficiency, or claim year absent from cited evidence & \texttt{ESCALATE} \\
+P4 Decision Boundary (v1) & all claims and memo & 9 recommendation patterns (claim and memo) & \texttt{BLOCK} \\
+\bottomrule
+\end{tabular}

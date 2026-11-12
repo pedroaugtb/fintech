@@ -1,0 +1,251 @@
+{
+  "ticker": "PEP",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "PepsiCo's FY2025 financial performance was impacted by various factors, including a decrease in operating profit, increased commodity costs, and impairment charges. The company's leverage and liquidity positions were also affected by foreign exchange fluctuations and interest rate changes. Additionally, PepsiCo faces various risks, including cyber attacks, tax uncertainty, and intellectual property infringement. The company's profitability and liquidity are expected to be impacted by these factors in the future.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "PepsiCo's total debt instruments designated as net investment hedges was $4.4 billion as of December 27, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "PepsiCo's interest rate swap contracts had a total notional value of $2.0 billion as of both December 27, 2025 and December 28, 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "A 1-percentage-point increase in interest rates would have decreased PepsiCo's net interest expense in 2025 by $36 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "PepsiCo's cross-currency swap contracts had a total notional value of $1.7 billion as of December 27, 2025 and $1.2 billion as of December 28, 2024.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "An unfavorable 10% change in the underlying exchange rates would have increased PepsiCo's net unrealized losses in 2025 by $173 million.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "PepsiCo's total debt instruments designated as net investment hedges was $4.4 billion as of December 27, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "PepsiCo's operating profit decreased 11% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "PepsiCo's operating margin decreased 1.8% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "PepsiCo's net revenue increased 2% in 2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "PepsiCo's total debt instruments designated as net investment hedges was $4.5 billion as of December 27, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "PepsiCo's cross-currency swap contracts had a total notional value of $1.7 billion as of December 27, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_028"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "PepsiCo's interest rate swap contracts had a total notional value of $2.0 billion as of December 27, 2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_029"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "PepsiCo's operating profit decreased 11% in 2025, primarily driven by certain operating cost increases, impairment charges related to the Rockstar brand, a decline in organic volume, a 5-percentage-point impact of higher commodity costs and higher acquisition and divestiture-related charges.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "PepsiCo's operating margin decreased 1.8% in 2025, primarily driven by certain operating cost increases, impairment charges related to the Rockstar brand, a decline in organic volume, a 5-percentage-point impact of higher commodity costs and higher acquisition and divestiture-related charges.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "PepsiCo's net revenue increased 2% in 2025, primarily driven by productivity savings and effective net pricing.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "PEP_FY2025_7_mdna_032"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "PEP_FY2025_7_mdna_029",
+    "PEP_FY2025_7_mdna_028",
+    "PEP_FY2025_1A_risk_factors_043",
+    "PEP_FY2025_1A_risk_factors_045",
+    "PEP_FY2025_7_mdna_000",
+    "PEP_FY2025_1A_risk_factors_046",
+    "PEP_FY2025_7_mdna_032",
+    "PEP_FY2025_7_mdna_001",
+    "PEP_FY2025_1A_risk_factors_000",
+    "PEP_FY2025_1A_risk_factors_055",
+    "PEP_FY2025_1A_risk_factors_031"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_029",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_028",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_043",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_045",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_046",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_032",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PEP_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_055",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "PEP_FY2025_1A_risk_factors_031",
+      "section": "1A_risk_factors",
+      "accession": "0000077476-26-000007",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

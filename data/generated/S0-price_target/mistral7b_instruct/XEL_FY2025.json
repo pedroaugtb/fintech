@@ -1,0 +1,170 @@
+{
+  "ticker": "XEL",
+  "fiscal_year": 2025,
+  "condition": "S0-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "mistral7b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "XEL's FY2025 10-K reveals several key areas of concern. Leverage risks include credit risks, capital market and interest rate risks, and potential downgrades in credit ratings. Liquidity risks are associated with facility start-up operations, fuel and supply availability, weather conditions, equipment performance, water resources, equipment defects, technology, data management, fuel type, natural gas generation, and cybersecurity incidents. Profitability is affected by non-GAAP financial measures, such as ongoing ROE, ongoing earnings, and ongoing diluted EPS. Risk factors include major disruptions, cybersecurity incidents, improvements and operations, market risk factors, health epidemics, war, terrorism, and other events. No 12-month price target is provided, and the valuation of the shares is not explicitly stated.",
+    "claims": [
+      {
+        "claim_id": "XEL_FY2025_1A_risk_factors_023",
+        "text": "XEL is subject to credit risks.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XEL_FY2025_1A_risk_factors_022",
+        "text": "Any credit ratings downgrade could lead to higher borrowing costs or lower proceeds from equity issuances.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_022"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XEL_FY2025_7_mdna_003",
+        "text": "XEL is subject to capital market and interest rate risks.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "XEL_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XEL_FY2025_1A_risk_factors_003",
+        "text": "XEL is exposed to liquidity risks related to facility start-up operations, fuel and supply availability, weather conditions, equipment performance, water resources, equipment defects, technology, data management, fuel type, natural gas generation, and cybersecurity incidents.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XEL_FY2025_1A_risk_factors_014",
+        "text": "XEL faces risks related to improvements and operations.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_014"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XEL_FY2025_1A_risk_factors_030",
+        "text": "XEL is exposed to risks related to health epidemics and other outbreaks.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_030"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XEL_FY2025_1A_risk_factors_033",
+        "text": "A major disruption could result in a significant decrease in revenues, additional costs to repair assets, and an adverse impact on the cost and availability of insurance, which could have a material impact on XEL's results of operations, financial condition or cash flows.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "XEL_FY2025_1A_risk_factors_033"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XEL_FY2025_7_mdna_001",
+        "text": "XEL uses non-GAAP financial measures such as ongoing ROE, ongoing earnings, and ongoing diluted EPS.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "XEL_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XEL_FY2025_7_mdna_002",
+        "text": "XEL believes these non-GAAP financial measures are useful to investors to evaluate the actual and projected financial performance and contribution of its subsidiaries.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "XEL_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "XEL_FY2025_7_mdna_000",
+        "text": "XEL's management uses non-GAAP measures for financial planning and analysis, for reporting of results to the Board of Directors, in determining performance-based compensation and communicating its earnings outlook to analysts and investors.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "XEL_FY2025_7_mdna_000"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "XEL_FY2025_1A_risk_factors_023",
+    "XEL_FY2025_7_mdna_003",
+    "XEL_FY2025_1A_risk_factors_022",
+    "XEL_FY2025_1A_risk_factors_003",
+    "XEL_FY2025_7_mdna_001",
+    "XEL_FY2025_7_mdna_002",
+    "XEL_FY2025_7_mdna_000",
+    "XEL_FY2025_1A_risk_factors_033",
+    "XEL_FY2025_1A_risk_factors_014",
+    "XEL_FY2025_1A_risk_factors_030"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_023",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "XEL_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_022",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_003",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "XEL_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "XEL_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "XEL_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_033",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_014",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "XEL_FY2025_1A_risk_factors_030",
+      "section": "1A_risk_factors",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

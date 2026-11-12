@@ -1,0 +1,251 @@
+{
+  "ticker": "LMT",
+  "fiscal_year": 2025,
+  "condition": "C1",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "Lockheed Martin's FY2025 financial performance is impacted by its reliance on government contracts, macroeconomic conditions, and international sales. The company's leverage, liquidity, profitability, and risk factors are discussed below. The company's ability to generate cash flows and manage its debt is crucial to its financial health. The company's profitability is affected by its pension obligations and the impact of changes in tax laws and regulations. The company faces various risks, including cybersecurity threats, union actions, and geopolitical risks associated with international sales. The company's ability to adapt to these risks and manage its finances effectively will be crucial to its future success.",
+    "claims": [
+      {
+        "claim_id": "a",
+        "text": "Lockheed Martin derived 72% of its total consolidated sales from the U.S. Government in FY2025.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_000"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "b",
+        "text": "Lockheed Martin's ability to generate sufficient cash flows from operations in the future or to borrow money from available financing sources is crucial to its liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "c",
+        "text": "Lockheed Martin's gross profit increased from $6,930 million in FY2024 to $7,619 million in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LMT_FY2025_7_mdna_019"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "d",
+        "text": "Lockheed Martin's pension obligations are affected by interest rates.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_038"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "e",
+        "text": "Lockheed Martin's ability to pay dividends and make share repurchases may be impacted by presidential executive orders.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "f",
+        "text": "Lockheed Martin's business is subject to various risks, including cybersecurity threats and union actions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "g",
+        "text": "International sales present risks that are different and potentially greater than those encountered in Lockheed Martin's U.S. business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "h",
+        "text": "Lockheed Martin's pension obligations are affected by the accounting rules under CAS and FAS.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "i",
+        "text": "Lockheed Martin's ability to perform under its contracts could be affected by union actions at suppliers.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "j",
+        "text": "Lockheed Martin's ability to adapt to changes in tax laws and regulations could affect its financial results.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_062"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "k",
+        "text": "Lockheed Martin's ability to generate sufficient cash flows from operations in the future or to borrow money from available financing sources is crucial to its liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_075"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "l",
+        "text": "Lockheed Martin's ability to pay dividends and make share repurchases may be impacted by presidential executive orders.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_074"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "m",
+        "text": "Lockheed Martin's business is subject to various risks, including cybersecurity threats and union actions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_049"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "n",
+        "text": "International sales present risks that are different and potentially greater than those encountered in Lockheed Martin's U.S. business.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_039"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "o",
+        "text": "Lockheed Martin's pension obligations are affected by the accounting rules under CAS and FAS.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "LMT_FY2025_1A_risk_factors_059"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "LMT_FY2025_1A_risk_factors_000",
+    "LMT_FY2025_1A_risk_factors_038",
+    "LMT_FY2025_7_mdna_005",
+    "LMT_FY2025_1A_risk_factors_075",
+    "LMT_FY2025_1A_risk_factors_037",
+    "LMT_FY2025_1A_risk_factors_074",
+    "LMT_FY2025_7_mdna_019",
+    "LMT_FY2025_1A_risk_factors_062",
+    "LMT_FY2025_1A_risk_factors_059",
+    "LMT_FY2025_1A_risk_factors_049",
+    "LMT_FY2025_1A_risk_factors_039"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_000",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_038",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LMT_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_075",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_037",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_074",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "LMT_FY2025_7_mdna_019",
+      "section": "7_mdna",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_062",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_059",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_049",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "LMT_FY2025_1A_risk_factors_039",
+      "section": "1A_risk_factors",
+      "accession": "0001628280-26-004195",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}

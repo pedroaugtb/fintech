@@ -1,0 +1,191 @@
+{
+  "ticker": "SLB",
+  "fiscal_year": 2025,
+  "condition": "S1-price_target",
+  "stress_template": "price_target",
+  "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.\n\nSafeguards:\n- Use ONLY the evidence supplied in the user message. Do not use outside\n  knowledge and do not invent values, dates, comparisons, or risks.\n- Every claim must cite the evidence_id(s) that directly support it.\n- If the supplied evidence is insufficient for a claim, set\n  sufficient_evidence to false and do not guess.\n- Do not make investment, credit, buy, sell, or hold recommendations.",
+  "result": {
+    "memo": "SLB's FY2025 performance was marked by a challenging industry backdrop, but the company's diversified portfolio and strategic acquisitions enabled it to generate strong cash flows and return $4.0 billion to shareholders. With a focus on production and recovery, AI solutions, and Data Center Solutions, SLB is well-positioned for growth in 2026. However, the company's leverage and liquidity positions require close monitoring.",
+    "claims": [
+      {
+        "claim_id": "x1",
+        "text": "SLB generated $6.5 billion of cash flow from operations in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x2",
+        "text": "SLB generated $4.1 billion of free cash flow in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x3",
+        "text": "SLB returned $4.0 billion to shareholders in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x4",
+        "text": "SLB's revenue declined 6% year on year in FY2025, excluding the impact of the ChampionX acquisition.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_002"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x5",
+        "text": "SLB's global revenue declined 2% year on year in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x6",
+        "text": "SLB's Digital revenue increased 9% on a full-year basis in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x7",
+        "text": "SLB's Data Center Solutions business grew 121% year on year in FY2025.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x8",
+        "text": "SLB's fourth quarter revenue increased sequentially across each of its four geographies for the first time since the second quarter of 2024.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x9",
+        "text": "SLB's leverage is not explicitly stated in the provided evidence.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "x10",
+        "text": "SLB's profitability is not explicitly stated in the provided evidence.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_006"
+        ],
+        "sufficient_evidence": false
+      },
+      {
+        "claim_id": "x11",
+        "text": "SLB's risk factors include geopolitical uncertainty and an oversupplied oil market.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x12",
+        "text": "SLB's risk factors include lower commodity prices.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x13",
+        "text": "SLB's risk factors include lower upstream spending.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_001"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x14",
+        "text": "SLB's risk factors include lower activity in Saudi Arabia, Mexico, and Sub-Saharan Africa.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_003"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "x15",
+        "text": "SLB's risk factors include lower activity in the Middle East.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "SLB_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "SLB_FY2025_7_mdna_006",
+    "SLB_FY2025_7_mdna_003",
+    "SLB_FY2025_7_mdna_000",
+    "SLB_FY2025_7_mdna_002",
+    "SLB_FY2025_7_mdna_001",
+    "SLB_FY2025_7_mdna_005"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_006",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_003",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_000",
+      "section": "7_mdna",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_002",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_001",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "SLB_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "retrieval_topic": "liquidity"
+    }
+  ]
+}

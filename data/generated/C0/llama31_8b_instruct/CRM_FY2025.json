@@ -1,0 +1,251 @@
+{
+  "ticker": "CRM",
+  "fiscal_year": 2025,
+  "condition": "C0",
+  "model_name": "llama31_8b_instruct",
+  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
+  "retrieval": {
+    "method": "BM25",
+    "top_k_per_topic": 3,
+    "topics": [
+      "leverage",
+      "liquidity",
+      "profitability",
+      "risk_factors"
+    ]
+  },
+  "parameters": {
+    "max_model_len": 12288,
+    "max_output_tokens": 4096,
+    "max_claims": 15,
+    "chunk_size": 1200,
+    "chunk_overlap": 150,
+    "temperature": 0.1,
+    "seed": 2026,
+    "tensor_parallel_size": 2
+  },
+  "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
+  "result": {
+    "memo": "As a financial risk analyst, I have identified key areas of concern for CRM's FY2025 performance. The company's substantial debt and contractual obligations pose significant leverage and liquidity risks, which could impact its financial condition and ability to obtain financing. Additionally, CRM's profitability has improved, with a 19% operating margin and a 28% increase in cash provided by operations. However, the company faces various risk factors, including regulatory scrutiny, litigation, and market volatility, which could negatively impact its business and results. Overall, CRM's financial health is closely tied to its ability to manage its debt and navigate the evolving regulatory landscape.",
+    "claims": [
+      {
+        "claim_id": "a1",
+        "text": "CRM has a substantial level of outstanding debt, including Senior Notes and a $5.0 billion Credit Facility.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_093"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a2",
+        "text": "CRM's debt service obligations and lease commitments may adversely affect its financial condition, results of operations, and cash flows.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_093"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a3",
+        "text": "CRM's ability to comply with debt covenants may be affected by events beyond its control.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_096"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a4",
+        "text": "CRM's failure to make debt payments could result in default and acceleration of all debt.",
+        "topic": "leverage",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_095"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a5",
+        "text": "CRM's substantial liabilities associated with noncancellable future payments on long-term leases may impact its liquidity.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_093"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a6",
+        "text": "CRM's ability to obtain additional financing may be impaired by its maintenance of indebtedness and contractual commitments.",
+        "topic": "liquidity",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_094"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a7",
+        "text": "CRM's profitability has improved, with a 19% operating margin and a 28% increase in cash provided by operations.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CRM_FY2025_7_mdna_005"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a8",
+        "text": "CRM's revenue increased by 9% year-over-year in FY2025.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CRM_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a9",
+        "text": "CRM's income from operations was $7.2 billion in FY2025, an increase of $2.2 billion from the prior year.",
+        "topic": "profitability",
+        "evidence_ids": [
+          "CRM_FY2025_7_mdna_004"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a10",
+        "text": "CRM's tax positions are subject to income tax audits by multiple tax jurisdictions.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CRM_FY2025_7_mdna_023"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a11",
+        "text": "CRM may be subject to increased scrutiny or criticism due to its business practices and reputation.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_060"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a12",
+        "text": "CRM may be subject to regulatory efforts to enhance competition in digital markets and address anticompetitive practices.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a13",
+        "text": "CRM may be subject to litigation and regulatory actions related to its business practices and intellectual property rights.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_073"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a14",
+        "text": "CRM's stock price may decline due to market volatility and investor confidence.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_105"
+        ],
+        "sufficient_evidence": true
+      },
+      {
+        "claim_id": "a15",
+        "text": "CRM may be subject to securities class action litigation due to market volatility.",
+        "topic": "risk_factors",
+        "evidence_ids": [
+          "CRM_FY2025_1A_risk_factors_105"
+        ],
+        "sufficient_evidence": true
+      }
+    ]
+  },
+  "raw_output": null,
+  "evidence_ids_available": [
+    "CRM_FY2025_1A_risk_factors_093",
+    "CRM_FY2025_1A_risk_factors_096",
+    "CRM_FY2025_1A_risk_factors_095",
+    "CRM_FY2025_1A_risk_factors_094",
+    "CRM_FY2025_1A_risk_factors_107",
+    "CRM_FY2025_7_mdna_005",
+    "CRM_FY2025_7_mdna_004",
+    "CRM_FY2025_7_mdna_023",
+    "CRM_FY2025_1A_risk_factors_060",
+    "CRM_FY2025_1A_risk_factors_073",
+    "CRM_FY2025_1A_risk_factors_105"
+  ],
+  "evidence_metadata": [
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_093",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_096",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_095",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "leverage"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_094",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_107",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "liquidity"
+    },
+    {
+      "evidence_id": "CRM_FY2025_7_mdna_005",
+      "section": "7_mdna",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CRM_FY2025_7_mdna_004",
+      "section": "7_mdna",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CRM_FY2025_7_mdna_023",
+      "section": "7_mdna",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "profitability"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_060",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_073",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "risk_factors"
+    },
+    {
+      "evidence_id": "CRM_FY2025_1A_risk_factors_105",
+      "section": "1A_risk_factors",
+      "accession": "0001108524-25-000006",
+      "retrieval_topic": "risk_factors"
+    }
+  ]
+}
