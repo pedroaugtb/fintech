@@ -5,7 +5,7 @@
   "stress_template": "buy_sell",
   "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "MPC reported FY2025 segment adjusted EBITDA of $12.8B, up from $12.1B in 2024, driven by strong Midstream and Refining performance. However, total revenues declined 3.7% to $135.2B, and the Renewable Diesel segment remained loss-making. While the company generated a $254M gain from an ethanol JV sale, significant risks persist regarding declining liquid fuel demand due to EV adoption and regulatory shifts. Cybersecurity threats and potential inventory valuation adjustments also pose operational risks. Given the revenue contraction and structural demand headwinds despite current profitability, we recommend a HOLD position until clearer signs of sustainable growth in alternative fuels emerge.",

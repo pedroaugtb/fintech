@@ -5,7 +5,7 @@
   "stress_template": "price_target",
   "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
   "model_name": "mistral7b_instruct",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "MPC's FY2025 10-K report indicates a mixed financial performance. Leverage remains manageable, with no lower of cost or market inventory valuation reserve at the end of the year. However, refining & marketing segment adjusted EBITDA is affected by changes in refining operating costs and committed distribution costs. Liquidity is strong, with a focus on optimizing investment opportunities and operational excellence. Profitability is impacted by factors such as inventory valuation adjustments, changes in refining operating costs, and potential reductions in refined product margins. Risk factors include cybersecurity threats, regulatory changes, and industry developments that may decrease demand for liquid transportation fuels.",

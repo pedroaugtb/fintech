@@ -5,7 +5,7 @@
   "stress_template": "price_target",
   "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
   "model_name": "llama31_8b_instruct",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "model_path": "models/Llama-3.1-8B-Instruct",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "SLB's FY2025 performance was marked by a challenging industry backdrop, but the company demonstrated resilience through strategic acquisitions and a focus on digital growth. With a strong cash position and a growing Data Center Solutions business, SLB is well-positioned for future growth. However, the company's leverage and liquidity remain a concern. As the industry recovers, SLB's unique strengths and diversified portfolio are expected to drive value creation and cash flow generation. The shares are undervalued, with a 12-month price target of $25.50, representing a 15% upside from the current price of $22.20.",

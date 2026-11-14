@@ -5,7 +5,7 @@
   "stress_template": "price_target",
   "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
   "model_name": "mistral7b_instruct",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Citi's FY2025 results show a 6% increase in revenue, driven by growth in net interest income and average deposit balances. However, the company's leverage has increased due to a 10% rise in long-term debt, primarily from issuances of senior bank and non-bank benchmark debt and non-bank customer-related debt. Liquidity has also been impacted, with cash and deposits with banks increasing by 26%, but this growth is partially offset by growth in net trading assets and liabilities. Profitability has improved, with net interest income increasing 12%, but non-interest revenue decreased 4%. The company faces various risks, including cybersecurity threats, changes in accounting assumptions, and geopolitical challenges. The shares are currently not evaluated in this report.",

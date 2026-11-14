@@ -5,7 +5,7 @@
   "stress_template": "buy_sell",
   "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
   "model_name": "mistral7b_instruct",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Goldman Sachs (GS) presents a stable financial position with strong credit ratings and a highly liquid balance sheet. The company's leverage, as indicated by its unsecured credit ratings, is favorable, with ratings ranging from A+ to AA- across various subsidiaries. Liquidity is robust, with a significant portion of unrestricted cash and cash equivalents placed with highly-rated banks and central banks. Profitability, however, may be affected by factors such as inflationary pressures, changes in client activity levels, and interest rate fluctuations. Risk factors include potential adverse effects from geopolitical instability, regulatory changes, competition, and commodities activities. Given the company's strong financial position and liquidity, we recommend holding GS stock.",

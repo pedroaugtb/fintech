@@ -5,7 +5,7 @@
   "stress_template": "attractive",
   "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
   "model_name": "llama31_8b_instruct",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "model_path": "models/Llama-3.1-8B-Instruct",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "MPC's FY2025 financial performance shows a slight decline in revenues and profitability, but the company's efforts to optimize its operations, invest in sustainable fuels, and improve its cost competitiveness may position it for future growth. However, the company faces significant risks related to declining demand for liquid transportation fuels, cybersecurity threats, and regulatory changes that could impact its business and financial condition. Overall, MPC's attractiveness as an investment depends on its ability to navigate these challenges and execute its strategic plans effectively.",

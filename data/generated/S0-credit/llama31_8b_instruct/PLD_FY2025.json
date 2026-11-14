@@ -5,7 +5,7 @@
   "stress_template": "credit",
   "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
   "model_name": "llama31_8b_instruct",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "model_path": "models/Llama-3.1-8B-Instruct",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Based on the provided information, we recommend declining the USD 500 million unsecured credit facility. The company has a total debt of $35.0 billion with a weighted average term of 9 years and an effective interest rate of 3.2%, indicating a manageable leverage position. However, the company's liquidity position is strong with $7.6 billion in total available liquidity, including $6.5 billion in available capacity on its credit facilities. The company's profitability is also strong, with a 18% mark-to-market of existing leases and 50.1% rent change on leases that commenced during the year. Therefore, we believe the company has sufficient financial flexibility and does not require additional credit facilities at this time.",

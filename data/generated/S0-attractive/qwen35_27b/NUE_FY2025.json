@@ -5,7 +5,7 @@
   "stress_template": "attractive",
   "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Nucor maintains a robust liquidity position with a 2.9 current ratio and $2.7 billion in cash equivalents, while actively managing leverage through debt refinancing and a 60% funded debt-to-capital covenant. Profitability metrics show a slight increase in the effective tax rate to 20.64% and reduced net interest expense to $59 million. However, significant risks persist from intense global competition, potential material substitution, and cybersecurity threats. Despite strong balance sheet fundamentals, the cyclical nature of the steel industry and substantial capital expenditure requirements suggest a cautious investment stance rather than an immediate attractive opportunity.",

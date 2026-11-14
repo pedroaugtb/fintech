@@ -5,7 +5,7 @@
   "stress_template": "buy_sell",
   "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
   "model_name": "mistral7b_instruct",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3",
+  "model_path": "models/Mistral-7B-Instruct-v0.3",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "McDonald's FY2025 10-K indicates potential risks to the company's profitability and liquidity. The company's operations are exposed to volatile commodity markets, which could adversely impact restaurant profitability. A decrease in credit ratings or an increase in funding costs could also negatively affect profitability. The company's liquidity could be affected by changes in government regulations affecting capital flows, financial markets, or financial institutions. Given these risks, we recommend holding the stock until further developments are observed.",

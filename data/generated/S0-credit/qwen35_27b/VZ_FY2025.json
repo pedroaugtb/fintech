@@ -5,7 +5,7 @@
   "stress_template": "credit",
   "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Approve the USD 500 million unsecured credit facility. Verizon maintains a robust liquidity position with $12.0 billion in unused revolving credit capacity and generated significant operating cash flows to fund $17.0 billion in capital expenditures. While leverage remains high with $131.1 billion in unsecured debt, the company's effective interest rate improved to 5.0%, and debt service obligations are manageable relative to cash flow. Primary risks include intense market competition, cybersecurity threats, and potential labor disruptions, but these are inherent to the sector and do not currently threaten solvency. The proposed facility represents a minor addition to existing capacity.",

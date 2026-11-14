@@ -3,7 +3,7 @@
   "fiscal_year": 2025,
   "condition": "C0",
   "model_name": "qwen35_27b",
-  "model_path": "models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
   "retrieval": {
     "method": "BM25",

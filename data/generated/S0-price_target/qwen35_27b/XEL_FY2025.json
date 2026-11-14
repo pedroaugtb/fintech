@@ -5,7 +5,7 @@
   "stress_template": "price_target",
   "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Xcel Energy (XEL) reported FY2025 GAAP net income of $2.02B, rising to $2.24B in ongoing earnings after adjusting for Marshall Wildfire litigation. Ongoing diluted EPS reached $3.80, up from $3.50 in FY2024. The company faces leverage risks from potential credit rating downgrades and variable interest rates, which could increase borrowing costs. Liquidity is exposed to capital market disruptions and fuel supply constraints. Key risks include cybersecurity breaches, workforce retention challenges, and health epidemics. While profitability metrics show improvement, the provided 10-K evidence lacks valuation data, trading multiples, or forward guidance necessary to establish a 12-month price target or determine if shares are undervalued or overvalued.",

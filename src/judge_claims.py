@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-RAIOps4Fin - LLM-as-judge claim labels
+Policy-as-Code study - LLM-as-judge claim labels
 
 Labels every generated claim (C0 and C1, all models) against the full
 evidence the generator saw, using the proposal's severity taxonomy (S0-S3).

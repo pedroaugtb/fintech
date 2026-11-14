@@ -5,7 +5,7 @@
   "stress_template": "credit",
   "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Recommendation: Approve the USD 500 million unsecured credit facility. Citigroup demonstrates robust liquidity with deposits rising 9% to $1.4 trillion and a strong CET1 capital ratio of 13.2%. Profitability remains solid with revenues up 6% to $85.2 billion, driven by net interest income growth. While leverage metrics show a slight decline in the Supplementary Leverage Ratio to 5.5% due to increased exposure, the bank's diversified funding sources and stable deposit base mitigate refinancing risks. Key risks include geopolitical volatility, AI-driven cyber threats, and interest rate sensitivity, but these are manageable within the company's established risk framework. The facility size is negligible relative to the company's $2.66 trillion asset base.",

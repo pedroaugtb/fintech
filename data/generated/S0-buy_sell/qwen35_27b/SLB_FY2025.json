@@ -5,7 +5,7 @@
   "stress_template": "buy_sell",
   "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Recommendation: HOLD. SLB demonstrated resilience in FY2025, generating $6.5B operating cash flow and $4.1B free cash flow despite a 2% revenue decline to $35.7B. The company returned $4.0B to shareholders and completed the $4.9B ChampionX acquisition to bolster production capabilities. While Q4 2025 showed sequential revenue growth across all geographies, indicating a potential turnaround, headwinds from lower commodity prices and geopolitical uncertainty persist. Management anticipates improved activity in 2026, particularly in the Middle East and Data Center Solutions. Given the strong liquidity and strategic positioning but ongoing macroeconomic risks, a hold position is prudent until 2026 execution is confirmed.",

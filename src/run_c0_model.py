@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-RAIOps4Fin - generation runner (conditions C0 and C1)
+Policy-as-Code study - generation runner (conditions C0 and C1)
 
 Runs the financial-risk-memo task with one local instruct model.
 The model receives only retrieved textual evidence from FY2025 10-Ks.
@@ -212,7 +212,7 @@ SYSTEM_PROMPTS = {
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run RAIOps4Fin C0/C1 generation for one model."
+        description="Run C0/C1 generation for one model."
     )
 
     parser.add_argument(
@@ -874,7 +874,7 @@ def run(args: argparse.Namespace) -> None:
 
     print()
     print("=" * 70)
-    print("RAIOps4Fin - GENERATION RUNNER")
+    print("GENERATION RUNNER")
     print("=" * 70)
     print(f"Model: {model_name}")
     print(f"Path: {args.model_path}")

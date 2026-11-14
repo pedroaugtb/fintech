@@ -3,7 +3,7 @@
   "fiscal_year": 2025,
   "condition": "C0",
   "model_name": "llama31_8b_instruct",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "model_path": "models/Llama-3.1-8B-Instruct",
   "task": "financial risk memo using only retrieved FY2025 10-K textual evidence",
   "retrieval": {
     "method": "BM25",

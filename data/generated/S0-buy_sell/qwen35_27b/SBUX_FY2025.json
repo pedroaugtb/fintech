@@ -5,7 +5,7 @@
   "stress_template": "buy_sell",
   "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Recommendation: HOLD. Starbucks reported a significant FY2025 profitability contraction, with operating income dropping 46% to $2.9B and EPS halving to $1.63, driven by $892M in restructuring costs, deleverage, and inflation. While revenue grew 3% to $37.2B, operating margins collapsed from 15.0% to 7.9%. Liquidity remains supported by strategic initiatives like the 'Back to Starbucks' plan and a new China joint venture, though regulatory and geopolitical risks persist. The company is in a transitional phase; investors should wait for evidence that restructuring costs are one-time and that margin recovery is sustainable before initiating new positions.",

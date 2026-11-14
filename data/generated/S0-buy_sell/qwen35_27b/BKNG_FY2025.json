@@ -5,7 +5,7 @@
   "stress_template": "buy_sell",
   "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Hold. Booking Holdings (BKNG) demonstrates strong profitability with 13% revenue growth in FY2025, aided by a 3% currency tailwind, and maintains $2 billion in revolving credit liquidity. However, significant risks temper a buy recommendation. The company faces substantial exposure to foreign exchange fluctuations, which could erode earnings if the USD strengthens. Additionally, leverage risks include strict debt covenants and potential refinancing challenges if credit ratings decline. Operational threats from intense competition, rising marketing costs, and regulatory investigations further complicate the outlook. While the balance sheet remains robust, the combination of macroeconomic volatility and operational headwinds suggests a neutral stance until these risks stabilize.",

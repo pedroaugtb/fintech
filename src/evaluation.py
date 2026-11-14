@@ -1,5 +1,5 @@
 """
-RAIOps4Fin - claim-level evaluation (paper proposal, Section 5)
+Policy-as-Code study - claim-level evaluation (paper proposal, Section 5)
 
 Loads generated memos, runs the runtime policies once per claim, attaches
 error labels, and computes the proposal's metrics per scenario with a

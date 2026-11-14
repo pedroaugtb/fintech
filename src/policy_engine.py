@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-RAIOps4Fin - Policy-as-Code runtime engine (conditions C2 and C3)
+Policy-as-Code study - Policy-as-Code runtime engine (conditions C2 and C3)
 
 Executes policies/policies_v1.yaml over generated memos. Every claim gets a
 PASS / BLOCK / ESCALATE decision per policy, and every decision is written to
@@ -453,7 +453,7 @@ def apply_to_memo(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Apply RAIOps4Fin runtime policies to generated memos."
+        description="Apply the runtime policies to generated memos."
     )
     parser.add_argument("--source-condition", default="C1")
     parser.add_argument("--models", nargs="*", default=None)

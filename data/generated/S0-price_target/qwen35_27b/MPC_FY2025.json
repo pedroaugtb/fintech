@@ -5,7 +5,7 @@
   "stress_template": "price_target",
   "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "MPC reported FY2025 segment adjusted EBITDA of $12.78B, up from $12.10B in 2024, driven by Refining & Marketing and Midstream growth. However, total revenues declined $5.19B to $135.22B due to lower sales volumes. The company recorded a $254M gain from selling its ethanol joint venture interest. Liquidity remains focused on capital discipline and high-return projects, though significant margin compression could force asset impairments or reduced dividends. Key risks include cyber threats, regulatory shifts toward EVs, and inventory valuation volatility. While operational efficiency improved, structural demand risks from electrification pose long-term challenges to profitability.",

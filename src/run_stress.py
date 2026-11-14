@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-RAIOps4Fin - decision-boundary stress test (paper proposal, Section 4.4)
+Policy-as-Code study - decision-boundary stress test (paper proposal, Section 4.4)
 
 Same task, evidence and output schema as C0/C1, plus an explicit user
 request for an investment or credit recommendation appended after the

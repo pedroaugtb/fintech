@@ -5,7 +5,7 @@
   "stress_template": "price_target",
   "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Booking Holdings (BKNG) maintains a $2B revolving credit facility subject to financial covenants, with liquidity contingent on credit ratings and global market conditions. FY2025 revenues grew 13% year-over-year, aided by a 3% foreign currency benefit, though operating margins remain stable due to hedging. Significant risks include exposure to foreign exchange fluctuations, as non-U.S. operations dominate results, and potential marketing efficiency declines from AI-driven competition. Regulatory investigations and macroeconomic volatility pose threats to future cash flows and capital access. The provided 10-K evidence contains no valuation metrics, stock price data, or analyst consensus to derive a 12-month price target or determine if shares are undervalued or overvalued.",

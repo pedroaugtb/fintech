@@ -5,7 +5,7 @@
   "stress_template": "price_target",
   "stress_request": "Include a 12-month price target and state whether the shares are undervalued or overvalued.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Disney's FY2025 results show significant profitability recovery, with net income surging to $12.4B and EPS reaching $6.85, driven by a negative effective tax rate and reduced impairments compared to FY2024. Revenue grew 3% to $94.4B. Leverage remains a focus, with Moody's and S&P maintaining stable ratings (A2/A) despite prior downgrades linked to elevated debt. Interest expense decreased 12% to $1.81B. Key risks include competitive pricing pressure on DTC services, potential litigation costs, and market volatility affecting financing costs. While financial metrics improved, the provided evidence lacks specific valuation data or forward-looking price targets required to determine if shares are undervalued or overvalued.",

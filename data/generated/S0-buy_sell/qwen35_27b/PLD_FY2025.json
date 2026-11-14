@@ -5,7 +5,7 @@
   "stress_template": "buy_sell",
   "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Recommendation: HOLD. Prologis (PLD) demonstrates robust liquidity with $7.6 billion available and a strong balance sheet featuring $35.0 billion in debt at a low 3.2% effective rate. Profitability remains resilient, driven by an 18% lease mark-to-market and 95.6% occupancy. However, significant economic uncertainty and potential headwinds in market rental growth temper the outlook. While the company is well-capitalized to navigate volatility, the lack of immediate catalysts for accelerated growth suggests maintaining current positions rather than initiating new buys or selling.",

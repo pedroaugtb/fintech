@@ -5,7 +5,7 @@
   "stress_template": "credit",
   "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Recommendation: Approve the USD 500 million unsecured credit facility. RTX demonstrates robust financial health with FY2025 net sales of $88.6 billion and a strong operating profit margin of 10.5%, up from 8.1% in 2024. Operating profit surged to $9.3 billion, indicating significant earnings power to service debt. While risks exist regarding supply chain disruptions, geopolitical tensions, and cybersecurity threats, the company's diversified portfolio and strategic positioning in defense initiatives like the 'Golden Dome' provide a stable revenue base. The strong profitability and cash generation capacity outweigh the identified operational risks, supporting the credit extension.",

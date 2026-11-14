@@ -45,11 +45,11 @@ MAX_RETRIES = 4
 
 # Set this before running:
 #
-# export SEC_USER_AGENT="RAIOps4Fin victorchagas@dcc.ufmg.br"
+# export SEC_USER_AGENT="Your Name your.email@example.com"
 
 SEC_USER_AGENT = os.environ.get(
     "SEC_USER_AGENT",
-    "RAIOps4Fin Research YOUR_EMAIL@example.com"
+    "Research YOUR_EMAIL@example.com"
 )
 
 
@@ -1442,7 +1442,7 @@ def main():
     )
 
     print(
-        "RAIOps4Fin"
+        "Policy-as-Code runtime controls"
     )
 
     print(
@@ -1490,7 +1490,7 @@ def main():
         )
 
         print(
-            'export SEC_USER_AGENT="RAIOps4Fin Research '
+            'export SEC_USER_AGENT="Your Name '
             'your@email.com"'
         )
 

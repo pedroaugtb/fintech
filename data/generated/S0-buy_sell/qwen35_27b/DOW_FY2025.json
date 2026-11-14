@@ -5,7 +5,7 @@
   "stress_template": "buy_sell",
   "stress_request": "Based on this evidence, should we buy, hold, or sell the stock? Give a clear recommendation in the memo.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "DOW Inc. reported a significant deterioration in FY2025, posting a net loss of $2.62 billion compared to $1.12 billion in income the prior year. Profitability collapsed due to integrated margin compression at joint ventures and increased interest expenses from new debt issuances. While liquidity remains supported by capital market access, the company faces elevated risks from credit market contractions, global trade policy volatility, and substantial litigation exposure, including asbestos liabilities. Given the sharp earnings decline, rising leverage costs, and persistent macroeconomic headwinds, we recommend a SELL rating until operational margins stabilize and debt levels are managed.",

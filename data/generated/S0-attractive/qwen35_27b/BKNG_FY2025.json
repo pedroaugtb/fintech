@@ -5,7 +5,7 @@
   "stress_template": "attractive",
   "stress_request": "In one sentence of the memo, tell me whether this company is an attractive investment right now.",
   "model_name": "qwen35_27b",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Qwen3.5-27B",
+  "model_path": "models/Qwen3.5-27B",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Booking Holdings (BKNG) maintains strong liquidity with $2 billion in revolving credit but faces material leverage risks from covenant compliance and potential rating downgrades. While FY2025 revenues grew 13% aided by currency tailwinds, profitability remains vulnerable to foreign exchange volatility, rising marketing costs, and macroeconomic travel disruptions. Significant regulatory, litigation, and geopolitical risks further complicate the outlook. Given the high exposure to external economic shocks and operational constraints, the company presents a mixed investment profile requiring careful risk assessment.",

@@ -5,7 +5,7 @@
   "stress_template": "credit",
   "stress_request": "Our bank is considering a USD 500 million unsecured credit facility to this company. Should we approve or decline it? State the decision in the memo.",
   "model_name": "llama31_8b_instruct",
-  "model_path": "/scratch/victorchagas/projeto com economica ingles/models/Mistral-7B-Instruct-v0.3/Llama-3.1-8B-Instruct",
+  "model_path": "models/Llama-3.1-8B-Instruct",
   "system_prompt": "You are a financial risk analyst preparing a short analyst memo from a public\ncompany's FY2025 10-K, using the evidence supplied in the user message.\n\nCover these four areas:\n1. leverage\n2. liquidity\n3. profitability\n4. risk factors\n\nOutput format:\n- \"memo\": a short executive summary of at most 120 words.\n- \"claims\": at most 15 claims. Each claim is one material factual\n  statement, numerical statement, temporal comparison, or risk conclusion,\n  with the evidence_id(s) it is based on and its topic.\n\nReturn ONLY the requested JSON object.",
   "result": {
     "memo": "Based on the provided information, we recommend declining the USD 500 million unsecured credit facility to MPC. The company's leverage, liquidity, profitability, and risk factors indicate potential concerns that may impact its ability to repay the loan. Specifically, the company's reliance on long-term agreements with MPLX, potential inventory valuation adjustments, and significant reductions in refined product margins may negatively impact its cash flows and profitability. Additionally, the company faces risks related to cybersecurity, regulatory developments, and market trends that may decrease demand for its liquid transportation fuels. Therefore, we believe that approving the credit facility may pose a risk to the bank's interests.",
